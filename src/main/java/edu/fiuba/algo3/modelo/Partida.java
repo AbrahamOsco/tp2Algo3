@@ -19,5 +19,4 @@ public class Partida {
         //determina al jugador de mayo puntaje y lo informa
         //permite volver al menu
     }
-
 }
