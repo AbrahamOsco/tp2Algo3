@@ -7,12 +7,15 @@ public class PreguntaMultipleChoiceClasico extends Pregunta{
     protected int obtenerPuntaje(ArrayList<Opcion> opcionesJugador) {
         if(!tieneMismaCantidadDeOpcionesCorrectas(opcionesJugador))
             return 0;
+
         for(Opcion unaOpcion: opcionesElejidas){
             if(!unaOpcion.evaluar())
                 return 0;
         }
         return 1;
     }
+
+
     private boolean tieneMismaCantidadDeOpcionesCorrectas(ArrayList<Opcion>opcionesJugador){
         int cantidadOpcionesCorrectas = 0;
         for(Opcion unaOpcion: this.opciones){
