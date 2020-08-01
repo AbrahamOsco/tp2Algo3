@@ -6,12 +6,12 @@ public class AsignadorPuntos {
 
     public void asignarPuntaje (ArrayList<Respuesta> respuestas) {
 
-
-
+        this.modificarPuntajes(respuestas);
+        this.entregarPuntajes(respuestas);
 
     }
 
-    private void entregarPuntajes () {
+    private void entregarPuntajes (ArrayList<Respuesta> respuestas) {
 
 
 

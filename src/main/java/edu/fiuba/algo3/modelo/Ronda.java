@@ -22,9 +22,7 @@ public class Ronda {
 
             Turno unTurno = Turno new(this.jugadores.get(i));
 
-            Respuesta unaRespuesta = Respuesta new;
-
-            unaRespuesta = unTurno.correrTurno(this.pregunta);
+            Respuesta unaRespuesta = unTurno.correrTurno(this.pregunta);
 
             this.pregunta.evaluarOpciones(unaRespuesta);
 
