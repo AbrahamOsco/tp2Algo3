@@ -8,6 +8,7 @@ public class Ronda {
     private ArrayList<Jugador> jugadores;
     private ArrayList<Respuesta> respuestas;
     private ArrayList<int> puntajesDeEstaRonda;
+    private ModificadorGlobal unModificadorGlobal;
 
     public Ronda(Pregunta unaPregunta, ArrayList<Jugador> nuevosJugadores) {
 

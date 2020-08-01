@@ -4,26 +4,27 @@ import java.util.ArrayList;
 
 public class AsignadorPuntos {
 
-    public void asignarPuntaje (ArrayList<Respuesta> respuestas) {
+    public void asignarPuntajes (ArrayList<Respuesta> respuestas, modificadorGlobal unModificadorGlobal) {
 
-        this.modificarPuntajes(respuestas);
-        this.entregarPuntajes(respuestas);
+        aplicarModificadoreGlobales(respuestas, unModificadorGlobal);
+        aplicarModificadoresIndividuales(respuestas);
 
     }
 
-    private void entregarPuntajes (ArrayList<Respuesta> respuestas) {
+    private void aplicarModificadoreGlobales (ArrayList<Respuesta> respuestas, modificadorGlobal unModificadorGlobal) {
+
+        unModificadorGlobal.aplicarModificador(respuestas);
+
+    }
+
+    private void aplicarModificadoresIndividuales (ArrayList<Respuesta> respuestas) {
 
         for (int i = 0; i < respuestas.size(); i++) {
 
-            respuestas.get(i).aplicarPuntaje();
+            Respuesta unaRespuesta = respuestas.get(i);
+            respuestas.get(i).getModificadorIndividual().aplicarModificador(unaRespuesta);
 
         }
-
-    }
-
-    private void modificarPuntajes (ArrayList<Respuesta> respuestas) {
-
-
 
     }
 
