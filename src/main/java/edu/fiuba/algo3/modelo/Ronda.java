@@ -24,7 +24,7 @@ public class Ronda {
 
             Respuesta unaRespuesta = Respuesta new;
 
-            Respuesta unaRespuesta = unTurno.correrPregunta(this.pregunta);
+            unaRespuesta = unTurno.correrTurno(this.pregunta);
 
             this.pregunta.evaluarOpciones(unaRespuesta);
 
