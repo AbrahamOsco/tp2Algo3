@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import java.util.ArrayList;
+
 
 public class Partida {
     private ArrayList<Jugador> jugadores;
