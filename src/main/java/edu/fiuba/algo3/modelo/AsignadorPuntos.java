@@ -13,13 +13,15 @@ public class AsignadorPuntos {
 
     private void entregarPuntajes (ArrayList<Respuesta> respuestas) {
 
+        for (int i = 0; i < respuestas.size(); i++) {
 
+            respuestas.get(i).aplicarPuntaje();
 
+        }
 
     }
 
-    private void modificarPuntajes () {
-
+    private void modificarPuntajes (ArrayList<Respuesta> respuestas) {
 
 
 
