@@ -7,8 +7,7 @@ public class Ronda {
     private Pregunta pregunta;
     private ArrayList<Jugador> jugadores;
     private ArrayList<Respuesta> respuestas;
-    private int puntajesDeEstaRonda;
-
+    private ArrayList<int> puntajesDeEstaRonda;
 
     public Ronda(Pregunta unaPregunta, ArrayList<Jugador> nuevosJugadores) {
 

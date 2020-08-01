@@ -11,4 +11,18 @@ public class AsignadorPuntos {
 
     }
 
+    private void entregarPuntajes () {
+
+
+
+
+    }
+
+    private void modificarPuntajes () {
+
+
+
+
+    }
+
 }
