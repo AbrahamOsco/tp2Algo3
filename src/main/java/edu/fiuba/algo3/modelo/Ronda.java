@@ -24,11 +24,11 @@ public class Ronda {
 
         for (int i = 0; i < this.jugadores.size(); i++) {
 
-            Turno unTurno = Turno new(this.jugadores.get(i));
+            Turno unTurno = new Turno(this.jugadores.get(i));
 
             Respuesta unaRespuesta = unTurno.correrTurno(this.pregunta);
 
-            this.pregunta.evaluarOpciones(unaRespuesta);
+            this.pregunta.evaluarRespuesta(unaRespuesta);
 
             this.respuestas.add(unaRespuesta);
         }
