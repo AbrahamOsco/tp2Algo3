@@ -9,6 +9,8 @@ public class  Jugador {
 
     public Jugador(String nombre){
         this.nombre = nombre;
+        this.puntaje = 0;
+        modificadores = new HashMap<>();
         modificadores.put("multiplicadorX2",1);
         modificadores.put("multiplicadorX3",1);
         modificadores.put("puntajeExclusivo",2);

@@ -6,6 +6,11 @@ import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import java.util.ArrayList;
 
 public abstract class PreguntaClasica extends Pregunta {
+
+    public PreguntaClasica(String consigna, ArrayList<Evaluable> opciones) {
+        super(consigna, opciones);
+    }
+
     @Override
     protected int obtenerPuntaje(ArrayList<Evaluable> opcionesJugador) {
         if(!tieneOpcionesNecesarias(opcionesJugador))

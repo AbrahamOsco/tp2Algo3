@@ -1,14 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Evaluable.*;
+import edu.fiuba.algo3.modelo.modificador.ModificadorGlobal;
 
 import java.util.ArrayList;
 
 public class AsignadorPuntos {
 
-    public void asignarPuntajes (ArrayList<Respuesta> respuestas, modificadorGlobal unModificadorGlobal) {
+    public void asignarPuntajes (ArrayList<Respuesta> respuestas, ModificadorGlobal unModificadorGlobal) {
 
-        aplicarModificadoreGlobales(respuestas, unModificadorGlobal);
+        aplicarModificadoresGlobales(respuestas, unModificadorGlobal);
         aplicarModificadoresIndividuales(respuestas);
 
         for (int i = 0; i < respuestas.size(); i++) {
@@ -19,7 +20,7 @@ public class AsignadorPuntos {
 
     }
 
-    private void aplicarModificadoreGlobales (ArrayList<Respuesta> respuestas, modificadorGlobal unModificadorGlobal) {
+    private void aplicarModificadoresGlobales (ArrayList<Respuesta> respuestas, ModificadorGlobal unModificadorGlobal) {
 
         unModificadorGlobal.aplicarModificador(respuestas);
 
@@ -27,12 +28,12 @@ public class AsignadorPuntos {
 
     private void aplicarModificadoresIndividuales (ArrayList<Respuesta> respuestas) {
 
-        for (int i = 0; i < respuestas.size(); i++) {
+        /*for (int i = 0; i < respuestas.size(); i++) {
 
             Respuesta unaRespuesta = respuestas.get(i);
             respuestas.get(i).getModificadorIndividual().aplicarModificador(unaRespuesta);
 
-        }
+        }*/
 
     }
 
