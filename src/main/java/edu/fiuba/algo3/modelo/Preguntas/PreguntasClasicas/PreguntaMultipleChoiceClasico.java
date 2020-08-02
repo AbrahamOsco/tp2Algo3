@@ -5,6 +5,10 @@ import edu.fiuba.algo3.modelo.Evaluable.Evaluable;
 import java.util.ArrayList;
 
 public class PreguntaMultipleChoiceClasico extends PreguntaClasica {
+    public PreguntaMultipleChoiceClasico(String consigna, ArrayList<Evaluable> opciones) {
+        super(consigna, opciones);
+    }
+
     private boolean tieneMismaCantidadDeOpcionesCorrectas(ArrayList<Evaluable>opcionesJugador){
         int cantidadOpcionesCorrectas = 0;
         for(Evaluable unaOpcion: this.opciones){

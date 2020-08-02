@@ -9,6 +9,11 @@ public abstract class Pregunta {
     private String consigna;
     protected  ArrayList <Evaluable> opciones ;
 
+    public Pregunta(String consigna, ArrayList<Evaluable> opciones) {
+        this.consigna = consigna;
+        this.opciones = opciones;
+    }
+
     public String getConsigna() {
         return consigna;
     }
