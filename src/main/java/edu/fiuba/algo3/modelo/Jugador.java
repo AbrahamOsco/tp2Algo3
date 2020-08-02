@@ -1,13 +1,19 @@
 package edu.fiuba.algo3.modelo;
 
+import java.util.HashMap;
+
 public class  Jugador {
     private String nombre;
     private int puntaje;
-    //modificadorActivo
+    private HashMap<String,Integer> modificadores;
 
     public Jugador(String nombre){
         this.nombre = nombre;
+        modificadores.put("multiplicadorX2",1);
+        modificadores.put("multiplicadorX3",1);
+        modificadores.put("puntajeExclusivo",2);
     }
+
 
     public String getNombre(){
         return this.nombre;
@@ -20,4 +26,14 @@ public class  Jugador {
     public void modificarPuntaje(int puntaje){
         this.puntaje += puntaje;
     }
+    boolean activarMultiplicador(String unaClave){
+        boolean retorno = false;
+        int valor = modificadores.get(unaClave);
+        if(valor > 0){
+            retorno = true;
+            modificadores.put(unaClave, (valor-1));
+        }
+        return retorno;
+    }
+
 }
