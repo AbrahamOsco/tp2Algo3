@@ -38,6 +38,7 @@ public class Respuesta {
     public Jugador getJugador () { return this.jugador; }
     public ArrayList<Evaluable> getOpcionesElegidas () { return this.opciones; }
     public int getPuntajeParcial () { return this.puntajeParcial; }
+    public ModificadorIndividual getModificadorIndividual () { return this.modificadorActivo; }
     public void aplicarPuntaje () { this.jugador.modificarPuntaje(this.puntajeParcial); }
 
 }

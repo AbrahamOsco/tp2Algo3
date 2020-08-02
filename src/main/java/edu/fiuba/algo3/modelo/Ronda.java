@@ -22,7 +22,7 @@ public class Ronda {
 
     public void comenzarRonda() {
 
-        for (int i = 0; i < this.jugadores.size(); i++) {
+        /*for (int i = 0; i < this.jugadores.size(); i++) {
 
             Turno unTurno = new Turno(this.jugadores.get(i));
 
@@ -31,15 +31,15 @@ public class Ronda {
             this.pregunta.evaluarRespuesta(unaRespuesta);
 
             this.respuestas.add(unaRespuesta);
-        }
+        }*/
 
     }
 
-    public void terminarRonda() {
+    public void terminarRonda(ModificadorGlobal unModificadorGlobal) {
 
-        AsignadorPuntos asignadorPuntos = AsignadorPuntos new;
+        AsignadorPuntos asignadorPuntos = new AsignadorPuntos();
 
-        asignadorPuntos.asignarPuntajes(this.respuestas);
+        asignadorPuntos.asignarPuntajes(this.respuestas, unModificadorGlobal);
 
     }
 

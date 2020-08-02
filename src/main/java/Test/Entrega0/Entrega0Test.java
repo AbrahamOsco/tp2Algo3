@@ -20,45 +20,46 @@ public class Entrega0Test {
         Evaluable opcionUno = new OpcionCorrecta ("Verdadero");
         Evaluable opcionDos = new OpcionIncorrecta ("Falso");
 
+        ArrayList<Evaluable> opciones = new ArrayList<Evaluable>();
 
+        opciones.add(opcionUno);
+        opciones.add(opcionDos);
 
-
-
-        Pregunta unaPregunta = new PreguntaVerdaderoFalsoClasico("La mayonesa es un instrumento musical", );
-
+        Pregunta unaPregunta = new PreguntaVerdaderoFalsoClasico("La mayonesa es un instrumento musical", opciones);
         //Act
-        boolean contieneRespuestaCorrecta = unaPregunta.getOpcionesCorrectas().contains(opcionCorrecta);
+        boolean contieneRespuestaCorrecta = unaPregunta.getOpcionesCorrectas().contains(opcionUno);
         //Assert
         assertTrue(contieneRespuestaCorrecta);
     }
     @Test
     public void test02PreguntaDeVerdaderoFalsoClasicoRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntos(){
         //Arrange
-        Opcion opcionCorrecta = new Opcion("si");
-        Opcion opcionIncorrecta = new Opcion("no");
+        Jugador jugadorUno = new Jugador("AbrahamLincolnCazadorDeVampiros");
+        Jugador jugadorDos = new Jugador("JetSupersonico");
 
-        ArrayList<Opcion> opcionesAMostrar = new ArrayList<>();
-        opcionesAMostrar.add(opcionCorrecta);
-        opcionesAMostrar.add(opcionIncorrecta);
+        Evaluable opcionUno = new OpcionCorrecta ("Verdadero");
+        Evaluable opcionDos = new OpcionIncorrecta ("Falso");
 
-        ArrayList<Opcion> opcionesCorrectas = new ArrayList<>();
-        opcionesCorrectas.add(opcionCorrecta);
+        ArrayList<Evaluable> opciones = new ArrayList<Evaluable>();
 
-        ListaOpcionesParaPregunta listaDeOpciones = new ListaOpcionesParaPregunta(opcionesAMostrar, opcionesCorrectas);
+        opciones.add(opcionUno);
+        opciones.add(opcionDos);
 
-        TipoPregunta tipoPreguntaVerdaderoFalso = new PreguntaVerdaderoFalso();
-        Pregunta unaPregunta = new Pregunta("se debe testear?",tipoPreguntaVerdaderoFalso, listaDeOpciones);
+        Pregunta unaPregunta = new PreguntaVerdaderoFalsoClasico("La mayonesa es un instrumento musical", opciones);
 
         //jugadores eligen opciones
-        ArrayList<Opcion> opcionesElegidasJugador1 = new ArrayList<>();
-        opcionesElegidasJugador1.add(opcionCorrecta);
+        ArrayList<Evaluable> opcionesElegidasJugadorUno = new ArrayList<>();
+        opcionesElegidasJugadorUno.add(opcionUno);
 
-        ArrayList<Opcion> opcionesElegidasJugador2 = new ArrayList<>();
-        opcionesElegidasJugador2.add(opcionIncorrecta);
+        ArrayList<Evaluable> opcionesElegidasJugadorDos = new ArrayList<>();
+        opcionesElegidasJugadorDos.add(opcionDos);
+
+        Respuesta respuestaJugadorUno = new Respuesta (jugadorUno, opcionesElegidasJugadorUno);
+        Respuesta respuestaJugadorDos = new Respuesta (jugadorDos, opcionesElegidasJugadorDos);
 
         //Act
-        int puntajeParaJugador1 = unaPregunta.obtenerPuntajeOpcionesElejidas(opcionesElegidasJugador1);
-        int puntajeParaJugador2 = unaPregunta.obtenerPuntajeOpcionesElejidas(opcionesElegidasJugador2);
+        int puntajeParaJugador1 = unaPregunta.evaluarRespuesta(respuestaJugadorUno);
+        int puntajeParaJugador2 = unaPregunta.evaluarRespuesta(respuestaJugadorDos);
         //Assert
         assertEquals(1, puntajeParaJugador1);
         assertEquals(0, puntajeParaJugador2);
