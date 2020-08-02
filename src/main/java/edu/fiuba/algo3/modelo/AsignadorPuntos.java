@@ -9,6 +9,12 @@ public class AsignadorPuntos {
         aplicarModificadoreGlobales(respuestas, unModificadorGlobal);
         aplicarModificadoresIndividuales(respuestas);
 
+        for (int i = 0; i < respuestas.size(); i++) {
+
+            respuestas.get(i).aplicarPuntaje();
+
+        }
+
     }
 
     private void aplicarModificadoreGlobales (ArrayList<Respuesta> respuestas, modificadorGlobal unModificadorGlobal) {
