@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.modificador.ModificadorGlobal;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ public class Ronda {
     private Pregunta pregunta;
     private ArrayList<Jugador> jugadores;
     private ArrayList<Respuesta> respuestas;
-    private ArrayList<int> puntajesDeEstaRonda;
+    private ArrayList<Integer> puntajesDeEstaRonda;
     private ModificadorGlobal unModificadorGlobal;
 
     public Ronda(Pregunta unaPregunta, ArrayList<Jugador> nuevosJugadores) {
@@ -38,7 +39,7 @@ public class Ronda {
 
         AsignadorPuntos asignadorPuntos = AsignadorPuntos new;
 
-        asignadorPuntos.asignarPuntaje(this.respuestas);
+        asignadorPuntos.asignarPuntajes(this.respuestas);
 
     }
 

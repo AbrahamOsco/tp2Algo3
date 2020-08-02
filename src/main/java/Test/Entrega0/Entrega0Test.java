@@ -24,7 +24,7 @@ public class Entrega0Test {
 
 
 
-        Pregunta unaPregunta = new PreguntaVerdaderoFalsoClasico("La mayonesa es un instrumento musical",);
+        Pregunta unaPregunta = new PreguntaVerdaderoFalsoClasico("La mayonesa es un instrumento musical", );
 
         //Act
         boolean contieneRespuestaCorrecta = unaPregunta.getOpcionesCorrectas().contains(opcionCorrecta);
