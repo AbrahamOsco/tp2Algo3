@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.modificador.ModificadorGlobal;
+
 import java.util.ArrayList;
 
 public class Ronda {
