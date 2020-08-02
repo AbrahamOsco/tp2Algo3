@@ -16,6 +16,11 @@ public class Entrega0Test {
     @Test
     public void test01PreguntaDeVerdaderoFalsoClasicoPuedeCrearseIndicandoleCualEsLaRespuestaCorrecta(){
         //Arrange
+        Evaluable opcionUno = new OpcionCorrecta ("");
+
+
+
+
         Opcion opcionCorrecta = new Opcion("si");
         Opcion opcionIncorrecta = new Opcion("no");
 

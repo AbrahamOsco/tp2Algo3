@@ -34,6 +34,7 @@ public abstract class Pregunta {
         return obtenerPuntaje(opcionesJugador);
     }
 
+    //Solo se utiliza para los test
     public ArrayList<Evaluable> getOpcionesCorrectas () {
 
         ArrayList<Evaluable> opcionesCorrectas = new ArrayList<Evaluable>();
