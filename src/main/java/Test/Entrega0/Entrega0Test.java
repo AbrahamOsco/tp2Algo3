@@ -1,9 +1,12 @@
 package Test.Entrega0;
 
-import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.Preguntas.*;
-import edu.fiuba.algo3.modelo.Evaluable.*;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasClasicas.PreguntaVerdaderoFalsoClasico;
+import edu.fiuba.algo3.modelo.Evaluable.Evaluable;
+import edu.fiuba.algo3.modelo.Evaluable.OpcionCorrecta;
+import edu.fiuba.algo3.modelo.Evaluable.OpcionIncorrecta;
+import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioPuntajeParcial.PreguntaPuntajeParcialClasico;
+import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -25,7 +28,7 @@ public class Entrega0Test {
         opciones.add(opcionUno);
         opciones.add(opcionDos);
 
-        Pregunta unaPregunta = new PreguntaVerdaderoFalsoClasico("La mayonesa es un instrumento musical", opciones);
+        Pregunta unaPregunta = new PreguntaPuntajeParcialClasico("La mayonesa es un instrumento musical", opciones);
         //Act
         boolean contieneRespuestaCorrecta = unaPregunta.getOpcionesCorrectas().contains(opcionUno);
         //Assert
@@ -45,7 +48,7 @@ public class Entrega0Test {
         opciones.add(opcionUno);
         opciones.add(opcionDos);
 
-        Pregunta unaPregunta = new PreguntaVerdaderoFalsoClasico("La mayonesa es un instrumento musical", opciones);
+        Pregunta unaPregunta = new PreguntaPuntajeParcialClasico("La mayonesa es un instrumento musical", opciones);
 
         //jugadores eligen opciones
         ArrayList<Evaluable> opcionesElegidasJugadorUno = new ArrayList<>();

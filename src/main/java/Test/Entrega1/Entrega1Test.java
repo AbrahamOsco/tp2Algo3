@@ -2,10 +2,9 @@ package Test.Entrega1;
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.Preguntas.*;
 import edu.fiuba.algo3.modelo.Evaluable.*;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasClasicas.PreguntaMultipleChoiceClasico;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasClasicas.PreguntaVerdaderoFalsoClasico;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasPenalizables.PreguntaPenalizable;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasPuntajeParcial.PreguntaPuntajeParcial;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioPuntajeParcial.PreguntaPuntajeParcialClasico;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioPuntajeParcial.PreguntaPuntajeParcialPenalizable;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesCorrectas;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -25,7 +24,7 @@ public class Entrega1Test {
         opcionesDePregunta.add(opcionDos);
 
         String consigna = "Se empieza por las pruebas en TDD?";
-        Pregunta unaPregunta = new PreguntaVerdaderoFalsoClasico(consigna, opcionesDePregunta);
+        Pregunta unaPregunta = new PreguntaPuntajeParcialPenalizable(consigna, opcionesDePregunta);
 
         //Act
         boolean contieneRespuestaCorrecta = unaPregunta.getOpcionesCorrectas().contains(opcionUno);
@@ -47,7 +46,7 @@ public class Entrega1Test {
         opcionesDePregunta.add(opcionDos);
 
         String consigna = "Vive Bob Esponja debajo del mar?";
-        Pregunta unaPregunta = new PreguntaPenalizable(consigna, opcionesDePregunta);
+        Pregunta unaPregunta = new PreguntaPuntajeParcialPenalizable(consigna, opcionesDePregunta);
 
         //jugadores eligen opciones
         ArrayList<Evaluable> opcionesElegidasJugadorUno = new ArrayList<>();
@@ -82,7 +81,7 @@ public class Entrega1Test {
         opcionesDePregunta.add(opcionCuatro);
 
         String consigna = "Elija todas las opciones que sean una fruta";
-        Pregunta unaPregunta = new PreguntaMultipleChoiceClasico(consigna, opcionesDePregunta);
+        Pregunta unaPregunta = new PreguntaPuntajeParcialClasico(consigna, opcionesDePregunta);
 
         //Act
         boolean contieneRespuestaCorrectaUno = unaPregunta.getOpcionesCorrectas().contains(opcionUno);
@@ -112,7 +111,7 @@ public class Entrega1Test {
         opcionesDePregunta.add(opcionCuatro);
 
         String consigna = "Elija todas las opciones que sean una fruta";
-        Pregunta unaPregunta = new PreguntaMultipleChoiceClasico(consigna, opcionesDePregunta);
+        Pregunta unaPregunta = new PreguntaConTodasOpcionesCorrectas(consigna, opcionesDePregunta);
 
         //jugadores eligen opciones
         ArrayList<Evaluable> opcionesElegidasJugadorUno = new ArrayList<>();
@@ -151,7 +150,7 @@ public class Entrega1Test {
         opcionesDePregunta.add(opcionCuatro);
 
         String consigna = "Elija todas las opciones que sean una fruta";
-        Pregunta unaPregunta = new PreguntaPuntajeParcial(consigna, opcionesDePregunta);
+        Pregunta unaPregunta = new PreguntaPuntajeParcialClasico(consigna, opcionesDePregunta);
 
         //Act
         boolean contieneRespuestaCorrectaUno = unaPregunta.getOpcionesCorrectas().contains(opcionUno);
@@ -181,7 +180,7 @@ public class Entrega1Test {
         opcionesDePregunta.add(opcionCuatro);
 
         String consigna = "Elija todas las opciones que sean una fruta";
-        Pregunta unaPregunta = new PreguntaPuntajeParcial(consigna, opcionesDePregunta);
+        Pregunta unaPregunta = new PreguntaPuntajeParcialClasico(consigna, opcionesDePregunta);
 
         //jugadores eligen opciones
         ArrayList<Evaluable> opcionesElegidasJugadorUno = new ArrayList<>();

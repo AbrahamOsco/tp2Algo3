@@ -30,29 +30,22 @@ public abstract class Pregunta {
         this.opciones = opciones;
     }
 
-    protected  abstract  int obtenerPuntaje(ArrayList<Evaluable>opcionesJugador);
+    protected  abstract  int obtenerPuntaje(ArrayList<Evaluable> opcionesJugador );
+    protected  abstract  boolean tieneOpcionesNecesarias(ArrayList<Evaluable> opcionesJugador );
 
     public  int evaluarRespuesta(Respuesta unaRespuesta){
         ArrayList<Evaluable>opcionesJugador = unaRespuesta.getOpcionesElegidas();
-        if(opcionesJugador.isEmpty())
+        if(opcionesJugador.isEmpty() || !tieneOpcionesNecesarias(opcionesJugador))
             return 0;
         return obtenerPuntaje(opcionesJugador);
     }
-
-    //Solo se utiliza para los test
+    //Solo se utiliza Para los Test
     public ArrayList<Evaluable> getOpcionesCorrectas () {
-
         ArrayList<Evaluable> opcionesCorrectas = new ArrayList<Evaluable>();
-
         for (Evaluable opcion: opciones) {
-
             if(opcion.evaluar())
                 opcionesCorrectas.add(opcion);
-
         }
-
         return opcionesCorrectas;
-
     }
-
 }

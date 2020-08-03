@@ -1,12 +1,11 @@
-package edu.fiuba.algo3.modelo.Preguntas.PreguntasPuntajeParcial;
+package edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioPuntajeParcial;
 
 import edu.fiuba.algo3.modelo.Evaluable.Evaluable;
-import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 
 import java.util.ArrayList;
 
-public class PreguntaPuntajeParcial extends Pregunta {
-    public PreguntaPuntajeParcial(String consigna, ArrayList<Evaluable> opciones) {
+public class PreguntaPuntajeParcialClasico extends PreguntaCriterioPuntajeParcial{
+    public PreguntaPuntajeParcialClasico(String consigna, ArrayList<Evaluable> opciones) {
         super(consigna, opciones);
     }
 
@@ -21,5 +20,4 @@ public class PreguntaPuntajeParcial extends Pregunta {
         }
         return puntajeARetornar;
     }
-
 }
