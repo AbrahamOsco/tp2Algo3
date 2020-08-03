@@ -10,15 +10,6 @@ public class PreguntaPuntajeParcial extends Pregunta {
         super(consigna, opciones);
     }
 
-    /*@Override
-    protected int obtenerPuntaje(ArrayList<Evaluable> opcionesJugador) {
-        int puntajeARetornar = 0;
-        for(Evaluable unaOpcion: opcionesJugador){
-            if(unaOpcion.evaluar())
-                puntajeARetornar ++;
-        }
-        return puntajeARetornar;
-    }*/
     @Override
     protected int obtenerPuntaje(ArrayList<Evaluable> opcionesJugador) {
         int puntajeARetornar = 0;
