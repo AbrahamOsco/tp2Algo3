@@ -6,17 +6,19 @@ public class OpcionPertenencia implements Evaluable{
     private int ubicacionActual;
     private int ubicacionCorrecta;
 
-    public OpcionPertenencia (String unaConsigna, int unaUbicacionActual, int unaUbicacionCorrecta) {
-
+    public OpcionPertenencia (String unaConsigna,  int unaUbicacionCorrecta) {
         this.consigna = unaConsigna;
-        this.ubicacionActual = unaUbicacionActual;
+        this.ubicacionActual = 0;
         this.ubicacionCorrecta = unaUbicacionCorrecta;
-
     }
-
 
     @Override
     public boolean evaluar() {
-        return false;
+        return this.ubicacionActual == this.ubicacionCorrecta;
+    }
+
+    @Override
+    public void setUbicacionActual(int unaUbicacion) {
+        this.ubicacionActual = unaUbicacion;
     }
 }

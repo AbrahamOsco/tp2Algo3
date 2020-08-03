@@ -12,4 +12,9 @@ public class OpcionCorrecta implements Evaluable{
     public boolean evaluar() {
         return true;
     }
+
+    @Override
+    public void setUbicacionActual(int unaUbicacion) {
+
+    }
 }
