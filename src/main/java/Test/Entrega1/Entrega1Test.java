@@ -2,7 +2,7 @@ package Test.Entrega1;
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.Preguntas.*;
 import edu.fiuba.algo3.modelo.Evaluable.*;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioPuntajeParcial.PreguntaPuntajeParcialClasico;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioPuntajeParcial.PreguntaPuntajeParcialSinIncorrectos;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioPuntajeParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesCorrectas;
 import org.junit.jupiter.api.Test;
@@ -81,7 +81,7 @@ public class Entrega1Test {
         opcionesDePregunta.add(opcionCuatro);
 
         String consigna = "Elija todas las opciones que sean una fruta";
-        Pregunta unaPregunta = new PreguntaPuntajeParcialClasico(consigna, opcionesDePregunta);
+        Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(consigna, opcionesDePregunta);
 
         //Act
         boolean contieneRespuestaCorrectaUno = unaPregunta.getOpcionesCorrectas().contains(opcionUno);
@@ -150,7 +150,7 @@ public class Entrega1Test {
         opcionesDePregunta.add(opcionCuatro);
 
         String consigna = "Elija todas las opciones que sean una fruta";
-        Pregunta unaPregunta = new PreguntaPuntajeParcialClasico(consigna, opcionesDePregunta);
+        Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(consigna, opcionesDePregunta);
 
         //Act
         boolean contieneRespuestaCorrectaUno = unaPregunta.getOpcionesCorrectas().contains(opcionUno);
@@ -180,7 +180,7 @@ public class Entrega1Test {
         opcionesDePregunta.add(opcionCuatro);
 
         String consigna = "Elija todas las opciones que sean una fruta";
-        Pregunta unaPregunta = new PreguntaPuntajeParcialClasico(consigna, opcionesDePregunta);
+        Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(consigna, opcionesDePregunta);
 
         //jugadores eligen opciones
         ArrayList<Evaluable> opcionesElegidasJugadorUno = new ArrayList<>();

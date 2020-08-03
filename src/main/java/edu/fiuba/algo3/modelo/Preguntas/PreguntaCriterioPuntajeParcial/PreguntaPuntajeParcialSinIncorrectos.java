@@ -4,8 +4,8 @@ import edu.fiuba.algo3.modelo.Evaluable.Evaluable;
 
 import java.util.ArrayList;
 
-public class PreguntaPuntajeParcialClasico extends PreguntaCriterioPuntajeParcial{
-    public PreguntaPuntajeParcialClasico(String consigna, ArrayList<Evaluable> opciones) {
+public class PreguntaPuntajeParcialSinIncorrectos extends PreguntaCriterioPuntajeParcial{
+    public PreguntaPuntajeParcialSinIncorrectos(String consigna, ArrayList<Evaluable> opciones) {
         super(consigna, opciones);
     }
 

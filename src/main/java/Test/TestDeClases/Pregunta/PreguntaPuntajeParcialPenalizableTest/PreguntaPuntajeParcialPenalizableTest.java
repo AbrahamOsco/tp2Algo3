@@ -1,11 +1,11 @@
-package Test.TestDeClases.Pregunta.PreguntaPuntajeParcialClasicoTest;
+package Test.TestDeClases.Pregunta.PreguntaPuntajeParcialPenalizableTest;
 
 import edu.fiuba.algo3.modelo.Evaluable.Evaluable;
 import edu.fiuba.algo3.modelo.Evaluable.OpcionCorrecta;
 import edu.fiuba.algo3.modelo.Evaluable.OpcionIncorrecta;
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesCorrectas;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioPuntajeParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
@@ -13,9 +13,9 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PreguntaPuntajeParcialClasicoTest {
+public class PreguntaPuntajeParcialPenalizableTest {
     @Test
-    public void test01SeLeEnviaTodasLasOpcionesCorrectasYDevuelveUnPunto(){
+    public void test01SeLeEnviaTodasLasOpcionesCorrectasYDevuelveTresPuntos(){
         //Arrange
         Evaluable opcionCorrectaUno = new OpcionCorrecta("Seeee");
         Evaluable opcionCorrectaDos = new OpcionCorrecta("Clarin");
@@ -33,17 +33,17 @@ public class PreguntaPuntajeParcialClasicoTest {
         opcionesDeUnJugador.add(opcionCorrectaTres);
 
         String consigna = "hay que testear?";
-        Pregunta multipleChoice = new PreguntaConTodasOpcionesCorrectas(consigna,opcionesApresentar);
+        Pregunta multipleChoice = new PreguntaPuntajeParcialPenalizable(consigna,opcionesApresentar);
         Jugador unJugador = new Jugador("Jet");
         Respuesta unaRespuesta = new Respuesta(unJugador,opcionesDeUnJugador);
 
         //Act
         int resultado = multipleChoice.evaluarRespuesta(unaRespuesta);
         //Assert
-        assertEquals(1,resultado);
+        assertEquals(3,resultado);
     }
     @Test
-    public void test02SeLeEnviaNoTodasLasOpcionesCorrectasYDevuelveCeroPuntos(){
+    public void test02SeLeEnviaDosDeTresOpcionesCorrectasYDevuelveDosPuntos(){
         //Arrange
         Evaluable opcionCorrectaUno = new OpcionCorrecta("Seeee");
         Evaluable opcionCorrectaDos = new OpcionCorrecta("Clarin");
@@ -60,18 +60,18 @@ public class PreguntaPuntajeParcialClasicoTest {
         opcionesDeUnJugador.add(opcionCorrectaDos);
 
         String consigna = "hay que testear?";
-        Pregunta multipleChoice = new PreguntaConTodasOpcionesCorrectas(consigna,opcionesApresentar);
+        Pregunta multipleChoice = new PreguntaPuntajeParcialPenalizable(consigna,opcionesApresentar);
         Jugador unJugador = new Jugador("Jet");
         Respuesta unaRespuesta = new Respuesta(unJugador,opcionesDeUnJugador);
 
         //Act
         int resultado = multipleChoice.evaluarRespuesta(unaRespuesta);
         //Assert
-        assertEquals(0,resultado);
+        assertEquals(2,resultado);
     }
 
     @Test
-    public void test03SeLeEnviaTodasLasCorrectasYUnaIncorrectaYDevuelveCeroPuntos(){
+    public void test03SeLeEnviaTresCorrectasYUnaIncorrectaYDevuelveDosPuntos(){
         //Arrange
         Evaluable opcionCorrectaUno = new OpcionCorrecta("Seeee");
         Evaluable opcionCorrectaDos = new OpcionCorrecta("Clarin");
@@ -90,13 +90,13 @@ public class PreguntaPuntajeParcialClasicoTest {
         opcionesDeUnJugador.add(opcionIncorrecta);
 
         String consigna = "hay que testear?";
-        Pregunta multipleChoice = new PreguntaConTodasOpcionesCorrectas(consigna,opcionesApresentar);
+        Pregunta multipleChoice = new PreguntaPuntajeParcialPenalizable(consigna,opcionesApresentar);
         Jugador unJugador = new Jugador("Jet");
         Respuesta unaRespuesta = new Respuesta(unJugador,opcionesDeUnJugador);
 
         //Act
         int resultado = multipleChoice.evaluarRespuesta(unaRespuesta);
         //Assert
-        assertEquals(0,resultado);
+        assertEquals(2,resultado);
     }
 }
