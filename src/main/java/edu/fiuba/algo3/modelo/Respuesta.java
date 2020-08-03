@@ -15,21 +15,17 @@ public class Respuesta {
     private ArrayList<Evaluable> opciones;
 
     public Respuesta (Jugador unJugador, ArrayList<Evaluable> unasOpciones) {
-
         this.jugador = unJugador;
         this.puntajeParcial = 0;
         this.modificadorActivo = new NuloIndividual();
         this.opciones = unasOpciones;
-
     }
 
     public Respuesta (Jugador unJugador, ArrayList<Evaluable> unasOpciones, int unFactor) {
-
         this.jugador = unJugador;
         this.puntajeParcial = 0;
         this.modificadorActivo = new Multiplicador(unFactor);
         this.opciones = unasOpciones;
-
     }
 
     public void setJugador (Jugador unJugador) { this.jugador = unJugador; }
