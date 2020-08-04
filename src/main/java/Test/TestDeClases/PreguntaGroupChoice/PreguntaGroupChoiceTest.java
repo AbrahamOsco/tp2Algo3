@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaGroupChoice.PreguntaGroupChoice;
-import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -65,7 +64,7 @@ public class PreguntaGroupChoiceTest {
         Respuesta unaRespuesta = new Respuesta(unJugador,listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = groupChoice.evaluarRespuesta(unaRespuesta);
+        int resultado = groupChoice.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(1,resultado);
 
@@ -124,7 +123,7 @@ public class PreguntaGroupChoiceTest {
         listaDeListaDeOpcionesJugador.add(opcionesGrupoAJugador);
         listaDeListaDeOpcionesJugador.add(opcionesGrupoBJugador);
         //Act
-        int resultado = groupChoice.evaluarRespuesta(unaRespuesta);
+        int resultado = groupChoice.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(0,resultado);
 
@@ -181,7 +180,7 @@ public class PreguntaGroupChoiceTest {
         listaDeListaDeOpcionesJugador.add(opcionesGrupoAJugador);
         listaDeListaDeOpcionesJugador.add(opcionesGrupoBJugador);
         //Act
-        int resultado = groupChoice.evaluarRespuesta(unaRespuesta);
+        int resultado = groupChoice.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(0,resultado);
 

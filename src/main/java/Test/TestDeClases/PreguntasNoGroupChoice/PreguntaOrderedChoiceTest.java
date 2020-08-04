@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaOrderedChoice;
-import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ public class PreguntaOrderedChoiceTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = orderedChoice.evaluarRespuesta(unaRespuesta);
+        int resultado = orderedChoice.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(1, resultado);
     }
@@ -94,7 +93,7 @@ public class PreguntaOrderedChoiceTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = orderedChoice.evaluarRespuesta(unaRespuesta);
+        int resultado = orderedChoice.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(0, resultado);
     }
@@ -133,7 +132,7 @@ public class PreguntaOrderedChoiceTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = orderedChoice.evaluarRespuesta(unaRespuesta);
+        int resultado = orderedChoice.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(0, resultado);
     }

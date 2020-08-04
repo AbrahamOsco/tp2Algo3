@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice;
 
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Respuesta;
 
 import java.util.ArrayList;
 
@@ -16,8 +15,8 @@ public class PreguntaMultipleChoicePenalizable extends Pregunta {
         return !opcionesJugador.isEmpty();
     }
     @Override
-    public int evaluarRespuesta(Respuesta unaRespuesta) {
-        ArrayList<ArrayList <Opcion> > listaDeListaDeOpcionesJugador = unaRespuesta.getOpciones();
+    public int evaluarOpcionesElegidas(ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesElegidas) {
+        ArrayList<ArrayList <Opcion> > listaDeListaDeOpcionesJugador = listaDeListaDeOpcionesElegidas.getOpciones();
         boolean todoOk = true;
         int puntosARetornar = 0;
         for(ArrayList<Opcion> opcionesJugador: listaDeListaDeOpcionesJugador ){

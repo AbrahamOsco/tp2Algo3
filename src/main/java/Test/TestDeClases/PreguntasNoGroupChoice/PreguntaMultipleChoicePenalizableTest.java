@@ -4,8 +4,6 @@ import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePenalizable;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePuntajeParcial;
-import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -54,7 +52,7 @@ public class PreguntaMultipleChoicePenalizableTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = multipleChoicePenalizable.evaluarRespuesta(unaRespuesta);
+        int resultado = multipleChoicePenalizable.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(4, resultado);
     }
@@ -100,7 +98,7 @@ public class PreguntaMultipleChoicePenalizableTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = multipleChoicePenalizable.evaluarRespuesta(unaRespuesta);
+        int resultado = multipleChoicePenalizable.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(3, resultado);
     }
@@ -142,7 +140,7 @@ public class PreguntaMultipleChoicePenalizableTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = multipleChoicePenalizable.evaluarRespuesta(unaRespuesta);
+        int resultado = multipleChoicePenalizable.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(-2, resultado);
     }
@@ -182,7 +180,7 @@ public class PreguntaMultipleChoicePenalizableTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = multipleChoicePenalizable.evaluarRespuesta(unaRespuesta);
+        int resultado = multipleChoicePenalizable.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(0, resultado);
     }

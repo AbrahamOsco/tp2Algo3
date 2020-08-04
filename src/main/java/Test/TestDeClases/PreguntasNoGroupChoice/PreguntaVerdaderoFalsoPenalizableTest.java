@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaVerdaderoFalsoPenalizable;
-import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -41,7 +40,7 @@ public class PreguntaVerdaderoFalsoPenalizableTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = verdaderoFalsoPenalizable.evaluarRespuesta(unaRespuesta);
+        int resultado = verdaderoFalsoPenalizable.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(1, resultado);
     }
@@ -74,7 +73,7 @@ public class PreguntaVerdaderoFalsoPenalizableTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = verdaderoFalsoPenalizable.evaluarRespuesta(unaRespuesta);
+        int resultado = verdaderoFalsoPenalizable.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(-1, resultado);
     }
@@ -106,7 +105,7 @@ public class PreguntaVerdaderoFalsoPenalizableTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = verdaderoFalsoPenalizable.evaluarRespuesta(unaRespuesta);
+        int resultado = verdaderoFalsoPenalizable.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(0, resultado);
     }

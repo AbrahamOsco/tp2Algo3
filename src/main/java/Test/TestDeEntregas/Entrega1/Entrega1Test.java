@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoiceClasico;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePuntajeParcial;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaVerdaderoFalsoPenalizable;
-import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -78,8 +77,8 @@ public class Entrega1Test {
         Respuesta respuestaJugador2 = new Respuesta(jugador2, listaDeListaDeOpcionesJugador2);
 
         //Act
-        int puntosParaJugador1 = verdaderoFalsoPenalizable.evaluarRespuesta(respuestaJugador1);
-        int puntosParaJugador2 = verdaderoFalsoPenalizable.evaluarRespuesta(respuestaJugador2);
+        int puntosParaJugador1 = verdaderoFalsoPenalizable.evaluarOpcionesElegidas(respuestaJugador1);
+        int puntosParaJugador2 = verdaderoFalsoPenalizable.evaluarOpcionesElegidas(respuestaJugador2);
 
         //Assert
         assertEquals(1, puntosParaJugador1);
@@ -169,8 +168,8 @@ public class Entrega1Test {
         Respuesta respuestaJugador2 = new Respuesta(jugador2, listaDeListaDeOpcionesJugador2);
 
         //Act
-        int puntosParaJugador1 = multipleChoiceClasico.evaluarRespuesta(respuestaJugador1);
-        int puntosParaJugador2 = multipleChoiceClasico.evaluarRespuesta(respuestaJugador2);
+        int puntosParaJugador1 = multipleChoiceClasico.evaluarOpcionesElegidas(respuestaJugador1);
+        int puntosParaJugador2 = multipleChoiceClasico.evaluarOpcionesElegidas(respuestaJugador2);
 
         //Assert
         assertEquals(1, puntosParaJugador1);
@@ -259,8 +258,8 @@ public class Entrega1Test {
         Respuesta respuestaJugador2 = new Respuesta(jugador2, listaDeListaDeOpcionesJugador2);
 
         //Act
-        int puntosParaJugador1 = multipleChoicePuntajeParcial.evaluarRespuesta(respuestaJugador1);
-        int puntosParaJugador2 = multipleChoicePuntajeParcial.evaluarRespuesta(respuestaJugador2);
+        int puntosParaJugador1 = multipleChoicePuntajeParcial.evaluarOpcionesElegidas(respuestaJugador1);
+        int puntosParaJugador2 = multipleChoicePuntajeParcial.evaluarOpcionesElegidas(respuestaJugador2);
 
         //Assert
         assertEquals(2, puntosParaJugador1);

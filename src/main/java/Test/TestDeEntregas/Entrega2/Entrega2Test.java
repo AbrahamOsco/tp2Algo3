@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaGroupChoice.PreguntaGroupChoice;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaOrderedChoice;
-import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -105,8 +104,8 @@ public class Entrega2Test {
         Respuesta respuestaJugador2 = new Respuesta(jugador2, listaDeListaDeOpcionesJugador2);
 
         //Act
-        int puntosParaJugador1 = multipleChoicePenalizable.evaluarRespuesta(respuestaJugador1);
-        int puntosParaJugador2 = multipleChoicePenalizable.evaluarRespuesta(respuestaJugador2);
+        int puntosParaJugador1 = multipleChoicePenalizable.evaluarOpcionesElegidas(respuestaJugador1);
+        int puntosParaJugador2 = multipleChoicePenalizable.evaluarOpcionesElegidas(respuestaJugador2);
 
         //Assert
         assertEquals(1, puntosParaJugador1);
@@ -203,8 +202,8 @@ public class Entrega2Test {
         Respuesta respuestaJugador2 = new Respuesta(jugador2, listaDeListaDeOpcionesJugador2);
 
         //Act
-        int puntosParaJugador1 = orderedChoice.evaluarRespuesta(respuestaJugador1);
-        int puntosParaJugador2 = orderedChoice.evaluarRespuesta(respuestaJugador2);
+        int puntosParaJugador1 = orderedChoice.evaluarOpcionesElegidas(respuestaJugador1);
+        int puntosParaJugador2 = orderedChoice.evaluarOpcionesElegidas(respuestaJugador2);
         //Assert
         assertEquals(1, puntosParaJugador1);
         assertEquals(0, puntosParaJugador2);
@@ -344,8 +343,8 @@ public class Entrega2Test {
         Respuesta respuestaJugador2 = new Respuesta(jugador2, listaDeListaDeOpcionesJugador2);
 
         //Act
-        int puntosParaJugador1 = groupChoice.evaluarRespuesta(respuestaJugador1);
-        int puntosParaJugador2 = groupChoice.evaluarRespuesta(respuestaJugador2);
+        int puntosParaJugador1 = groupChoice.evaluarOpcionesElegidas(respuestaJugador1);
+        int puntosParaJugador2 = groupChoice.evaluarOpcionesElegidas(respuestaJugador2);
         //Assert
         assertEquals(1, puntosParaJugador1);
         assertEquals(0, puntosParaJugador2);

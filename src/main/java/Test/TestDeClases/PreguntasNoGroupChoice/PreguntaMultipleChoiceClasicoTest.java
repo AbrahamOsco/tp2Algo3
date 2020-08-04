@@ -4,7 +4,6 @@ import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoiceClasico;
-import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -49,7 +48,7 @@ public class PreguntaMultipleChoiceClasicoTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = multipleChoiceClasico.evaluarRespuesta(unaRespuesta);
+        int resultado = multipleChoiceClasico.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(1, resultado);
     }
@@ -90,7 +89,7 @@ public class PreguntaMultipleChoiceClasicoTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = multipleChoiceClasico.evaluarRespuesta(unaRespuesta);
+        int resultado = multipleChoiceClasico.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(0, resultado);
     }
@@ -128,7 +127,7 @@ public class PreguntaMultipleChoiceClasicoTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = multipleChoiceClasico.evaluarRespuesta(unaRespuesta);
+        int resultado = multipleChoiceClasico.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(0, resultado);
     }
@@ -170,7 +169,7 @@ public class PreguntaMultipleChoiceClasicoTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = multipleChoiceClasico.evaluarRespuesta(unaRespuesta);
+        int resultado = multipleChoiceClasico.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(0, resultado);
     }

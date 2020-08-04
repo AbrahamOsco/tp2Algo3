@@ -3,9 +3,7 @@ package Test.TestDeClases.PreguntasNoGroupChoice;
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoiceClasico;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePuntajeParcial;
-import edu.fiuba.algo3.modelo.Respuesta;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -54,7 +52,7 @@ public class PreguntaMultipleChoicePuntajeParcialTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = multipleChoicePuntajeParcial.evaluarRespuesta(unaRespuesta);
+        int resultado = multipleChoicePuntajeParcial.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(4, resultado);
     }
@@ -98,7 +96,7 @@ public class PreguntaMultipleChoicePuntajeParcialTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = multipleChoicePuntajeParcial.evaluarRespuesta(unaRespuesta);
+        int resultado = multipleChoicePuntajeParcial.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(3, resultado);
     }
@@ -142,7 +140,7 @@ public class PreguntaMultipleChoicePuntajeParcialTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = multipleChoicePuntajeParcial.evaluarRespuesta(unaRespuesta);
+        int resultado = multipleChoicePuntajeParcial.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(0, resultado);
     }
@@ -183,7 +181,7 @@ public class PreguntaMultipleChoicePuntajeParcialTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = multipleChoicePuntajeParcial.evaluarRespuesta(unaRespuesta);
+        int resultado = multipleChoicePuntajeParcial.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(0, resultado);
     }
@@ -229,7 +227,7 @@ public class PreguntaMultipleChoicePuntajeParcialTest {
         Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
 
         //Act
-        int resultado = multipleChoicePuntajeParcial.evaluarRespuesta(unaRespuesta);
+        int resultado = multipleChoicePuntajeParcial.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(0, resultado);
     }
