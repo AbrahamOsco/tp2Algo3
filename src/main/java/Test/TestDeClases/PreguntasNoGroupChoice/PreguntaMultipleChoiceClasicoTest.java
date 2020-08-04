@@ -1,7 +1,14 @@
 package Test.TestDeClases.PreguntasNoGroupChoice;
 
+import edu.fiuba.algo3.modelo.Opcion.Opcion;
+import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoiceClasico;
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class PreguntaMultipleChoiceClasicoTest {
-    /*
+
     @Test
     public void test01SeEligenTodasLasOpcionesCorrectasEntoncesDevuelve1Punto() {
         //Arrange
@@ -35,11 +42,8 @@ public class PreguntaMultipleChoiceClasicoTest {
 
         listaDeListaDeOpcionesJugador.add(opcionesDeJugador);
 
-        Jugador unJugador = new Jugador("Ludociel");
-        Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
-
         //Act
-        int resultado = multipleChoiceClasico.evaluarOpcionesElegidas(unaRespuesta);
+        int resultado = multipleChoiceClasico.evaluarOpcionesElegidas(listaDeListaDeOpcionesJugador);
         //Assert
         assertEquals(1, resultado);
     }
@@ -76,11 +80,8 @@ public class PreguntaMultipleChoiceClasicoTest {
 
         listaDeListaDeOpcionesJugador.add(opcionesDeJugador);
 
-        Jugador unJugador = new Jugador("Ludociel");
-        Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
-
         //Act
-        int resultado = multipleChoiceClasico.evaluarOpcionesElegidas(unaRespuesta);
+        int resultado = multipleChoiceClasico.evaluarOpcionesElegidas(listaDeListaDeOpcionesJugador);
         //Assert
         assertEquals(0, resultado);
     }
@@ -114,11 +115,8 @@ public class PreguntaMultipleChoiceClasicoTest {
 
         listaDeListaDeOpcionesJugador.add(opcionesDeJugador);
 
-        Jugador unJugador = new Jugador("Ludociel");
-        Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
-
         //Act
-        int resultado = multipleChoiceClasico.evaluarOpcionesElegidas(unaRespuesta);
+        int resultado = multipleChoiceClasico.evaluarOpcionesElegidas(listaDeListaDeOpcionesJugador);
         //Assert
         assertEquals(0, resultado);
     }
@@ -156,13 +154,9 @@ public class PreguntaMultipleChoiceClasicoTest {
 
         listaDeListaDeOpcionesJugador.add(opcionesDeJugador);
 
-        Jugador unJugador = new Jugador("Ludociel");
-        Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
-
         //Act
-        int resultado = multipleChoiceClasico.evaluarOpcionesElegidas(unaRespuesta);
+        int resultado = multipleChoiceClasico.evaluarOpcionesElegidas(listaDeListaDeOpcionesJugador);
         //Assert
         assertEquals(0, resultado);
-    }*/
-
+    }
 }

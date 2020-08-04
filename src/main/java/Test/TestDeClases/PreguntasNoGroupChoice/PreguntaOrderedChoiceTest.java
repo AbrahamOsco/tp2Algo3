@@ -1,7 +1,13 @@
 package Test.TestDeClases.PreguntasNoGroupChoice;
+import edu.fiuba.algo3.modelo.Opcion.Opcion;
+import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaOrderedChoice;
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PreguntaOrderedChoiceTest {
-    /*
+
     @Test
     public void test01SeEligenTodasLasOpcionesEnElOrdenCorrectoEntoncesDevuelve1Punto() {
         //Arrange
@@ -37,11 +43,8 @@ public class PreguntaOrderedChoiceTest {
 
         listaDeListaDeOpcionesJugador.add(opcionesDeJugador);
 
-        Jugador unJugador = new Jugador("Skarpi");
-        Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
-
         //Act
-        int resultado = orderedChoice.evaluarOpcionesElegidas(unaRespuesta);
+        int resultado = orderedChoice.evaluarOpcionesElegidas(listaDeListaDeOpcionesJugador);
         //Assert
         assertEquals(1, resultado);
     }
@@ -80,11 +83,8 @@ public class PreguntaOrderedChoiceTest {
 
         listaDeListaDeOpcionesJugador.add(opcionesDeJugador);
 
-        Jugador unJugador = new Jugador("Skarpi");
-        Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
-
         //Act
-        int resultado = orderedChoice.evaluarOpcionesElegidas(unaRespuesta);
+        int resultado = orderedChoice.evaluarOpcionesElegidas(listaDeListaDeOpcionesJugador);
         //Assert
         assertEquals(0, resultado);
     }
@@ -119,12 +119,9 @@ public class PreguntaOrderedChoiceTest {
 
         listaDeListaDeOpcionesJugador.add(opcionesDeJugador);
 
-        Jugador unJugador = new Jugador("Skarpi");
-        Respuesta unaRespuesta = new Respuesta(unJugador, listaDeListaDeOpcionesJugador);
-
         //Act
-        int resultado = orderedChoice.evaluarOpcionesElegidas(unaRespuesta);
+        int resultado = orderedChoice.evaluarOpcionesElegidas(listaDeListaDeOpcionesJugador);
         //Assert
         assertEquals(0, resultado);
-    }*/
+    }
 }
