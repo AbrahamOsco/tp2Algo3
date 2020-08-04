@@ -1,16 +1,7 @@
 package Test.TestDeClases.PreguntasNoGroupChoice;
 
-import edu.fiuba.algo3.modelo.Jugador;
-import edu.fiuba.algo3.modelo.Opcion.Opcion;
-import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaVerdaderoFalsoClasico;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class PreguntaVerdaderoFalsoClasicoTest {
+    /*
     @Test
     public void test01SeEligeLaOpcionCorrectaEntoncesDevuelve1Punto() {
         //Arrange
@@ -108,5 +99,5 @@ public class PreguntaVerdaderoFalsoClasicoTest {
         int resultado = verdaderoFalsoClasico.evaluarOpcionesElegidas(unaRespuesta);
         //Assert
         assertEquals(0, resultado);
-    }
+    }*/
 }

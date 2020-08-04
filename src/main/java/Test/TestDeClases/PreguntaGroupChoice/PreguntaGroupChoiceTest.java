@@ -1,16 +1,7 @@
 package Test.TestDeClases.PreguntaGroupChoice;
 
-import edu.fiuba.algo3.modelo.Jugador;
-import edu.fiuba.algo3.modelo.Opcion.Opcion;
-import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntaGroupChoice.PreguntaGroupChoice;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class PreguntaGroupChoiceTest {
+    /*
     @Test
     public void test01SeAgrupanLasOpcionesCorrectamenteYDevuelveUnPunto(){
         //Arrange
@@ -184,5 +175,5 @@ public class PreguntaGroupChoiceTest {
         //Assert
         assertEquals(0,resultado);
 
-    }
+    }*/
 }

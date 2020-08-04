@@ -17,12 +17,12 @@ public class PreguntaGroupChoice extends Pregunta {
 
     @Override
     public int evaluarOpcionesElegidas(ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesElegidas) {
-        ArrayList<ArrayList <Opcion> > listaDeListaDeOpcionesJugador = listaDeListaDeOpcionesElegidas.getOpciones();
+
         boolean todoOk = true;
-        if(listaDeListaDeOpcionesJugador.isEmpty())
+        if(listaDeListaDeOpcionesElegidas.isEmpty())
             return 0;
         int indice = 0;
-        for(ArrayList<Opcion> opcionesJugador: listaDeListaDeOpcionesJugador ){
+        for(ArrayList<Opcion> opcionesJugador: listaDeListaDeOpcionesElegidas){
 
             ArrayList<Opcion> opcionesCorrectasUnGrupo = this.listaDeListasDeOpcionesCorrectas.get(indice);
             if(!tieneOpcionesNecesarias(opcionesJugador, opcionesCorrectasUnGrupo))

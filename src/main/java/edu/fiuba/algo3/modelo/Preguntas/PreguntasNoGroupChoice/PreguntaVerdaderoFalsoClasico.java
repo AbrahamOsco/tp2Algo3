@@ -13,9 +13,8 @@ public class PreguntaVerdaderoFalsoClasico extends Pregunta {
 
     @Override
     public int evaluarOpcionesElegidas(ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesElegidas) {
-        ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = listaDeListaDeOpcionesElegidas.getOpciones();
         boolean todoOk = true;
-        for (ArrayList<Opcion> opcionesJugador : listaDeListaDeOpcionesJugador) {
+        for (ArrayList<Opcion> opcionesJugador : listaDeListaDeOpcionesElegidas) {
             int indice = 0;
             ArrayList<Opcion> opcionesCorrectas = this.listaDeListasDeOpcionesCorrectas.get(indice);
             if (!tieneOpcionesNecesarias(opcionesJugador, opcionesCorrectas))
