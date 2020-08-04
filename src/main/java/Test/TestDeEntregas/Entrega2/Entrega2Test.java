@@ -1,7 +1,22 @@
 package Test.TestDeEntregas.Entrega2;
 
+import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.Opcion.Opcion;
+import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaGroupChoice.PreguntaGroupChoice;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePenalizable;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaOrderedChoice;
+import edu.fiuba.algo3.modelo.Ronda;
+import edu.fiuba.algo3.modelo.Turno;
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class Entrega2Test {
-    /*
+
     @Test
     public void test01PreguntaMultipleChoiceDePenalizablePuedeCrearseIndicandoleCualEsLaRespuestaCorrecta(){
         //Arrange
@@ -86,19 +101,27 @@ public class Entrega2Test {
         listaDeListaDeOpcionesJugador2.add(opcionesDeJugador2);
 
         Jugador jugador1 = new Jugador("Maho");
-        Respuesta respuestaJugador1 = new Respuesta(jugador1, listaDeListaDeOpcionesJugador1);
+        Turno turnoJugador1 = new Turno(multipleChoicePenalizable,jugador1);
+        turnoJugador1.setListaDeListaDeOpcionesElejidas(listaDeListaDeOpcionesJugador1);
 
         Jugador jugador2 = new Jugador("Ryuk");
-        Respuesta respuestaJugador2 = new Respuesta(jugador2, listaDeListaDeOpcionesJugador2);
+        Turno turnoJugador2 = new Turno(multipleChoicePenalizable,jugador2);
+        turnoJugador2.setListaDeListaDeOpcionesElejidas(listaDeListaDeOpcionesJugador2);
+
+        Ronda unaRonda = new Ronda();
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
 
         //Act
-        int puntosParaJugador1 = multipleChoicePenalizable.evaluarOpcionesElegidas(respuestaJugador1);
-        int puntosParaJugador2 = multipleChoicePenalizable.evaluarOpcionesElegidas(respuestaJugador2);
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
 
         //Assert
-        assertEquals(1, puntosParaJugador1);
-        assertEquals(3, puntosParaJugador2);
+        assertEquals(1, puntosJugador1);
+        assertEquals(3, puntosJugador2);
     }
+
     @Test
     public void test03PreguntaOrderedChoicePuedeCrearseIndicandoleCualEsLaRespuestaCorrecta(){
         //Arrange
@@ -184,18 +207,27 @@ public class Entrega2Test {
         listaDeListaDeOpcionesJugador2.add(opcionesDeJugador2);
 
         Jugador jugador1 = new Jugador("Maho");
-        Respuesta respuestaJugador1 = new Respuesta(jugador1, listaDeListaDeOpcionesJugador1);
+        Turno turnoJugador1 = new Turno(orderedChoice,jugador1);
+        turnoJugador1.setListaDeListaDeOpcionesElejidas(listaDeListaDeOpcionesJugador1);
 
         Jugador jugador2 = new Jugador("Ryuk");
-        Respuesta respuestaJugador2 = new Respuesta(jugador2, listaDeListaDeOpcionesJugador2);
+        Turno turnoJugador2 = new Turno(orderedChoice,jugador2);
+        turnoJugador2.setListaDeListaDeOpcionesElejidas(listaDeListaDeOpcionesJugador2);
+
+        Ronda unaRonda = new Ronda();
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
 
         //Act
-        int puntosParaJugador1 = orderedChoice.evaluarOpcionesElegidas(respuestaJugador1);
-        int puntosParaJugador2 = orderedChoice.evaluarOpcionesElegidas(respuestaJugador2);
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
         //Assert
-        assertEquals(1, puntosParaJugador1);
-        assertEquals(0, puntosParaJugador2);
+        assertEquals(1, puntosJugador1);
+        assertEquals(0, puntosJugador2);
     }
+
     @Test
     public void test05PreguntaGroupChoicePuedeCrearseIndicandoleCualEsLaRespuestaCorrecta() {
         //Arrange
@@ -325,16 +357,24 @@ public class Entrega2Test {
         listaDeListaDeOpcionesJugador2.add(SegundaListaOpcionesDeJugador2);
 
         Jugador jugador1 = new Jugador("Maho");
-        Respuesta respuestaJugador1 = new Respuesta(jugador1, listaDeListaDeOpcionesJugador1);
+        Turno turnoJugador1 = new Turno(groupChoice,jugador1);
+        turnoJugador1.setListaDeListaDeOpcionesElejidas(listaDeListaDeOpcionesJugador1);
 
         Jugador jugador2 = new Jugador("Ryuk");
-        Respuesta respuestaJugador2 = new Respuesta(jugador2, listaDeListaDeOpcionesJugador2);
+        Turno turnoJugador2 = new Turno(groupChoice,jugador2);
+        turnoJugador2.setListaDeListaDeOpcionesElejidas(listaDeListaDeOpcionesJugador2);
+
+        Ronda unaRonda = new Ronda();
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
 
         //Act
-        int puntosParaJugador1 = groupChoice.evaluarOpcionesElegidas(respuestaJugador1);
-        int puntosParaJugador2 = groupChoice.evaluarOpcionesElegidas(respuestaJugador2);
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
         //Assert
-        assertEquals(1, puntosParaJugador1);
-        assertEquals(0, puntosParaJugador2);
-    }*/
+        assertEquals(1, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+    }
 }
