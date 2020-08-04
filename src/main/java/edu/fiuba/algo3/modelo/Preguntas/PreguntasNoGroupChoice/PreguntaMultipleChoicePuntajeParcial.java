@@ -6,15 +6,19 @@ import edu.fiuba.algo3.modelo.Respuesta;
 
 import java.util.ArrayList;
 
-public class PreguntaMultipleChoiceClasico extends Pregunta {
-
-    public PreguntaMultipleChoiceClasico(String consigna, ArrayList<Opcion> opcionesApresentar, ArrayList<ArrayList<Opcion>> listaDeListasDeOpcionesCorrectas) {
+public class PreguntaMultipleChoicePuntajeParcial extends Pregunta {
+    public PreguntaMultipleChoicePuntajeParcial(String consigna, ArrayList<Opcion> opcionesApresentar, ArrayList<ArrayList<Opcion>> listaDeListasDeOpcionesCorrectas) {
         super(consigna, opcionesApresentar, listaDeListasDeOpcionesCorrectas);
+    }
+    @Override
+    protected boolean tieneOpcionesNecesarias(ArrayList<Opcion> opcionesJugador, ArrayList<Opcion> opcionesCorrectas) {
+        return !opcionesJugador.isEmpty();
     }
     @Override
     public int evaluarRespuesta(Respuesta unaRespuesta) {
         ArrayList<ArrayList <Opcion> > listaDeListaDeOpcionesJugador = unaRespuesta.getOpciones();
         boolean todoOk = true;
+        int puntosARetornar = 0;
         for(ArrayList<Opcion> opcionesJugador: listaDeListaDeOpcionesJugador ){
             int indice = 0;
             ArrayList<Opcion> opcionesCorrectas = this.listaDeListasDeOpcionesCorrectas.get(indice);
@@ -24,16 +28,10 @@ public class PreguntaMultipleChoiceClasico extends Pregunta {
                 if(!opcionesCorrectas.contains(unaOpcionElejida)) {
                     todoOk = false;
                 }
+                puntosARetornar++;
             }
             indice++;
         }
-        return ( todoOk ) ?  1 : 0 ;
+        return ( todoOk ) ?  puntosARetornar : 0 ;
     }
-
-
-    /*@Override
-    protected int obtenerPuntaje(ArrayList<Opcion> opcionesJugador) {
-        return 0;
-    }*/
-
 }

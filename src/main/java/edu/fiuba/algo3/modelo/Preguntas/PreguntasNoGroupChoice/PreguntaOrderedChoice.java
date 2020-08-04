@@ -13,20 +13,14 @@ public class PreguntaOrderedChoice extends Pregunta {
         super(consigna, opcionesApresentar, listaDeListasDeOpcionesCorrectas);
     }
 
-    @Override
+    /*@Override
     protected int obtenerPuntaje(ArrayList<Opcion> opcionesJugador) {
         return 0;
-    }
-
-    @Override
-    protected boolean tieneOpcionesNecesarias(ArrayList<Opcion> opcionesJugador, ArrayList<Opcion> opcionesCorrectas) {
-        return(opcionesJugador.size() == opcionesCorrectas.size());
-    }
+    }*/
 
     @Override
     public int evaluarRespuesta(Respuesta unaRespuesta) {
         ArrayList<ArrayList <Opcion> > listaDeListaDeOpcionesJugador = unaRespuesta.getOpciones();
-
         boolean todoOk = true;
         for(ArrayList<Opcion> opcionesJugador:  listaDeListaDeOpcionesJugador){
             int indice = 0;

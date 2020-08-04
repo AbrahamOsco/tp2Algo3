@@ -31,7 +31,6 @@ public class PreguntaGroupChoiceTest {
         opcionesAPresentar.add(opcion2B);
         opcionesAPresentar.add(opcion3B);
 
-
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesCorrectas = new ArrayList<>();
         ArrayList<Opcion> opcionesCorrectasGrupoA = new ArrayList<>();
         opcionesCorrectasGrupoA.add(opcion1A);

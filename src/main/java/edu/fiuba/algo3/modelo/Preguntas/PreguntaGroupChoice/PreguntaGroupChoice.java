@@ -11,15 +11,10 @@ public class PreguntaGroupChoice extends Pregunta {
         super(consigna, opcionesApresentar, listaDeListasDeOpcionesCorrectas);
     }
 
-    @Override
+    /*@Override
     protected int obtenerPuntaje(ArrayList<Opcion> opcionesJugador) {
         return 0;
-    }
-
-    @Override
-    protected boolean tieneOpcionesNecesarias(ArrayList<Opcion> opcionesJugador, ArrayList<Opcion> opcionesCorrectas) {
-        return opcionesJugador.size() == opcionesCorrectas.size();
-    }
+    }*/
 
     @Override
     public int evaluarRespuesta(Respuesta unaRespuesta) {
