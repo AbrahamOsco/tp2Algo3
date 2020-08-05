@@ -1,12 +1,12 @@
 package Test.TestDeClases.Ronda;
 
-import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePenalizable;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaVerdaderoFalsoClasico;
-import edu.fiuba.algo3.modelo.Ronda;
-import edu.fiuba.algo3.modelo.Turno;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntaPenalizable.PreguntaPenalizable;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntasClasicas.PreguntaClasica;
+import edu.fiuba.algo3.modelo.Ronda.Ronda;
+import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX3;
@@ -37,7 +37,7 @@ public class RondaTests {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "¿Es la filosofía una ciencia exacta?";
-        Pregunta verdaderoFalsoClasico = new PreguntaVerdaderoFalsoClasico(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta verdaderoFalsoClasico = new PreguntaClasica(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         //jugadores eligen opciones
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador1 = new ArrayList<>();
@@ -100,7 +100,7 @@ public class RondaTests {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Marque las figuras importantes en la historia romana";
-        Pregunta multipleChoicePenalizable = new PreguntaMultipleChoicePenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta multipleChoicePenalizable = new PreguntaPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         //jugadores eligen opciones
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador1 = new ArrayList<>();

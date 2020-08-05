@@ -3,7 +3,7 @@ package Test.TestDeClases.Turno;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaVerdaderoFalsoPenalizable;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntaPenalizable.PreguntaPenalizable;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX3;
@@ -31,7 +31,7 @@ public class TurnoTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "es g(x)=x-F(x) una funcion de punto fijo de F(x)?";
-        Pregunta verdaderoFalsoPenalizable = new PreguntaVerdaderoFalsoPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta verdaderoFalsoPenalizable = new PreguntaPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         //jugadores eligen opciones
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador1 = new ArrayList<>();
@@ -66,7 +66,7 @@ public class TurnoTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "es g(x)=x-F(x) una funcion de punto fijo de F(x)?";
-        Pregunta verdaderoFalsoPenalizable = new PreguntaVerdaderoFalsoPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta verdaderoFalsoPenalizable = new PreguntaPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         //jugadores eligen opciones
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador1 = new ArrayList<>();
