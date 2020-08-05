@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/github/AbrahamOsco/tp2Algo3.svg?branch=master)](https://travis-ci.com/github/AbrahamOsco/tp2Algo3)
+[![Build Status](https://travis-ci.com/AbrahamOsco/tp2Algo3.svg?branch=master)](https://travis-ci.com/AbrahamOsco/tp2Algo3)
 
 [![codecov](https://codecov.io/gh/fiuba/algo3_proyecto_base_tp2/branch/master/graph/badge.svg)](https://codecov.io/gh/fiuba/algo3_proyecto_base_tp2)
 
