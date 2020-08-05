@@ -32,9 +32,12 @@ public class Turno {
     public void setListaDeListaDeOpcionesElejidas(ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesElejidas) {
         this.listaDeListaDeOpcionesElejidas = listaDeListaDeOpcionesElejidas;
     }
+
     public int obtenerPuntajeParcial(){
         return this.pregunta.evaluarOpcionesElegidas(listaDeListaDeOpcionesElejidas);
     }
+
+
     public void asignarPuntajeFinal(int unPuntaje){
         jugador.modificarPuntaje(unPuntaje);
     }
