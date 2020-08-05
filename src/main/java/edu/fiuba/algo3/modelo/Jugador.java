@@ -28,7 +28,7 @@ public class  Jugador {
     public void modificarPuntaje(int puntaje){
         this.puntaje += puntaje;
     }
-    boolean activarMultiplicador(String unaClave){
+    public boolean activarMultiplicador(String unaClave){
         boolean retorno = false;
         int valor = modificadores.get(unaClave);
         if(valor > 0){
