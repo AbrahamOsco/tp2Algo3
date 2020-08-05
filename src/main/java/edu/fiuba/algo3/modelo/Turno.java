@@ -1,18 +1,44 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
+import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX1;
+
+import java.util.ArrayList;
 
 public class Turno {
-
     private Jugador jugador;
+    private Pregunta pregunta;
+    ModificadorMultiplicador multiplicadorActivo;
+    ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesElejidas;
 
-    public Turno (Jugador unJugador) { this.jugador = unJugador; }
+    public Turno (Pregunta unaPregunta,Jugador unJugador) {
+        this.pregunta = unaPregunta;
+        this.jugador = unJugador;
+        multiplicadorActivo = new MultiplicadorX1();
+        listaDeListaDeOpcionesElejidas = new ArrayList<>();
+    }
 
-    /*public Respuesta correrTurno(Pregunta unaPregunta) {
+    public ModificadorMultiplicador getMultiplicadorActivo() {
+        return multiplicadorActivo;
+    }
 
-        Respuesta respuesta = new Respuesta(this.jugador);
+    //Controlador sera el encargado de crear el Multiplicador y pasarselo
+    public void setMultiplicadorActivo(ModificadorMultiplicador multiplicadorActivo) {
+        this.multiplicadorActivo = multiplicadorActivo;
+    }
 
-        return respuesta;
-    }*/
+    public void setListaDeListaDeOpcionesElejidas(ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesElejidas) {
+        this.listaDeListaDeOpcionesElejidas = listaDeListaDeOpcionesElejidas;
+    }
+    public int obtenerPuntajeParcial(){
+        return this.pregunta.evaluarOpcionesElegidas(listaDeListaDeOpcionesElejidas);
+    }
+    public void asignarPuntajeFinal(int unPuntaje){
+        jugador.modificarPuntaje(unPuntaje);
+    }
+
+    
 
 }

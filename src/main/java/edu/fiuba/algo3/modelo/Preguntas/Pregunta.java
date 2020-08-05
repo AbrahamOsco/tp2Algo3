@@ -1,58 +1,32 @@
 package edu.fiuba.algo3.modelo.Preguntas;
 
-import edu.fiuba.algo3.modelo.Evaluable.Evaluable;
-import edu.fiuba.algo3.modelo.Respuesta;
+import edu.fiuba.algo3.modelo.Opcion.Opcion;
 
 import java.util.ArrayList;
 
 public abstract class Pregunta {
     private String consigna;
-    protected  ArrayList <Evaluable> opciones ;
+    protected  ArrayList <Opcion> opcionesApresentar;
+    protected  ArrayList< ArrayList<Opcion> > listaDeListasDeOpcionesCorrectas;
 
-    public Pregunta(String consigna, ArrayList<Evaluable> opciones) {
+    public Pregunta(String consigna, ArrayList<Opcion> opcionesApresentar, ArrayList< ArrayList<Opcion> > listaDeListasDeOpcionesCorrectas) {
         this.consigna = consigna;
-        this.opciones = opciones;
+        this.opcionesApresentar = opcionesApresentar;
+        this.listaDeListasDeOpcionesCorrectas = listaDeListasDeOpcionesCorrectas;
     }
-
     public String getConsigna() {
         return consigna;
     }
-
-    public void setConsigna(String consigna) {
-        this.consigna = consigna;
+    public ArrayList<Opcion> getOpcionesApresentar() {
+        return this.opcionesApresentar;
     }
-
-    public ArrayList<Evaluable> getOpciones() {
-        return this.opciones;
+    protected boolean tieneOpcionesNecesarias(ArrayList<Opcion> opcionesJugador, ArrayList<Opcion> opcionesCorrectas) {
+        return opcionesJugador.size() == opcionesCorrectas.size();
     }
+    public  abstract int evaluarOpcionesElegidas(ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesElegidas);
 
-    public void setOpciones(ArrayList<Evaluable> opciones) {
-        this.opciones = opciones;
+    //Solo se utiliza Para los Test
+    public ArrayList<ArrayList<Opcion>> getOpcionesCorrectas () {
+        return this.listaDeListasDeOpcionesCorrectas;
     }
-
-    protected  abstract  int obtenerPuntaje(ArrayList<Evaluable>opcionesJugador);
-
-    public  int evaluarRespuesta(Respuesta unaRespuesta){
-        ArrayList<Evaluable>opcionesJugador = unaRespuesta.getOpcionesElegidas();
-        if(opcionesJugador.isEmpty())
-            return 0;
-        return obtenerPuntaje(opcionesJugador);
-    }
-
-    //Solo se utiliza para los test
-    public ArrayList<Evaluable> getOpcionesCorrectas () {
-
-        ArrayList<Evaluable> opcionesCorrectas = new ArrayList<Evaluable>();
-
-        for (Evaluable opcion: opciones) {
-
-            if(opcion.evaluar())
-                opcionesCorrectas.add(opcion);
-
-        }
-
-        return opcionesCorrectas;
-
-    }
-
 }
