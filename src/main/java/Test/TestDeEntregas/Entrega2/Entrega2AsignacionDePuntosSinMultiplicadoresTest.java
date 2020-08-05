@@ -1,13 +1,21 @@
 package Test.TestDeEntregas.Entrega2;
 
-import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
+<<<<<<< HEAD
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaGroup.PreguntaGroupChoice;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntaOrdered.PreguntaOrdered;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntaPenalizable.PreguntaPenalizable;
 import edu.fiuba.algo3.modelo.Ronda;
 import edu.fiuba.algo3.modelo.Turno;
+=======
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaGroupChoice.PreguntaGroupChoice;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePenalizable;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaOrderedChoice;
+import edu.fiuba.algo3.modelo.Ronda.Ronda;
+import edu.fiuba.algo3.modelo.Turno.Turno;
+>>>>>>> b106c7255a6326adf29d4b3a6bf3b6ec6974aaf2
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

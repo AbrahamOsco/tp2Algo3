@@ -1,18 +1,12 @@
-package Test.TestDeEntregas.Entrega2;
+package Test.TestDeClases.Ronda;
 
-import edu.fiuba.algo3.modelo.Jugador.Jugador;
+import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-<<<<<<< HEAD
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntaPenalizable.PreguntaPenalizable;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePenalizable;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaVerdaderoFalsoClasico;
 import edu.fiuba.algo3.modelo.Ronda;
 import edu.fiuba.algo3.modelo.Turno;
-=======
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePenalizable;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaVerdaderoFalsoPenalizable;
-import edu.fiuba.algo3.modelo.Ronda.Ronda;
-import edu.fiuba.algo3.modelo.Turno.Turno;
->>>>>>> b106c7255a6326adf29d4b3a6bf3b6ec6974aaf2
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX3;
@@ -22,14 +16,15 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Entrega2AsignacionDePuntosConMultiplicadoresTest {
+public class RondaTests {
 
-
+    //Necesita agregar turnos para asignar puntos.
     @Test
-    public void test01PreguntaDeVerdaderoFalsoPenalizableRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntosJugador2usaX3(){
+    public void test01agregarTurnosYasignarPuntosSinMultiplicadores() {
+
         //Arrange
-        Opcion opcion1 = new Opcion("si");
-        Opcion opcion2 = new Opcion("no");
+        Opcion opcion1 = new Opcion("Tal vez");
+        Opcion opcion2 = new Opcion("Quizas");
 
         ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
@@ -41,8 +36,8 @@ public class Entrega2AsignacionDePuntosConMultiplicadoresTest {
 
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
-        String consigna = "Es 5 + 5 igual a 10?";
-        Pregunta verdaderoFalsoPenalizable = new PreguntaPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        String consigna = "¿Es la filosofía una ciencia exacta?";
+        Pregunta verdaderoFalsoClasico = new PreguntaVerdaderoFalsoClasico(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         //jugadores eligen opciones
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador1 = new ArrayList<>();
@@ -55,18 +50,13 @@ public class Entrega2AsignacionDePuntosConMultiplicadoresTest {
         opcionesDeJugador2.add(opcion2);
         listaDeListaDeOpcionesJugador2.add(opcionesDeJugador2);
 
-        Jugador jugador1 = new Jugador("Maho");
-        Turno turnoJugador1 = new Turno(verdaderoFalsoPenalizable,jugador1);
+        Jugador jugador1 = new Jugador("Lucius");
+        Turno turnoJugador1 = new Turno(verdaderoFalsoClasico,jugador1);
         turnoJugador1.setListaDeListaDeOpcionesElejidas(listaDeListaDeOpcionesJugador1);
 
-        Jugador jugador2 = new Jugador("Ryuk");
-        Turno turnoJugador2 = new Turno(verdaderoFalsoPenalizable,jugador2);
+        Jugador jugador2 = new Jugador("Arquímedes");
+        Turno turnoJugador2 = new Turno(verdaderoFalsoClasico,jugador2);
         turnoJugador2.setListaDeListaDeOpcionesElejidas(listaDeListaDeOpcionesJugador2);
-        if(jugador2.activarMultiplicador("multiplicadorX3")){
-            ModificadorMultiplicador unMultiplicador = new MultiplicadorX3();
-            turnoJugador2.setMultiplicadorActivo(unMultiplicador);
-        }
-
 
         Ronda unaRonda = new Ronda();
         unaRonda.agregarTurno(turnoJugador1);
@@ -79,17 +69,19 @@ public class Entrega2AsignacionDePuntosConMultiplicadoresTest {
 
         //Assert
         assertEquals(1, puntosJugador1);
-        assertEquals(-3, puntosJugador2);
+        assertEquals(0, puntosJugador2);
+
     }
 
     @Test
-    public void test02PreguntaMultipleChoiceDePenalizableRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntosJugador1UsaX2YJugador2UsaX3(){
+    public void test02agregarTurnosYasignarPuntosConMultiplicadores() {
+
         //Arrange
-        Opcion opcion1 = new Opcion("A");
-        Opcion opcion2 = new Opcion("5");
-        Opcion opcion3 = new Opcion("B");
-        Opcion opcion4 = new Opcion("N");
-        Opcion opcion5 = new Opcion("Z");
+        Opcion opcion1 = new Opcion("Cayo Julio Cesar");
+        Opcion opcion2 = new Opcion("Bob Esponja");
+        Opcion opcion3 = new Opcion("Marco Vipsanio Agrippa");
+        Opcion opcion4 = new Opcion("Octavio");
+        Opcion opcion5 = new Opcion("Craso");
 
         ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
@@ -107,8 +99,8 @@ public class Entrega2AsignacionDePuntosConMultiplicadoresTest {
 
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
-        String consigna = "Selecione las opciones que representen letras del alfabeto";
-        Pregunta multipleChoicePenalizable = new PreguntaPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        String consigna = "Marque las figuras importantes en la historia romana";
+        Pregunta multipleChoicePenalizable = new PreguntaMultipleChoicePenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         //jugadores eligen opciones
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador1 = new ArrayList<>();
@@ -128,7 +120,7 @@ public class Entrega2AsignacionDePuntosConMultiplicadoresTest {
         opcionesDeJugador2.add(opcion5);
         listaDeListaDeOpcionesJugador2.add(opcionesDeJugador2);
 
-        Jugador jugador1 = new Jugador("Maho");
+        Jugador jugador1 = new Jugador("Samuel");
         Turno turnoJugador1 = new Turno(multipleChoicePenalizable,jugador1);
         turnoJugador1.setListaDeListaDeOpcionesElejidas(listaDeListaDeOpcionesJugador1);
         if(jugador1.activarMultiplicador("multiplicadorX2")){
@@ -136,7 +128,7 @@ public class Entrega2AsignacionDePuntosConMultiplicadoresTest {
             turnoJugador1.setMultiplicadorActivo(unMultiplicador);
         }
 
-        Jugador jugador2 = new Jugador("Ryuk");
+        Jugador jugador2 = new Jugador("LaSenioraDeLosGatos");
         Turno turnoJugador2 = new Turno(multipleChoicePenalizable,jugador2);
         turnoJugador2.setListaDeListaDeOpcionesElejidas(listaDeListaDeOpcionesJugador2);
         if(jugador2.activarMultiplicador("multiplicadorX3")){
@@ -156,5 +148,7 @@ public class Entrega2AsignacionDePuntosConMultiplicadoresTest {
         //Assert
         assertEquals(2, puntosJugador1);
         assertEquals(9, puntosJugador2);
+
     }
+
 }

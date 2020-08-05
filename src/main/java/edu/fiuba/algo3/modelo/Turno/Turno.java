@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Turno;
 
+import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
@@ -32,9 +33,12 @@ public class Turno {
     public void setListaDeListaDeOpcionesElejidas(ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesElejidas) {
         this.listaDeListaDeOpcionesElejidas = listaDeListaDeOpcionesElejidas;
     }
+
     public int obtenerPuntajeParcial(){
         return this.pregunta.evaluarOpcionesElegidas(listaDeListaDeOpcionesElejidas);
     }
+
+
     public void asignarPuntajeFinal(int unPuntaje){
         jugador.modificarPuntaje(unPuntaje);
     }
