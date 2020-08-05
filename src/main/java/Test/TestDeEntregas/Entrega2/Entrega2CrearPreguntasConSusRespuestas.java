@@ -2,9 +2,9 @@ package Test.TestDeEntregas.Entrega2;
 
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntaGroupChoice.PreguntaGroupChoice;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePenalizable;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaOrderedChoice;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaGroup.PreguntaGroupChoice;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntaOrdered.PreguntaOrdered;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntaPenalizable.PreguntaPenalizable;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class Entrega2CrearPreguntasConSusRespuestas {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Selecione las opciones que representen letras del alfabeto";
-        Pregunta multipleChoicePenalizable = new PreguntaMultipleChoicePenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta multipleChoicePenalizable = new PreguntaPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         //Act
         ArrayList<ArrayList<Opcion>> opcionesCorrectasPedidasAPregunta = multipleChoicePenalizable.getOpcionesCorrectas();
@@ -73,7 +73,7 @@ public class Entrega2CrearPreguntasConSusRespuestas {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Ordene los siguientes numeros de menor a mayor";
-        Pregunta orderedChoice = new PreguntaOrderedChoice(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta orderedChoice = new PreguntaOrdered(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         //Act
         ArrayList<ArrayList<Opcion>> opcionesCorrectasPedidasAPregunta = orderedChoice.getOpcionesCorrectas();

@@ -1,9 +1,12 @@
 package Test.TestDeClases.PreguntasNoGroupChoice;
+
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaVerdaderoFalsoClasico;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntasClasicas.PreguntaClasica;
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PreguntaVerdaderoFalsoClasicoTest {
@@ -25,7 +28,7 @@ public class PreguntaVerdaderoFalsoClasicoTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Es 5 + 5 igual a 10?";
-        Pregunta verdaderoFalsoClasico = new PreguntaVerdaderoFalsoClasico(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta verdaderoFalsoClasico = new PreguntaClasica(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();
@@ -55,7 +58,7 @@ public class PreguntaVerdaderoFalsoClasicoTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Es 5 + 5 igual a 10?";
-        Pregunta verdaderoFalsoClasico = new PreguntaVerdaderoFalsoClasico(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta verdaderoFalsoClasico = new PreguntaClasica(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();
@@ -85,7 +88,7 @@ public class PreguntaVerdaderoFalsoClasicoTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Es 5 + 5 igual a 10?";
-        Pregunta verdaderoFalsoClasico = new PreguntaVerdaderoFalsoClasico(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta verdaderoFalsoClasico = new PreguntaClasica(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();

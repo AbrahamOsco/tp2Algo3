@@ -2,7 +2,7 @@ package Test.TestDeClases.PreguntasNoGroupChoice;
 
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePuntajeParcial;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntaPuntajeParcial.PreguntaPuntajeParcial;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class PreguntaMultipleChoicePuntajeParcialTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Selecione las opciones que representen letras del alfabeto";
-        Pregunta multipleChoicePuntajeParcial= new PreguntaMultipleChoicePuntajeParcial(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta multipleChoicePuntajeParcial= new PreguntaPuntajeParcial(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();
@@ -79,7 +79,7 @@ public class PreguntaMultipleChoicePuntajeParcialTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Selecione las opciones que representen letras del alfabeto";
-        Pregunta multipleChoicePuntajeParcial= new PreguntaMultipleChoicePuntajeParcial(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta multipleChoicePuntajeParcial= new PreguntaPuntajeParcial(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();
@@ -120,7 +120,7 @@ public class PreguntaMultipleChoicePuntajeParcialTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Selecione las opciones que representen letras del alfabeto";
-        Pregunta multipleChoicePuntajeParcial= new PreguntaMultipleChoicePuntajeParcial(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta multipleChoicePuntajeParcial= new PreguntaPuntajeParcial(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();
@@ -161,7 +161,7 @@ public class PreguntaMultipleChoicePuntajeParcialTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Selecione las opciones que representen letras del alfabeto";
-        Pregunta multipleChoicePuntajeParcial= new PreguntaMultipleChoicePuntajeParcial(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta multipleChoicePuntajeParcial= new PreguntaPuntajeParcial(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();
@@ -199,7 +199,7 @@ public class PreguntaMultipleChoicePuntajeParcialTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Selecione las opciones que representen letras del alfabeto";
-        Pregunta multipleChoicePuntajeParcial= new PreguntaMultipleChoicePuntajeParcial(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta multipleChoicePuntajeParcial= new PreguntaPuntajeParcial(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();

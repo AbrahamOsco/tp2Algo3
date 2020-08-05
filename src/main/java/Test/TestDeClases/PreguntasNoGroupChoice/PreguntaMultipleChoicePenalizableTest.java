@@ -2,9 +2,11 @@ package Test.TestDeClases.PreguntasNoGroupChoice;
 
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePenalizable;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntaPenalizable.PreguntaPenalizable;
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PreguntaMultipleChoicePenalizableTest {
@@ -35,7 +37,7 @@ public class PreguntaMultipleChoicePenalizableTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Selecione las opciones que representen letras del alfabeto";
-        Pregunta multipleChoicePenalizable = new PreguntaMultipleChoicePenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta multipleChoicePenalizable = new PreguntaPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();
@@ -47,7 +49,7 @@ public class PreguntaMultipleChoicePenalizableTest {
         listaDeListaDeOpcionesJugador.add(opcionesDeJugador);
 
         //Act
-        int resultado = multipleChoicePenalizable.evaluarOpcionesElegidas(listaDeListaDeOpcionesJugador);
+        int resultado = multipleChoicePenalizable.evaluarOpcionesElegidas(listaDeListaDeOpcionesJugador );
         //Assert
         assertEquals(4, resultado);
     }
@@ -77,7 +79,7 @@ public class PreguntaMultipleChoicePenalizableTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Selecione las opciones que representen letras del alfabeto";
-        Pregunta multipleChoicePenalizable= new PreguntaMultipleChoicePenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta multipleChoicePenalizable= new PreguntaPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();
@@ -90,7 +92,7 @@ public class PreguntaMultipleChoicePenalizableTest {
         listaDeListaDeOpcionesJugador.add(opcionesDeJugador);
 
         //Act
-        int resultado = multipleChoicePenalizable.evaluarOpcionesElegidas(listaDeListaDeOpcionesJugador);
+        int resultado = multipleChoicePenalizable.evaluarOpcionesElegidas(listaDeListaDeOpcionesJugador );
         //Assert
         assertEquals(3, resultado);
     }
@@ -119,7 +121,7 @@ public class PreguntaMultipleChoicePenalizableTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Selecione las opciones que representen letras del alfabeto";
-        Pregunta multipleChoicePenalizable= new PreguntaMultipleChoicePenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta multipleChoicePenalizable= new PreguntaPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();
@@ -158,7 +160,7 @@ public class PreguntaMultipleChoicePenalizableTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Selecione las opciones que representen letras del alfabeto";
-        Pregunta multipleChoicePenalizable= new PreguntaMultipleChoicePenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta multipleChoicePenalizable= new PreguntaPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();

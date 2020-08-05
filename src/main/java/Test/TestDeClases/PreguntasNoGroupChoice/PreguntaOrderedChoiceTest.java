@@ -1,9 +1,12 @@
 package Test.TestDeClases.PreguntasNoGroupChoice;
+
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaOrderedChoice;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntaOrdered.PreguntaOrdered;
 import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PreguntaOrderedChoiceTest {
@@ -32,7 +35,7 @@ public class PreguntaOrderedChoiceTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Ordene los siguientes numeros de menor a mayor";
-        Pregunta orderedChoice = new PreguntaOrderedChoice(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta orderedChoice = new PreguntaOrdered(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();
@@ -72,7 +75,7 @@ public class PreguntaOrderedChoiceTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Ordene los siguientes numeros de menor a mayor";
-        Pregunta orderedChoice = new PreguntaOrderedChoice(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta orderedChoice = new PreguntaOrdered(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();
@@ -112,7 +115,7 @@ public class PreguntaOrderedChoiceTest {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Ordene los siguientes numeros de menor a mayor";
-        Pregunta orderedChoice = new PreguntaOrderedChoice(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta orderedChoice = new PreguntaOrdered(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador = new ArrayList<>();
         ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();

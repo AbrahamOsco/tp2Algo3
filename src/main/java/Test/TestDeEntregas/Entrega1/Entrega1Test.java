@@ -3,9 +3,9 @@ package Test.TestDeEntregas.Entrega1;
 import edu.fiuba.algo3.modelo.Jugador;
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoiceClasico;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePuntajeParcial;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaVerdaderoFalsoPenalizable;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntaPenalizable.PreguntaPenalizable;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntaPuntajeParcial.PreguntaPuntajeParcial;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntasClasicas.PreguntaClasica;
 import edu.fiuba.algo3.modelo.Ronda;
 import edu.fiuba.algo3.modelo.Turno;
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,7 @@ public class Entrega1Test {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Es 5 + 5 igual a 10?";
-        Pregunta verdaderoFalsoPenalizable = new PreguntaVerdaderoFalsoPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta verdaderoFalsoPenalizable = new PreguntaPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         //Act
         ArrayList<ArrayList<Opcion>> opcionesCorrectasPedidasAPregunta = verdaderoFalsoPenalizable.getOpcionesCorrectas();
@@ -60,7 +60,7 @@ public class Entrega1Test {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Es 5 + 5 igual a 10?";
-        Pregunta verdaderoFalsoPenalizable = new PreguntaVerdaderoFalsoPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta verdaderoFalsoPenalizable = new PreguntaPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         //jugadores eligen opciones
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador1 = new ArrayList<>();
@@ -118,7 +118,7 @@ public class Entrega1Test {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Selecione las opciones que representen letras del alfabeto";
-        Pregunta multipleChoiceClasico = new PreguntaMultipleChoiceClasico(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta multipleChoiceClasico = new PreguntaClasica(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         //Act
         ArrayList<ArrayList<Opcion>> opcionesCorrectasPedidasAPregunta = multipleChoiceClasico.getOpcionesCorrectas();
@@ -156,7 +156,7 @@ public class Entrega1Test {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Selecione las opciones que representen letras del alfabeto";
-        Pregunta multipleChoiceClasico = new PreguntaMultipleChoiceClasico(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta multipleChoiceClasico = new PreguntaClasica(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         //jugadores eligen opciones
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador1 = new ArrayList<>();
@@ -218,7 +218,7 @@ public class Entrega1Test {
        listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
        String consigna = "Selecione las opciones que representen letras del alfabeto";
-       Pregunta multipleChoicePuntajeParcial = new PreguntaMultipleChoicePuntajeParcial(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+       Pregunta multipleChoicePuntajeParcial = new PreguntaPuntajeParcial(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
        //Act
        ArrayList<ArrayList<Opcion>> opcionesCorrectasPedidasAPregunta = multipleChoicePuntajeParcial.getOpcionesCorrectas();
@@ -255,7 +255,7 @@ public class Entrega1Test {
         listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
 
         String consigna = "Selecione las opciones que representen letras del alfabeto";
-        Pregunta multipleChoicePuntajeParcial = new PreguntaMultipleChoicePuntajeParcial(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta multipleChoicePuntajeParcial = new PreguntaPuntajeParcial(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
 
         //jugadores eligen opciones
         ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador1 = new ArrayList<>();

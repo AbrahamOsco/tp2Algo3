@@ -20,11 +20,7 @@ public abstract class Pregunta {
     public ArrayList<Opcion> getOpcionesApresentar() {
         return this.opcionesApresentar;
     }
-    protected boolean tieneOpcionesNecesarias(ArrayList<Opcion> opcionesJugador, ArrayList<Opcion> opcionesCorrectas) {
-        return opcionesJugador.size() == opcionesCorrectas.size();
-    }
-    public  abstract int evaluarOpcionesElegidas(ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesElegidas);
-
+    public abstract int evaluarOpcionesElegidas(ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesElegidas);
     //Solo se utiliza Para los Test
     public ArrayList<ArrayList<Opcion>> getOpcionesCorrectas () {
         return this.listaDeListasDeOpcionesCorrectas;
