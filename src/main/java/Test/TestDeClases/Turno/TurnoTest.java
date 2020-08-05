@@ -1,14 +1,11 @@
 package Test.TestDeClases.Turno;
 
-import edu.fiuba.algo3.modelo.Jugador;
+import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opcion.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaMultipleChoicePenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntasNoGroupChoice.PreguntaVerdaderoFalsoPenalizable;
-import edu.fiuba.algo3.modelo.Ronda;
-import edu.fiuba.algo3.modelo.Turno;
+import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
-import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX3;
 import org.junit.jupiter.api.Test;
 

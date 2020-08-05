@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.modificador;
 
-import edu.fiuba.algo3.modelo.Turno;
+import edu.fiuba.algo3.modelo.Turno.Turno;
 
 import java.util.ArrayList;
 

@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Ronda;
 
+import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
 
 import java.util.ArrayList;
