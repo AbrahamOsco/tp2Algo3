@@ -1,28 +1,49 @@
 package edu.fiuba.algo3.modelo.Preguntas;
 
-import edu.fiuba.algo3.modelo.Opcion.Opcion;
+import edu.fiuba.algo3.modelo.Evaluables.Evaluable;
 
 import java.util.ArrayList;
 
 public abstract class Pregunta {
     private String consigna;
-    protected  ArrayList <Opcion> opcionesApresentar;
-    protected  ArrayList< ArrayList<Opcion> > listaDeListasDeOpcionesCorrectas;
+    protected ArrayList<Evaluable> opciones ;
 
-    public Pregunta(String consigna, ArrayList<Opcion> opcionesApresentar, ArrayList< ArrayList<Opcion> > listaDeListasDeOpcionesCorrectas) {
+    public Pregunta(String consigna, ArrayList<Evaluable> opciones) {
         this.consigna = consigna;
-        this.opcionesApresentar = opcionesApresentar;
-        this.listaDeListasDeOpcionesCorrectas = listaDeListasDeOpcionesCorrectas;
+        this.opciones = opciones;
     }
+
     public String getConsigna() {
         return consigna;
     }
-    public ArrayList<Opcion> getOpcionesApresentar() {
-        return this.opcionesApresentar;
+
+    public void setConsigna(String consigna) {
+        this.consigna = consigna;
     }
-    public abstract int evaluarOpcionesElegidas(ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesElegidas);
+
+    public ArrayList<Evaluable> getOpciones() {
+        return this.opciones;
+    }
+
+    public void setOpciones(ArrayList<Evaluable> opciones) {
+        this.opciones = opciones;
+    }
+
+    protected  abstract  int obtenerPuntaje(ArrayList<Evaluable> opcionesJugador );
+    protected  abstract  boolean tieneOpcionesNecesarias(ArrayList<Evaluable> opcionesJugador );
+
+    public  int evaluarOpcionesElegidas(ArrayList<Evaluable> opcionesJugador){
+        if(opcionesJugador.isEmpty() || !tieneOpcionesNecesarias(opcionesJugador))
+            return 0;
+        return obtenerPuntaje(opcionesJugador);
+    }
     //Solo se utiliza Para los Test
-    public ArrayList<ArrayList<Opcion>> getOpcionesCorrectas () {
-        return this.listaDeListasDeOpcionesCorrectas;
+    public ArrayList<Evaluable> getOpcionesCorrectas () {
+        ArrayList<Evaluable> opcionesCorrectas = new ArrayList<Evaluable>();
+        for (Evaluable opcion: opciones) {
+            if(opcion.evaluar())
+                opcionesCorrectas.add(opcion);
+        }
+        return opcionesCorrectas;
     }
 }

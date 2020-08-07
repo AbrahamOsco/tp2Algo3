@@ -1,9 +1,11 @@
 package Test.TestDeClases.Turno;
 
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Opcion.Opcion;
+import edu.fiuba.algo3.modelo.Evaluables.Evaluable;
+import edu.fiuba.algo3.modelo.Evaluables.OpcionCorrecta;
+import edu.fiuba.algo3.modelo.Evaluables.OpcionIncorrecta;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntasSimples.PreguntaPenalizable.PreguntaPenalizable;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX3;
@@ -17,32 +19,23 @@ public class TurnoTest {
     @Test
     public void test01JugadorRespondeCorrectamentePreguntaVerdaderoFalsoPenalizableSinMultiplicadoresObtiene1PuntoEnEseTurno(){
         //Arrange
-        Opcion opcion1 = new Opcion("si");
-        Opcion opcion2 = new Opcion("no");
+        Evaluable opcion1 = new OpcionCorrecta("si");
+        Evaluable opcion2 = new OpcionIncorrecta("no");
 
-        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        ArrayList<Evaluable> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
         opcionesAPresentar.add(opcion2);
 
-        ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesCorrectas = new ArrayList<>();
-        ArrayList<Opcion> opcionesCorrectas = new ArrayList<>();
-        opcionesCorrectas.add(opcion1);
-
-        listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
-
         String consigna = "es g(x)=x-F(x) una funcion de punto fijo de F(x)?";
-        Pregunta verdaderoFalsoPenalizable = new PreguntaPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta verdaderoFalsoPenalizable = new PreguntaPuntajeParcialPenalizable(consigna, opcionesAPresentar);
 
         //jugadores eligen opciones
-        ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador1 = new ArrayList<>();
-        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        ArrayList<Evaluable> opcionesDeJugador1 = new ArrayList<>();
         opcionesDeJugador1.add(opcion1);
-        listaDeListaDeOpcionesJugador1.add(opcionesDeJugador1);
-
 
         Jugador jugador1 = new Jugador("Darkoskure");
         Turno turnoJugador1 = new Turno(verdaderoFalsoPenalizable,jugador1);
-        turnoJugador1.setListaDeListaDeOpcionesElejidas(listaDeListaDeOpcionesJugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
 
         int puntajeParcialJugador1 = turnoJugador1.obtenerPuntajeParcial();
 
@@ -52,32 +45,24 @@ public class TurnoTest {
 
     @Test
     public void test01JugadorRespondeCorrectamentePreguntaVerdaderoFalsoPenalizableConMultiplicadoresObtiene1PuntoEnEseTurno() {
-        Opcion opcion1 = new Opcion("si");
-        Opcion opcion2 = new Opcion("no");
+        Evaluable opcion1 = new OpcionCorrecta("si");
+        Evaluable opcion2 = new OpcionIncorrecta("no");
 
-        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        ArrayList<Evaluable> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
         opcionesAPresentar.add(opcion2);
 
-        ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesCorrectas = new ArrayList<>();
-        ArrayList<Opcion> opcionesCorrectas = new ArrayList<>();
-        opcionesCorrectas.add(opcion1);
-
-        listaDeListaDeOpcionesCorrectas.add(opcionesCorrectas);
-
         String consigna = "es g(x)=x-F(x) una funcion de punto fijo de F(x)?";
-        Pregunta verdaderoFalsoPenalizable = new PreguntaPenalizable(consigna, opcionesAPresentar, listaDeListaDeOpcionesCorrectas);
+        Pregunta verdaderoFalsoPenalizable = new PreguntaPuntajeParcialPenalizable(consigna, opcionesAPresentar);
 
         //jugadores eligen opciones
-        ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesJugador1 = new ArrayList<>();
-        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        ArrayList<Evaluable> opcionesDeJugador1 = new ArrayList<>();
         opcionesDeJugador1.add(opcion2);
-        listaDeListaDeOpcionesJugador1.add(opcionesDeJugador1);
 
 
         Jugador jugador1 = new Jugador("Darkoskure");
         Turno turnoJugador1 = new Turno(verdaderoFalsoPenalizable,jugador1);
-        turnoJugador1.setListaDeListaDeOpcionesElejidas(listaDeListaDeOpcionesJugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
 
         ModificadorMultiplicador unMultiplicador = new MultiplicadorX3();
         turnoJugador1.setMultiplicadorActivo(unMultiplicador);
@@ -90,6 +75,5 @@ public class TurnoTest {
         assertEquals(-3,puntajeFinalJugador1);
 
     }
-
 
 }

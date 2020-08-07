@@ -1,0 +1,74 @@
+package Test.TestEntregas.TestEntrega0;
+
+import edu.fiuba.algo3.modelo.Jugador.Jugador;
+import edu.fiuba.algo3.modelo.Evaluables.Evaluable;
+import edu.fiuba.algo3.modelo.Evaluables.OpcionCorrecta;
+import edu.fiuba.algo3.modelo.Evaluables.OpcionIncorrecta;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
+import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.Ronda.Ronda;
+import edu.fiuba.algo3.modelo.Turno.Turno;
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class Entrega0Test {
+    @Test
+    public void test01PreguntaDeVerdaderoFalsoClasicoPuedeCrearseIndicandoleCualEsLaRespuestaCorrecta(){
+        //Arrange
+        Evaluable opcion1 = new OpcionCorrecta("Verdadero");
+        Evaluable opcion2 = new OpcionIncorrecta("Falso");
+
+        ArrayList<Evaluable> opciones = new ArrayList<Evaluable>();
+
+        opciones.add(opcion1);
+        opciones.add(opcion2);
+
+        Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos("La mayonesa es un instrumento musical", opciones);
+        //Act
+        boolean contieneRespuestaCorrecta = unaPregunta.getOpcionesCorrectas().contains(opcion1);
+        //Assert
+        assertTrue(contieneRespuestaCorrecta);
+    }
+    @Test
+    public void test02PreguntaDeVerdaderoFalsoClasicoRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntos() {
+        Evaluable opcion1 = new OpcionCorrecta("si");
+        Evaluable opcion2 = new OpcionIncorrecta("no");
+
+        ArrayList<Evaluable> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+
+        String consigna = "Es 5 + 5 igual a 10?";
+        Pregunta verdaderoFalsoClasico = new PreguntaPuntajeParcialSinIncorrectos(consigna, opcionesAPresentar);
+
+        //jugadores eligen opciones
+        ArrayList<Evaluable> opcionesDeJugador1 = new ArrayList<>();
+        opcionesDeJugador1.add(opcion1);
+
+        ArrayList<Evaluable> opcionesDeJugador2 = new ArrayList<>();
+        opcionesDeJugador2.add(opcion2);
+
+        Jugador jugador1 = new Jugador("Maho");
+        Turno turnoJugador1 = new Turno(verdaderoFalsoClasico, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+
+        Jugador jugador2 = new Jugador("Ryuk");
+        Turno turnoJugador2 = new Turno(verdaderoFalsoClasico, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+
+        Ronda unaRonda = new Ronda();
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(1, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+    }
+}

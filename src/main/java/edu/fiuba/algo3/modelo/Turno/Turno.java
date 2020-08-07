@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Turno;
 
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Opcion.Opcion;
+import edu.fiuba.algo3.modelo.Evaluables.Evaluable;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX1;
@@ -12,13 +12,13 @@ public class Turno {
     private Jugador jugador;
     private Pregunta pregunta;
     ModificadorMultiplicador multiplicadorActivo;
-    ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesElejidas;
+    ArrayList<Evaluable> opcionesElejidas;
 
-    public Turno (Pregunta unaPregunta,Jugador unJugador) {
+    public Turno (Pregunta unaPregunta, Jugador unJugador) {
         this.pregunta = unaPregunta;
         this.jugador = unJugador;
         multiplicadorActivo = new MultiplicadorX1();
-        listaDeListaDeOpcionesElejidas = new ArrayList<>();
+        opcionesElejidas = new ArrayList<>();
     }
 
     public ModificadorMultiplicador getMultiplicadorActivo() {
@@ -30,12 +30,12 @@ public class Turno {
         this.multiplicadorActivo = multiplicadorActivo;
     }
 
-    public void setListaDeListaDeOpcionesElejidas(ArrayList<ArrayList<Opcion>> listaDeListaDeOpcionesElejidas) {
-        this.listaDeListaDeOpcionesElejidas = listaDeListaDeOpcionesElejidas;
+    public void setOpcionesElejidas(ArrayList<Evaluable> opcionesElejidas) {
+        this.opcionesElejidas = opcionesElejidas;
     }
 
     public int obtenerPuntajeParcial(){
-        return this.pregunta.evaluarOpcionesElegidas(listaDeListaDeOpcionesElejidas);
+        return this.pregunta.evaluarOpcionesElegidas(this.opcionesElejidas);
     }
 
 
