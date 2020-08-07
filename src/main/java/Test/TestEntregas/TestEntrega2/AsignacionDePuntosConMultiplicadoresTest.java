@@ -1,9 +1,9 @@
 package Test.TestEntregas.TestEntrega2;
 
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Evaluables.Evaluable;
-import edu.fiuba.algo3.modelo.Evaluables.OpcionCorrecta;
-import edu.fiuba.algo3.modelo.Evaluables.OpcionIncorrecta;
+import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
+import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Ronda.Ronda;
@@ -19,10 +19,10 @@ public class AsignacionDePuntosConMultiplicadoresTest {
     @Test
     public void test01PreguntaDeVerdaderoFalsoPenalizableRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntosJugador2usaX3(){
         //Arrange
-        Evaluable opcion1 = new OpcionCorrecta("si");
-        Evaluable opcion2 = new OpcionIncorrecta("no");
+        Opcion opcion1 = new OpcionCorrecta("si");
+        Opcion opcion2 = new OpcionIncorrecta("no");
 
-        ArrayList<Evaluable> opcionesAPresentar = new ArrayList<>();
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
         opcionesAPresentar.add(opcion2);
 
@@ -30,10 +30,10 @@ public class AsignacionDePuntosConMultiplicadoresTest {
         Pregunta verdaderoFalsoPenalizable = new PreguntaPuntajeParcialPenalizable(consigna, opcionesAPresentar);
 
         //jugadores eligen opciones
-        ArrayList<Evaluable> opcionesDeJugador1 = new ArrayList<>();
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
         opcionesDeJugador1.add(opcion1);
 
-        ArrayList<Evaluable> opcionesDeJugador2 = new ArrayList<>();
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
         opcionesDeJugador2.add(opcion2);
 
         Jugador jugador1 = new Jugador("Maho");
@@ -65,13 +65,13 @@ public class AsignacionDePuntosConMultiplicadoresTest {
     @Test
     public void test02PreguntaMultipleChoiceDePenalizableRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntosJugador1UsaX2YJugador2UsaX3(){
         //Arrange
-        Evaluable opcion1 = new OpcionCorrecta("A");
-        Evaluable opcion2 = new OpcionIncorrecta("5");
-        Evaluable opcion3 = new OpcionCorrecta("B");
-        Evaluable opcion4 = new OpcionCorrecta("N");
-        Evaluable opcion5 = new OpcionCorrecta("Z");
+        Opcion opcion1 = new OpcionCorrecta("A");
+        Opcion opcion2 = new OpcionIncorrecta("5");
+        Opcion opcion3 = new OpcionCorrecta("B");
+        Opcion opcion4 = new OpcionCorrecta("N");
+        Opcion opcion5 = new OpcionCorrecta("Z");
 
-        ArrayList<Evaluable> opcionesAPresentar = new ArrayList<>();
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
         opcionesAPresentar.add(opcion2);
         opcionesAPresentar.add(opcion3);
@@ -82,12 +82,12 @@ public class AsignacionDePuntosConMultiplicadoresTest {
         Pregunta multipleChoicePenalizable = new PreguntaPuntajeParcialPenalizable(consigna, opcionesAPresentar);
 
         //jugadores eligen opciones
-        ArrayList<Evaluable> opcionesDeJugador1 = new ArrayList<>();
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
         opcionesDeJugador1.add(opcion1);
         opcionesDeJugador1.add(opcion2);
         opcionesDeJugador1.add(opcion3);
 
-        ArrayList<Evaluable> opcionesDeJugador2 = new ArrayList<>();
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
         opcionesDeJugador2.add(opcion1);
         opcionesDeJugador2.add(opcion2);
         opcionesDeJugador2.add(opcion3);

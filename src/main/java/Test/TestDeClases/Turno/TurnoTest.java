@@ -1,9 +1,10 @@
 package Test.TestDeClases.Turno;
 
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Evaluables.Evaluable;
-import edu.fiuba.algo3.modelo.Evaluables.OpcionCorrecta;
-import edu.fiuba.algo3.modelo.Evaluables.OpcionIncorrecta;
+
+import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
+import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Turno.Turno;
@@ -19,10 +20,10 @@ public class TurnoTest {
     @Test
     public void test01JugadorRespondeCorrectamentePreguntaVerdaderoFalsoPenalizableSinMultiplicadoresObtiene1PuntoEnEseTurno(){
         //Arrange
-        Evaluable opcion1 = new OpcionCorrecta("si");
-        Evaluable opcion2 = new OpcionIncorrecta("no");
+        Opcion opcion1 = new OpcionCorrecta("si");
+        Opcion opcion2 = new OpcionIncorrecta("no");
 
-        ArrayList<Evaluable> opcionesAPresentar = new ArrayList<>();
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
         opcionesAPresentar.add(opcion2);
 
@@ -30,7 +31,7 @@ public class TurnoTest {
         Pregunta verdaderoFalsoPenalizable = new PreguntaPuntajeParcialPenalizable(consigna, opcionesAPresentar);
 
         //jugadores eligen opciones
-        ArrayList<Evaluable> opcionesDeJugador1 = new ArrayList<>();
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
         opcionesDeJugador1.add(opcion1);
 
         Jugador jugador1 = new Jugador("Darkoskure");
@@ -45,10 +46,10 @@ public class TurnoTest {
 
     @Test
     public void test01JugadorRespondeCorrectamentePreguntaVerdaderoFalsoPenalizableConMultiplicadoresObtiene1PuntoEnEseTurno() {
-        Evaluable opcion1 = new OpcionCorrecta("si");
-        Evaluable opcion2 = new OpcionIncorrecta("no");
+        Opcion opcion1 = new OpcionCorrecta("si");
+        Opcion opcion2 = new OpcionIncorrecta("no");
 
-        ArrayList<Evaluable> opcionesAPresentar = new ArrayList<>();
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
         opcionesAPresentar.add(opcion2);
 
@@ -56,7 +57,7 @@ public class TurnoTest {
         Pregunta verdaderoFalsoPenalizable = new PreguntaPuntajeParcialPenalizable(consigna, opcionesAPresentar);
 
         //jugadores eligen opciones
-        ArrayList<Evaluable> opcionesDeJugador1 = new ArrayList<>();
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
         opcionesDeJugador1.add(opcion2);
 
 

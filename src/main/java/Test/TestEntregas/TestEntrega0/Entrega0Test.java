@@ -1,9 +1,9 @@
 package Test.TestEntregas.TestEntrega0;
 
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Evaluables.Evaluable;
-import edu.fiuba.algo3.modelo.Evaluables.OpcionCorrecta;
-import edu.fiuba.algo3.modelo.Evaluables.OpcionIncorrecta;
+import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
+import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Ronda.Ronda;
@@ -17,10 +17,10 @@ public class Entrega0Test {
     @Test
     public void test01PreguntaDeVerdaderoFalsoClasicoPuedeCrearseIndicandoleCualEsLaRespuestaCorrecta(){
         //Arrange
-        Evaluable opcion1 = new OpcionCorrecta("Verdadero");
-        Evaluable opcion2 = new OpcionIncorrecta("Falso");
+        Opcion opcion1 = new OpcionCorrecta("Verdadero");
+        Opcion opcion2 = new OpcionIncorrecta("Falso");
 
-        ArrayList<Evaluable> opciones = new ArrayList<Evaluable>();
+        ArrayList<Opcion> opciones = new ArrayList<>();
 
         opciones.add(opcion1);
         opciones.add(opcion2);
@@ -33,10 +33,10 @@ public class Entrega0Test {
     }
     @Test
     public void test02PreguntaDeVerdaderoFalsoClasicoRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntos() {
-        Evaluable opcion1 = new OpcionCorrecta("si");
-        Evaluable opcion2 = new OpcionIncorrecta("no");
+        Opcion opcion1 = new OpcionCorrecta("si");
+        Opcion opcion2 = new OpcionIncorrecta("no");
 
-        ArrayList<Evaluable> opcionesAPresentar = new ArrayList<>();
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
         opcionesAPresentar.add(opcion2);
 
@@ -44,10 +44,10 @@ public class Entrega0Test {
         Pregunta verdaderoFalsoClasico = new PreguntaPuntajeParcialSinIncorrectos(consigna, opcionesAPresentar);
 
         //jugadores eligen opciones
-        ArrayList<Evaluable> opcionesDeJugador1 = new ArrayList<>();
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
         opcionesDeJugador1.add(opcion1);
 
-        ArrayList<Evaluable> opcionesDeJugador2 = new ArrayList<>();
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
         opcionesDeJugador2.add(opcion2);
 
         Jugador jugador1 = new Jugador("Maho");

@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Turno;
 
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Evaluables.Evaluable;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX1;
@@ -12,7 +12,7 @@ public class Turno {
     private Jugador jugador;
     private Pregunta pregunta;
     ModificadorMultiplicador multiplicadorActivo;
-    ArrayList<Evaluable> opcionesElejidas;
+    ArrayList<Opcion> opcionesElejidas;
 
     public Turno (Pregunta unaPregunta, Jugador unJugador) {
         this.pregunta = unaPregunta;
@@ -30,7 +30,7 @@ public class Turno {
         this.multiplicadorActivo = multiplicadorActivo;
     }
 
-    public void setOpcionesElejidas(ArrayList<Evaluable> opcionesElejidas) {
+    public void setOpcionesElejidas(ArrayList<Opcion> opcionesElejidas) {
         this.opcionesElejidas = opcionesElejidas;
     }
 

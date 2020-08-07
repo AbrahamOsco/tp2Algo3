@@ -1,8 +1,8 @@
 package Test.TestEntregas.TestEntrega1;
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Evaluables.Evaluable;
-import edu.fiuba.algo3.modelo.Evaluables.OpcionCorrecta;
-import edu.fiuba.algo3.modelo.Evaluables.OpcionIncorrecta;
+import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
+import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesCorrectas;
@@ -17,10 +17,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class Entrega1Test {
     @Test
     public void test01PreguntaDeVerdaderoFalsoPenalizablePuedeCrearseIndicandoleCualEsLaRespuestaCorrecta() {
-        Evaluable opcion1 = new OpcionCorrecta("si");
-        Evaluable opcion2 = new OpcionIncorrecta("no");
+        Opcion opcion1 = new OpcionCorrecta("si");
+        Opcion opcion2 = new OpcionIncorrecta("no");
 
-        ArrayList<Evaluable> opcionesAPresentar = new ArrayList<>();
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
         opcionesAPresentar.add(opcion2);
 
@@ -28,7 +28,7 @@ public class Entrega1Test {
         Pregunta verdaderoFalsoPenalizable = new PreguntaPuntajeParcialPenalizable(consigna, opcionesAPresentar);
 
         //Act
-        ArrayList<Evaluable> opcionesCorrectasDePregunta = verdaderoFalsoPenalizable.getOpcionesCorrectas();
+        ArrayList<Opcion> opcionesCorrectasDePregunta = verdaderoFalsoPenalizable.getOpcionesCorrectas();
         boolean contieneRespuestaCorrecta = opcionesCorrectasDePregunta.contains(opcion1);
 
         //Assert
@@ -37,10 +37,10 @@ public class Entrega1Test {
     @Test
     public void test02PreguntaDeVerdaderoFalsoPenalizableRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntos(){
         //Arrange
-        Evaluable opcion1 = new OpcionCorrecta("si");
-        Evaluable opcion2 = new OpcionIncorrecta("no");
+        Opcion opcion1 = new OpcionCorrecta("si");
+        Opcion opcion2 = new OpcionIncorrecta("no");
 
-        ArrayList<Evaluable> opcionesAPresentar = new ArrayList<>();
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
         opcionesAPresentar.add(opcion2);
 
@@ -48,10 +48,10 @@ public class Entrega1Test {
         Pregunta verdaderoFalsoPenalizable = new PreguntaPuntajeParcialPenalizable(consigna, opcionesAPresentar);
 
         //jugadores eligen opciones
-        ArrayList<Evaluable> opcionesDeJugador1 = new ArrayList<>();
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
         opcionesDeJugador1.add(opcion1);
 
-        ArrayList<Evaluable> opcionesDeJugador2 = new ArrayList<>();
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
         opcionesDeJugador2.add(opcion2);
 
         Jugador jugador1 = new Jugador("Maho");
@@ -78,12 +78,12 @@ public class Entrega1Test {
     @Test
     public void test03PreguntaMultipleChoiceClasicoPuedeCrearseIndicandoleCualEsLaRespuestaCorrecta() {
         //Arrange
-        Evaluable opcionUno = new OpcionCorrecta("mora");
-        Evaluable opcionDos = new OpcionCorrecta("mandarina");
-        Evaluable opcionTres= new OpcionCorrecta("naranja");
-        Evaluable opcionCuatro = new OpcionIncorrecta("papa");
+        Opcion opcionUno = new OpcionCorrecta("mora");
+        Opcion opcionDos = new OpcionCorrecta("mandarina");
+        Opcion opcionTres= new OpcionCorrecta("naranja");
+        Opcion opcionCuatro = new OpcionIncorrecta("papa");
 
-        ArrayList<Evaluable> opcionesDePregunta = new ArrayList<>();
+        ArrayList<Opcion> opcionesDePregunta = new ArrayList<>();
         opcionesDePregunta.add(opcionUno);
         opcionesDePregunta.add(opcionDos);
         opcionesDePregunta.add(opcionTres);
@@ -105,12 +105,12 @@ public class Entrega1Test {
     @Test
     public void test04PreguntaMultipleChoiceClasicoRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntos(){
         //Arrange
-        Evaluable opcion1 = new OpcionCorrecta("A");
-        Evaluable opcion2 = new OpcionIncorrecta("5");
-        Evaluable opcion3 = new OpcionCorrecta("B");
-        Evaluable opcion4 = new OpcionCorrecta("N");
+        Opcion opcion1 = new OpcionCorrecta("A");
+        Opcion opcion2 = new OpcionIncorrecta("5");
+        Opcion opcion3 = new OpcionCorrecta("B");
+        Opcion opcion4 = new OpcionCorrecta("N");
 
-        ArrayList<Evaluable> opcionesAPresentar = new ArrayList<>();
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
         opcionesAPresentar.add(opcion2);
         opcionesAPresentar.add(opcion3);
@@ -120,12 +120,12 @@ public class Entrega1Test {
         Pregunta multipleChoiceClasico = new PreguntaConTodasOpcionesCorrectas(consigna, opcionesAPresentar);
 
         //jugadores eligen opciones
-        ArrayList<Evaluable> opcionesDeJugador1 = new ArrayList<>();
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
         opcionesDeJugador1.add(opcion1);
         opcionesDeJugador1.add(opcion3);
         opcionesDeJugador1.add(opcion4);
 
-        ArrayList<Evaluable> opcionesDeJugador2 = new ArrayList<>();
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
         opcionesDeJugador2.add(opcion2);
         opcionesDeJugador2.add(opcion3);
         opcionesDeJugador2.add(opcion4);
@@ -154,12 +154,12 @@ public class Entrega1Test {
     @Test
     public void test05PreguntaMultipleChoiceDePuntajeParcialPuedeCrearseIndicandoleCualEsLaRespuestaCorrecta(){
         //Arrange
-        Evaluable opcionUno = new OpcionCorrecta("mora");
-        Evaluable opcionDos = new OpcionIncorrecta("papa");
-        Evaluable opcionTres = new OpcionCorrecta("mandarina");
-        Evaluable opcionCuatro= new OpcionCorrecta("naranja");
+        Opcion opcionUno = new OpcionCorrecta("mora");
+        Opcion opcionDos = new OpcionIncorrecta("papa");
+        Opcion opcionTres = new OpcionCorrecta("mandarina");
+        Opcion opcionCuatro= new OpcionCorrecta("naranja");
 
-        ArrayList<Evaluable> opcionesDePregunta = new ArrayList<>();
+        ArrayList<Opcion> opcionesDePregunta = new ArrayList<>();
         opcionesDePregunta.add(opcionUno);
         opcionesDePregunta.add(opcionDos);
         opcionesDePregunta.add(opcionTres);
@@ -181,12 +181,12 @@ public class Entrega1Test {
     @Test
     public void test06PreguntaMultipleChoiceDePuntajeParcialRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntos() {
         //Arrange
-        Evaluable opcion1 = new OpcionCorrecta("A");
-        Evaluable opcion2 = new OpcionIncorrecta("5");
-        Evaluable opcion3 = new OpcionCorrecta("B");
-        Evaluable opcion4 = new OpcionCorrecta("N");
+        Opcion opcion1 = new OpcionCorrecta("A");
+        Opcion opcion2 = new OpcionIncorrecta("5");
+        Opcion opcion3 = new OpcionCorrecta("B");
+        Opcion opcion4 = new OpcionCorrecta("N");
 
-        ArrayList<Evaluable> opcionesAPresentar = new ArrayList<>();
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
         opcionesAPresentar.add(opcion2);
         opcionesAPresentar.add(opcion3);
@@ -196,11 +196,11 @@ public class Entrega1Test {
         Pregunta multipleChoicePuntajeParcial = new PreguntaPuntajeParcialSinIncorrectos(consigna, opcionesAPresentar);
 
         //jugadores eligen opciones
-        ArrayList<Evaluable> opcionesDeJugador1 = new ArrayList<>();
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
         opcionesDeJugador1.add(opcion1);
         opcionesDeJugador1.add(opcion3);
 
-        ArrayList<Evaluable> opcionesDeJugador2 = new ArrayList<>();
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
         opcionesDeJugador2.add(opcion2);
         opcionesDeJugador2.add(opcion3);
         opcionesDeJugador2.add(opcion4);
