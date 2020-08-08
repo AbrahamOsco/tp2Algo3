@@ -6,14 +6,12 @@ import java.util.ArrayList;
 
 public class Exclusividad extends ModificadorGlobal {
 
-    private int activaciones;
+    public Exclusividad(){
+        super();
+    }
 
     @Override
-    public void aplicarModificador(ArrayList<Turno> unasRespuestas) {
+    public void aplicarModificador(ArrayList<Turno> unosTurnos) {
 
     }
-    public void aumentarActivaciones(){
-
-    }
-
 }
