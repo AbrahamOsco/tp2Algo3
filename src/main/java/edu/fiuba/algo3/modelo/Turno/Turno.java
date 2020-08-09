@@ -21,10 +21,6 @@ public class Turno {
         opcionesElejidas = new ArrayList<>();
     }
 
-    public ModificadorMultiplicador getMultiplicadorActivo() {
-        return multiplicadorActivo;
-    }
-
     //Controlador sera el encargado de crear el Multiplicador y pasarselo
     public void setMultiplicadorActivo(ModificadorMultiplicador multiplicadorActivo) {
         this.multiplicadorActivo = multiplicadorActivo;
@@ -40,6 +36,5 @@ public class Turno {
     public void asignarPuntajeFinal(int unPuntaje){
         jugador.modificarPuntaje(unPuntaje);
     }
-
 
 }

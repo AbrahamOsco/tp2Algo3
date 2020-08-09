@@ -12,8 +12,6 @@ public abstract class Opcion {
     public String getDescripcion(){
         return this.descripcion;
     }
-    public int getUbicacionCorrecta(){
-        return this.ubicacionCorrecta;
-    }
+    public int getUbicacionCorrecta(){ return this.ubicacionCorrecta; }
 }
 
