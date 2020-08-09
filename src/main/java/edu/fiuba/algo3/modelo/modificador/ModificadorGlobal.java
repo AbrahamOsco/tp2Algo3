@@ -13,5 +13,5 @@ public abstract class ModificadorGlobal {
     public  void aumentarActivaciones(){
         this.activaciones++;
     }
-    public abstract void aplicarModificador(ArrayList<Turno> unasRespuestas);
+    public abstract void aplicarModificador(ArrayList<Turno> unasTurnos);
 }

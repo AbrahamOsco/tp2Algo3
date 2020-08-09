@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class Turno {
     private Jugador jugador;
     private Pregunta pregunta;
+    private int puntajeParcial;
     ModificadorMultiplicador multiplicadorActivo;
     ArrayList<Opcion> opcionesElejidas;
 
@@ -19,6 +20,7 @@ public class Turno {
         this.jugador = unJugador;
         multiplicadorActivo = new MultiplicadorX1();
         opcionesElejidas = new ArrayList<>();
+        this.puntajeParcial = 0;
     }
 
     public ModificadorMultiplicador getMultiplicadorActivo() {
@@ -37,12 +39,15 @@ public class Turno {
     public int obtenerPuntajeParcial(){
         return this.pregunta.evaluarOpcionesElegidas(this.opcionesElejidas);
     }
-
-
     public void asignarPuntajeFinal(int unPuntaje){
         jugador.modificarPuntaje(unPuntaje);
     }
 
-    
+    public int getPuntajeParcial() {
+        return puntajeParcial;
+    }
 
+    public void setPuntajeParcial(int puntajeParcial) {
+        this.puntajeParcial = puntajeParcial;
+    }
 }
