@@ -1,0 +1,220 @@
+package Test.TestEntregas.TestEntrega3;
+
+import edu.fiuba.algo3.modelo.Jugador.Jugador;
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
+import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
+import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
+import edu.fiuba.algo3.modelo.Ronda.Ronda;
+import edu.fiuba.algo3.modelo.Turno.Turno;
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class AsignacionDePuntosConExclusividadTest {
+    @Test
+    public void test01PreguntaDeVerdaderoFalsoClasicoJugador1RespondeBienYActivaExclusividadYJugador2RespondeMal() {
+        Opcion opcion1 = new OpcionCorrecta("si");
+        Opcion opcion2 = new OpcionIncorrecta("no");
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+
+        String consigna = "Es 5 + 5 igual a 10?";
+        Pregunta verdaderoFalsoClasico = new PreguntaPuntajeParcialSinIncorrectos(consigna, opcionesAPresentar);
+
+        //jugadores eligen opciones
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        opcionesDeJugador1.add(opcion1);
+
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
+        opcionesDeJugador2.add(opcion2);
+
+        Jugador jugador1 = new Jugador("Maho");
+        Turno turnoJugador1 = new Turno(verdaderoFalsoClasico, jugador1);
+
+        Ronda unaRonda = new Ronda();
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo")){
+            unaRonda.agregarExclusividad();
+        }
+
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+
+        Jugador jugador2 = new Jugador("Ryuk");
+        Turno turnoJugador2 = new Turno(verdaderoFalsoClasico, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(2, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+    }
+
+    @Test
+    public void test02PreguntaDeVerdaderoFalsoClasicoJugador1RespondeBienYJugador2RespondeMalYAmbosActivanExclusividad() {
+        Opcion opcion1 = new OpcionCorrecta("si");
+        Opcion opcion2 = new OpcionIncorrecta("no");
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+
+
+        String consigna = "Es 5 + 5 igual a 10?";
+        Pregunta verdaderoFalsoClasico = new PreguntaPuntajeParcialSinIncorrectos(consigna, opcionesAPresentar);
+        Ronda unaRonda = new Ronda();
+
+        //jugadores eligen opciones
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        opcionesDeJugador1.add(opcion1);
+
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
+        opcionesDeJugador2.add(opcion2);
+
+        Jugador jugador1 = new Jugador("Maho");
+        Turno turnoJugador1 = new Turno(verdaderoFalsoClasico, jugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo")){
+            unaRonda.agregarExclusividad();
+        }
+
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+
+        Jugador jugador2 = new Jugador("Ryuk");
+        Turno turnoJugador2 = new Turno(verdaderoFalsoClasico, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+        if(jugador1.activarMultiplicador("puntajeExclusivo")){
+            unaRonda.agregarExclusividad();
+        }
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(4, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+    }
+
+    @Test
+    public void test03PreguntaDeVerdaderoFalsoClasicoJugador1RespondeBienYJugador2RespondeBienYAmbosActivanExclusividad() {
+        Opcion opcion1 = new OpcionCorrecta("si");
+        Opcion opcion2 = new OpcionIncorrecta("no");
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+
+
+        String consigna = "Es 5 + 5 igual a 10?";
+        Pregunta verdaderoFalsoClasico = new PreguntaPuntajeParcialSinIncorrectos(consigna, opcionesAPresentar);
+        Ronda unaRonda = new Ronda();
+
+        //jugadores eligen opciones
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        opcionesDeJugador1.add(opcion1);
+
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
+        opcionesDeJugador2.add(opcion1);
+
+        Jugador jugador1 = new Jugador("Maho");
+        Turno turnoJugador1 = new Turno(verdaderoFalsoClasico, jugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo")){
+            unaRonda.agregarExclusividad();
+        }
+
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+
+        Jugador jugador2 = new Jugador("Ryuk");
+        Turno turnoJugador2 = new Turno(verdaderoFalsoClasico, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+        if(jugador1.activarMultiplicador("puntajeExclusivo")){
+            unaRonda.agregarExclusividad();
+        }
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(0, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+    }
+
+    @Test
+    public void test04PreguntaMultipleChoiceDePuntajeParcialJugardor1Responde3BienYJugador2Responde2BienYAmbosActivanExclusividad(){
+        //Arrange
+        Opcion opcion1 = new OpcionCorrecta("A");
+        Opcion opcion2 = new OpcionIncorrecta("5");
+        Opcion opcion3 = new OpcionCorrecta("B");
+        Opcion opcion4 = new OpcionCorrecta("N");
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+        opcionesAPresentar.add(opcion3);
+        opcionesAPresentar.add(opcion4);
+
+        String consigna = "Selecione las opciones que representen letras del alfabeto";
+        Pregunta multipleChoicePuntajeParcial = new PreguntaPuntajeParcialSinIncorrectos(consigna, opcionesAPresentar);
+
+        //jugadores eligen opciones
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        opcionesDeJugador1.add(opcion1);
+        opcionesDeJugador1.add(opcion3);
+        opcionesDeJugador1.add(opcion4);
+
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
+        opcionesDeJugador2.add(opcion3);
+        opcionesDeJugador2.add(opcion4);
+
+        Ronda unaRonda = new Ronda();
+        Jugador jugador1 = new Jugador("Maho");
+        Turno turnoJugador1 = new Turno(multipleChoicePuntajeParcial, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        Jugador jugador2 = new Jugador("Ryuk");
+        Turno turnoJugador2 = new Turno(multipleChoicePuntajeParcial, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+
+        if(jugador2.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(12, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+    }
+}

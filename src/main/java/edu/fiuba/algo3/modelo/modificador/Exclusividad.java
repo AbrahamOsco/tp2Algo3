@@ -5,18 +5,13 @@ import edu.fiuba.algo3.modelo.Turno.Turno;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
-public class Exclusividad extends ModificadorGlobal {
+public class Exclusividad  {
 
-    public Exclusividad(){
-        super();
-    }
-
-    @Override
     public void aplicarModificador(ArrayList<Turno> unosTurnos) {
         PriorityQueue<Turno> colaPrioridad = new PriorityQueue<>( (turno1,turno2) -> {
-            if(turno1.getPuntajeParcial() < turno2.getPuntajeParcial() )
+            if(turno1.obtenerPuntajeParcial() < turno2.obtenerPuntajeParcial() )
                 return 1;
-            else if (turno1.getPuntajeParcial() > turno2.getPuntajeParcial() )
+            else if (turno1.obtenerPuntajeParcial() > turno2.obtenerPuntajeParcial() )
                 return -1;
             else
                 return 0;
@@ -27,14 +22,11 @@ public class Exclusividad extends ModificadorGlobal {
         }
         Turno turnoMaximoPuntaje1 = colaPrioridad.poll();
         Turno turnoMaximoPuntaje2 = colaPrioridad.poll();
-        int puntaje1 = turnoMaximoPuntaje1.getPuntajeParcial();
-        int puntaje2 = turnoMaximoPuntaje2.getPuntajeParcial();
+        int puntaje1 = turnoMaximoPuntaje1.obtenerPuntajeParcial();
+        int puntaje2 = turnoMaximoPuntaje2.obtenerPuntajeParcial();
 
-        for(Turno unTurno : unosTurnos){
-            unTurno.setPuntajeParcial(0);
-        }
         if(puntaje1 != puntaje2){
-            turnoMaximoPuntaje1.setPuntajeParcial(puntaje1*2*this.activaciones);
+            turnoMaximoPuntaje1.asignarPuntajeFinal(puntaje1*2);
         }
 
     }
