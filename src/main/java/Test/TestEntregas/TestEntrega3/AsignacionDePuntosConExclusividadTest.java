@@ -4,8 +4,11 @@ import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
 import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
+import edu.fiuba.algo3.modelo.Opciones.OpcionPertenencia;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesClasificadas;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesCorrectas;
 import edu.fiuba.algo3.modelo.Ronda.Ronda;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import org.junit.jupiter.api.Test;
@@ -164,7 +167,7 @@ public class AsignacionDePuntosConExclusividadTest {
     }
 
     @Test
-    public void test04PreguntaMultipleChoiceDePuntajeParcialJugardor1Responde3BienYJugador2Responde2BienYAmbosActivanExclusividad(){
+    public void test04PreguntaMultipleChoiceDePuntajeParcialJugador1Responde3BienYJugador2Responde2BienYAmbosActivanExclusividad(){
         //Arrange
         Opcion opcion1 = new OpcionCorrecta("A");
         Opcion opcion2 = new OpcionIncorrecta("5");
@@ -217,4 +220,622 @@ public class AsignacionDePuntosConExclusividadTest {
         assertEquals(12, puntosJugador1);
         assertEquals(0, puntosJugador2);
     }
+    @Test
+    public void test05PreguntaMultipleChoiceDePuntajeParcialJugador1Responde4BienYUsaExclusividadyJugador2Responde3BienyDeberiatenerCeroPuntos(){
+        //Arrange Test donde se pone a prueba un supuesto que definimos.
+        Opcion opcion1 = new OpcionCorrecta("Peru");
+        Opcion opcion2 = new OpcionCorrecta("Argentina");
+        Opcion opcion3 = new OpcionCorrecta("Bolivia");
+        Opcion opcion4 = new OpcionIncorrecta("Rusia");
+        Opcion opcion5 = new OpcionCorrecta("Ecuador");
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+        opcionesAPresentar.add(opcion3);
+        opcionesAPresentar.add(opcion4);
+        opcionesAPresentar.add(opcion5);
+
+        String consigna = "Selecciones paises de america Latina ";
+        Pregunta multipleChoicePuntajeParcial = new PreguntaPuntajeParcialSinIncorrectos(consigna, opcionesAPresentar);
+
+        //jugadores eligen opciones//jugador1RespondeTodasBien
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        opcionesDeJugador1.add(opcion1);
+        opcionesDeJugador1.add(opcion2);
+        opcionesDeJugador1.add(opcion3);
+        opcionesDeJugador1.add(opcion5);
+
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
+        opcionesDeJugador2.add(opcion1);
+        opcionesDeJugador2.add(opcion2);
+        opcionesDeJugador2.add(opcion3);
+
+
+        Ronda unaRonda = new Ronda();
+        Jugador jugador1 = new Jugador("Darkoskure");
+        Turno turnoJugador1 = new Turno(multipleChoicePuntajeParcial, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        Jugador jugador2 = new Jugador("Pedro");
+        Turno turnoJugador2 = new Turno(multipleChoicePuntajeParcial, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(8, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+    }
+    @Test
+    public void test06PreguntaMultipleChoiceClasicoJugador1RespondeTodasBienYUsaExclusividadyJugador2RespondeTodasBien(){
+        //Arrange //Test donde se pone a prueba la definicion de exclusividad.
+        Opcion opcion1 = new OpcionCorrecta("Peru");
+        Opcion opcion2 = new OpcionCorrecta("Argentina");
+        Opcion opcion3 = new OpcionCorrecta("Bolivia");
+        Opcion opcion4 = new OpcionIncorrecta("Rusia");
+        Opcion opcion5 = new OpcionCorrecta("Ecuador");
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+        opcionesAPresentar.add(opcion3);
+        opcionesAPresentar.add(opcion4);
+        opcionesAPresentar.add(opcion5);
+
+        String consigna = "Selecciones paises de america Latina ";
+        Pregunta multipleChoice = new PreguntaConTodasOpcionesCorrectas(consigna, opcionesAPresentar);
+
+        //jugadores eligen opciones//jugador1RespondeTodasBien
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        opcionesDeJugador1.add(opcion1);
+        opcionesDeJugador1.add(opcion2);
+        opcionesDeJugador1.add(opcion3);
+        opcionesDeJugador1.add(opcion5);
+
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
+        opcionesDeJugador2.add(opcion1);
+        opcionesDeJugador2.add(opcion2);
+        opcionesDeJugador2.add(opcion3);
+        opcionesDeJugador2.add(opcion5);
+
+
+        Ronda unaRonda = new Ronda();
+        Jugador jugador1 = new Jugador("Darkoskure");
+        Turno turnoJugador1 = new Turno(multipleChoice, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        Jugador jugador2 = new Jugador("Pedro");
+        Turno turnoJugador2 = new Turno(multipleChoice, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(0, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+    }
+
+    @Test
+    public void test07PreguntaMultipleChoiceClasicoJugador1RespondeTodasBienYUsaExclusividadyJugador2RespondeSolo3Bien(){
+        //Arrange
+        Opcion opcion1 = new OpcionCorrecta("Peru");
+        Opcion opcion2 = new OpcionCorrecta("Argentina");
+        Opcion opcion3 = new OpcionCorrecta("Bolivia");
+        Opcion opcion4 = new OpcionIncorrecta("Rusia");
+        Opcion opcion5 = new OpcionCorrecta("Ecuador");
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+        opcionesAPresentar.add(opcion3);
+        opcionesAPresentar.add(opcion4);
+        opcionesAPresentar.add(opcion5);
+
+        String consigna = "Selecciones paises de america Latina ";
+        Pregunta multipleChoice = new PreguntaConTodasOpcionesCorrectas(consigna, opcionesAPresentar);
+
+        //jugadores eligen opciones//jugador1RespondeTodasBien
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        opcionesDeJugador1.add(opcion1);
+        opcionesDeJugador1.add(opcion2);
+        opcionesDeJugador1.add(opcion3);
+        opcionesDeJugador1.add(opcion5);
+
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
+        opcionesDeJugador2.add(opcion1);
+        opcionesDeJugador2.add(opcion2);
+        opcionesDeJugador2.add(opcion3);
+
+
+
+        Ronda unaRonda = new Ronda();
+        Jugador jugador1 = new Jugador("Darkoskure");
+        Turno turnoJugador1 = new Turno(multipleChoice, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        Jugador jugador2 = new Jugador("Pedro");
+        Turno turnoJugador2 = new Turno(multipleChoice, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(2, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+    }
+
+    @Test
+    public void test08PreguntaMultipleChoiceClasicoJugador1RespondeTodasBienyJugador2RespondeSolo3BienyAmbosUsaExclusividad(){
+        //Arrange
+
+        Opcion opcion1 = new OpcionCorrecta("Peru");
+        Opcion opcion2 = new OpcionCorrecta("Argentina");
+        Opcion opcion3 = new OpcionCorrecta("Bolivia");
+        Opcion opcion4 = new OpcionIncorrecta("Rusia");
+        Opcion opcion5 = new OpcionCorrecta("Ecuador");
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+        opcionesAPresentar.add(opcion3);
+        opcionesAPresentar.add(opcion4);
+        opcionesAPresentar.add(opcion5);
+
+        String consigna = "Selecciones paises de america Latina ";
+        Pregunta multipleChoice = new PreguntaConTodasOpcionesCorrectas(consigna, opcionesAPresentar);
+
+        //jugadores eligen opciones//jugador1RespondeTodasBien
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        opcionesDeJugador1.add(opcion1);
+        opcionesDeJugador1.add(opcion2);
+        opcionesDeJugador1.add(opcion3);
+        opcionesDeJugador1.add(opcion5);
+
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
+        opcionesDeJugador2.add(opcion1);
+        opcionesDeJugador2.add(opcion2);
+        opcionesDeJugador2.add(opcion3);
+
+
+
+        Ronda unaRonda = new Ronda();
+        Jugador jugador1 = new Jugador("Darkoskure");
+        Turno turnoJugador1 = new Turno(multipleChoice, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        Jugador jugador2 = new Jugador("Pedro");
+        Turno turnoJugador2 = new Turno(multipleChoice, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+
+        if(jugador2.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(4, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+    }
+    @Test
+    public void test09PreguntaMultipleChoiceClasicoJugador1Responde3BienYUsaExclusividadyJugador2RespondeTodasBien(){
+        //Arrange //se prueba otra definicion de exclusivdad basta que un jugador active exclusivdad para que la regla afecta a ambos.
+
+        Opcion opcion1 = new OpcionCorrecta("Peru");
+        Opcion opcion2 = new OpcionCorrecta("Argentina");
+        Opcion opcion3 = new OpcionCorrecta("Bolivia");
+        Opcion opcion4 = new OpcionIncorrecta("Rusia");
+        Opcion opcion5 = new OpcionCorrecta("Ecuador");
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+        opcionesAPresentar.add(opcion3);
+        opcionesAPresentar.add(opcion4);
+        opcionesAPresentar.add(opcion5);
+
+        String consigna = "Selecciones paises de america Latina ";
+        Pregunta multipleChoice = new PreguntaConTodasOpcionesCorrectas(consigna, opcionesAPresentar);
+
+        //jugadores eligen opciones//jugador1RespondeTodasBien
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        opcionesDeJugador1.add(opcion1);
+        opcionesDeJugador1.add(opcion2);
+        opcionesDeJugador1.add(opcion3);
+
+
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
+        opcionesDeJugador2.add(opcion1);
+        opcionesDeJugador2.add(opcion2);
+        opcionesDeJugador2.add(opcion3);
+        opcionesDeJugador2.add(opcion5);
+
+
+
+        Ronda unaRonda = new Ronda();
+        Jugador jugador1 = new Jugador("Darkoskure");
+        Turno turnoJugador1 = new Turno(multipleChoice, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        Jugador jugador2 = new Jugador("Pedro");
+        Turno turnoJugador2 = new Turno(multipleChoice, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(0, puntosJugador1);
+        assertEquals(2, puntosJugador2);
+    }
+
+    @Test
+    public void test09PreguntaOrderedChoiceJugador1RespondeBienyActivaExclusivdadyJugador2RespondeMalYActivaExclusivdad(){
+
+        //Arrange
+        Opcion opcion1 = new OpcionPertenencia("5",2);
+        Opcion opcion2 = new OpcionPertenencia("10",3);
+        Opcion opcion3 = new OpcionPertenencia("0",1);
+        Opcion opcion4 = new OpcionPertenencia("15",4);
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+        opcionesAPresentar.add(opcion3);
+        opcionesAPresentar.add(opcion4);
+
+        String consigna = "Ordene los siguientes numeros de menor a mayor";
+        Pregunta orderedChoice = new PreguntaConTodasOpcionesClasificadas(consigna, opcionesAPresentar);
+
+        //jugador elige opciones en el orden que cree correcto:
+        //cuando el jugador elige una opcion de las opciones mostradas, se crea una opcion igual(misma descripcion
+        // y ubicacion correcta)cuya posicion actual sera seteada con la que el crea que es la correcta
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador1 = new OpcionPertenencia("5",2);
+        opcion1Jugador1.setUbicacionActual(2);
+        OpcionPertenencia opcion2Jugador1 = new OpcionPertenencia("10",3);
+        opcion2Jugador1.setUbicacionActual(3);
+        OpcionPertenencia opcion3Jugador1 = new OpcionPertenencia("0",1);
+        opcion3Jugador1.setUbicacionActual(1);
+        OpcionPertenencia opcion4Jugador1 = new OpcionPertenencia("15",4);
+        opcion4Jugador1.setUbicacionActual(4);
+
+        opcionesDeJugador1.add(opcion1Jugador1);
+        opcionesDeJugador1.add(opcion2Jugador1);
+        opcionesDeJugador1.add(opcion3Jugador1);
+        opcionesDeJugador1.add(opcion4Jugador1);
+
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador2 = new OpcionPertenencia("5",2);
+        opcion1Jugador2.setUbicacionActual(1);
+        OpcionPertenencia opcion2Jugador2 = new OpcionPertenencia("10",3);
+        opcion2Jugador2.setUbicacionActual(2);
+        OpcionPertenencia opcion3Jugador2 = new OpcionPertenencia("0",1);
+        opcion3Jugador2.setUbicacionActual(3);
+        OpcionPertenencia opcion4Jugador2 = new OpcionPertenencia("15",4);
+        opcion4Jugador2.setUbicacionActual(4);
+
+        opcionesDeJugador2.add(opcion1Jugador2);
+        opcionesDeJugador2.add(opcion2Jugador2);
+        opcionesDeJugador2.add(opcion3Jugador2);
+        opcionesDeJugador2.add(opcion4Jugador2);
+
+
+        Ronda unaRonda = new Ronda();
+        Jugador jugador1 = new Jugador("Darkoskure");
+        Turno turnoJugador1 = new Turno(orderedChoice, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        Jugador jugador2 = new Jugador("Pedro");
+        Turno turnoJugador2 = new Turno(orderedChoice, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+
+        if(jugador2.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(4, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+
+    }
+    @Test
+    public void test10PreguntaOrderedChoiceJugador1RespondeBienyActivaExclusivdadyJugador2RespondeMal(){
+
+        //Arrange
+        Opcion opcion1 = new OpcionPertenencia("5",2);
+        Opcion opcion2 = new OpcionPertenencia("10",3);
+        Opcion opcion3 = new OpcionPertenencia("0",1);
+        Opcion opcion4 = new OpcionPertenencia("15",4);
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+        opcionesAPresentar.add(opcion3);
+        opcionesAPresentar.add(opcion4);
+
+        String consigna = "Ordene los siguientes numeros de menor a mayor";
+        Pregunta orderedChoice = new PreguntaConTodasOpcionesClasificadas(consigna, opcionesAPresentar);
+
+        //jugador elige opciones en el orden que cree correcto:
+        //cuando el jugador elige una opcion de las opciones mostradas, se crea una opcion igual(misma descripcion
+        // y ubicacion correcta)cuya posicion actual sera seteada con la que el crea que es la correcta
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador1 = new OpcionPertenencia("5",2);
+        opcion1Jugador1.setUbicacionActual(2);
+        OpcionPertenencia opcion2Jugador1 = new OpcionPertenencia("10",3);
+        opcion2Jugador1.setUbicacionActual(3);
+        OpcionPertenencia opcion3Jugador1 = new OpcionPertenencia("0",1);
+        opcion3Jugador1.setUbicacionActual(1);
+        OpcionPertenencia opcion4Jugador1 = new OpcionPertenencia("15",4);
+        opcion4Jugador1.setUbicacionActual(4);
+
+        opcionesDeJugador1.add(opcion1Jugador1);
+        opcionesDeJugador1.add(opcion2Jugador1);
+        opcionesDeJugador1.add(opcion3Jugador1);
+        opcionesDeJugador1.add(opcion4Jugador1);
+
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador2 = new OpcionPertenencia("5",2);
+        opcion1Jugador2.setUbicacionActual(1);
+        OpcionPertenencia opcion2Jugador2 = new OpcionPertenencia("10",3);
+        opcion2Jugador2.setUbicacionActual(2);
+        OpcionPertenencia opcion3Jugador2 = new OpcionPertenencia("0",1);
+        opcion3Jugador2.setUbicacionActual(3);
+        OpcionPertenencia opcion4Jugador2 = new OpcionPertenencia("15",4);
+        opcion4Jugador2.setUbicacionActual(4);
+
+        opcionesDeJugador2.add(opcion1Jugador2);
+        opcionesDeJugador2.add(opcion2Jugador2);
+        opcionesDeJugador2.add(opcion3Jugador2);
+        opcionesDeJugador2.add(opcion4Jugador2);
+
+
+        Ronda unaRonda = new Ronda();
+        Jugador jugador1 = new Jugador("Darkoskure");
+        Turno turnoJugador1 = new Turno(orderedChoice, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        Jugador jugador2 = new Jugador("Pedro");
+        Turno turnoJugador2 = new Turno(orderedChoice, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(2, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+
+    }
+    @Test
+    public void test11PreguntaOrderedChoiceJugador1RespondeMalyActivaExclusivdadyJugador2RespondeBien(){
+
+        //Arrange
+        Opcion opcion1 = new OpcionPertenencia("5",2);
+        Opcion opcion2 = new OpcionPertenencia("10",3);
+        Opcion opcion3 = new OpcionPertenencia("0",1);
+        Opcion opcion4 = new OpcionPertenencia("15",4);
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+        opcionesAPresentar.add(opcion3);
+        opcionesAPresentar.add(opcion4);
+
+        String consigna = "Ordene los siguientes numeros de menor a mayor";
+        Pregunta orderedChoice = new PreguntaConTodasOpcionesClasificadas(consigna, opcionesAPresentar);
+
+        //jugador elige opciones en el orden que cree correcto:
+        //cuando el jugador elige una opcion de las opciones mostradas, se crea una opcion igual(misma descripcion
+        // y ubicacion correcta)cuya posicion actual sera seteada con la que el crea que es la correcta
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador1 = new OpcionPertenencia("5",2);
+        opcion1Jugador1.setUbicacionActual(1);
+        OpcionPertenencia opcion2Jugador1 = new OpcionPertenencia("10",3);
+        opcion2Jugador1.setUbicacionActual(2);
+        OpcionPertenencia opcion3Jugador1 = new OpcionPertenencia("0",1);
+        opcion3Jugador1.setUbicacionActual(3);
+        OpcionPertenencia opcion4Jugador1 = new OpcionPertenencia("15",4);
+        opcion4Jugador1.setUbicacionActual(4);
+
+        opcionesDeJugador1.add(opcion1Jugador1);
+        opcionesDeJugador1.add(opcion2Jugador1);
+        opcionesDeJugador1.add(opcion3Jugador1);
+        opcionesDeJugador1.add(opcion4Jugador1);
+
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador2 = new OpcionPertenencia("5",2);
+        opcion1Jugador2.setUbicacionActual(2);
+        OpcionPertenencia opcion2Jugador2 = new OpcionPertenencia("10",3);
+        opcion2Jugador2.setUbicacionActual(3);
+        OpcionPertenencia opcion3Jugador2 = new OpcionPertenencia("0",1);
+        opcion3Jugador2.setUbicacionActual(1);
+        OpcionPertenencia opcion4Jugador2 = new OpcionPertenencia("15",4);
+        opcion4Jugador2.setUbicacionActual(4);
+
+        opcionesDeJugador2.add(opcion1Jugador2);
+        opcionesDeJugador2.add(opcion2Jugador2);
+        opcionesDeJugador2.add(opcion3Jugador2);
+        opcionesDeJugador2.add(opcion4Jugador2);
+
+
+        Ronda unaRonda = new Ronda();
+        Jugador jugador1 = new Jugador("Darkoskure");
+        Turno turnoJugador1 = new Turno(orderedChoice, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        Jugador jugador2 = new Jugador("Pedro");
+        Turno turnoJugador2 = new Turno(orderedChoice, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(0, puntosJugador1);
+        assertEquals(2, puntosJugador2);
+
+    }
+
+    @Test
+    public void test12PreguntaGroupChoiceJugador1RespondeMalyActivaExclusivdadyJugador2RespondeBien(){
+
+        //Arrange
+        Opcion opcion1 = new OpcionPertenencia("5",2);
+        Opcion opcion2 = new OpcionPertenencia("10",3);
+        Opcion opcion3 = new OpcionPertenencia("0",1);
+        Opcion opcion4 = new OpcionPertenencia("15",4);
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+        opcionesAPresentar.add(opcion3);
+        opcionesAPresentar.add(opcion4);
+
+        String consigna = "Ordene los siguientes numeros de menor a mayor";
+        Pregunta orderedChoice = new PreguntaConTodasOpcionesClasificadas(consigna, opcionesAPresentar);
+
+        //jugador elige opciones en el orden que cree correcto:
+        //cuando el jugador elige una opcion de las opciones mostradas, se crea una opcion igual(misma descripcion
+        // y ubicacion correcta)cuya posicion actual sera seteada con la que el crea que es la correcta
+        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador1 = new OpcionPertenencia("5",2);
+        opcion1Jugador1.setUbicacionActual(1);
+        OpcionPertenencia opcion2Jugador1 = new OpcionPertenencia("10",3);
+        opcion2Jugador1.setUbicacionActual(2);
+        OpcionPertenencia opcion3Jugador1 = new OpcionPertenencia("0",1);
+        opcion3Jugador1.setUbicacionActual(3);
+        OpcionPertenencia opcion4Jugador1 = new OpcionPertenencia("15",4);
+        opcion4Jugador1.setUbicacionActual(4);
+
+        opcionesDeJugador1.add(opcion1Jugador1);
+        opcionesDeJugador1.add(opcion2Jugador1);
+        opcionesDeJugador1.add(opcion3Jugador1);
+        opcionesDeJugador1.add(opcion4Jugador1);
+
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador2 = new OpcionPertenencia("5",2);
+        opcion1Jugador2.setUbicacionActual(2);
+        OpcionPertenencia opcion2Jugador2 = new OpcionPertenencia("10",3);
+        opcion2Jugador2.setUbicacionActual(3);
+        OpcionPertenencia opcion3Jugador2 = new OpcionPertenencia("0",1);
+        opcion3Jugador2.setUbicacionActual(1);
+        OpcionPertenencia opcion4Jugador2 = new OpcionPertenencia("15",4);
+        opcion4Jugador2.setUbicacionActual(4);
+
+        opcionesDeJugador2.add(opcion1Jugador2);
+        opcionesDeJugador2.add(opcion2Jugador2);
+        opcionesDeJugador2.add(opcion3Jugador2);
+        opcionesDeJugador2.add(opcion4Jugador2);
+
+
+        Ronda unaRonda = new Ronda();
+        Jugador jugador1 = new Jugador("Darkoskure");
+        Turno turnoJugador1 = new Turno(orderedChoice, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        Jugador jugador2 = new Jugador("Pedro");
+        Turno turnoJugador2 = new Turno(orderedChoice, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(0, puntosJugador1);
+        assertEquals(2, puntosJugador2);
+
+    }
+
+
+
+
 }
