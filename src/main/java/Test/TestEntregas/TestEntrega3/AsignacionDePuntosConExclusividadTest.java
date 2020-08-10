@@ -754,15 +754,14 @@ public class AsignacionDePuntosConExclusividadTest {
         assertEquals(2, puntosJugador2);
 
     }
-
+//hacertestDeGroupChoice
     @Test
-    public void test12PreguntaGroupChoiceJugador1RespondeMalyActivaExclusivdadyJugador2RespondeBien(){
+    public void test12PreguntaGroupChoiceJugador1RespondeBienyActivaExclusivdadyJugador2RespondeMal(){
 
-        //Arrange
-        Opcion opcion1 = new OpcionPertenencia("5",2);
-        Opcion opcion2 = new OpcionPertenencia("10",3);
-        Opcion opcion3 = new OpcionPertenencia("0",1);
-        Opcion opcion4 = new OpcionPertenencia("15",4);
+        OpcionPertenencia opcion1 = new OpcionPertenencia("Hola",1);
+        OpcionPertenencia opcion2 = new OpcionPertenencia("100",2);
+        OpcionPertenencia opcion3 = new OpcionPertenencia("341",1);
+        OpcionPertenencia opcion4 = new OpcionPertenencia("Azul",2);
 
         ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
@@ -770,54 +769,306 @@ public class AsignacionDePuntosConExclusividadTest {
         opcionesAPresentar.add(opcion3);
         opcionesAPresentar.add(opcion4);
 
-        String consigna = "Ordene los siguientes numeros de menor a mayor";
-        Pregunta orderedChoice = new PreguntaConTodasOpcionesClasificadas(consigna, opcionesAPresentar);
+        String consigna = "coloca las palabras en el grupo 1 y los numeros en el grupo 2";
+        Pregunta groupChoice = new PreguntaConTodasOpcionesClasificadas(consigna, opcionesAPresentar);
 
-        //jugador elige opciones en el orden que cree correcto:
+        ///jugador agrupan opciones en los grupos que crea correctos:
         //cuando el jugador elige una opcion de las opciones mostradas, se crea una opcion igual(misma descripcion
-        // y ubicacion correcta)cuya posicion actual sera seteada con la que el crea que es la correcta
-        ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
-        OpcionPertenencia opcion1Jugador1 = new OpcionPertenencia("5",2);
+        // y grupo correcto)cuyo grupo actual sera seteado segun el grupo  en el que lo coloque el jugador
+        ArrayList<Opcion> opcionesAgrupadasPorJugador1 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador1 = new OpcionPertenencia("Hola",1);
         opcion1Jugador1.setUbicacionActual(1);
-        OpcionPertenencia opcion2Jugador1 = new OpcionPertenencia("10",3);
+        OpcionPertenencia opcion2Jugador1 = new OpcionPertenencia("100",2);
         opcion2Jugador1.setUbicacionActual(2);
-        OpcionPertenencia opcion3Jugador1 = new OpcionPertenencia("0",1);
-        opcion3Jugador1.setUbicacionActual(3);
-        OpcionPertenencia opcion4Jugador1 = new OpcionPertenencia("15",4);
-        opcion4Jugador1.setUbicacionActual(4);
+        OpcionPertenencia opcion3Jugador1 = new OpcionPertenencia("341",1);
+        opcion3Jugador1.setUbicacionActual(1);
+        OpcionPertenencia opcion4Jugador1 = new OpcionPertenencia("Azul",2);
+        opcion4Jugador1.setUbicacionActual(2);
 
-        opcionesDeJugador1.add(opcion1Jugador1);
-        opcionesDeJugador1.add(opcion2Jugador1);
-        opcionesDeJugador1.add(opcion3Jugador1);
-        opcionesDeJugador1.add(opcion4Jugador1);
+        opcionesAgrupadasPorJugador1.add(opcion1Jugador1);
+        opcionesAgrupadasPorJugador1.add(opcion2Jugador1);
+        opcionesAgrupadasPorJugador1.add(opcion3Jugador1);
+        opcionesAgrupadasPorJugador1.add(opcion4Jugador1);
 
-        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
-        OpcionPertenencia opcion1Jugador2 = new OpcionPertenencia("5",2);
-        opcion1Jugador2.setUbicacionActual(2);
-        OpcionPertenencia opcion2Jugador2 = new OpcionPertenencia("10",3);
-        opcion2Jugador2.setUbicacionActual(3);
-        OpcionPertenencia opcion3Jugador2 = new OpcionPertenencia("0",1);
+        ArrayList<Opcion> opcionesAgrupadasPorJugador2 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador2 = new OpcionPertenencia("Hola",1);
+        opcion1Jugador2.setUbicacionActual(1);
+        OpcionPertenencia opcion2Jugador2 = new OpcionPertenencia("100",2);
+        opcion2Jugador2.setUbicacionActual(1);
+        OpcionPertenencia opcion3Jugador2 = new OpcionPertenencia("341",1);
         opcion3Jugador2.setUbicacionActual(1);
-        OpcionPertenencia opcion4Jugador2 = new OpcionPertenencia("15",4);
-        opcion4Jugador2.setUbicacionActual(4);
+        OpcionPertenencia opcion4Jugador2 = new OpcionPertenencia("Azul",2);
+        opcion4Jugador2.setUbicacionActual(2);
 
-        opcionesDeJugador2.add(opcion1Jugador2);
-        opcionesDeJugador2.add(opcion2Jugador2);
-        opcionesDeJugador2.add(opcion3Jugador2);
-        opcionesDeJugador2.add(opcion4Jugador2);
+        opcionesAgrupadasPorJugador2.add(opcion1Jugador2);
+        opcionesAgrupadasPorJugador2.add(opcion2Jugador2);
+        opcionesAgrupadasPorJugador2.add(opcion3Jugador2);
+        opcionesAgrupadasPorJugador2.add(opcion4Jugador2);
+
+
 
 
         Ronda unaRonda = new Ronda();
         Jugador jugador1 = new Jugador("Darkoskure");
-        Turno turnoJugador1 = new Turno(orderedChoice, jugador1);
-        turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
+        Turno turnoJugador1 = new Turno(groupChoice, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesAgrupadasPorJugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo"))
             unaRonda.agregarExclusividad();
 
         Jugador jugador2 = new Jugador("Pedro");
-        Turno turnoJugador2 = new Turno(orderedChoice, jugador2);
-        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+        Turno turnoJugador2 = new Turno(groupChoice, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesAgrupadasPorJugador2);
+
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(2, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+
+    }
+
+    @Test
+    public void test13PreguntaGroupChoiceJugador1yJugador2AmbosRespondenBienyAmbosAplicanExclusividades(){
+
+        OpcionPertenencia opcion1 = new OpcionPertenencia("Hola",1);
+        OpcionPertenencia opcion2 = new OpcionPertenencia("100",2);
+        OpcionPertenencia opcion3 = new OpcionPertenencia("341",1);
+        OpcionPertenencia opcion4 = new OpcionPertenencia("Azul",2);
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+        opcionesAPresentar.add(opcion3);
+        opcionesAPresentar.add(opcion4);
+
+        String consigna = "coloca las palabras en el grupo 1 y los numeros en el grupo 2";
+        Pregunta groupChoice = new PreguntaConTodasOpcionesClasificadas(consigna, opcionesAPresentar);
+
+        ///jugador agrupan opciones en los grupos que crea correctos:
+        //cuando el jugador elige una opcion de las opciones mostradas, se crea una opcion igual(misma descripcion
+        // y grupo correcto)cuyo grupo actual sera seteado segun el grupo  en el que lo coloque el jugador
+        ArrayList<Opcion> opcionesAgrupadasPorJugador1 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador1 = new OpcionPertenencia("Hola",1);
+        opcion1Jugador1.setUbicacionActual(1);
+        OpcionPertenencia opcion2Jugador1 = new OpcionPertenencia("100",2);
+        opcion2Jugador1.setUbicacionActual(2);
+        OpcionPertenencia opcion3Jugador1 = new OpcionPertenencia("341",1);
+        opcion3Jugador1.setUbicacionActual(1);
+        OpcionPertenencia opcion4Jugador1 = new OpcionPertenencia("Azul",2);
+        opcion4Jugador1.setUbicacionActual(2);
+
+        opcionesAgrupadasPorJugador1.add(opcion1Jugador1);
+        opcionesAgrupadasPorJugador1.add(opcion2Jugador1);
+        opcionesAgrupadasPorJugador1.add(opcion3Jugador1);
+        opcionesAgrupadasPorJugador1.add(opcion4Jugador1);
+
+        ArrayList<Opcion> opcionesAgrupadasPorJugador2 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador2 = new OpcionPertenencia("Hola",1);
+        opcion1Jugador2.setUbicacionActual(1);
+        OpcionPertenencia opcion2Jugador2 = new OpcionPertenencia("100",2);
+        opcion2Jugador2.setUbicacionActual(2);
+        OpcionPertenencia opcion3Jugador2 = new OpcionPertenencia("341",1);
+        opcion3Jugador2.setUbicacionActual(1);
+        OpcionPertenencia opcion4Jugador2 = new OpcionPertenencia("Azul",2);
+        opcion4Jugador2.setUbicacionActual(2);
+
+        opcionesAgrupadasPorJugador2.add(opcion1Jugador2);
+        opcionesAgrupadasPorJugador2.add(opcion2Jugador2);
+        opcionesAgrupadasPorJugador2.add(opcion3Jugador2);
+        opcionesAgrupadasPorJugador2.add(opcion4Jugador2);
+
+
+
+
+        Ronda unaRonda = new Ronda();
+        Jugador jugador1 = new Jugador("Darkoskure");
+        Turno turnoJugador1 = new Turno(groupChoice, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesAgrupadasPorJugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        Jugador jugador2 = new Jugador("Pedro");
+        Turno turnoJugador2 = new Turno(groupChoice, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesAgrupadasPorJugador2);
+
+        if(jugador2.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(0, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+
+
+    }
+    @Test
+    public void test14PreguntaGroupChoiceJugador1RespondeBienYJugador2RespondeMalYAmbosAplicanExclusividades(){
+
+        OpcionPertenencia opcion1 = new OpcionPertenencia("Hola",1);
+        OpcionPertenencia opcion2 = new OpcionPertenencia("100",2);
+        OpcionPertenencia opcion3 = new OpcionPertenencia("341",1);
+        OpcionPertenencia opcion4 = new OpcionPertenencia("Azul",2);
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+        opcionesAPresentar.add(opcion3);
+        opcionesAPresentar.add(opcion4);
+
+        String consigna = "coloca las palabras en el grupo 1 y los numeros en el grupo 2";
+        Pregunta groupChoice = new PreguntaConTodasOpcionesClasificadas(consigna, opcionesAPresentar);
+
+        ///jugador agrupan opciones en los grupos que crea correctos:
+        //cuando el jugador elige una opcion de las opciones mostradas, se crea una opcion igual(misma descripcion
+        // y grupo correcto)cuyo grupo actual sera seteado segun el grupo  en el que lo coloque el jugador
+        ArrayList<Opcion> opcionesAgrupadasPorJugador1 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador1 = new OpcionPertenencia("Hola",1);
+        opcion1Jugador1.setUbicacionActual(1);
+        OpcionPertenencia opcion2Jugador1 = new OpcionPertenencia("100",2);
+        opcion2Jugador1.setUbicacionActual(2);
+        OpcionPertenencia opcion3Jugador1 = new OpcionPertenencia("341",1);
+        opcion3Jugador1.setUbicacionActual(1);
+        OpcionPertenencia opcion4Jugador1 = new OpcionPertenencia("Azul",2);
+        opcion4Jugador1.setUbicacionActual(2);
+
+        opcionesAgrupadasPorJugador1.add(opcion1Jugador1);
+        opcionesAgrupadasPorJugador1.add(opcion2Jugador1);
+        opcionesAgrupadasPorJugador1.add(opcion3Jugador1);
+        opcionesAgrupadasPorJugador1.add(opcion4Jugador1);
+
+        ArrayList<Opcion> opcionesAgrupadasPorJugador2 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador2 = new OpcionPertenencia("Hola",1);
+        opcion1Jugador2.setUbicacionActual(1);
+        OpcionPertenencia opcion2Jugador2 = new OpcionPertenencia("100",2);
+        opcion2Jugador2.setUbicacionActual(1);
+        OpcionPertenencia opcion3Jugador2 = new OpcionPertenencia("341",1);
+        opcion3Jugador2.setUbicacionActual(1);
+        OpcionPertenencia opcion4Jugador2 = new OpcionPertenencia("Azul",2);
+        opcion4Jugador2.setUbicacionActual(2);
+
+        opcionesAgrupadasPorJugador2.add(opcion1Jugador2);
+        opcionesAgrupadasPorJugador2.add(opcion2Jugador2);
+        opcionesAgrupadasPorJugador2.add(opcion3Jugador2);
+        opcionesAgrupadasPorJugador2.add(opcion4Jugador2);
+
+
+
+
+        Ronda unaRonda = new Ronda();
+        Jugador jugador1 = new Jugador("Darkoskure");
+        Turno turnoJugador1 = new Turno(groupChoice, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesAgrupadasPorJugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        Jugador jugador2 = new Jugador("Pedro");
+        Turno turnoJugador2 = new Turno(groupChoice, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesAgrupadasPorJugador2);
+        if(jugador2.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+
+
+        unaRonda.agregarTurno(turnoJugador1);
+        unaRonda.agregarTurno(turnoJugador2);
+        unaRonda.asignarPuntos();
+
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(4, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+
+    }
+    @Test
+    public void test15PreguntaGroupChoiceJugador1RespondeMalYActivaExclusividadJugador2RespondeBien(){
+
+        OpcionPertenencia opcion1 = new OpcionPertenencia("Hola",1);
+        OpcionPertenencia opcion2 = new OpcionPertenencia("100",2);
+        OpcionPertenencia opcion3 = new OpcionPertenencia("341",1);
+        OpcionPertenencia opcion4 = new OpcionPertenencia("Azul",2);
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+        opcionesAPresentar.add(opcion3);
+        opcionesAPresentar.add(opcion4);
+
+        String consigna = "coloca las palabras en el grupo 1 y los numeros en el grupo 2";
+        Pregunta groupChoice = new PreguntaConTodasOpcionesClasificadas(consigna, opcionesAPresentar);
+
+        ///jugador agrupan opciones en los grupos que crea correctos:
+        //cuando el jugador elige una opcion de las opciones mostradas, se crea una opcion igual(misma descripcion
+        // y grupo correcto)cuyo grupo actual sera seteado segun el grupo  en el que lo coloque el jugador
+        ArrayList<Opcion> opcionesAgrupadasPorJugador1 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador1 = new OpcionPertenencia("Hola",1);
+        opcion1Jugador1.setUbicacionActual(1);
+        OpcionPertenencia opcion2Jugador1 = new OpcionPertenencia("100",2);
+        opcion2Jugador1.setUbicacionActual(1);
+        OpcionPertenencia opcion3Jugador1 = new OpcionPertenencia("341",1);
+        opcion3Jugador1.setUbicacionActual(1);
+        OpcionPertenencia opcion4Jugador1 = new OpcionPertenencia("Azul",2);
+        opcion4Jugador1.setUbicacionActual(2);
+
+        opcionesAgrupadasPorJugador1.add(opcion1Jugador1);
+        opcionesAgrupadasPorJugador1.add(opcion2Jugador1);
+        opcionesAgrupadasPorJugador1.add(opcion3Jugador1);
+        opcionesAgrupadasPorJugador1.add(opcion4Jugador1);
+
+        ArrayList<Opcion> opcionesAgrupadasPorJugador2 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador2 = new OpcionPertenencia("Hola",1);
+        opcion1Jugador2.setUbicacionActual(1);
+        OpcionPertenencia opcion2Jugador2 = new OpcionPertenencia("100",2);
+        opcion2Jugador2.setUbicacionActual(2);
+        OpcionPertenencia opcion3Jugador2 = new OpcionPertenencia("341",1);
+        opcion3Jugador2.setUbicacionActual(1);
+        OpcionPertenencia opcion4Jugador2 = new OpcionPertenencia("Azul",2);
+        opcion4Jugador2.setUbicacionActual(2);
+
+        opcionesAgrupadasPorJugador2.add(opcion1Jugador2);
+        opcionesAgrupadasPorJugador2.add(opcion2Jugador2);
+        opcionesAgrupadasPorJugador2.add(opcion3Jugador2);
+        opcionesAgrupadasPorJugador2.add(opcion4Jugador2);
+
+
+
+
+        Ronda unaRonda = new Ronda();
+        Jugador jugador1 = new Jugador("Darkoskure");
+        Turno turnoJugador1 = new Turno(groupChoice, jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesAgrupadasPorJugador1);
+
+        if(jugador1.activarMultiplicador("puntajeExclusivo"))
+            unaRonda.agregarExclusividad();
+
+        Jugador jugador2 = new Jugador("Pedro");
+        Turno turnoJugador2 = new Turno(groupChoice, jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesAgrupadasPorJugador2);
+
+
 
 
         unaRonda.agregarTurno(turnoJugador1);
@@ -832,10 +1083,6 @@ public class AsignacionDePuntosConExclusividadTest {
         //Assert
         assertEquals(0, puntosJugador1);
         assertEquals(2, puntosJugador2);
-
     }
-
-
-
 
 }

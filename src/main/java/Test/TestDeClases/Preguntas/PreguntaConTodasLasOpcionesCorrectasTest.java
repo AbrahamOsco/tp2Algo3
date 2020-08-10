@@ -71,6 +71,7 @@ public class PreguntaConTodasLasOpcionesCorrectasTest {
         Opcion opcionCorrectaTres = new OpcionCorrecta("Por su pollo");
         Opcion opcionIncorrecta = new OpcionIncorrecta("nop");
         ArrayList<Opcion> opcionesApresentar = new ArrayList<>();
+
         opcionesApresentar.add(opcionCorrectaUno);
         opcionesApresentar.add(opcionCorrectaDos);
         opcionesApresentar.add(opcionCorrectaTres);
