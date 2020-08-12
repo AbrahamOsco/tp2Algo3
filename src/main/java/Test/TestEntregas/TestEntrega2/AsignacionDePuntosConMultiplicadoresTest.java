@@ -3,11 +3,10 @@ package Test.TestEntregas.TestEntrega2;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
-import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
 import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrectaPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Ronda.Ronda;
+import edu.fiuba.algo3.modelo.AsignadorPuntos.AsignadorPuntos;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX2;
@@ -49,10 +48,10 @@ public class AsignacionDePuntosConMultiplicadoresTest {
             turnoJugador2.setMultiplicadorActivo(unMultiplicador);
         }
 
-        Ronda unaRonda = new Ronda();
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
@@ -111,10 +110,10 @@ public class AsignacionDePuntosConMultiplicadoresTest {
             turnoJugador2.setMultiplicadorActivo(unMultiplicador);
         }
 
-        Ronda unaRonda = new Ronda();
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();

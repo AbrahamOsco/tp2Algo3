@@ -1,16 +1,16 @@
-package edu.fiuba.algo3.modelo.Ronda;
+package edu.fiuba.algo3.modelo.AsignadorPuntos;
 
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.modificador.Exclusividad;
 
 import java.util.ArrayList;
 
-public class Ronda {
+public class AsignadorPuntos {
     private ArrayList<Exclusividad> modificadores ;
     private ArrayList<Turno> turnos;
 
 
-    public Ronda() {
+    public AsignadorPuntos() {
         this.turnos = new ArrayList<>();
         this.modificadores = new ArrayList<>();
     }

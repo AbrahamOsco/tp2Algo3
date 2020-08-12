@@ -1,4 +1,4 @@
-package Test.TestDeClases.Ronda;
+package Test.TestDeClases.AsignadorPuntos;
 
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
@@ -8,7 +8,7 @@ import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrectaPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Ronda.Ronda;
+import edu.fiuba.algo3.modelo.AsignadorPuntos.AsignadorPuntos;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX2;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RondaTests {
+public class AsignadorPuntosTests {
 
     //Necesita agregar turnos para asignar puntos.
     @Test
@@ -51,10 +51,10 @@ public class RondaTests {
         Turno turnoJugador2 = new Turno(verdaderoFalsoClasico,jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
 
-        Ronda unaRonda = new Ronda();
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
@@ -114,10 +114,10 @@ public class RondaTests {
             turnoJugador2.setMultiplicadorActivo(unMultiplicador);
         }
 
-        Ronda unaRonda = new Ronda();
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
