@@ -11,7 +11,7 @@ public class PreguntaConTodasOpcionesCorrectas extends PreguntaCriterioSinErrore
     @Override
     protected boolean tieneCantidadDeOpcionesNecesarias(ArrayList<Opcion> opcionesJugador) {
         int cantidadOpcionesCorrectas = this.getOpcionesCorrectas().size();
-        int cantidadOpcionesCorrectasJugador = opcionesJugador.size();
-        return cantidadOpcionesCorrectas == cantidadOpcionesCorrectasJugador;
+        int cantidadOpcionesJugador = opcionesJugador.size();
+        return cantidadOpcionesCorrectas == cantidadOpcionesJugador;
     }
 }
