@@ -16,9 +16,7 @@ public class Ronda {
     }
 
     private void aplicarMultiplicadores(){
-        for(Turno unTurno: turnos){
-            unTurno.asignarPuntajeFinal(unTurno.obtenerPuntajeParcial());
-        }
+        turnos.stream().forEach(t -> t.asignarPuntajeFinal(t.obtenerPuntajeParcial()));
     }
 
     public void asignarPuntos(){
@@ -37,8 +35,6 @@ public class Ronda {
     }
 
     private void aplicarExclusividad(){
-        for (Exclusividad unaExclusividad :modificadores) {
-            unaExclusividad.aplicarModificador(this.turnos);
-        }
+        modificadores.stream().forEach( e -> e.aplicarModificador(turnos));
     }
 }

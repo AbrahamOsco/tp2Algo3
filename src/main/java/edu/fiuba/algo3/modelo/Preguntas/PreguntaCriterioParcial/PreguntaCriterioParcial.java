@@ -19,13 +19,9 @@ public abstract class PreguntaCriterioParcial extends Pregunta {
         return true;
     }
 
-    //RefactoDeNombre pendiente
+
     protected int recibirPuntajeOpciones(ArrayList<Opcion> opcionesJugador) {
-        int puntajeARetornar = 0;
-        for (Opcion unaOpcionJugador : opcionesJugador) {
-            puntajeARetornar += unaOpcionJugador.calcularPuntosAdicionales();
-        }
-        return puntajeARetornar;
+        return opcionesJugador.stream().mapToInt(o -> o.calcularPuntosAdicionales()).sum();
     }
 
 }
