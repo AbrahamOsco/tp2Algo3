@@ -16,19 +16,9 @@ public abstract class Pregunta {
     public String getConsigna() {
         return consigna;
     }
-
-    public void setConsigna(String consigna) {
-        this.consigna = consigna;
-    }
-
     public ArrayList<Opcion> getOpciones() {
         return this.opciones;
     }
-
-    public void setOpciones(ArrayList<Opcion> opciones) {
-        this.opciones = opciones;
-    }
-
     protected  abstract  int obtenerPuntaje(ArrayList<Opcion> opcionesJugador );
     protected  abstract  boolean tieneCantidadDeOpcionesNecesarias(ArrayList<Opcion> opcionesJugador );
 
