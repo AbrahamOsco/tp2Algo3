@@ -10,6 +10,4 @@ public class OpcionIncorrecta extends Opcion{
     public int calcularPuntosAdicionales() {
         return 0;
     }
-
-
 }

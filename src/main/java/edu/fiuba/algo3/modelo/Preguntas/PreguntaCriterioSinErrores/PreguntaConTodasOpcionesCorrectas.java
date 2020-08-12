@@ -9,7 +9,6 @@ public class PreguntaConTodasOpcionesCorrectas extends PreguntaCriterioSinErrore
     }
 
     @Override
-    //cambiar tieneOpcionesNecesarias por tieneCantidadDeOpcionesNecesarias
     protected boolean tieneCantidadDeOpcionesNecesarias(ArrayList<Opcion> opcionesJugador) {
         int cantidadOpcionesCorrectas = this.getOpcionesCorrectas().size();
         int cantidadOpcionesCorrectasJugador = opcionesJugador.size();
