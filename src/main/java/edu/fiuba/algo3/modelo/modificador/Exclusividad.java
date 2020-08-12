@@ -15,6 +15,5 @@ public class Exclusividad  {
         if(listaMax.size()==1) {
             turnoMax.asignarPuntajeFinal(max*2);
         }
-
     }
 }
