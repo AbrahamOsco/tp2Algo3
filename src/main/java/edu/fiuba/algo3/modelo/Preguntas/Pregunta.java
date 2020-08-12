@@ -26,10 +26,6 @@ public abstract class Pregunta {
         return this.opciones;
     }
 
-    public void setOpciones(ArrayList<Opcion> opciones) {
-        this.opciones = opciones;
-    }
-
     protected  abstract  int obtenerPuntaje(ArrayList<Opcion> opcionesJugador );
     protected  abstract  boolean tieneCantidadDeOpcionesNecesarias(ArrayList<Opcion> opcionesJugador );
 
