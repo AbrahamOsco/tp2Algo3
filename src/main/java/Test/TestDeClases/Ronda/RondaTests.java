@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
 import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
+import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrectaPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
@@ -69,7 +70,7 @@ public class RondaTests {
 
         //Arrange
         Opcion opcion1 = new OpcionCorrecta("Cayo Julio Cesar");
-        Opcion opcion2 = new OpcionIncorrecta("Bob Esponja");
+        Opcion opcion2 = new OpcionIncorrectaPenalizable("Bob Esponja");
         Opcion opcion3 = new OpcionCorrecta("Marco Vipsanio Agrippa");
         Opcion opcion4 = new OpcionCorrecta("Octavio");
         Opcion opcion5 = new OpcionCorrecta("Craso");

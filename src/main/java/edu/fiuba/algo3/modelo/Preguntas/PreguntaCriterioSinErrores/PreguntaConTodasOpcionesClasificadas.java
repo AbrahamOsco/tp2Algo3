@@ -8,7 +8,7 @@ public class PreguntaConTodasOpcionesClasificadas extends PreguntaCriterioSinErr
         super(consigna, opciones);
     }
     @Override
-    protected boolean tieneOpcionesNecesarias(ArrayList<Opcion> opcionesJugador) {
+    protected boolean tieneCantidadDeOpcionesNecesarias(ArrayList<Opcion> opcionesJugador) {
         return (this.opciones.size()) == opcionesJugador.size();
     }
     @Override

@@ -9,12 +9,10 @@ public class PreguntaConTodasOpcionesCorrectas extends PreguntaCriterioSinErrore
     }
 
     @Override
-    protected boolean tieneOpcionesNecesarias(ArrayList<Opcion> opcionesJugador) {
-        int cantidadOpcionesCorrectas = 0;
-        for(Opcion unaOpcion: this.opciones){
-            if(unaOpcion.esCorrecta())
-                cantidadOpcionesCorrectas++;
-        }
-        return cantidadOpcionesCorrectas == opcionesJugador.size();
+    //cambiar tieneOpcionesNecesarias por tieneCantidadDeOpcionesNecesarias
+    protected boolean tieneCantidadDeOpcionesNecesarias(ArrayList<Opcion> opcionesJugador) {
+        int cantidadOpcionesCorrectas = this.getOpcionesCorrectas().size();
+        int cantidadOpcionesCorrectasJugador = opcionesJugador.size();
+        return cantidadOpcionesCorrectas == cantidadOpcionesCorrectasJugador;
     }
 }

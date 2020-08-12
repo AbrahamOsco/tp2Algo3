@@ -3,6 +3,7 @@ import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
 import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
+import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrectaPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesCorrectas;
@@ -18,7 +19,7 @@ public class Entrega1Test {
     @Test
     public void test01PreguntaDeVerdaderoFalsoPenalizablePuedeCrearseIndicandoleCualEsLaRespuestaCorrecta() {
         Opcion opcion1 = new OpcionCorrecta("si");
-        Opcion opcion2 = new OpcionIncorrecta("no");
+        Opcion opcion2 = new OpcionIncorrectaPenalizable("no");
 
         ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
@@ -38,7 +39,7 @@ public class Entrega1Test {
     public void test02PreguntaDeVerdaderoFalsoPenalizableRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntos(){
         //Arrange
         Opcion opcion1 = new OpcionCorrecta("si");
-        Opcion opcion2 = new OpcionIncorrecta("no");
+        Opcion opcion2 = new OpcionIncorrectaPenalizable("no");
 
         ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);

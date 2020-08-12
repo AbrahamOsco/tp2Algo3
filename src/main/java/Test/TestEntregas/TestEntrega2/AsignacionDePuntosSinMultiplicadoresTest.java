@@ -1,10 +1,7 @@
 package Test.TestEntregas.TestEntrega2;
 
-import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import edu.fiuba.algo3.modelo.Opciones.*;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
-import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
-import edu.fiuba.algo3.modelo.Opciones.OpcionPertenencia;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesClasificadas;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
@@ -19,7 +16,7 @@ public class AsignacionDePuntosSinMultiplicadoresTest {
     public void test01PreguntaMultipleChoiceDePenalizableRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntos(){
         //Arrange
         Opcion opcion1 = new OpcionCorrecta("A");
-        Opcion opcion2 = new OpcionIncorrecta("5");
+        Opcion opcion2 = new OpcionIncorrectaPenalizable("5");
         Opcion opcion3 = new OpcionCorrecta("B");
         Opcion opcion4 = new OpcionCorrecta("N");
         Opcion opcion5 = new OpcionCorrecta("Z");

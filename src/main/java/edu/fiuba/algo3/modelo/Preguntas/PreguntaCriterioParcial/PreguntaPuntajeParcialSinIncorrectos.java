@@ -10,13 +10,9 @@ public class PreguntaPuntajeParcialSinIncorrectos extends PreguntaCriterioParcia
 
     @Override
     protected int obtenerPuntaje(ArrayList<Opcion> opcionesJugador) {
-        int puntajeARetornar = 0;
-        for(Opcion unaOpcion: opcionesJugador){
-            if(!unaOpcion.esCorrecta()){
-                return 0;
-            }
-            puntajeARetornar ++;
+        if(this.tieneAlgunaOpcionIncorrecta(opcionesJugador)){
+            return 0;
         }
-        return puntajeARetornar;
+        return this.recibirPuntajeOpciones(opcionesJugador);
     }
 }

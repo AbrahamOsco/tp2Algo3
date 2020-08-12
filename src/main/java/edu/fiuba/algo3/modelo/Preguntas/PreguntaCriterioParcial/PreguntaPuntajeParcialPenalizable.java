@@ -11,13 +11,6 @@ public class PreguntaPuntajeParcialPenalizable extends PreguntaCriterioParcial{
 
     @Override
     protected int obtenerPuntaje(ArrayList<Opcion> opcionesJugador) {
-        int puntajeARetornar = 0;
-        for(Opcion unaOpcionJugador: opcionesJugador){
-            if(unaOpcionJugador.esCorrecta())
-                puntajeARetornar ++;
-            else
-                puntajeARetornar --;
-        }
-        return puntajeARetornar;
+        return this.recibirPuntajeOpciones(opcionesJugador);
     }
 }
