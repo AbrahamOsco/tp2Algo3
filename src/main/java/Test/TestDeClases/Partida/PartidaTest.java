@@ -18,7 +18,7 @@ public class PartidaTest {
         jugador1.modificarPuntaje(2);
 
         Jugador jugador2 = jugadores.get(1);
-        jugador1.modificarPuntaje(5);
+        jugador2.modificarPuntaje(5);
 
         List<String > datosFinalesDeJugadores = algohoot.obtenerResultadoPartida();
         String resultado1 = datosFinalesDeJugadores.get(0);
