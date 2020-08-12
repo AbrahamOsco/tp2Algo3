@@ -37,5 +37,10 @@ public class  Jugador {
         }
         return retorno;
     }
+    
+    @Override
+    public String toString () {
+    	return this.nombre + " puntos: " + this.puntaje;
+    }
 
 }

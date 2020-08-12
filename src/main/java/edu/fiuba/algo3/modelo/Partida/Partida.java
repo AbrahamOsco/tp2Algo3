@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.stream.Collectors;
 
 
 
@@ -37,5 +38,14 @@ public class Partida {
     public List<Jugador> getJugadores() {
     	return jugadores;
     }
+    
+    /*public List<String> obtenerPuntajesOrdenados(){
+    	
+    	List<String> unaListaDeJugadores = jugadores.stream()
+    			.sorted((j1, j2) -> new Integer (j1.getPuntaje()).compareTo(new Integer (j2.getPuntaje()) ))
+    			.forEach(unJugador -> unJugador.toString()).collect (Collectors.toList());
+    	 
+    	
+    }*/
     
 }
