@@ -35,7 +35,7 @@ public class Partida {
     	return jugadores;
     }
     
-    public List<String> obtenerPuntajesOrdenados(){
+    public List<String> obtenerResultadoPartida(){
     	return jugadores.stream().sorted((j1, j2) -> Integer.valueOf(j1.getPuntaje()).compareTo(Integer.valueOf (j2.getPuntaje()) ))
                 .map(unJugador -> unJugador.toString()).collect(Collectors.toList());
     }
