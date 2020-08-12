@@ -1,24 +1,22 @@
-package edu.fiuba.algo3.modelo.Ronda;
+package edu.fiuba.algo3.modelo.AsignadorPuntos;
 
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.modificador.Exclusividad;
 
 import java.util.ArrayList;
 
-public class Ronda {
+public class AsignadorPuntos {
     private ArrayList<Exclusividad> modificadores ;
     private ArrayList<Turno> turnos;
 
 
-    public Ronda() {
+    public AsignadorPuntos() {
         this.turnos = new ArrayList<>();
         this.modificadores = new ArrayList<>();
     }
 
     private void aplicarMultiplicadores(){
-        for(Turno unTurno: turnos){
-            unTurno.asignarPuntajeFinal(unTurno.obtenerPuntajeParcial());
-        }
+        turnos.stream().forEach(t -> t.asignarPuntajeFinal(t.obtenerPuntajeParcial()));
     }
 
     public void asignarPuntos(){
@@ -37,8 +35,6 @@ public class Ronda {
     }
 
     private void aplicarExclusividad(){
-        for (Exclusividad unaExclusividad :modificadores) {
-            unaExclusividad.aplicarModificador(this.turnos);
-        }
+        modificadores.stream().forEach( e -> e.aplicarModificador(turnos));
     }
 }

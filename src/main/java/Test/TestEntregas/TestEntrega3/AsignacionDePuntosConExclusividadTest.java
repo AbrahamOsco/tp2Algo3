@@ -9,7 +9,7 @@ import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesClasificadas;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesCorrectas;
-import edu.fiuba.algo3.modelo.Ronda.Ronda;
+import edu.fiuba.algo3.modelo.AsignadorPuntos.AsignadorPuntos;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import org.junit.jupiter.api.Test;
 
@@ -40,10 +40,10 @@ public class AsignacionDePuntosConExclusividadTest {
         Jugador jugador1 = new Jugador("Maho");
         Turno turnoJugador1 = new Turno(verdaderoFalsoClasico, jugador1);
 
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
 
         if(jugador1.activarMultiplicador("puntajeExclusivo")){
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
         }
 
         turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
@@ -53,9 +53,9 @@ public class AsignacionDePuntosConExclusividadTest {
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
 
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
@@ -78,7 +78,7 @@ public class AsignacionDePuntosConExclusividadTest {
 
         String consigna = "Es 5 + 5 igual a 10?";
         Pregunta verdaderoFalsoClasico = new PreguntaPuntajeParcialSinIncorrectos(consigna, opcionesAPresentar);
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
 
         //jugadores eligen opciones
         ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
@@ -91,7 +91,7 @@ public class AsignacionDePuntosConExclusividadTest {
         Turno turnoJugador1 = new Turno(verdaderoFalsoClasico, jugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo")){
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
         }
 
         turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
@@ -100,12 +100,12 @@ public class AsignacionDePuntosConExclusividadTest {
         Turno turnoJugador2 = new Turno(verdaderoFalsoClasico, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
         if(jugador1.activarMultiplicador("puntajeExclusivo")){
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
         }
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
@@ -128,7 +128,7 @@ public class AsignacionDePuntosConExclusividadTest {
 
         String consigna = "Es 5 + 5 igual a 10?";
         Pregunta verdaderoFalsoClasico = new PreguntaPuntajeParcialSinIncorrectos(consigna, opcionesAPresentar);
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
 
         //jugadores eligen opciones
         ArrayList<Opcion> opcionesDeJugador1 = new ArrayList<>();
@@ -141,7 +141,7 @@ public class AsignacionDePuntosConExclusividadTest {
         Turno turnoJugador1 = new Turno(verdaderoFalsoClasico, jugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo")){
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
         }
 
         turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
@@ -150,12 +150,12 @@ public class AsignacionDePuntosConExclusividadTest {
         Turno turnoJugador2 = new Turno(verdaderoFalsoClasico, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
         if(jugador1.activarMultiplicador("puntajeExclusivo")){
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
         }
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
@@ -193,24 +193,24 @@ public class AsignacionDePuntosConExclusividadTest {
         opcionesDeJugador2.add(opcion3);
         opcionesDeJugador2.add(opcion4);
 
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
         Jugador jugador1 = new Jugador("Maho");
         Turno turnoJugador1 = new Turno(multipleChoicePuntajeParcial, jugador1);
         turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
         Jugador jugador2 = new Jugador("Ryuk");
         Turno turnoJugador2 = new Turno(multipleChoicePuntajeParcial, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
 
         if(jugador2.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
@@ -252,21 +252,21 @@ public class AsignacionDePuntosConExclusividadTest {
         opcionesDeJugador2.add(opcion3);
 
 
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
         Jugador jugador1 = new Jugador("Darkoskure");
         Turno turnoJugador1 = new Turno(multipleChoicePuntajeParcial, jugador1);
         turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
         Jugador jugador2 = new Jugador("Pedro");
         Turno turnoJugador2 = new Turno(multipleChoicePuntajeParcial, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
@@ -309,21 +309,21 @@ public class AsignacionDePuntosConExclusividadTest {
         opcionesDeJugador2.add(opcion5);
 
 
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
         Jugador jugador1 = new Jugador("Darkoskure");
         Turno turnoJugador1 = new Turno(multipleChoice, jugador1);
         turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
         Jugador jugador2 = new Jugador("Pedro");
         Turno turnoJugador2 = new Turno(multipleChoice, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
@@ -367,21 +367,21 @@ public class AsignacionDePuntosConExclusividadTest {
 
 
 
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
         Jugador jugador1 = new Jugador("Darkoskure");
         Turno turnoJugador1 = new Turno(multipleChoice, jugador1);
         turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
         Jugador jugador2 = new Jugador("Pedro");
         Turno turnoJugador2 = new Turno(multipleChoice, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
@@ -426,24 +426,24 @@ public class AsignacionDePuntosConExclusividadTest {
 
 
 
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
         Jugador jugador1 = new Jugador("Darkoskure");
         Turno turnoJugador1 = new Turno(multipleChoice, jugador1);
         turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
         Jugador jugador2 = new Jugador("Pedro");
         Turno turnoJugador2 = new Turno(multipleChoice, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
 
         if(jugador2.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
@@ -488,22 +488,22 @@ public class AsignacionDePuntosConExclusividadTest {
 
 
 
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
         Jugador jugador1 = new Jugador("Darkoskure");
         Turno turnoJugador1 = new Turno(multipleChoice, jugador1);
         turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
         Jugador jugador2 = new Jugador("Pedro");
         Turno turnoJugador2 = new Turno(multipleChoice, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
 
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
@@ -566,25 +566,25 @@ public class AsignacionDePuntosConExclusividadTest {
         opcionesDeJugador2.add(opcion4Jugador2);
 
 
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
         Jugador jugador1 = new Jugador("Darkoskure");
         Turno turnoJugador1 = new Turno(orderedChoice, jugador1);
         turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
         Jugador jugador2 = new Jugador("Pedro");
         Turno turnoJugador2 = new Turno(orderedChoice, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
 
         if(jugador2.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
 
         //Act
@@ -648,22 +648,22 @@ public class AsignacionDePuntosConExclusividadTest {
         opcionesDeJugador2.add(opcion4Jugador2);
 
 
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
         Jugador jugador1 = new Jugador("Darkoskure");
         Turno turnoJugador1 = new Turno(orderedChoice, jugador1);
         turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
         Jugador jugador2 = new Jugador("Pedro");
         Turno turnoJugador2 = new Turno(orderedChoice, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
 
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
 
         //Act
@@ -727,22 +727,22 @@ public class AsignacionDePuntosConExclusividadTest {
         opcionesDeJugador2.add(opcion4Jugador2);
 
 
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
         Jugador jugador1 = new Jugador("Darkoskure");
         Turno turnoJugador1 = new Turno(orderedChoice, jugador1);
         turnoJugador1.setOpcionesElejidas(opcionesDeJugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
         Jugador jugador2 = new Jugador("Pedro");
         Turno turnoJugador2 = new Turno(orderedChoice, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
 
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
 
         //Act
@@ -808,22 +808,22 @@ public class AsignacionDePuntosConExclusividadTest {
 
 
 
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
         Jugador jugador1 = new Jugador("Darkoskure");
         Turno turnoJugador1 = new Turno(groupChoice, jugador1);
         turnoJugador1.setOpcionesElejidas(opcionesAgrupadasPorJugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
         Jugador jugador2 = new Jugador("Pedro");
         Turno turnoJugador2 = new Turno(groupChoice, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesAgrupadasPorJugador2);
 
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
 
         //Act
@@ -889,25 +889,25 @@ public class AsignacionDePuntosConExclusividadTest {
 
 
 
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
         Jugador jugador1 = new Jugador("Darkoskure");
         Turno turnoJugador1 = new Turno(groupChoice, jugador1);
         turnoJugador1.setOpcionesElejidas(opcionesAgrupadasPorJugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
         Jugador jugador2 = new Jugador("Pedro");
         Turno turnoJugador2 = new Turno(groupChoice, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesAgrupadasPorJugador2);
 
         if(jugador2.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
 
         //Act
@@ -973,25 +973,25 @@ public class AsignacionDePuntosConExclusividadTest {
 
 
 
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
         Jugador jugador1 = new Jugador("Darkoskure");
         Turno turnoJugador1 = new Turno(groupChoice, jugador1);
         turnoJugador1.setOpcionesElejidas(opcionesAgrupadasPorJugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
         Jugador jugador2 = new Jugador("Pedro");
         Turno turnoJugador2 = new Turno(groupChoice, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesAgrupadasPorJugador2);
         if(jugador2.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
 
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
 
         //Act
@@ -1056,13 +1056,13 @@ public class AsignacionDePuntosConExclusividadTest {
 
 
 
-        Ronda unaRonda = new Ronda();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
         Jugador jugador1 = new Jugador("Darkoskure");
         Turno turnoJugador1 = new Turno(groupChoice, jugador1);
         turnoJugador1.setOpcionesElejidas(opcionesAgrupadasPorJugador1);
 
         if(jugador1.activarMultiplicador("puntajeExclusivo"))
-            unaRonda.agregarExclusividad();
+            unaAsignadorPuntos.agregarExclusividad();
 
         Jugador jugador2 = new Jugador("Pedro");
         Turno turnoJugador2 = new Turno(groupChoice, jugador2);
@@ -1071,9 +1071,9 @@ public class AsignacionDePuntosConExclusividadTest {
 
 
 
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
 
         //Act

@@ -3,10 +3,10 @@ package Test.TestEntregas.TestEntrega2;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
-import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
+import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrectaPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Ronda.Ronda;
+import edu.fiuba.algo3.modelo.AsignadorPuntos.AsignadorPuntos;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX2;
@@ -20,7 +20,7 @@ public class AsignacionDePuntosConMultiplicadoresTest {
     public void test01PreguntaDeVerdaderoFalsoPenalizableRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntosJugador2usaX3(){
         //Arrange
         Opcion opcion1 = new OpcionCorrecta("si");
-        Opcion opcion2 = new OpcionIncorrecta("no");
+        Opcion opcion2 = new OpcionIncorrectaPenalizable("no");
 
         ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
@@ -48,10 +48,10 @@ public class AsignacionDePuntosConMultiplicadoresTest {
             turnoJugador2.setMultiplicadorActivo(unMultiplicador);
         }
 
-        Ronda unaRonda = new Ronda();
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
@@ -66,7 +66,7 @@ public class AsignacionDePuntosConMultiplicadoresTest {
     public void test02PreguntaMultipleChoiceDePenalizableRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntosJugador1UsaX2YJugador2UsaX3(){
         //Arrange
         Opcion opcion1 = new OpcionCorrecta("A");
-        Opcion opcion2 = new OpcionIncorrecta("5");
+        Opcion opcion2 = new OpcionIncorrectaPenalizable("5");
         Opcion opcion3 = new OpcionCorrecta("B");
         Opcion opcion4 = new OpcionCorrecta("N");
         Opcion opcion5 = new OpcionCorrecta("Z");
@@ -110,10 +110,10 @@ public class AsignacionDePuntosConMultiplicadoresTest {
             turnoJugador2.setMultiplicadorActivo(unMultiplicador);
         }
 
-        Ronda unaRonda = new Ronda();
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();

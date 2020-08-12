@@ -15,7 +15,13 @@ public abstract class PreguntaCriterioParcial extends Pregunta {
     protected abstract int obtenerPuntaje(ArrayList<Opcion> opcionesJugador);
 
     @Override
-    protected boolean tieneOpcionesNecesarias(ArrayList<Opcion> opcionesJugador) {
+    protected boolean tieneCantidadDeOpcionesNecesarias(ArrayList<Opcion> opcionesJugador) {
         return true;
     }
+
+
+    protected int recibirPuntajeOpciones(ArrayList<Opcion> opcionesJugador) {
+        return opcionesJugador.stream().mapToInt(o -> o.calcularPuntosAdicionales()).sum();
+    }
+
 }

@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo.Preguntas;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public abstract class Pregunta {
     private String consigna;
@@ -16,34 +17,26 @@ public abstract class Pregunta {
     public String getConsigna() {
         return consigna;
     }
-
-    public void setConsigna(String consigna) {
-        this.consigna = consigna;
-    }
-
     public ArrayList<Opcion> getOpciones() {
         return this.opciones;
     }
 
-    public void setOpciones(ArrayList<Opcion> opciones) {
-        this.opciones = opciones;
-    }
-
     protected  abstract  int obtenerPuntaje(ArrayList<Opcion> opcionesJugador );
-    protected  abstract  boolean tieneOpcionesNecesarias(ArrayList<Opcion> opcionesJugador );
+    protected  abstract  boolean tieneCantidadDeOpcionesNecesarias(ArrayList<Opcion> opcionesJugador );
 
     public  int evaluarOpcionesElegidas(ArrayList<Opcion> opcionesJugador){
-        if(opcionesJugador.isEmpty() || !tieneOpcionesNecesarias(opcionesJugador))
+        if(opcionesJugador.isEmpty() || !tieneCantidadDeOpcionesNecesarias(opcionesJugador))
             return 0;
         return obtenerPuntaje(opcionesJugador);
     }
-    //Solo se utiliza Para los Test
+
     public ArrayList<Opcion> getOpcionesCorrectas () {
-        ArrayList<Opcion> opcionesCorrectas = new ArrayList<>();
-        for (Opcion opcion: opciones) {
-            if(opcion.esCorrecta())
-                opcionesCorrectas.add(opcion);
-        }
-        return opcionesCorrectas;
+        return opciones.stream().filter(o -> o.calcularPuntosAdicionales() == 1)
+                .collect(Collectors.toCollection(ArrayList<Opcion>:: new));
+
+    }
+
+    protected boolean tieneAlgunaOpcionIncorrecta(ArrayList<Opcion> opcionesJugador) {
+        return opcionesJugador.stream().anyMatch(o -> o.calcularPuntosAdicionales() <= 0);
     }
 }

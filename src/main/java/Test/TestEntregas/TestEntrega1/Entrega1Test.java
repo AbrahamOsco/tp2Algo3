@@ -3,11 +3,12 @@ import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
 import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
+import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrectaPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesCorrectas;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Ronda.Ronda;
+import edu.fiuba.algo3.modelo.AsignadorPuntos.AsignadorPuntos;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class Entrega1Test {
     @Test
     public void test01PreguntaDeVerdaderoFalsoPenalizablePuedeCrearseIndicandoleCualEsLaRespuestaCorrecta() {
         Opcion opcion1 = new OpcionCorrecta("si");
-        Opcion opcion2 = new OpcionIncorrecta("no");
+        Opcion opcion2 = new OpcionIncorrectaPenalizable("no");
 
         ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
@@ -38,7 +39,7 @@ public class Entrega1Test {
     public void test02PreguntaDeVerdaderoFalsoPenalizableRecibeLasOpcionesElegidasPorLosJugadoresEntoncesAsignaBienSusPuntos(){
         //Arrange
         Opcion opcion1 = new OpcionCorrecta("si");
-        Opcion opcion2 = new OpcionIncorrecta("no");
+        Opcion opcion2 = new OpcionIncorrectaPenalizable("no");
 
         ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
@@ -62,10 +63,10 @@ public class Entrega1Test {
         Turno turnoJugador2 = new Turno(verdaderoFalsoPenalizable,jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
 
-        Ronda unaRonda = new Ronda();
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
@@ -138,10 +139,10 @@ public class Entrega1Test {
         Turno turnoJugador2 = new Turno(multipleChoiceClasico,jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
 
-        Ronda unaRonda = new Ronda();
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();
@@ -213,10 +214,10 @@ public class Entrega1Test {
         Turno turnoJugador2 = new Turno(multipleChoicePuntajeParcial, jugador2);
         turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
 
-        Ronda unaRonda = new Ronda();
-        unaRonda.agregarTurno(turnoJugador1);
-        unaRonda.agregarTurno(turnoJugador2);
-        unaRonda.asignarPuntos();
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
 
         //Act
         int puntosJugador1 = jugador1.getPuntaje();

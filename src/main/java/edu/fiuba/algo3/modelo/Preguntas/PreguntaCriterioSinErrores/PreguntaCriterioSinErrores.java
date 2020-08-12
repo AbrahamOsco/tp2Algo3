@@ -12,13 +12,12 @@ public abstract class PreguntaCriterioSinErrores extends Pregunta {
 
     @Override
     protected int obtenerPuntaje(ArrayList<Opcion> opcionesJugador) {
-        for(Opcion unaOpcion: opcionesJugador){
-            if(!unaOpcion.esCorrecta())
-                return 0;
-        }
+        if(this.tieneAlgunaOpcionIncorrecta(opcionesJugador))
+            return 0;
         return 1;
     }
 
     @Override
-    protected abstract boolean tieneOpcionesNecesarias(ArrayList<Opcion> opcionesJugador);
+    protected abstract boolean tieneCantidadDeOpcionesNecesarias(ArrayList<Opcion> opcionesJugador);
+
 }

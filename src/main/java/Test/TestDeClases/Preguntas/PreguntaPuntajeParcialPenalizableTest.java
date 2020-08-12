@@ -2,6 +2,7 @@ package Test.TestDeClases.Preguntas;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
 import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
+import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrectaPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,7 @@ public class PreguntaPuntajeParcialPenalizableTest {
         Opcion opcionCorrectaUno = new OpcionCorrecta("Seeee");
         Opcion opcionCorrectaDos = new OpcionCorrecta("Clarin");
         Opcion opcionCorrectaTres = new OpcionCorrecta("Por su pollo");
-        Opcion opcionIncorrecta = new OpcionIncorrecta("nop");
+        Opcion opcionIncorrecta = new OpcionIncorrectaPenalizable("nop");
         ArrayList<Opcion> opcionesApresentar = new ArrayList<>();
         opcionesApresentar.add(opcionCorrectaUno);
         opcionesApresentar.add(opcionCorrectaDos);
@@ -44,7 +45,7 @@ public class PreguntaPuntajeParcialPenalizableTest {
         Opcion opcionCorrectaUno = new OpcionCorrecta("Seeee");
         Opcion opcionCorrectaDos = new OpcionCorrecta("Clarin");
         Opcion opcionCorrectaTres = new OpcionCorrecta("Por su pollo");
-        Opcion opcionIncorrecta = new OpcionIncorrecta("nop");
+        Opcion opcionIncorrecta = new OpcionIncorrectaPenalizable("nop");
         ArrayList<Opcion> opcionesApresentar = new ArrayList<>();
         opcionesApresentar.add(opcionCorrectaUno);
         opcionesApresentar.add(opcionCorrectaDos);
@@ -66,7 +67,7 @@ public class PreguntaPuntajeParcialPenalizableTest {
     public void test03PreguntaVerdaderFalsoPenalizableRecibeUnaOpcionCorrectaEntoncesDevuelve1Punto() {
         //Arrange
         Opcion opcion1 = new OpcionCorrecta("si");
-        Opcion opcion2 = new OpcionIncorrecta("no");
+        Opcion opcion2 = new OpcionIncorrectaPenalizable("no");
 
         ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);
@@ -88,7 +89,7 @@ public class PreguntaPuntajeParcialPenalizableTest {
     public void test04PreguntaVerdaderFalsoPenalizableRecibeUnaOpcionIncorrectaEntoncesDevuelveMenos1Punto() {
         //Arrange
         Opcion opcion1 = new OpcionCorrecta("si");
-        Opcion opcion2 = new OpcionIncorrecta("no");
+        Opcion opcion2 = new OpcionIncorrectaPenalizable("no");
 
         ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
         opcionesAPresentar.add(opcion1);

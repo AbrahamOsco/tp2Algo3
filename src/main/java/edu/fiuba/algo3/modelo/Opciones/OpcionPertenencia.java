@@ -14,7 +14,9 @@ public class OpcionPertenencia extends Opcion{
     }
 
     @Override
-    public boolean esCorrecta() {
-        return ubicacionCorrecta==ubicacionActual;
+    public int calcularPuntosAdicionales() {
+        if(ubicacionActual==ubicacionCorrecta)
+            return 1;
+        return 0;
     }
 }

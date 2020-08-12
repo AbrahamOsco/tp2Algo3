@@ -8,7 +8,8 @@ public abstract class Opcion {
         this.descripcion = descripcion;
         this.ubicacionCorrecta = 0;
     }
-    public abstract boolean esCorrecta();
+
+    public abstract int calcularPuntosAdicionales();
     public String getDescripcion(){
         return this.descripcion;
     }
