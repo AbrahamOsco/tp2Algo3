@@ -1,4 +1,4 @@
-package Test.TestDeClases.LecturaJson;
+package Test.TestJson;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

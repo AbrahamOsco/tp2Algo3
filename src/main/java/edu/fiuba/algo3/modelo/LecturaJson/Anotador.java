@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Vista.LecturaJson;
+package edu.fiuba.algo3.modelo.LecturaJson;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;

@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Vista.LecturaJson;
+package edu.fiuba.algo3.modelo.LecturaJson;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -7,20 +7,20 @@ import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
 import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesCorrectas;
 
 import java.util.ArrayList;
 
-public class RecuperadorMultipleChoiceParcial extends RecuperadorDePreguntas{
+public class RecuperadorMultipleChoiceClasico extends RecuperadorDePreguntas{
+
 
     @Override
-    public ArrayList<Pregunta> recuperarPregunta(JsonObject unObjetoJson) {
+    public  ArrayList<Pregunta> recuperarPregunta(JsonObject unObjetoJson) {
+        JsonArray arrayMultipleChoiceClasico = unObjetoJson.getAsJsonArray("MultipleChoiceClasico");
 
-        JsonArray arrayMultipleChoiceParcial= unObjetoJson.getAsJsonArray("MultipleChoiceConPuntajeParcial");
-        ArrayList<Pregunta> preguntasMultipleChoiceParcial = new ArrayList<>();
+        ArrayList<Pregunta> preguntasMultipleChoiceClasico = new ArrayList<>();
 
-        for(JsonElement unJson: arrayMultipleChoiceParcial){
+        for(JsonElement unJson: arrayMultipleChoiceClasico){
             String unaConsigna = unJson.getAsJsonObject().get("Consigna").getAsString();
             ArrayList<Opcion> opcionesAPresentar= new ArrayList<>();
             JsonArray arrayOpcionesCorrectas = unJson.getAsJsonObject().getAsJsonArray("OpcionesCorrecta");
@@ -37,9 +37,10 @@ public class RecuperadorMultipleChoiceParcial extends RecuperadorDePreguntas{
                 Opcion UnaOpcionIncorrecta = new OpcionIncorrecta(opcionIncorrecta);
                 opcionesAPresentar.add(UnaOpcionIncorrecta);
             }
-            Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,opcionesAPresentar);
-            preguntasMultipleChoiceParcial.add(unaPregunta);
+            Pregunta unaPregunta = new PreguntaConTodasOpcionesCorrectas(unaConsigna,opcionesAPresentar);
+            preguntasMultipleChoiceClasico.add(unaPregunta);
         }
-        return preguntasMultipleChoiceParcial;
-    }
+        return  preguntasMultipleChoiceClasico;
+        }
+
 }
