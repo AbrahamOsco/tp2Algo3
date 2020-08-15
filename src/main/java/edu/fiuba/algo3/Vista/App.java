@@ -25,7 +25,7 @@ public class App extends Application {
         stage.show()
          */
         try{
-            URL url = getClass().getResource("/ClickCounter.fxml");
+            URL url = getClass().getResource("/Vistas/ClickCounter.fxml");
             Parent root = FXMLLoader.load(url); //se carga la vista
             Scene scene = new Scene(root);
             stage.setTitle("Tutorial01");
