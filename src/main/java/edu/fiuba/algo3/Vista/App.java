@@ -25,10 +25,10 @@ public class App extends Application {
         stage.show()
          */
         try{
-            URL url = getClass().getResource("/Vistas/ClickCounter.fxml");
+            URL url = getClass().getResource("/Vistas/VistaInicio.fxml");
             Parent root = FXMLLoader.load(url); //se carga la vista
             Scene scene = new Scene(root);
-            stage.setTitle("Tutorial01");
+            stage.setTitle("AlgoHoot");
             stage.setScene(scene);
             stage.show();
         }catch (IOException e){
