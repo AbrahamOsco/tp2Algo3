@@ -19,4 +19,5 @@ public class OpcionPertenencia extends Opcion{
             return 1;
         return 0;
     }
+
 }
