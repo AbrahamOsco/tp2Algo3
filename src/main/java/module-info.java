@@ -3,5 +3,5 @@ module edu.fiuba.algo3 {
     requires org.junit.jupiter.api;
     requires javafx.fxml;
     requires javafx.graphics;
-    exports edu.fiuba.algo3.Vista;
+    exports edu.fiuba.algo3.controlador;
 }

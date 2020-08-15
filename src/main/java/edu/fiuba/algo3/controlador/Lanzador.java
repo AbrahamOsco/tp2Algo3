@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Vista;
+package edu.fiuba.algo3.controlador;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,20 +12,13 @@ import java.net.URL;
 /**
  * JavaFX App
  */
-public class App extends Application {
+public class Lanzador extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        /*var javaVersion = SystemInfo.javaVersion();
-        var javafxVersion = SystemInfo.javafxVersion();
-
-        var label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        var scene = new Scene(new StackPane(label), 640, 480);
-        stage.setScene(scene);
-        stage.show()
-         */
+       
         try{
-            URL url = getClass().getResource("/Vistas/ClickCounter.fxml");
+            URL url = getClass().getResource("/Vistas/MenuPrincipal.fxml");
             Parent root = FXMLLoader.load(url); //se carga la vista
             Scene scene = new Scene(root);
             stage.setTitle("Tutorial01");

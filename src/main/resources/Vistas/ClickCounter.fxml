@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Vista.Controlador">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controlador.Controlador">
    <children>
       <Button layoutX="280.0" layoutY="134.0" mnemonicParsing="false" onAction="#contar" text="clickme" />
       <TextField fx:id="fldContador" alignment="CENTER" layoutX="232.0" layoutY="175.0" text="0" />
