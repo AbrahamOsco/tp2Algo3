@@ -52,6 +52,5 @@ public class RecuperadorOrderedChoice extends RecuperadorDePreguntas{
 
         }
         return preguntasOrderedChoice;
-
     }
 }

@@ -12,10 +12,6 @@ public abstract class RecuperadorDePreguntas {
 
     public abstract ArrayList<Pregunta> recuperarPregunta(JsonObject unObjetoJson);
 
-    public ArrayList<Pregunta> getPreguntas(){
-        ArrayList<Pregunta> preguntas1 = this.r
-
-    }
 
 
 }

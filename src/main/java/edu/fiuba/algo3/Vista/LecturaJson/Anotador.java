@@ -1,25 +1,22 @@
 package edu.fiuba.algo3.Vista.LecturaJson;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import edu.fiuba.algo3.modelo.Opciones.Opcion;
-import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
-import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
+
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicReferenceArray;
+import java.util.LinkedList;
+import java.util.Queue;
+
 
 public class Anotador {
     private ArrayList<Pregunta> preguntasCargadas;
     private RecuperadorDePreguntas unRecuperador;
-
 
     public Anotador(){
         preguntasCargadas= new ArrayList<>();
@@ -32,14 +29,26 @@ public class Anotador {
         JsonObject jsonObject = JsonParser.parseString(texto).getAsJsonObject();
         return jsonObject;
     }
-
-    public ArrayList<Pregunta> getPreguntas(){
-
-
-
+    public Queue<?> colaDePreguntas() throws IOException {
+        ArrayList<Pregunta> preguntas= new ArrayList<>();
+        preguntas = this.getPreguntas();
+        Queue colaPreguntas = new LinkedList();
+        preguntas.stream().forEach(o -> colaPreguntas.offer(o));
+        return colaPreguntas;
     }
 
-    public void getPreguntasVoFClasico() throws IOException {
+    public ArrayList<Pregunta> getPreguntas() throws IOException {
+        this.agregarPreguntasVoFClasico();
+        this.agregarPreguntasVoFPenalizable();
+        this.agregarPreguntasMultipleChoiceClasica();
+        this.agregarPreguntasMultipleChoiceParcial();
+        this.agregarPreguntasMultipleChoicePenalizable();
+        this.agregarPreguntasOrderedChoice();
+        this.agregarPreguntasGroupChoice();
+        return preguntasCargadas;
+    }
+
+    public void agregarPreguntasVoFClasico() throws IOException {
         JsonObject unJsonObjeto = aperturadeArchivos();
         ArrayList<Pregunta> preguntasVoF = new ArrayList<>();
         RecuperadorVerdaderoOFalso unRecuperador = new RecuperadorVerdaderoOFalso();
@@ -47,7 +56,7 @@ public class Anotador {
         preguntasCargadas.addAll(preguntasVoF);
     }
 
-    public void getPreguntasVoFPenalizable() throws IOException {
+    public void agregarPreguntasVoFPenalizable() throws IOException {
         JsonObject unJsonObjeto = aperturadeArchivos();
         ArrayList<Pregunta> preguntasVoFPenalizable = new ArrayList<>();
 
@@ -56,7 +65,7 @@ public class Anotador {
         preguntasCargadas.addAll(preguntasVoFPenalizable) ;
     }
 
-    public void getPreguntasMultipleChoiceClasica() throws IOException {
+    public void agregarPreguntasMultipleChoiceClasica() throws IOException {
         JsonObject unJsonObjeto = aperturadeArchivos();
         ArrayList<Pregunta> preguntasMultipleChoiceClasica = new ArrayList<>();
 
@@ -65,7 +74,7 @@ public class Anotador {
         preguntasCargadas.addAll(preguntasMultipleChoiceClasica);
     }
 
-    public void getPreguntasMultipleChoiceParcial() throws IOException {
+    public void agregarPreguntasMultipleChoiceParcial() throws IOException {
         JsonObject unJsonObjeto = aperturadeArchivos();
         ArrayList<Pregunta> preguntasMultipleChoiceParcial = new ArrayList<>();
 
@@ -73,7 +82,7 @@ public class Anotador {
         preguntasMultipleChoiceParcial = unRecuperador.recuperarPregunta(unJsonObjeto);
         preguntasCargadas.addAll(preguntasMultipleChoiceParcial);
     }
-    public void getPreguntasMultipleChoicePenalizable() throws IOException {
+    public void agregarPreguntasMultipleChoicePenalizable() throws IOException {
         JsonObject unJsonObjeto = aperturadeArchivos();
         ArrayList<Pregunta> preguntasMultipleChoicePenalizable = new ArrayList<>();
 
@@ -81,7 +90,7 @@ public class Anotador {
         preguntasMultipleChoicePenalizable = unRecuperador.recuperarPregunta(unJsonObjeto);
         preguntasCargadas.addAll(preguntasMultipleChoicePenalizable);
     }
-    public void getPreguntasOrderedChoice() throws IOException {
+    public void agregarPreguntasOrderedChoice() throws IOException {
         JsonObject unJsonObjeto = aperturadeArchivos();
         ArrayList<Pregunta> preguntasOrderedChoice = new ArrayList<>();
 
@@ -89,7 +98,7 @@ public class Anotador {
         preguntasOrderedChoice = unRecuperador.recuperarPregunta(unJsonObjeto);
         preguntasCargadas.addAll(preguntasOrderedChoice);
     }
-    public void getPreguntasGroupChoice() throws IOException {
+    public void agregarPreguntasGroupChoice() throws IOException {
         JsonObject unJsonObjeto = aperturadeArchivos();
         ArrayList<Pregunta> preguntasGroupChoice = new ArrayList<>();
 
@@ -97,13 +106,5 @@ public class Anotador {
         preguntasGroupChoice = unRecuperador.recuperarPregunta(unJsonObjeto);
         preguntasCargadas.addAll(preguntasGroupChoice);
     }
-
-
-
-
-
-
-
-
 
 }

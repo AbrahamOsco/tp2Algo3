@@ -3,7 +3,14 @@
 	"VerdaderoOFalsoClasico":[{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
 		                      {"Consigna":"Hoy es 13/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
 		                      {"Consigna":"Hoy es 14/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
-						      {"Consigna":"Hoy es 15/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
+						      {"Consigna":"Hoy es 15/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
+								{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
+								{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
+		            			{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
+								{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
+								{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
+
+
 							],
 	"VerdaderoOFalsoPenalizable":[{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
 							  {"Consigna":"Hoy es 13/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
@@ -31,9 +38,8 @@
 
 	],
 	"GroupChoice":[{"Consigna":"coloca las palabras en el grupo 1 y los numeros en el grupo 2","ElementosAAsignar":["Hola","100","341","azul"],"GruposCorrectos":["1","2","1","2"]},
-		           {"Consigna":"coloca las palabras en el grupo 1 y los numeros en el grupo 2","ElementosAAsignar":["Adios","400","1341","rojo"],"GruposCorrectos":["1","2","1","2"]},
-		           {"Consigna":"coloca las palabras en el grupo 1 y los numeros en el grupo 2","ElementosAAsignar":["NosVemos","500","77341","verde"],"GruposCorrectos":["1","2","1","2"]}
-
+		           {"Consigna":"coloca las palabras en el grupo 1 y los numeros en el grupo 2","ElementosAAsignar":["Adios","400","1341","rojo"],"GruposCorrectos":["1","2","2","1"]},
+		           {"Consigna":"coloca las palabras en el grupo 1 y los numeros en el grupo 2","ElementosAAsignar":["NosVemos","500","77341","verde"],"GruposCorrectos":["1","2","2","1"]}
 	]
 
 }
