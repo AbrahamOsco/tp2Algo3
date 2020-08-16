@@ -30,12 +30,10 @@ public class RecuperadorOrderedChoice extends RecuperadorDePreguntas{
             for(JsonElement unJsonOpciones: arrayGrupoAOrdenar ){
                 String elementoaOrdenar = unJsonOpciones.getAsString();
                 elementosAOrdenar.add(elementoaOrdenar);
-                System.out.println(elementoaOrdenar);
             }
             for(JsonElement unJsonOpciones: arrayOrdenCorrecto ){
                 int ordenCorrectoElemento = unJsonOpciones.getAsInt();
                 ordenCorrecto.add(ordenCorrectoElemento);
-                System.out.println(ordenCorrectoElemento);
             }
             int tamanio = arrayGrupoAOrdenar.size();
 

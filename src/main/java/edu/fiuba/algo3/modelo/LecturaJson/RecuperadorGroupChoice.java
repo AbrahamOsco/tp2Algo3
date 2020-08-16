@@ -30,12 +30,10 @@ public class RecuperadorGroupChoice extends RecuperadorDePreguntas{
             for(JsonElement unJsonOpciones: arrayElementosAsginar ){
                 String elementoaOrdenar = unJsonOpciones.getAsString();
                 elementosAOrdenar.add(elementoaOrdenar);
-                System.out.println(elementoaOrdenar);
             }
             for(JsonElement unJsonOpciones: arrayGrupoCorrectos ){
                 int ordenCorrectoElemento = unJsonOpciones.getAsInt();
                 GruposCorrectos.add(ordenCorrectoElemento);
-                System.out.println(ordenCorrectoElemento);
             }
             int tamanio = arrayElementosAsginar.size();
 

@@ -3,20 +3,15 @@
 	"VerdaderoOFalsoClasico":[{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
 		                      {"Consigna":"Hoy es 13/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
 		                      {"Consigna":"Hoy es 14/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
-						      {"Consigna":"Hoy es 15/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
-								{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
-								{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
-		            			{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
-								{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
-								{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
-
-
+						      {"Consigna":"Hoy es 15/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
 							],
+
 	"VerdaderoOFalsoPenalizable":[{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
 							  {"Consigna":"Hoy es 13/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
 							  {"Consigna":"Hoy es 14/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Verdadero"},
 						      {"Consigna":"Hoy es 15/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
 							],
+
 	"MultipleChoiceClasico":[{"Consigna":"Señale los Paises De America Latina","OpcionesCorrecta":["Peru","Argentina","Bolivia"],"OpcionesIncorrecta":["EE.UU","Francia"]},
 							{"Consigna":"Señale los elementos de la PC","OpcionesCorrecta":["Mouse","Teclado","Microfono"],"OpcionesIncorrecta":["EE.UU","Licuadora"]},
 							{"Consigna":"Señale los Paises De America del Sur","OpcionesCorrecta":["Ecuador","Brasil","Paraguay"],"OpcionesIncorrecta":["Alemania","Italia"]}
