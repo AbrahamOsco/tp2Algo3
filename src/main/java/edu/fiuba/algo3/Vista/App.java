@@ -1,59 +1,44 @@
 package edu.fiuba.algo3.Vista;
 
+import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
+import edu.fiuba.algo3.modelo.Partida.Partida;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
+    Partida partida;
 
     @Override
-    public void start(Stage stage) throws IOException {
-        /*var javaVersion = SystemInfo.javaVersion();
-        var javafxVersion = SystemInfo.javafxVersion();
+    public void start(Stage stage){
+        partida = this.cargarPartida();
+        //List<Jugador> jugadores = partida.getJugadores(); //
 
-        var label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-        var scene = new Scene(new StackPane(label), 640, 480);
-        stage.setScene(scene);
-        stage.show()
-         */
+        /*ContenedorPregunta preguntaVista= new ContenedorPregunta(partida.obtenerSiguientePregunta());
+        Scene escenaDeJuego = new Scene(preguntaVista, 500, 500);
 
-        /*
-        try{
-            URL url = getClass().getResource("/Vistas/VistaInicio.fxml");
-            Parent root = FXMLLoader.load(url); //se carga la vista
-            Scene scene = new Scene(root);
-            stage.setTitle("AlgoHoot");
-            stage.setScene(scene);
-            stage.show();
-        }catch (IOException e){
-            e.printStackTrace();
-        }*/
-        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
-        opcionesAPresentar.add(new OpcionCorrecta("10"));
-        opcionesAPresentar.add(new OpcionCorrecta("15"));
-        opcionesAPresentar.add(new OpcionCorrecta("5"));
-        opcionesAPresentar.add(new OpcionCorrecta("20"));
-        Pregunta multipleChoice = new PreguntaPuntajeParcialSinIncorrectos("numeros?",opcionesAPresentar);
+        ContenedorCreacionJugadores creacionJugadores = new ContenedorCreacionJugadores(partida, stage, escenaDeJuego);
+        Scene escenaJugadoresSeCrean = new Scene(creacionJugadores,500,500);
 
-        stage.setScene(this.preguntaMultipleChoiceEscena(multipleChoice));
+        ContenedorInicio contenedorInicio = new ContenedorInicio(stage, escenaJugadoresSeCrean);
+        Scene ventanaInicio= new Scene(contenedorInicio,500,500);
+
+        stage.setScene(ventanaInicio);
+        //stage.setScene(this.preguntaMultipleChoiceEscena(multipleChoice));
+        */
+
+        ContenedorInicio inicio = new ContenedorInicio(partida, stage);
+        Scene escenaInicio = new Scene(inicio,500,500);
+        stage.setScene(escenaInicio);
         stage.show();
     }
 
@@ -61,26 +46,28 @@ public class App extends Application {
         launch(args);
     }
 
-    public Scene preguntaMultipleChoiceEscena(Pregunta pregunta){
-        Text consigna = new Text(pregunta.getConsigna());
-        ArrayList<Opcion> opciones = pregunta.getOpciones();
+    public Partida cargarPartida(){
+        Partida partida = new Partida();
+        Queue<Pregunta> preguntasDelJuego = new LinkedList<>();
+        //pregunta1
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(new OpcionCorrecta("10"));
+        opcionesAPresentar.add(new OpcionCorrecta("15"));
+        opcionesAPresentar.add(new OpcionCorrecta("5"));
+        opcionesAPresentar.add(new OpcionCorrecta("20"));
+        Pregunta multipleChoice = new PreguntaPuntajeParcialSinIncorrectos("numeros?",opcionesAPresentar);
+        //
+        ArrayList<Opcion> opcionesAPresentar2 = new ArrayList<>();
+        opcionesAPresentar2.add(new OpcionCorrecta("si"));
+        opcionesAPresentar2.add(new OpcionCorrecta("no"));
+        Pregunta verdaderoFalsoClasico = new PreguntaPuntajeParcialSinIncorrectos("testeo?",opcionesAPresentar2);
+        //
+        preguntasDelJuego.offer(multipleChoice);
+        preguntasDelJuego.offer(verdaderoFalsoClasico);
 
-        VBox cajaDeOpciones = new VBox();
-        cajaDeOpciones.setAlignment(Pos.CENTER);
-        cajaDeOpciones.setSpacing(20);
-
-        for(Opcion opcion: opciones){
-            Button botonOpcion = new Button(opcion.getDescripcion());
-            cajaDeOpciones.getChildren().add(botonOpcion);
-            //setea action event q tenga
-        }
-
-        Button botonTerminarTurno = new Button("Terminar Turno");
-
-        VBox vistaGeneral = new VBox(consigna, cajaDeOpciones,  botonTerminarTurno);
-        vistaGeneral.setSpacing(20);
-        vistaGeneral.setAlignment(Pos.CENTER);
-        Scene escenaGeneralPregunta = new Scene(vistaGeneral,500,500);
-        return escenaGeneralPregunta;
+        partida.setPreguntas(preguntasDelJuego);
+        return partida;
     }
 }
+/*ContenedorTurno turnoVista = new ContenedorTurno(jugadores.get(0), partida.obtenerSiguientePregunta());
+        Scene escenaDeJuego = new Scene(turnoVista,500,500);*/
