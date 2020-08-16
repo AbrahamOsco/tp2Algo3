@@ -25,7 +25,6 @@ public class GameLauncher {
             
             unEscenario.show();
             
-            
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -67,7 +66,7 @@ public class GameLauncher {
             unEscenario.setScene(scene);
             
             ControladorSecundario controlador = loader.getController();
-            controlador.inicializar(unEscenario, unJuego);
+            controlador.inicializar(unEscenario, unJuego, scene);
             
             unEscenario.show();
             
@@ -85,10 +84,11 @@ public class GameLauncher {
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(ventana);
+            Scene previewScene = unEscenario.getScene();
             unEscenario.setScene(scene);
             
             ControladorSecundario controlador = loader.getController();
-            controlador.inicializar(unEscenario, unJuego);
+            controlador.inicializar(unEscenario, unJuego, previewScene);
            
             unEscenario.show();
             
