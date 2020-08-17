@@ -18,17 +18,22 @@ public class Anotador {
     private ArrayList<Pregunta> preguntasCargadas;
     private RecuperadorDePreguntas unRecuperador;
 
+    //PRE: -
+    //POS: Instanci un Anotador sin datos.
     public Anotador(){
         preguntasCargadas= new ArrayList<>();
     }
 
-
-
+    //PRE: -
+    //POS: Toma el archivo y lo devuelve como un jsonObject.
     public JsonObject aperturadeArchivos() throws IOException {
         String texto = Files.readString(Path.of("src/main/java/preguntas.json"));
         JsonObject jsonObject = JsonParser.parseString(texto).getAsJsonObject();
         return jsonObject;
     }
+
+    //PRE: -
+    //POS: Devuelve una cola de preguntas.
     public Queue<?> getColaDePreguntas() throws IOException {
         ArrayList<Pregunta> preguntas= new ArrayList<>();
         preguntas = this.getPreguntas();
@@ -37,6 +42,8 @@ public class Anotador {
         return colaPreguntas;
     }
 
+    //PRE: -
+    //POS: Carga las preguntas en una lista.
     public ArrayList<Pregunta> getPreguntas() throws IOException {
         this.agregarPreguntasVoFClasico();
         this.agregarPreguntasVoFPenalizable();
@@ -48,6 +55,8 @@ public class Anotador {
         return preguntasCargadas;
     }
 
+    //PRE: -
+    //POS: Carga todas las preguntas de tipo VoFClasico.
     public void agregarPreguntasVoFClasico() throws IOException {
         JsonObject unJsonObjeto = aperturadeArchivos();
         ArrayList<Pregunta> preguntasVoF = new ArrayList<>();
@@ -56,6 +65,8 @@ public class Anotador {
         preguntasCargadas.addAll(preguntasVoF);
     }
 
+    //PRE: -
+    //POS: Carga todas las preguntas de tipo VoFPenalizable.
     public void agregarPreguntasVoFPenalizable() throws IOException {
         JsonObject unJsonObjeto = aperturadeArchivos();
         ArrayList<Pregunta> preguntasVoFPenalizable = new ArrayList<>();
@@ -65,6 +76,8 @@ public class Anotador {
         preguntasCargadas.addAll(preguntasVoFPenalizable) ;
     }
 
+    //PRE: -
+    //POS: Carga todas las preguntas de tipo MultipleChoiceClasica.
     public void agregarPreguntasMultipleChoiceClasica() throws IOException {
         JsonObject unJsonObjeto = aperturadeArchivos();
         ArrayList<Pregunta> preguntasMultipleChoiceClasica = new ArrayList<>();
@@ -74,6 +87,8 @@ public class Anotador {
         preguntasCargadas.addAll(preguntasMultipleChoiceClasica);
     }
 
+    //PRE: -
+    //POS: Carga todas las preguntas de tipo MultipleChoiceParcial.
     public void agregarPreguntasMultipleChoiceParcial() throws IOException {
         JsonObject unJsonObjeto = aperturadeArchivos();
         ArrayList<Pregunta> preguntasMultipleChoiceParcial = new ArrayList<>();
@@ -82,6 +97,9 @@ public class Anotador {
         preguntasMultipleChoiceParcial = unRecuperador.recuperarPregunta(unJsonObjeto);
         preguntasCargadas.addAll(preguntasMultipleChoiceParcial);
     }
+
+    //PRE: -
+    //POS: Carga todas las preguntas de tipo MultipleChoicePenalizable.
     public void agregarPreguntasMultipleChoicePenalizable() throws IOException {
         JsonObject unJsonObjeto = aperturadeArchivos();
         ArrayList<Pregunta> preguntasMultipleChoicePenalizable = new ArrayList<>();
@@ -90,6 +108,9 @@ public class Anotador {
         preguntasMultipleChoicePenalizable = unRecuperador.recuperarPregunta(unJsonObjeto);
         preguntasCargadas.addAll(preguntasMultipleChoicePenalizable);
     }
+
+    //PRE: -
+    //POS: Carga todas las preguntas de tipo OrderedChoice.
     public void agregarPreguntasOrderedChoice() throws IOException {
         JsonObject unJsonObjeto = aperturadeArchivos();
         ArrayList<Pregunta> preguntasOrderedChoice = new ArrayList<>();
@@ -98,6 +119,9 @@ public class Anotador {
         preguntasOrderedChoice = unRecuperador.recuperarPregunta(unJsonObjeto);
         preguntasCargadas.addAll(preguntasOrderedChoice);
     }
+
+    //PRE: -
+    //POS: Carga todas las preguntas de tipo GroupChoice.
     public void agregarPreguntasGroupChoice() throws IOException {
         JsonObject unJsonObjeto = aperturadeArchivos();
         ArrayList<Pregunta> preguntasGroupChoice = new ArrayList<>();

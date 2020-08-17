@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 public class RecuperadorVerdaderoFalsoPenalizable extends RecuperadorDePreguntas{
 
+    //PRE: unObjetoJson es un JsonObject válido.
+    //POS: Devuelve un ArrayList<Pregunta> cargado con todas las preguntas de tipo VoFPenalizble dentro de unObjetoJson.
     @Override
     public ArrayList<Pregunta> recuperarPregunta(JsonObject unObjetoJson){
 

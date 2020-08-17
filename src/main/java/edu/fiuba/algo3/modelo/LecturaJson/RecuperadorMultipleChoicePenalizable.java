@@ -12,6 +12,9 @@ import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeP
 import java.util.ArrayList;
 
 public class RecuperadorMultipleChoicePenalizable extends  RecuperadorDePreguntas{
+
+    //PRE: unObjetoJson es un JsonObject válido.
+    //POS: Devuelve un ArrayList<Pregunta> cargado con todas las preguntas de tipo MultipleChoicePenalizable dentro de unObjetoJson.
     @Override
     public ArrayList<Pregunta> recuperarPregunta(JsonObject unObjetoJson) {
 

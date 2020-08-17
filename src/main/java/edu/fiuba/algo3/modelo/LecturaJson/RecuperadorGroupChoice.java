@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 public class RecuperadorGroupChoice extends RecuperadorDePreguntas{
 
+    //PRE: unObjetoJson es un JsonObject válido.
+    //POS: Devuelve un ArrayList<Pregunta> cargado con todas las preguntas de tipo GroupChoice dentro de unObjetoJson.
     @Override
     public ArrayList<Pregunta> recuperarPregunta(JsonObject unObjetoJson) {
         ArrayList<Pregunta> preguntasGroupChoice = new ArrayList<>();

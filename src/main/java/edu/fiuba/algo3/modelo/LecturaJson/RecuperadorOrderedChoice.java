@@ -11,6 +11,9 @@ import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTo
 import java.util.ArrayList;
 
 public class RecuperadorOrderedChoice extends RecuperadorDePreguntas{
+
+    //PRE: unObjetoJson es un JsonObject válido.
+    //POS: Devuelve un ArrayList<Pregunta> cargado con todas las preguntas de tipo OrderedChoice dentro de unObjetoJson.
     @Override
     public ArrayList<Pregunta> recuperarPregunta(JsonObject unObjetoJson) {
 
