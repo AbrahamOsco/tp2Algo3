@@ -22,6 +22,8 @@ public class Juego {
 	private Pregunta preguntaActiva;
 	private AsignadorPuntos unAsignador;
 	private Queue<Jugador> jugadoresActivos;
+	private int maximoJugadores;
+	private int minimoJugadores;
 	
 	
 	private void cargarJugadoresActivos() {
@@ -37,11 +39,13 @@ public class Juego {
 		unaPartida = new Partida();
 		unAsignador = new AsignadorPuntos();
 		jugadoresActivos = new LinkedList<>();
+		maximoJugadores = 5;
+		minimoJugadores = 2;
 	}
 	
 	public void nuevaPartida() throws IOException {
 		Anotador anotadorDePreguntas = new Anotador();
-		Queue colaDePreguntas = anotadorDePreguntas.getColaDePreguntas();
+		Queue<Pregunta> colaDePreguntas = anotadorDePreguntas.getColaDePreguntas();
 		unaPartida.setPreguntas(colaDePreguntas);
 	}
 	
@@ -98,9 +102,22 @@ public class Juego {
 		this.comenzarPartida();
 	}
 	
+	public boolean alcanzoJugadoresMinimos() {
+		return !(unaPartida.getJugadores().size() >= this.minimoJugadores);
+	}
+	
+	public boolean alcanzoJugadoresMaximos() {
+		return !(unaPartida.getJugadores().size() <= this.maximoJugadores);
+	}
+	
+	public Pregunta obtenerPreguntaActiva() {
+		return this.preguntaActiva;
+	}
+	
 	public void finDeRonda() {
 		
 		unAsignador.asignarPuntos();
 		unAsignador = new AsignadorPuntos();
 	}
 }
+
