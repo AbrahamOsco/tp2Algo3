@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class Controlador extends ControladorPrimario{
-    private  int contador = 0;
+    public  int contador = 0;
     @FXML
     public TextField fldContador;
 

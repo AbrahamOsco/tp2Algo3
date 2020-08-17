@@ -17,7 +17,7 @@ public class Runner extends Application {
     public void start(Stage stage) throws IOException {
  
         GameLauncher unLanzador = new GameLauncher();
-        //unLanzador.iniciar(stage, /*Ruta de lo que quieras lanzar*/);
+        unLanzador.iniciar(stage,"/Vistas/Menu/MenuPrincipal.fxml");
         
     }
 
