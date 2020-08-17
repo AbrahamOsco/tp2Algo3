@@ -39,6 +39,8 @@ public class RecuperadorMultipleChoiceClasico extends RecuperadorDePreguntas{
             }
             Pregunta unaPregunta = new PreguntaConTodasOpcionesCorrectas(unaConsigna,opcionesAPresentar);
             preguntasMultipleChoiceClasico.add(unaPregunta);
+            unaPregunta.setIdentificador("MultipleChoiceClasico");
+
         }
         return  preguntasMultipleChoiceClasico;
         }

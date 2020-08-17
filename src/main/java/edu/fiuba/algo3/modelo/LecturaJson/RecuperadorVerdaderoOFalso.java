@@ -30,6 +30,7 @@ public class RecuperadorVerdaderoOFalso extends RecuperadorDePreguntas{
             OpcionesAPresentar.add(opcion2);
             Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,OpcionesAPresentar);
             preguntasVerdaderoFalsoClasico.add(unaPregunta);
+            unaPregunta.setIdentificador("VerdaderoOFalsoClasico");
         }
         return preguntasVerdaderoFalsoClasico;
     }

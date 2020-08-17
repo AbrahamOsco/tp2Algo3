@@ -38,6 +38,7 @@ public class RecuperadorMultipleChoicePenalizable extends  RecuperadorDePregunta
             }
             Pregunta unaPregunta = new PreguntaPuntajeParcialPenalizable(unaConsigna,opcionesAPresentar);
             preguntasMultipleChoicePenalizable.add(unaPregunta);
+            unaPregunta.setIdentificador("MultipleChoiceConPenalidad");
         }
         return preguntasMultipleChoicePenalizable;
 

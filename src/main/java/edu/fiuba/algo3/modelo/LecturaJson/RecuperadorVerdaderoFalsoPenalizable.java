@@ -31,6 +31,7 @@ public class RecuperadorVerdaderoFalsoPenalizable extends RecuperadorDePreguntas
             OpcionesAPresentar.add(opcion2);
             Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,OpcionesAPresentar);
             preguntasVerdaderoFalsoPenalizable.add(unaPregunta);
+            unaPregunta.setIdentificador("VerdaderoOFalsoPenalizable");
         }
         return preguntasVerdaderoFalsoPenalizable;
     }
