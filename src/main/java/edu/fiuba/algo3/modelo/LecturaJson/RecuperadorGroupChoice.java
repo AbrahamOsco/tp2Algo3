@@ -43,6 +43,8 @@ public class RecuperadorGroupChoice extends RecuperadorDePreguntas{
             }
             Pregunta unaPregunta = new PreguntaConTodasOpcionesClasificadas(unaConsigna,opcionesAPresentar);
             preguntasGroupChoice.add(unaPregunta);
+            unaPregunta.setIdentificador("GroupChoice");
+
         }
        return preguntasGroupChoice;
     }

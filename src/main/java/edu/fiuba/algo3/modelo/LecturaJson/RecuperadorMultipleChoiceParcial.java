@@ -38,6 +38,8 @@ public class RecuperadorMultipleChoiceParcial extends RecuperadorDePreguntas{
             }
             Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,opcionesAPresentar);
             preguntasMultipleChoiceParcial.add(unaPregunta);
+            unaPregunta.setIdentificador("MultipleChoiceConPuntajeParcial");
+
         }
         return preguntasMultipleChoiceParcial;
     }

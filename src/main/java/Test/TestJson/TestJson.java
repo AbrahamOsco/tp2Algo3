@@ -189,7 +189,39 @@ public class TestJson {
         assertEquals(23,colaPreguntas.size());
 
     }
+    @Test
+    public void test06SeLeeElArchivoJsonCon3PreguntaMultipleChoiceConPenalidadYSeDevuelveElIdentificadorCorrectamente() throws IOException {
 
+        String texto = Files.readString(Path.of("src/main/java/preguntas.json"));
+        JsonObject jsonObject = JsonParser.parseString(texto).getAsJsonObject();
+
+        JsonArray arrayMultipleChoicePenalizable = jsonObject.getAsJsonArray("MultipleChoiceConPenalidad");
+        ArrayList<Pregunta> preguntasMultipleChoicePenalizable = new ArrayList<>();
+
+
+        for(JsonElement unJson: arrayMultipleChoicePenalizable){
+            String unaConsigna = unJson.getAsJsonObject().get("Consigna").getAsString();
+            ArrayList<Opcion> opcionesAPresentar= new ArrayList<>();
+            JsonArray arrayOpcionesCorrectas = unJson.getAsJsonObject().getAsJsonArray("OpcionesCorrecta");
+            JsonArray arrayOpcionesIncorrectas = unJson.getAsJsonObject().getAsJsonArray("OpcionesIncorrecta");
+
+            for (JsonElement unJsonOpcionCorrecta : arrayOpcionesCorrectas) {
+                String opcionCorrecta = unJsonOpcionCorrecta.getAsString();
+                Opcion unaOpcionCorrecta = new OpcionCorrecta(opcionCorrecta);
+                opcionesAPresentar.add(unaOpcionCorrecta);
+            }
+
+            for (JsonElement unJsonOpcionIncorrecta : arrayOpcionesIncorrectas) {
+                String opcionIncorrecta = unJsonOpcionIncorrecta.getAsString();
+                Opcion opcionIncorrectaPenalizable = new OpcionIncorrectaPenalizable(opcionIncorrecta);
+                opcionesAPresentar.add(opcionIncorrectaPenalizable);
+            }
+            Pregunta unaPregunta = new PreguntaPuntajeParcialPenalizable(unaConsigna,opcionesAPresentar);
+            preguntasMultipleChoicePenalizable.add(unaPregunta);
+            unaPregunta.setIdentificador("MultipleChoiceConPenalidad");
+        }
+        assertEquals("MultipleChoiceConPenalidad",preguntasMultipleChoicePenalizable.get(1).getIdentificador());
+    }
 }
 
 

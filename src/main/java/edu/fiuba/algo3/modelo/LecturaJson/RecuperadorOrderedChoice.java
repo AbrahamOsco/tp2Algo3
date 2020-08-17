@@ -17,7 +17,6 @@ public class RecuperadorOrderedChoice extends RecuperadorDePreguntas{
         JsonArray arrayOrderedChoice = unObjetoJson.getAsJsonArray("OrderedChoice");
         ArrayList<Pregunta> preguntasOrderedChoice = new ArrayList<>();
 
-
         for(JsonElement unJson: arrayOrderedChoice){
             String unaConsigna = unJson.getAsJsonObject().get("Consigna").getAsString();
             JsonArray arrayGrupoAOrdenar= unJson.getAsJsonObject().getAsJsonArray("GrupoAOrdenar");
@@ -43,8 +42,10 @@ public class RecuperadorOrderedChoice extends RecuperadorDePreguntas{
             }
             Pregunta unaPregunta = new PreguntaConTodasOpcionesCorrectas(unaConsigna,opcionesAPresentar);
             preguntasOrderedChoice.add(unaPregunta);
+            unaPregunta.setIdentificador("OrderedChoice");
 
         }
+
         return preguntasOrderedChoice;
     }
 }

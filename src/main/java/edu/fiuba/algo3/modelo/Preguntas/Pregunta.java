@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 public abstract class Pregunta {
     private String consigna;
     protected ArrayList<Opcion> opciones ;
+    protected  String  identificador;
 
     public Pregunta(String consigna, ArrayList<Opcion> opciones) {
         this.consigna = consigna;
@@ -38,5 +39,12 @@ public abstract class Pregunta {
 
     protected boolean tieneAlgunaOpcionIncorrecta(ArrayList<Opcion> opcionesJugador) {
         return opcionesJugador.stream().anyMatch(o -> o.calcularPuntosAdicionales() <= 0);
+    }
+
+    public void setIdentificador(String identificadorPregunta){
+        this.identificador=identificadorPregunta;
+    }
+    public String getIdentificador(){
+        return identificador;
     }
 }
