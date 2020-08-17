@@ -19,7 +19,7 @@ public class Controlador extends ControladorPrimario{
         fldContador.setText(String.valueOf(contador)); 
         GameLauncher unLanzador = new GameLauncher();
         Juego unJuego = new Juego();
-        unLanzador.iniciar(this.myStage, unJuego, "/Vistas/Escena2.fxml");
+        unLanzador.iniciar(this.myStage, unJuego, "/Vistas/Pruebas/Escena2.fxml");
     }
 
 }
