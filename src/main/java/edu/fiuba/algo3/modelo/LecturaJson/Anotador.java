@@ -29,7 +29,7 @@ public class Anotador {
         JsonObject jsonObject = JsonParser.parseString(texto).getAsJsonObject();
         return jsonObject;
     }
-    public Queue<?> colaDePreguntas() throws IOException {
+    public Queue<?> getColaDePreguntas() throws IOException {
         ArrayList<Pregunta> preguntas= new ArrayList<>();
         preguntas = this.getPreguntas();
         Queue colaPreguntas = new LinkedList();

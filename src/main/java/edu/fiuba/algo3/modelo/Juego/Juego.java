@@ -2,12 +2,14 @@ package edu.fiuba.algo3.modelo.Juego;
 
 import edu.fiuba.algo3.modelo.AsignadorPuntos.AsignadorPuntos;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
+import edu.fiuba.algo3.modelo.LecturaJson.Anotador;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -37,9 +39,10 @@ public class Juego {
 		jugadoresActivos = new LinkedList<>();
 	}
 	
-	public void nuevaPartida(/*unArchivoDePreguntas*/) {
-		
-		/*aca se cargan las preguntasa a la partida*/
+	public void nuevaPartida() throws IOException {
+		Anotador anotadorDePreguntas = new Anotador();
+		Queue colaDePreguntas = anotadorDePreguntas.getColaDePreguntas();
+		unaPartida.setPreguntas(colaDePreguntas);
 	}
 	
 	public void comenzarPartida() {

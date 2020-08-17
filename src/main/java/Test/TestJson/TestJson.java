@@ -4,6 +4,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import edu.fiuba.algo3.modelo.LecturaJson.Anotador;
+import edu.fiuba.algo3.modelo.LecturaJson.*;
 import edu.fiuba.algo3.modelo.Opciones.*;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
@@ -15,6 +17,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -153,6 +157,37 @@ public class TestJson {
 
         assertEquals(3,preguntasMultipleChoicePenalizable.size());
         assertTrue(preguntasMultipleChoicePenalizable.get(1) instanceof PreguntaPuntajeParcialPenalizable);
+    }
+
+    @Test
+    public void test05SeLeeTodoElArchivoJsonySeDeberiaDevolverUnaListayUnaColaCon23LasPreguntasCargadas() throws IOException {
+        Anotador unAnotador = new Anotador();
+        ArrayList<Pregunta> preguntasCargadas= new ArrayList<>();
+
+        String texto = Files.readString(Path.of("src/main/java/preguntas.json"));
+        JsonObject jsonObject = JsonParser.parseString(texto).getAsJsonObject();
+        RecuperadorVerdaderoOFalso unRecuperador1 = new RecuperadorVerdaderoOFalso();
+        RecuperadorVerdaderoFalsoPenalizable unRecuperador2 = new RecuperadorVerdaderoFalsoPenalizable();
+        RecuperadorMultipleChoiceClasico unRecuperador3 = new RecuperadorMultipleChoiceClasico();
+        RecuperadorMultipleChoiceParcial unRecuperador4 = new RecuperadorMultipleChoiceParcial();
+        RecuperadorMultipleChoicePenalizable unRecuperador5 = new RecuperadorMultipleChoicePenalizable();
+        RecuperadorOrderedChoice unRecuperador6 = new RecuperadorOrderedChoice();
+        RecuperadorGroupChoice unRecuperador7 = new RecuperadorGroupChoice();
+        preguntasCargadas.addAll(unRecuperador1.recuperarPregunta(jsonObject));
+        preguntasCargadas.addAll(unRecuperador2.recuperarPregunta(jsonObject));
+        preguntasCargadas.addAll(unRecuperador3.recuperarPregunta(jsonObject));
+        preguntasCargadas.addAll(unRecuperador4.recuperarPregunta(jsonObject));
+        preguntasCargadas.addAll(unRecuperador5.recuperarPregunta(jsonObject));
+        preguntasCargadas.addAll(unRecuperador6.recuperarPregunta(jsonObject));
+        preguntasCargadas.addAll(unRecuperador7.recuperarPregunta(jsonObject));
+
+
+        Queue colaPreguntas = new LinkedList();
+        preguntasCargadas.stream().forEach(o -> colaPreguntas.offer(o));
+
+        assertEquals(23,preguntasCargadas.size());
+        assertEquals(23,colaPreguntas.size());
+
     }
 
 }

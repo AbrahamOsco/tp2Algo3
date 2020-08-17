@@ -7,11 +7,7 @@ import java.util.ArrayList;
 
 
 public abstract class RecuperadorDePreguntas {
-    ArrayList<Pregunta> unasPreguntas;
-
 
     public abstract ArrayList<Pregunta> recuperarPregunta(JsonObject unObjetoJson);
-
-
 
 }
