@@ -32,7 +32,7 @@ public class AsignadorPuntos {
         }
     }
 
-    //PRE: unTurno es un objeto de clase Turno, válido (no amerita exception dentro de AsignadorPuntos).
+    //PRE: unTurno es un objeto de clase Turno, válido.
     //POS: Guarda un turno en turnos.
     public void agregarTurno(Turno unTurno){
         turnos.add(unTurno);

@@ -56,7 +56,7 @@ public class Juego {
 		
 	}
 
-	//PRE: nombreJugador es un string válido (no ameríta exception dentro de Juego).
+	//PRE: nombreJugador es un string válido.
 	//POS: Añade un Jugador a una Partida.
 	public void cargarJugador (String nombreJugador) {
 		
@@ -78,10 +78,6 @@ public class Juego {
 		
 		return unaPartida.obtenerResultadoPartida();
 	}
-	
-	/*public Pantalla obtenerUnaPantalla() {
-		Se pide la pantalla a alguien, supongo.
-	}*/
 
 	//PRE: unMultiplicador es un ModificadorMultiplicador válido.
 	//POS: Indica a turno que active un ModificadorMultiplicador.
