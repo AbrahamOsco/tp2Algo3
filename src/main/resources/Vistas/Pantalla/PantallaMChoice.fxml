@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="panelBase" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="535.0" minWidth="433.0" prefHeight="535.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="panelDescripcion" layoutX="24.0" layoutY="76.0" prefHeight="150.0" prefWidth="385.0" text="Aca va la consigna" />
+      <Button fx:id="botonMultiplicadorX2" layoutX="153.0" layoutY="255.0" mnemonicParsing="false" text="x2" />
+      <Button fx:id="botonMultiplicadorX3" layoutX="196.0" layoutY="255.0" mnemonicParsing="false" text="x3" />
+      <Button fx:id="botonExclusividad" layoutX="240.0" layoutY="255.0" mnemonicParsing="false" text="Exc" />
+      <Button fx:id="botonSiguiente" layoutX="361.0" layoutY="487.0" mnemonicParsing="false" text="next" />
+      <Label fx:id="nombreJugador" layoutX="137.0" layoutY="33.0" text="Turno Jugador 1">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="botonOpcion3" layoutX="173.0" layoutY="378.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" />
+      <Button fx:id="botonOpcion2" layoutX="63.0" layoutY="378.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" />
+      <Button fx:id="botonOpcion4" layoutX="282.0" layoutY="378.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" />
+      <Button fx:id="botonOpcion1" layoutX="174.0" layoutY="307.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" />
+      <Button fx:id="botonOpcion5" layoutX="173.0" layoutY="448.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" />
+   </children>
+</AnchorPane>
