@@ -17,12 +17,14 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class ContenedorInicio extends StackPane {
-    private Stage stage;
-    private Partida partida;
+    Stage stage;
+    Partida partida;
+    ManejadorTurnos manejador;
 
-    public ContenedorInicio(Partida partida, Stage stage) {
+    public ContenedorInicio(Partida partida, Stage stage,ManejadorTurnos manejador) {
         this.stage = stage;
         this.partida = partida;
+        this.manejador = manejador;
 
         Image imagen = new Image("file:src/main/java/edu/fiuba/algo3/Vista/Imagenes/pair.png");
         ImageView imagenFondo = new ImageView(imagen);
@@ -35,7 +37,7 @@ public class ContenedorInicio extends StackPane {
 
 
         Button botonInicio = new Button("Iniciar");
-        botonInicio.setOnAction(new CambioEscenaEventHandler(partida, stage));
+        botonInicio.setOnAction(new CambioEscenaEventHandler(partida, stage, manejador));
         Button botonSalir = new Button("Salir");
         botonSalir.setOnAction(new CerrarAppEventHandler());
 

@@ -15,17 +15,19 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class ContenedorCreacionJugadores extends VBox {
-    private Partida partida;
+    Partida partida;
+    ManejadorTurnos manejador;
 
-    public ContenedorCreacionJugadores(Partida partida, Stage stage) {
+    public ContenedorCreacionJugadores(Partida partida, Stage stage, ManejadorTurnos manejador) {
         this.partida = partida;
+        this.manejador = manejador;
 
         Text texto = new Text("Ingrese su nombre");
         TextField cuadroDeNombre = new TextField();
         cuadroDeNombre.requestFocus();
 
         Button botonAceptar = new Button("Aceptar");
-        GuardarJugadorEventHandler eventoGuardarJugador = new GuardarJugadorEventHandler(partida,cuadroDeNombre, stage/*, escena*/);
+        GuardarJugadorEventHandler eventoGuardarJugador = new GuardarJugadorEventHandler(partida,cuadroDeNombre, stage, manejador);
         botonAceptar.setOnAction(eventoGuardarJugador);
 
 
