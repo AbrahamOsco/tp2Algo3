@@ -1,0 +1,8 @@
+{
+  "tipoDePregunta":"PreguntaVerdaderoFalsoClasico",
+  "Consigna":"Es g(x)=x-F(x) una funcion de punto fijo de F(x) ?",
+  "OpcionesCorrecta":"Verdadero",
+  "OpcionesIncorrecta":"Falso",
+
+}
+

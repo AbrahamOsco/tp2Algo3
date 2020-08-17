@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane fx:id="lienzoDePantallas" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="535.0" minWidth="433.0" prefHeight="535.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.menus.MenuPrincipalController">
+   <children>
+      <Pane layoutY="-1.0" prefHeight="535.0" prefWidth="433.0">
+         <children>
+            <ImageView fitHeight="197.0" fitWidth="433.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../../Imágenes/caratulaAlgoHoot.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="botonNuevaPartida" layoutX="117.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#botonNuevaPartidaActivado" prefHeight="62.0" prefWidth="200.0" text="Nueva Partida" />
+            <Button fx:id="botonCrearPregunta" layoutX="116.0" layoutY="325.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="200.0" text="Crear Preguntas" />
+            <Button fx:id="botonSalir" layoutX="117.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#botonSalirActivado" prefHeight="62.0" prefWidth="200.0" text="Salir" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
