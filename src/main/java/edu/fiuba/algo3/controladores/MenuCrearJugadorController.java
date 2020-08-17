@@ -1,20 +1,17 @@
 package edu.fiuba.algo3.controladores;
 
-import java.net.URL;
-import java.util.HashMap;
-import java.util.ResourceBundle;
-
 import edu.fiuba.algo3.control.ControladorSecundario;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-
-import javafx.scene.control.TextField;
-
 import javafx.scene.control.Label;
-
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
+import java.net.URL;
+import java.util.HashMap;
+import java.util.ResourceBundle;
 
 public class MenuCrearJugadorController extends ControladorSecundario implements Initializable{
 	@FXML
@@ -28,21 +25,25 @@ public class MenuCrearJugadorController extends ControladorSecundario implements
 	
 	private int contadorJugadores = 1;
 	
-	private HashMap<String,Integer> rutasFXML;
+	private HashMap<String,String> rutasFXML;
 	
 	
-	private void obtenerPantallaParaPregunta(Pregunta unaPregunta) {
-		
-		
+	private String obtenerPantallaParaPregunta(Pregunta unaPregunta) {
+		return rutasFXML.get(unaPregunta.getIdentificador());
 	}
 	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		/*String 
 		botonIniciarPartida.setDisable(true);
 		rutasFXML = new HashMap<>();
-		rutasFXML.put(key, value)*/
+		rutasFXML.put("VerdaderoOFalsoClasico", "/Vistas/Pantalla/PantallaVF.fxml");
+		rutasFXML.put("VerdaderoOFalsoPenalizable", "/Vistas/Pantalla/PantallaVF.fxml");
+		rutasFXML.put("MultipleChoiceClasico", "/Vistas/Pantalla/PantallaMChoice.fxml");
+		rutasFXML.put("MultipleChoiceConPuntajeParcial", "/Vistas/Pantalla/PantallaMChoice.fxml");
+		rutasFXML.put("MultipleChoiceConPenalidad", "/Vistas/Pantalla/PantallaMChoice.fxml");
+		rutasFXML.put("OrderedChoice", "/Vistas/Pantalla/PantallaGroupChoice.fxml");
+		rutasFXML.put("GroupChoice", "/Vistas/Pantalla/PantallaGroupChoice.fxml");
 	}
 
 	// Event Listener on Button[#botonOK].onMouseClicked
