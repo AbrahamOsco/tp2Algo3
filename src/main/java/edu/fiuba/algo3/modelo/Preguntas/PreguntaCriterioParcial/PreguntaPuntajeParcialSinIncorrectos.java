@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class PreguntaPuntajeParcialSinIncorrectos extends PreguntaCriterioParcial{
 
     /*
-     * PRE: opciones no es vacio (amerita Exception).
+     * PRE: opciones no es vacio.
      *      opciones es un ArrayList<Opcion> válido.
      * POS: Instancia una PreguntaParcialSinIncorrectos con consigna y opciones.
      */

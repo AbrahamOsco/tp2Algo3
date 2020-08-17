@@ -43,7 +43,7 @@ public class  Jugador {
 
     }
 
-    //PRE: unaClave es un String válido (pendiente deliberar si amerita o no exception).
+    //PRE: unaClave es un String válido.
     //POS: Registra el uso de un modificador, según unaClave.
     public boolean activarMultiplicador(String unaClave){
         boolean retorno = false;

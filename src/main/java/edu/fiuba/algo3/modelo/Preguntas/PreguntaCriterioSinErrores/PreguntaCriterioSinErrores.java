@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public abstract class PreguntaCriterioSinErrores extends Pregunta {
 
     /*
-     * PRE: opciones no es vacio (amerita Exception).
+     * PRE: opciones no es vacio.
      *      opciones es un ArrayList<Opcion> válido.
      * POS: Instancia una PreguntaCriterioSinErrores con consigna y opciones.
      */

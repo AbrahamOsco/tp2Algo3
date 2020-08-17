@@ -28,7 +28,7 @@ public class Partida {
     }
 
     /*
-     * PRE: unasPreguntas no es vacío (amerita Exception).
+     * PRE: unasPreguntas no es vacío.
      *      unasPreguntas es un Queue<Pregunta> válido.
      * POS: Carga preguntas con unasPreguntas.
      */

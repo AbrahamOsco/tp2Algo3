@@ -10,7 +10,7 @@ public class OpcionPertenencia extends Opcion{
         this.ubicacionCorrecta = unaUbicacionCorrecta;
     }
 
-    //PRE: unaUbicacion es un int válido (discutir si amerita Exception).
+    //PRE: unaUbicacion es un int válido.
     //POS: Modifica la ubicacionActual de la OpcionPertenencia.
     public void setUbicacionActual(int unaUbicacion) {
         this.ubicacionActual = unaUbicacion;

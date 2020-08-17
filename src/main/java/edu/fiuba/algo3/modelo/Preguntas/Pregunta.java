@@ -11,7 +11,7 @@ public abstract class Pregunta {
     protected  String  identificador;
 
     /*
-     * PRE: opciones no es vacio (amerita Exception).
+     * PRE: opciones no es vacio.
      *      opciones es un ArrayList<Opcion> válido.
      * POS: Instancia una Pregunta con consigna y opciones.
      */
@@ -52,7 +52,7 @@ public abstract class Pregunta {
     }
 
     /*
-     * PRE: opcionesJugador no es vacío (amerita Exception).
+     * PRE: opcionesJugador no es vacío.
      *      opcionesJugador es un ArrayList<Opcion> válido.
      * POS: Determina si alguna de las opciones pasadas es incorrecta.
      */

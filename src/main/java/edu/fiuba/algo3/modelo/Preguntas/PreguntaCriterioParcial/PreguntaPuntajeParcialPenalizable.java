@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class PreguntaPuntajeParcialPenalizable extends PreguntaCriterioParcial{
 
     /*
-     * PRE: opciones no es vacio (amerita Exception).
+     * PRE: opciones no es vacio.
      *      opciones es un ArrayList<Opcion> válido.
      * POS: Instancia una PreguntaPuntajeParcialPenalizable con consigna y opciones.
      */

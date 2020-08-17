@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class PreguntaConTodasOpcionesCorrectas extends PreguntaCriterioSinErrores{
 
     /*
-     * PRE: opciones no es vacio (amerita Exception).
+     * PRE: opciones no es vacio.
      *      opciones es un ArrayList<Opcion> válido.
      * POS: Instancia una PreguntaConTodasOpcionesCorrectas con consigna y opciones.
      */

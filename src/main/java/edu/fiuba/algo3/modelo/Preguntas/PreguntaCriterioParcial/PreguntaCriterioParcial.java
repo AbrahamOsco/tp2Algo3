@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public abstract class PreguntaCriterioParcial extends Pregunta {
 
     /*
-     * PRE: opciones no es vacio (amerita Exception).
+     * PRE: opciones no es vacio.
      *      opciones es un ArrayList<Opcion> válido.
      * POS: Instancia una PreguntaCriterioParcial con consigna y opciones.
      */
