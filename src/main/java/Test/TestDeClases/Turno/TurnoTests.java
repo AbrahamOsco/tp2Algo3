@@ -1,6 +1,5 @@
 package Test.TestDeClases.Turno;
 
-import edu.fiuba.algo3.modelo.AsignadorPuntos.AsignadorPuntos;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
