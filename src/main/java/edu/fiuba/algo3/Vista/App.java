@@ -21,21 +21,6 @@ public class App extends Application {
     @Override
     public void start(Stage stage){
         partida = this.cargarPartida();
-        //List<Jugador> jugadores = partida.getJugadores(); //
-
-        /*ContenedorPregunta preguntaVista= new ContenedorPregunta(partida.obtenerSiguientePregunta());
-        Scene escenaDeJuego = new Scene(preguntaVista, 500, 500);
-
-        ContenedorCreacionJugadores creacionJugadores = new ContenedorCreacionJugadores(partida, stage, escenaDeJuego);
-        Scene escenaJugadoresSeCrean = new Scene(creacionJugadores,500,500);
-
-        ContenedorInicio contenedorInicio = new ContenedorInicio(stage, escenaJugadoresSeCrean);
-        Scene ventanaInicio= new Scene(contenedorInicio,500,500);
-
-        stage.setScene(ventanaInicio);
-        //stage.setScene(this.preguntaMultipleChoiceEscena(multipleChoice));
-        */
-
         ContenedorInicio inicio = new ContenedorInicio(partida, stage);
         Scene escenaInicio = new Scene(inicio,500,500);
         stage.setScene(escenaInicio);

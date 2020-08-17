@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -31,6 +32,7 @@ public class ContenedorInicio extends StackPane {
         textoBienvenida.setFont(Font.font ("Verdana", 20));
         textoBienvenida.setFill(Color.GREEN);
         textoBienvenida.requestFocus();
+
 
         Button botonInicio = new Button("Iniciar");
         botonInicio.setOnAction(new CambioEscenaEventHandler(partida, stage));

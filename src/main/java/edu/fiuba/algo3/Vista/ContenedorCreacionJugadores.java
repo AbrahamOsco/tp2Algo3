@@ -2,9 +2,12 @@ package edu.fiuba.algo3.Vista;
 
 import edu.fiuba.algo3.Controladores.GuardarJugadorEventHandler;
 import edu.fiuba.algo3.modelo.Partida.Partida;
+import javafx.beans.Observable;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -24,6 +27,11 @@ public class ContenedorCreacionJugadores extends VBox {
         Button botonAceptar = new Button("Aceptar");
         GuardarJugadorEventHandler eventoGuardarJugador = new GuardarJugadorEventHandler(partida,cuadroDeNombre, stage/*, escena*/);
         botonAceptar.setOnAction(eventoGuardarJugador);
+
+
+        //ChoiceBox<Integer> numeros = new ChoiceBox<>();
+        //numeros.getItems().addAll(1,2,3,4,5);
+
 
         HBox contenedorNombreYAceptar = new HBox(cuadroDeNombre, botonAceptar);
         contenedorNombreYAceptar.setAlignment(Pos.CENTER);
