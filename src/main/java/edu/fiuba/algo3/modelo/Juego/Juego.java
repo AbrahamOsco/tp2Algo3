@@ -130,5 +130,14 @@ public class Juego {
 		unAsignador.asignarPuntos();
 		unAsignador = new AsignadorPuntos();
 	}
+	
+	public boolean jugadorPuedeUsarModificador(String nombreModificador) {
+		
+		return this.jugadorActivo.puedeUsarMultiplicador(nombreModificador);
+	}
+	
+	public boolean preguntaEsPenalizable() {
+		return (this.preguntaActiva.getIdentificador().contains("Penal"));
+	}
 }
 

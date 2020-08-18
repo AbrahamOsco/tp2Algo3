@@ -5,11 +5,14 @@ import java.util.List;
 import edu.fiuba.algo3.control.BuscadorRutas;
 import edu.fiuba.algo3.control.ControladorSecundario;
 import edu.fiuba.algo3.control.GameLauncher;
+import edu.fiuba.algo3.control.InicializadorOpciones;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
-
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 
 import javafx.scene.layout.AnchorPane;
@@ -19,6 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 public class PantallaGroupChoiceController extends ControladorSecundario{
+	
 	@FXML
 	public AnchorPane panelBase;
 	@FXML
@@ -56,7 +60,8 @@ public class PantallaGroupChoiceController extends ControladorSecundario{
     	this.tipoPregunta.setText(this.miJuego.obtenerPreguntaActiva().getIdentificador());
     	this.panelDescripcion.setText(this.miJuego.obtenerPreguntaActiva().getConsigna());
     	this.nombreJugador.setText(this.miJuego.nombreDelJugadorActivo());
-    	this.detectarPregunta();
+    	InicializadorOpciones unInicializador = new InicializadorOpciones(this.miJuego.obtenerPreguntaActiva(), contenedorBotones);
+    	unInicializador.inicializar();
 	}
 	
 	private void inicializarGC() {
@@ -66,6 +71,11 @@ public class PantallaGroupChoiceController extends ControladorSecundario{
 		for(Opcion unaOpcion : listaOpciones) {
 			
 			Pane unPanel = (Pane) contenedorBotones.getChildren().get(contador);
+			Label unLabel = (Label) unPanel.getChildren().get(0);
+			unLabel.setText(unaOpcion.getDescripcion());
+			ChoiceBox<Integer> unaCajaDeOpciones = (ChoiceBox<Integer>) unPanel.getChildren().get(1);
+			ObservableList<Integer> opcionesGC = FXCollections.observableArrayList(1,2);
+			unaCajaDeOpciones.setItems(opcionesGC);
 			unPanel.setVisible(true);
 			contador ++;
 		}
