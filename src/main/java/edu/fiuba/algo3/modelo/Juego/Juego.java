@@ -18,20 +18,19 @@ import java.util.Queue;
 public class Juego {
 	
 	private Partida unaPartida;
+	private Jugador jugadorActivo;
 	private Turno turnoActivo;
 	private Pregunta preguntaActiva;
 	private AsignadorPuntos unAsignador;
 	private Queue<Jugador> jugadoresActivos;
 	private int maximoJugadores;
 	private int minimoJugadores;
+	private int totalPreguntas;
 	
 	
 	private void cargarJugadoresActivos() {
 		unaPartida.getJugadores().stream().forEach(jugador -> jugadoresActivos.offer(jugador));
 
-		/*for (Jugador unJugador: unaPartida.getJugadores()) {
-			jugadoresActivos.offer(unJugador);
-		}*/
 	}
 	
 	public Juego() {
@@ -46,14 +45,17 @@ public class Juego {
 	public void nuevaPartida() throws IOException {
 		Anotador anotadorDePreguntas = new Anotador();
 		Queue<Pregunta> colaDePreguntas = anotadorDePreguntas.getColaDePreguntas();
+		totalPreguntas = colaDePreguntas.size();
 		unaPartida.setPreguntas(colaDePreguntas);
 	}
 	
-	public void comenzarPartida() {
+	public void comenzarRonda() {
 		
 		this.cargarJugadoresActivos();
-		preguntaActiva = unaPartida.obtenerSiguientePregunta();
-		turnoActivo = new Turno (preguntaActiva, jugadoresActivos.poll());
+		this.preguntaActiva = unaPartida.obtenerSiguientePregunta();
+		this.totalPreguntas --;
+		this.jugadorActivo = jugadoresActivos.poll();
+		turnoActivo = new Turno (preguntaActiva, jugadorActivo);
 		
 	}
 	
@@ -65,17 +67,12 @@ public class Juego {
 	public void recibirUnaRespuesta (ArrayList<Opcion> unasOpciones) {
 		
 		turnoActivo.setOpcionesElejidas(unasOpciones);
-		/*agregarOpcionesDeAUna*/
 	}
 	
 	public List <String> obtenerPuntajeFinal (){
 		
 		return unaPartida.obtenerResultadoPartida();
 	}
-	
-	/*public Pantalla obtenerUnaPantalla() {
-		Se pide la pantalla a alguien, supongo.
-	}*/
 	
 	public void activarMultiplicador(ModificadorMultiplicador unMultiplicador) {
 		
@@ -94,12 +91,13 @@ public class Juego {
 	
 	public void siguienteTurno() {
 		
-		turnoActivo = new Turno (preguntaActiva, jugadoresActivos.poll() );
+		this.jugadorActivo = jugadoresActivos.poll();
+		turnoActivo = new Turno (preguntaActiva, jugadorActivo);
 	}
 	
 	public void siguienteRonda() {
 		
-		this.comenzarPartida();
+		this.comenzarRonda();
 	}
 	
 	public boolean alcanzoJugadoresMinimos() {
@@ -112,6 +110,19 @@ public class Juego {
 	
 	public Pregunta obtenerPreguntaActiva() {
 		return this.preguntaActiva;
+	}
+	
+	public boolean sinJugadores() {
+		return (jugadoresActivos.size() == 0);
+	}
+	
+	public boolean sinPreguntas() {
+		return (totalPreguntas == 0);
+	}
+	
+	public String nombreDelJugadorActivo() {
+		
+		return this.jugadorActivo.getNombre();
 	}
 	
 	public void finDeRonda() {

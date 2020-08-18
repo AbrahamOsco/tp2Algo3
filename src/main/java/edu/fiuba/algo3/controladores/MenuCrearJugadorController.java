@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.controladores;
 
+import edu.fiuba.algo3.control.BuscadorRutas;
 import edu.fiuba.algo3.control.ControladorSecundario;
+import edu.fiuba.algo3.control.GameLauncher;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,28 +27,13 @@ public class MenuCrearJugadorController extends ControladorSecundario implements
 	
 	private int contadorJugadores = 1;
 	
-	private HashMap<String,String> rutasFXML;
-	
-	
-	private String obtenerPantallaParaPregunta(Pregunta unaPregunta) {
-		return rutasFXML.get(unaPregunta.getIdentificador());
-	}
-	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
 		botonIniciarPartida.setDisable(true);
-		rutasFXML = new HashMap<>();
-		rutasFXML.put("VerdaderoOFalsoClasico", "/Vistas/Pantalla/PantallaVF.fxml");
-		rutasFXML.put("VerdaderoOFalsoPenalizable", "/Vistas/Pantalla/PantallaVF.fxml");
-		rutasFXML.put("MultipleChoiceClasico", "/Vistas/Pantalla/PantallaMChoice.fxml");
-		rutasFXML.put("MultipleChoiceConPuntajeParcial", "/Vistas/Pantalla/PantallaMChoice.fxml");
-		rutasFXML.put("MultipleChoiceConPenalidad", "/Vistas/Pantalla/PantallaMChoice.fxml");
-		rutasFXML.put("OrderedChoice", "/Vistas/Pantalla/PantallaGroupChoice.fxml");
-		rutasFXML.put("GroupChoice", "/Vistas/Pantalla/PantallaGroupChoice.fxml");
 	}
 
-	// Event Listener on Button[#botonOK].onMouseClicked
 	@FXML
 	public void botonOkActivado(MouseEvent event) {
 		
@@ -75,12 +62,13 @@ public class MenuCrearJugadorController extends ControladorSecundario implements
 			
 	}
 	
-	// Event Listener on Button[#botonIniciarPartida].onMouseClicked
 	@FXML
 	public void botonNuevaPartidaActivado(MouseEvent event) {
 		
-		this.miJuego.comenzarPartida();
-		this.obtenerPantallaParaPregunta(this.miJuego.obtenerPreguntaActiva());
+		this.miJuego.comenzarRonda();
+		GameLauncher unLanzador = new GameLauncher();
+		BuscadorRutas unBuscador = new BuscadorRutas();
+		unLanzador.iniciar(myStage, miJuego, unBuscador.buscarRutaDePregunta(miJuego.obtenerPreguntaActiva()));
 	}
 
 

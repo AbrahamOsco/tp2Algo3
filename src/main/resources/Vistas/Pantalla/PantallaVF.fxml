@@ -5,20 +5,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="panelBase" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="535.0" minWidth="433.0" prefHeight="535.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="panelBase" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="535.0" minWidth="433.0" prefHeight="535.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controladores.PantallaVFController">
    <children>
       <Label fx:id="panelDescripcion" layoutX="33.0" layoutY="77.0" prefHeight="150.0" prefWidth="385.0" text="Aca va la consigna" />
-      <Button fx:id="botonFalso" layoutX="220.0" layoutY="304.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="188.0" text="Falso" />
-      <Button fx:id="botonVerdadero" layoutX="25.0" layoutY="304.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="188.0" text="Verdadero" />
-      <Button fx:id="botonMultiplicadorX2" layoutX="161.0" layoutY="255.0" mnemonicParsing="false" text="x2" />
-      <Button fx:id="botonMultiplicadorX3" layoutX="204.0" layoutY="255.0" mnemonicParsing="false" text="x3" />
-      <Button fx:id="botonExclusividad" layoutX="248.0" layoutY="255.0" mnemonicParsing="false" text="Exc" />
-      <Button fx:id="botonSiguiente" layoutX="355.0" layoutY="469.0" mnemonicParsing="false" text="next" />
+      <Button fx:id="botonOpcion2" layoutX="220.0" layoutY="304.0" mnemonicParsing="false" onMouseClicked="#opcion2Elegida" prefHeight="101.0" prefWidth="188.0" text="Falso" />
+      <Button fx:id="botonOpcion1" layoutX="25.0" layoutY="304.0" mnemonicParsing="false" onMouseClicked="#opcion1Elegida" prefHeight="101.0" prefWidth="188.0" text="Verdadero" />
+      <Button fx:id="botonMultiplicadorX2" layoutX="161.0" layoutY="255.0" mnemonicParsing="false" onMouseClicked="#activarMultiplicadorX2" text="x2" />
+      <Button fx:id="botonMultiplicadorX3" layoutX="204.0" layoutY="255.0" mnemonicParsing="false" onMouseClicked="#activarMultiplicadorX3" text="x3" />
+      <Button fx:id="botonExclusividad" layoutX="248.0" layoutY="255.0" mnemonicParsing="false" onMouseClicked="#activarExclusividad" text="Exc" />
+      <Button fx:id="botonSiguiente" layoutX="355.0" layoutY="469.0" mnemonicParsing="false" onMouseClicked="#siguienteActivado" text="next" />
       <Label fx:id="nombreJugador" layoutX="145.0" layoutY="34.0" text="Turno Jugador 1">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
+      <Label fx:id="tipoPregunta" layoutX="177.0" layoutY="86.0" text="Pregunta VF" />
    </children>
 </AnchorPane>
