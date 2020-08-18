@@ -99,6 +99,8 @@ public class InicializadorOpciones {
 			Button unBoton = (Button) unPanel.getChildren().get(contador);
 			unBoton.setVisible(true);
 			unBoton.setText(unaOpcion.getDescripcion());
+			unBoton.setDisable(false);
+			unBoton.setStyle("-fx-background-color: #B3B4B9; ");
 			contador ++;
 		}	
 	}

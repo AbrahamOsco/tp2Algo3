@@ -13,7 +13,7 @@
 							],
 
 	"MultipleChoiceClasico":[{"Consigna":"Señale los Paises De America Latina","OpcionesCorrecta":["Argentina","Bolivia"],"OpcionesIncorrecta":["EE.UU"]},
-							{"Consigna":"Señale los elementos de la PC","OpcionesCorrecta":["Mouse","Teclado","Microfono"],"OpcionesIncorrecta":["EE.UU","Licuadora"]},
+							{"Consigna":"Señale los elementos de la PC","OpcionesCorrecta":["Opcion1","Opcion2","Opcion3"],"OpcionesIncorrecta":["Opcion4","Opcion5"]},
 							{"Consigna":"Señale los Paises De America del Sur","OpcionesCorrecta":["Ecuador","Brasil","Paraguay"],"OpcionesIncorrecta":["Alemania","Italia"]}
 							],
 

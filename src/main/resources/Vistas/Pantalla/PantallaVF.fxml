@@ -21,8 +21,8 @@
       <Label fx:id="tipoPregunta" layoutX="177.0" layoutY="86.0" text="Pregunta VF" />
       <Pane fx:id="panelOpciones" layoutX="11.0" layoutY="290.0" prefHeight="150.0" prefWidth="411.0">
          <children>
-            <Button layoutX="14.0" layoutY="25.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="188.0" text="Falso" />
-            <Button layoutX="209.0" layoutY="25.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="188.0" text="Verdadero" />
+            <Button fx:id="boton1VF" layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#boton1VFActivado" prefHeight="101.0" prefWidth="188.0" text="Falso" />
+            <Button fx:id="boton2VF" layoutX="209.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#boton2VFActivado" prefHeight="101.0" prefWidth="188.0" text="Verdadero" />
          </children>
       </Pane>
    </children>
