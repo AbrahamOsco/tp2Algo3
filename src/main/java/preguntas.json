@@ -12,7 +12,7 @@
 						      {"Consigna":"Hoy es 15/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
 							],
 
-	"MultipleChoiceClasico":[{"Consigna":"Señale los Paises De America Latina","OpcionesCorrecta":["Peru","Argentina","Bolivia"],"OpcionesIncorrecta":["EE.UU","Francia"]},
+	"MultipleChoiceClasico":[{"Consigna":"Señale los Paises De America Latina","OpcionesCorrecta":["Argentina","Bolivia"],"OpcionesIncorrecta":["EE.UU"]},
 							{"Consigna":"Señale los elementos de la PC","OpcionesCorrecta":["Mouse","Teclado","Microfono"],"OpcionesIncorrecta":["EE.UU","Licuadora"]},
 							{"Consigna":"Señale los Paises De America del Sur","OpcionesCorrecta":["Ecuador","Brasil","Paraguay"],"OpcionesIncorrecta":["Alemania","Italia"]}
 							],

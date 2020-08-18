@@ -82,7 +82,9 @@ public class PantallaVFController extends ControladorSecundario {
     	
     	if(this.miJuego.sinJugadores()) {
     		if(this.miJuego.sinPreguntas()) {
-    			//lanzo pantalla fin juego
+    			
+    			GameLauncher unLanzador = new GameLauncher();
+    			unLanzador.iniciar(myStage, miJuego, "/Vistas/Pantallas/PantallaFinPartida.fxml");
     		}
     		else {
     			
@@ -97,7 +99,6 @@ public class PantallaVFController extends ControladorSecundario {
     		this.miJuego.siguienteTurno();
     		this.nombreJugador.setText(this.miJuego.nombreDelJugadorActivo());
     	}
-
     }
 
 	
