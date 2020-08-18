@@ -88,7 +88,7 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     		if(this.miJuego.sinPreguntas()) {
     			
     			GameLauncher unLanzador = new GameLauncher();
-    			unLanzador.iniciar(myStage, miJuego, "/Vistas/Pantallas/PantallaFinPartida.fxml");
+    			unLanzador.iniciar(myStage, miJuego, "/Vistas/Pantalla/PantallaFinPartida.fxml");
     		}
     		else {
     			
@@ -102,6 +102,7 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     	{
     		this.miJuego.siguienteTurno();
     		this.nombreJugador.setText(this.miJuego.nombreDelJugadorActivo());
+    		this.inicializarModificadores();
     	}
     }
 

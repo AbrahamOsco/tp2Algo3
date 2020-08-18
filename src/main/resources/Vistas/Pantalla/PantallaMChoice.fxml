@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="panelBase" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="535.0" minWidth="433.0" prefHeight="535.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controladores.PantallaMChoiceController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="535.0" minWidth="433.0" prefHeight="535.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controladores.ControladorPantallaJuego">
    <children>
       <Label fx:id="panelDescripcion" alignment="CENTER" layoutX="24.0" layoutY="76.0" prefHeight="150.0" prefWidth="385.0" text="Aca va la consigna" />
       <Button fx:id="botonMultiplicadorX2" layoutX="153.0" layoutY="255.0" mnemonicParsing="false" text="x2" />
@@ -19,13 +19,13 @@
          </font>
       </Label>
       <Label fx:id="tipoPregunta" layoutX="161.0" layoutY="60.0" text="Tipo de pregunta" />
-      <Pane fx:id="contenedorBotones" layoutX="58.0" layoutY="303.0" prefHeight="202.0" prefWidth="319.0">
+      <Pane fx:id="panelOpciones" layoutX="58.0" layoutY="303.0" prefHeight="202.0" prefWidth="319.0">
          <children>
-            <Button fx:id="botonOpcion3" layoutX="115.0" layoutY="75.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" visible="false" />
-            <Button fx:id="botonOpcion2" layoutY="75.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" visible="false" />
-            <Button fx:id="botonOpcion4" layoutX="229.0" layoutY="75.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" visible="false" />
-            <Button fx:id="botonOpcion1" layoutX="115.0" layoutY="6.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" visible="false" />
-            <Button fx:id="botonOpcion5" layoutX="115.0" layoutY="143.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" visible="false" />
+            <Button layoutX="115.0" layoutY="75.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" visible="false" />
+            <Button layoutY="75.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" visible="false" />
+            <Button layoutX="229.0" layoutY="75.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" visible="false" />
+            <Button layoutX="115.0" layoutY="6.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" visible="false" />
+            <Button layoutX="115.0" layoutY="143.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="90.0" text="Button" visible="false" />
          </children>
       </Pane>
    </children>
