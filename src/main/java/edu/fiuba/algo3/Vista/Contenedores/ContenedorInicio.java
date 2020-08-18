@@ -1,12 +1,11 @@
-package edu.fiuba.algo3.Vista;
+package edu.fiuba.algo3.Vista.Contenedores;
 
 import edu.fiuba.algo3.Controladores.CambioEscenaEventHandler;
 import edu.fiuba.algo3.Controladores.CerrarAppEventHandler;
+import edu.fiuba.algo3.Vista.ManejadorTurnos;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -21,7 +20,7 @@ public class ContenedorInicio extends StackPane {
     Partida partida;
     ManejadorTurnos manejador;
 
-    public ContenedorInicio(Partida partida, Stage stage,ManejadorTurnos manejador) {
+    public ContenedorInicio(Partida partida, Stage stage, ManejadorTurnos manejador) {
         this.stage = stage;
         this.partida = partida;
         this.manejador = manejador;

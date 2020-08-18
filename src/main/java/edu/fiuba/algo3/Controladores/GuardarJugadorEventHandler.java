@@ -26,8 +26,7 @@ public class GuardarJugadorEventHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent actionEvent) {
         this.contador++;
         partida.agregarJugador(cuadroTexto.getText());
-        if(contador==2){
-            //rondaSiguiente = new ManejadorTurnos(partida, stage);
+        if(contador == 2){
             manejador.inicializar();
             manejador.siguienteTurno();
         }

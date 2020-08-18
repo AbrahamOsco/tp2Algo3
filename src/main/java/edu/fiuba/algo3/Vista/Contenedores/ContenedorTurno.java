@@ -1,8 +1,9 @@
-package edu.fiuba.algo3.Vista;
+package edu.fiuba.algo3.Vista.Contenedores;
 
-import edu.fiuba.algo3.Controladores.CambioEscenaEventHandler;
 import edu.fiuba.algo3.Controladores.TerminarTurnoEventHandle;
+import edu.fiuba.algo3.Vista.ManejadorTurnos;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Turno.Turno;
@@ -11,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class ContenedorTurno extends VBox {
     Partida partida;
@@ -21,13 +24,17 @@ public class ContenedorTurno extends VBox {
         this.turno = new Turno(pregunta, jugador);
         this.stage = stage;
 
+        ArrayList<Opcion> opcionesElegidas = new ArrayList<>();
+        turno.setOpcionesElejidas(opcionesElegidas);
+
         Text nombreJugador = new Text(jugador.getNombre());
-        ContenedorPregunta vistaPregunta = new ContenedorPregunta(pregunta);
+
+        ContenedorPregunta vistaPregunta = new ContenedorPregunta(pregunta, turno, opcionesElegidas);
+
         Button botonTerminarTurno = new Button("Terminar turno");
-        TerminarTurnoEventHandle terminarTurno = new TerminarTurnoEventHandle(stage, partida, manejador);
+        TerminarTurnoEventHandle terminarTurno = new TerminarTurnoEventHandle(stage, partida, manejador, turno);
         botonTerminarTurno.setOnAction(terminarTurno);
-        //CambioEscenaEventHandler volverPrincipio = new CambioEscenaEventHandler(partida,stage);
-        //botonTerminarTurno.setOnAction(volverPrincipio);
+
 
         this.getChildren().addAll(nombreJugador, vistaPregunta, botonTerminarTurno);
         this.setAlignment(Pos.CENTER);
