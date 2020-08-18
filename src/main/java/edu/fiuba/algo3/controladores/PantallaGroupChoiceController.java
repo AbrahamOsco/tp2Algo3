@@ -1,8 +1,11 @@
 package edu.fiuba.algo3.controladores;
 
+import java.util.List;
+
 import edu.fiuba.algo3.control.BuscadorRutas;
 import edu.fiuba.algo3.control.ControladorSecundario;
 import edu.fiuba.algo3.control.GameLauncher;
+import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
@@ -44,6 +47,8 @@ public class PantallaGroupChoiceController extends ControladorSecundario{
 	public Pane panelRespuesta6;
 	@FXML
 	public Label tipoPregunta;
+	@FXML
+    public Pane contenedorBotones;
 
 	@Override
 	public void postInicio() {
@@ -51,6 +56,43 @@ public class PantallaGroupChoiceController extends ControladorSecundario{
     	this.tipoPregunta.setText(this.miJuego.obtenerPreguntaActiva().getIdentificador());
     	this.panelDescripcion.setText(this.miJuego.obtenerPreguntaActiva().getConsigna());
     	this.nombreJugador.setText(this.miJuego.nombreDelJugadorActivo());
+    	this.detectarPregunta();
+	}
+	
+	private void inicializarGC() {
+		
+		List<Opcion> listaOpciones = this.miJuego.obtenerPreguntaActiva().getOpciones();
+		int contador = 0;
+		for(Opcion unaOpcion : listaOpciones) {
+			
+			Pane unPanel = (Pane) contenedorBotones.getChildren().get(contador);
+			unPanel.setVisible(true);
+			contador ++;
+		}
+	}
+	
+	private void inicializarOC() {
+		
+		List<Opcion> listaOpciones = this.miJuego.obtenerPreguntaActiva().getOpciones();
+		int contador = 0;
+		for(Opcion unaOpcion : listaOpciones) {
+			
+			Pane unPanel = (Pane) contenedorBotones.getChildren().get(contador);
+			unPanel.setVisible(true);
+			contador ++;
+		}
+	}
+	
+	private void detectarPregunta() {
+		
+		if (this.miJuego.obtenerPreguntaActiva().getIdentificador() == "OrderedChoice") {
+			
+			this.inicializarOC();
+		}
+		else {
+			
+			this.inicializarGC();
+		}
 	}
 	
 	 @FXML

@@ -27,7 +27,7 @@
 		                          {"Consigna":"Señale los Paises De America del Sur","OpcionesCorrecta":["Ecuador","Brasil","Paraguay"],"OpcionesIncorrecta":["Alemania","Italia"]}
 	                        ],
 
-	"OrderedChoice":[{"Consigna":"Ordene los siguientes numeros de menor a mayor ya","GrupoAOrdenar":["5","10","0","15"],"OrdenCorrecto":["2","3","1","4"]},
+	"OrderedChoice":[{"Consigna":"Ordene los siguientes numeros de menor a mayor ya","GrupoAOrdenar":["5","10","0"],"OrdenCorrecto":["2","3","1"]},
 					{"Consigna":"Ordene los siguientes numeros de menor a mayor pero ya!","GrupoAOrdenar":["10","20","30","40"],"OrdenCorrecto":["1","2","3","4"]},
 		            {"Consigna":"Ordene los siguientes numeros de menor a mayor altoke !!","GrupoAOrdenar":["40","30","20","10"],"OrdenCorrecto":["4","3","2","1"]}
 
