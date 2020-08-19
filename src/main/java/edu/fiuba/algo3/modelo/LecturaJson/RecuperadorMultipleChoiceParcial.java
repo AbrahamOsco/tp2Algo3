@@ -10,6 +10,8 @@ import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class RecuperadorMultipleChoiceParcial extends RecuperadorDePreguntas{
 
@@ -18,27 +20,35 @@ public class RecuperadorMultipleChoiceParcial extends RecuperadorDePreguntas{
 
         JsonArray arrayMultipleChoiceParcial= unObjetoJson.getAsJsonArray("MultipleChoiceConPuntajeParcial");
         ArrayList<Pregunta> preguntasMultipleChoiceParcial = new ArrayList<>();
+        List<Pregunta> preguntasDesordenadas = new ArrayList<>();
 
         for(JsonElement unJson: arrayMultipleChoiceParcial){
             String unaConsigna = unJson.getAsJsonObject().get("Consigna").getAsString();
             ArrayList<Opcion> opcionesAPresentar= new ArrayList<>();
+            List<Opcion> opcionesDesordenadas= new ArrayList<>();
+
             JsonArray arrayOpcionesCorrectas = unJson.getAsJsonObject().getAsJsonArray("OpcionesCorrecta");
             JsonArray arrayOpcionesIncorrectas = unJson.getAsJsonObject().getAsJsonArray("OpcionesIncorrecta");
 
             for (JsonElement unJsonOpcionCorrecta : arrayOpcionesCorrectas) {
                 String opcionCorrecta = unJsonOpcionCorrecta.getAsString();
                 Opcion UnaOpcionCorrecta = new OpcionCorrecta(opcionCorrecta);
-                opcionesAPresentar.add(UnaOpcionCorrecta);
+                opcionesDesordenadas.add(UnaOpcionCorrecta);
             }
 
             for (JsonElement unJsonOpcionIncorrecta : arrayOpcionesIncorrectas) {
                 String opcionIncorrecta = unJsonOpcionIncorrecta.getAsString();
                 Opcion UnaOpcionIncorrecta = new OpcionIncorrecta(opcionIncorrecta);
-                opcionesAPresentar.add(UnaOpcionIncorrecta);
+                opcionesDesordenadas.add(UnaOpcionIncorrecta);
             }
+
+            Collections.shuffle(opcionesDesordenadas);
+            opcionesAPresentar.addAll(opcionesDesordenadas);
             Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,opcionesAPresentar);
-            preguntasMultipleChoiceParcial.add(unaPregunta);
+            preguntasDesordenadas.add(unaPregunta);
         }
+        Collections.shuffle(preguntasDesordenadas);
+        preguntasMultipleChoiceParcial.addAll(preguntasDesordenadas);
         return preguntasMultipleChoiceParcial;
     }
 }

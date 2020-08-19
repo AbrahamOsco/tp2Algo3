@@ -10,6 +10,8 @@ import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class RecuperadorVerdaderoOFalso extends RecuperadorDePreguntas{
 
@@ -18,6 +20,8 @@ public class RecuperadorVerdaderoOFalso extends RecuperadorDePreguntas{
 
         JsonArray arrayPreguntasVoFClasico = unObjetoJson.getAsJsonArray("VerdaderoOFalsoClasico");
         ArrayList<Pregunta> preguntasVerdaderoFalsoClasico = new ArrayList<>();
+        List<Pregunta> preguntasDesordenadas = new ArrayList<>();
+
 
         for(JsonElement unJson: arrayPreguntasVoFClasico){
             String unaConsigna = unJson.getAsJsonObject().get("Consigna").getAsString();
@@ -25,12 +29,19 @@ public class RecuperadorVerdaderoOFalso extends RecuperadorDePreguntas{
             String opcionIncorrecta = unJson.getAsJsonObject().get("OpcionesIncorrecta").getAsString();
             Opcion opcion1 = new OpcionCorrecta(opcionCorrecta);
             Opcion opcion2 = new OpcionIncorrecta(opcionIncorrecta);
-            ArrayList<Opcion> OpcionesAPresentar= new ArrayList<>();
-            OpcionesAPresentar.add(opcion1);
-            OpcionesAPresentar.add(opcion2);
-            Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,OpcionesAPresentar);
-            preguntasVerdaderoFalsoClasico.add(unaPregunta);
+            ArrayList<Opcion> opcionesAPresentar= new ArrayList<>();
+            List<Opcion> opcionesDesordenadas = new ArrayList<>();
+
+            opcionesDesordenadas.add(opcion1);
+            opcionesDesordenadas.add(opcion2);
+
+            Collections.shuffle(opcionesDesordenadas);
+            opcionesAPresentar.addAll(opcionesDesordenadas);
+            Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,opcionesAPresentar);
+            preguntasDesordenadas.add(unaPregunta);
         }
+        Collections.shuffle(preguntasDesordenadas);
+        preguntasVerdaderoFalsoClasico.addAll(preguntasDesordenadas);
         return preguntasVerdaderoFalsoClasico;
     }
 
