@@ -3,7 +3,7 @@ package edu.fiuba.algo3.modelo.Jugador;
 import java.util.HashMap;
 
 public class  Jugador {
-    private static final int MENOR_PUNTAJE = 0;
+    private final int MENOR_PUNTAJE = 0;
     private String nombre;
     private int puntaje;
     private HashMap<String,Integer> modificadores;
