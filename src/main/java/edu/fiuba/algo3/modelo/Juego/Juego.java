@@ -90,7 +90,10 @@ public class Juego {
 	public List <String> obtenerPuntajeFinal (){
 		return unaPartida.obtenerResultadoPartida();
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> Abraham2
 	
 	public void activarMultiplicadorX2() {
 		
@@ -100,7 +103,6 @@ public class Juego {
 	public void activarMultiplicadorX3() {
 		
 		turnoActivo.setMultiplicadorActivo(new MultiplicadorX3());
-
 	}
 
 	//PRE: -

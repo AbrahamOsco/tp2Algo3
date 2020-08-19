@@ -67,6 +67,7 @@ public class InicializadorOpciones {
 
 			ObservableList<Integer> opcionesOC = FXCollections.observableArrayList(rango);
 			unaCajaDeOpciones.setItems(opcionesOC);
+			unaCajaDeOpciones.setValue(1);
 			otroPanel.setVisible(true);
 			contador ++;
 		}
