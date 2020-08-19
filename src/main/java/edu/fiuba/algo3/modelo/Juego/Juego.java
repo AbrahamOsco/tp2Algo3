@@ -35,10 +35,7 @@ public class Juego {
 
 	private void cargarJugadoresActivos() {
 		unaPartida.getJugadores().stream().forEach(jugador -> jugadoresActivos.offer(jugador));
-<<<<<<< HEAD
-=======
 
->>>>>>> Samuel2
 	}
 
 	//PRE: -
