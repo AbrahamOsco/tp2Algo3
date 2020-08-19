@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.controladores;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.fiuba.algo3.control.BuscadorRutas;
 import edu.fiuba.algo3.control.ControladorSecundario;
 import edu.fiuba.algo3.control.GameLauncher;
@@ -14,9 +17,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ControladorPantallaJuego extends ControladorSecundario {
 	
@@ -114,9 +114,13 @@ public class ControladorPantallaJuego extends ControladorSecundario {
 			ChoiceBox<Integer> unaCajaDeOpciones = (ChoiceBox<Integer>) otroPanel.getChildren().get(1);
 			OpcionPertenencia otraOpcion = new OpcionPertenencia (unaOpcion.getDescripcion(), unaOpcion.getUbicacionCorrecta());
 			otraOpcion.setUbicacionActual(unaCajaDeOpciones.getValue());
+			System.out.println(otraOpcion.getDescripcion());
+			System.out.println(otraOpcion.getUbicacionCorrecta());
+			System.out.println(unaCajaDeOpciones.getValue());
 			opcionesRespondidas.add(otraOpcion);
 			contador ++;
 		}
+ 		
  	}
  	
  	private void mostrarPantallaInicio() {
@@ -211,15 +215,20 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     @FXML
     public void siguienteActivado(MouseEvent event) {
     	
-    	if(this.listaOpciones.get(0).getClass().getSimpleName().equals("OpcionPertenencia"))
+    	if(this.listaOpciones.get(0).getClass().getSimpleName().equals("OpcionPertenencia")) {
+    		System.out.println("entre al recolector de chois bocks");
     		this.recolectarChoiceBox();
-
+    	}
+    	
     	this.miJuego.recibirUnaRespuesta(opcionesRespondidas);
     	this.miJuego.responder();
     	
     	if(this.miJuego.sinJugadores()) {
+    		
     		this.miJuego.finDeRonda();
+    		
     		if(this.miJuego.sinPreguntas()) {
+    			
     			GameLauncher unLanzador = new GameLauncher();
     			unLanzador.iniciar(myStage, miJuego, "/Vistas/Pantalla/PantallaFinPartida.fxml");
     		}
