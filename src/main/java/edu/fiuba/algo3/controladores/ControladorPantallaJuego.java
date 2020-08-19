@@ -225,10 +225,8 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     		}
     		else {
     			
-    			this.miJuego.siguienteRonda();
-    			BuscadorRutas unBuscador = new BuscadorRutas();
     			GameLauncher unLanzador = new GameLauncher();
-    			unLanzador.iniciar(myStage, miJuego, unBuscador.buscarRutaDePregunta(this.miJuego.obtenerPreguntaActiva()));
+    			unLanzador.iniciar(myStage, miJuego, "/Vistas/Pantalla/PantallaFinRonda.fxml");
     		}
     	}
     	else
