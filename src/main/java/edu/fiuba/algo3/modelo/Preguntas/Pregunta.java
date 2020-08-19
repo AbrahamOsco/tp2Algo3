@@ -43,6 +43,7 @@ public abstract class Pregunta {
         return obtenerPuntaje(opcionesJugador);
     }
 
+    //Solo para testear es este metodo
     //PRE: -
     //POS: Devuelve las opciones correctas.
     public ArrayList<Opcion> getOpcionesCorrectas () {

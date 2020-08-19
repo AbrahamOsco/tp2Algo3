@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Partida.Partida;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Turno.Turno;
-import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX2;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX3;
 
@@ -92,13 +91,11 @@ public class Juego {
 	}
 
 	public void activarMultiplicadorX2() {
-		
 		this.jugadorActivo.activarMultiplicador("multiplicadorX2");
 		turnoActivo.setMultiplicadorActivo(new MultiplicadorX2());
 	}
 	
 	public void activarMultiplicadorX3() {
-		
 		this.jugadorActivo.activarMultiplicador("multiplicadorX3");
 		turnoActivo.setMultiplicadorActivo(new MultiplicadorX3());
 	}
@@ -106,7 +103,6 @@ public class Juego {
 	//PRE: -
 	//POS: Señala a unAsignador que active sus modificadores de Exclusividad.
 	public void activarExclusividad() {
-		
 		this.jugadorActivo.activarMultiplicador("puntajeExclusivo");
 		unAsignador.agregarExclusividad();
 	}
@@ -114,14 +110,12 @@ public class Juego {
 	//PRE: -
 	//POS: Le pasa turnoActivo a unAsignador para que lo procese.
 	public void responder() {
-		
 		unAsignador.agregarTurno(turnoActivo);
 	}
 
 	//PRE: -
 	//POS: Cambia turnoActivo al siguiente Turno.
 	public void siguienteTurno() {
-		
 		this.jugadorActivo = jugadoresActivos.poll();
 		turnoActivo = new Turno (preguntaActiva, jugadorActivo);
 	}
@@ -155,18 +149,15 @@ public class Juego {
 	}
 	
 	public String nombreDelJugadorActivo() {
-		
 		return this.jugadorActivo.getNombre();
 	}
 
 	public void finDeRonda() {
-		
 		unAsignador.asignarPuntos();
 		unAsignador = new AsignadorPuntos();
 	}
 	
 	public boolean jugadorPuedeUsarModificador(String nombreModificador) {
-		
 		return this.jugadorActivo.puedeUsarMultiplicador(nombreModificador);
 	}
 	
