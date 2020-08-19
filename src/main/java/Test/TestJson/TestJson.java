@@ -25,8 +25,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestJson {
     @Test
-    public void test01SeLeeElArchivoJsonCon4PreguntaVerdaderoOFalsoySeDevuelveUnaListadeTamanio4DeEseTipoDePregunta() throws IOException {
-        String texto = Files.readString(Path.of("src/main/java/preguntas.json"));
+    public void test01SeLeeUnArchivoJsonCon4PreguntaVerdaderoOFalsoySeDevuelveUnaListadeTamanio4DeEseTipoDePregunta() throws IOException {
+        String texto = Files.readString(Path.of("src/main/java/testPreguntas.json"));
         JsonObject jsonObject = JsonParser.parseString(texto).getAsJsonObject();
 
         List<Pregunta> unasPreguntaDesordenadas = new ArrayList<>();
@@ -51,20 +51,15 @@ public class TestJson {
         }
         Collections.shuffle(unasPreguntaDesordenadas);
         unasPreguntaEnArray.addAll(unasPreguntaDesordenadas);
-        for(Pregunta unaPregunta: unasPreguntaEnArray){
-            System.out.println(unaPregunta.getConsigna());
-            for(Opcion unaOpcion: unaPregunta.getOpciones()){
-                System.out.println(unaOpcion.getDescripcion());
-            }
-        }
+
         assertEquals(4,unasPreguntaDesordenadas.size());
-        assertTrue(unasPreguntaDesordenadas.get(1) instanceof PreguntaPuntajeParcialSinIncorrectos);
+        assertTrue(unasPreguntaDesordenadas.get(0) instanceof PreguntaPuntajeParcialSinIncorrectos);
 
     }
 
     @Test
     public void test02SeLeeElArchivoJsonCon3PreguntaMultipleChoiceClasicoYSeDevuelveUnaListadeTamanio3DeEseTipoDePregunta() throws IOException {
-        String texto = Files.readString(Path.of("src/main/java/preguntas.json"));
+        String texto = Files.readString(Path.of("src/main/java/testPreguntas.json"));
         JsonObject jsonObject = JsonParser.parseString(texto).getAsJsonObject();
         JsonArray arrayMultipleChoiceClasico = jsonObject.getAsJsonArray("MultipleChoiceClasico");
 
@@ -97,15 +92,6 @@ public class TestJson {
         Collections.shuffle(preguntasDesordendas);
         preguntasMultipleChoiceClasico.addAll(preguntasDesordendas);
 
-
-        for(Pregunta unaPregunta: preguntasMultipleChoiceClasico){
-            System.out.println(unaPregunta.getConsigna());
-            for(Opcion unaOpcion: unaPregunta.getOpciones()){
-                System.out.println(unaOpcion.getDescripcion());
-            }
-
-        }
-
         assertEquals(3,preguntasMultipleChoiceClasico.size());
         assertTrue(preguntasMultipleChoiceClasico.get(2) instanceof PreguntaConTodasOpcionesCorrectas);
     }
@@ -113,7 +99,7 @@ public class TestJson {
     @Test
     public void test03SeLeeElArchivoJsonCon3PreguntaDeOrderedChoiceYSeDevuelveUnaListadeTamanio3DeEseTipoDePregunta() throws IOException {
 
-        String texto = Files.readString(Path.of("src/main/java/preguntas.json"));
+        String texto = Files.readString(Path.of("src/main/java/testPreguntas.json"));
         JsonObject jsonObject = JsonParser.parseString(texto).getAsJsonObject();
 
         JsonArray arrayOrderedChoice = jsonObject.getAsJsonArray("OrderedChoice");
@@ -147,41 +133,45 @@ public class TestJson {
             preguntasOrderedChoice.add(unaPregunta);
         }
         assertEquals(3,preguntasOrderedChoice.size());
-        assertTrue(preguntasOrderedChoice.get(1) instanceof PreguntaConTodasOpcionesCorrectas);
+        assertTrue(preguntasOrderedChoice.get(1) instanceof PreguntaConTodasOpcionesClasificadas);
     }
 
     @Test
     public void test04SeLeeElArchivoJsonCon3PreguntaMultipleChoiceConPenalidadYSeDevuelveUnaListadeTamanio3DeEseTipoDePregunta() throws IOException {
 
-        String texto = Files.readString(Path.of("src/main/java/preguntas.json"));
+        String texto = Files.readString(Path.of("src/main/java/testPreguntas.json"));
         JsonObject jsonObject = JsonParser.parseString(texto).getAsJsonObject();
 
         JsonArray arrayMultipleChoicePenalizable = jsonObject.getAsJsonArray("MultipleChoiceConPenalidad");
         ArrayList<Pregunta> preguntasMultipleChoicePenalizable = new ArrayList<>();
-
+        List<Pregunta> preguntasDesordendas = new ArrayList<>();
 
         for(JsonElement unJson: arrayMultipleChoicePenalizable){
             String unaConsigna = unJson.getAsJsonObject().get("Consigna").getAsString();
             ArrayList<Opcion> opcionesAPresentar= new ArrayList<>();
+            List<Opcion> opcionesDesordenadas = new ArrayList<>();
+
             JsonArray arrayOpcionesCorrectas = unJson.getAsJsonObject().getAsJsonArray("OpcionesCorrecta");
             JsonArray arrayOpcionesIncorrectas = unJson.getAsJsonObject().getAsJsonArray("OpcionesIncorrecta");
 
             for (JsonElement unJsonOpcionCorrecta : arrayOpcionesCorrectas) {
                 String opcionCorrecta = unJsonOpcionCorrecta.getAsString();
                 Opcion unaOpcionCorrecta = new OpcionCorrecta(opcionCorrecta);
-                opcionesAPresentar.add(unaOpcionCorrecta);
+                opcionesDesordenadas.add(unaOpcionCorrecta);
             }
 
             for (JsonElement unJsonOpcionIncorrecta : arrayOpcionesIncorrectas) {
                 String opcionIncorrecta = unJsonOpcionIncorrecta.getAsString();
                 Opcion opcionIncorrectaPenalizable = new OpcionIncorrectaPenalizable(opcionIncorrecta);
-                opcionesAPresentar.add(opcionIncorrectaPenalizable);
+                opcionesDesordenadas.add(opcionIncorrectaPenalizable);
             }
+            Collections.shuffle(opcionesDesordenadas);
+            opcionesAPresentar.addAll(opcionesDesordenadas);
             Pregunta unaPregunta = new PreguntaPuntajeParcialPenalizable(unaConsigna,opcionesAPresentar);
-            preguntasMultipleChoicePenalizable.add(unaPregunta);
+            preguntasDesordendas.add(unaPregunta);
         }
-
-
+        Collections.shuffle(preguntasDesordendas);
+        preguntasMultipleChoicePenalizable.addAll(preguntasDesordendas);
         assertEquals(3,preguntasMultipleChoicePenalizable.size());
         assertTrue(preguntasMultipleChoicePenalizable.get(1) instanceof PreguntaPuntajeParcialPenalizable);
     }
@@ -191,7 +181,7 @@ public class TestJson {
         Anotador unAnotador = new Anotador();
         ArrayList<Pregunta> preguntasCargadas= new ArrayList<>();
 
-        String texto = Files.readString(Path.of("src/main/java/preguntas.json"));
+        String texto = Files.readString(Path.of("src/main/java/testPreguntas.json"));
         JsonObject jsonObject = JsonParser.parseString(texto).getAsJsonObject();
         RecuperadorVerdaderoOFalso unRecuperador1 = new RecuperadorVerdaderoOFalso();
         RecuperadorVerdaderoFalsoPenalizable unRecuperador2 = new RecuperadorVerdaderoFalsoPenalizable();
@@ -208,46 +198,20 @@ public class TestJson {
         preguntasCargadas.addAll(unRecuperador6.recuperarPregunta(jsonObject));
         preguntasCargadas.addAll(unRecuperador7.recuperarPregunta(jsonObject));
 
+        List<Pregunta> preguntasRandom = new ArrayList<>();
+        preguntasRandom.addAll(preguntasCargadas);
+        Collections.shuffle(preguntasRandom);
+        ArrayList<Pregunta> preguntasCargadasyDesordenadas = new ArrayList<>();
+        preguntasCargadasyDesordenadas.addAll(preguntasRandom);
 
-        Queue colaPreguntas = new LinkedList();
-        preguntasCargadas.stream().forEach(o -> colaPreguntas.offer(o));
+        ArrayList<Pregunta> preguntas= new ArrayList<>();
+        preguntas = preguntasCargadasyDesordenadas;
+        Queue <Pregunta> colaPreguntas = new LinkedList<>();
+        preguntas.stream().forEach(o -> colaPreguntas.offer(o));
 
         assertEquals(23,preguntasCargadas.size());
         assertEquals(23,colaPreguntas.size());
 
-    }
-    @Test
-    public void test06SeLeeElArchivoJsonCon3PreguntaMultipleChoiceConPenalidadYSeDevuelveElIdentificadorCorrectamente() throws IOException {
-
-        String texto = Files.readString(Path.of("src/main/java/preguntas.json"));
-        JsonObject jsonObject = JsonParser.parseString(texto).getAsJsonObject();
-
-        JsonArray arrayMultipleChoicePenalizable = jsonObject.getAsJsonArray("MultipleChoiceConPenalidad");
-        ArrayList<Pregunta> preguntasMultipleChoicePenalizable = new ArrayList<>();
-
-
-        for(JsonElement unJson: arrayMultipleChoicePenalizable){
-            String unaConsigna = unJson.getAsJsonObject().get("Consigna").getAsString();
-            ArrayList<Opcion> opcionesAPresentar= new ArrayList<>();
-            JsonArray arrayOpcionesCorrectas = unJson.getAsJsonObject().getAsJsonArray("OpcionesCorrecta");
-            JsonArray arrayOpcionesIncorrectas = unJson.getAsJsonObject().getAsJsonArray("OpcionesIncorrecta");
-
-            for (JsonElement unJsonOpcionCorrecta : arrayOpcionesCorrectas) {
-                String opcionCorrecta = unJsonOpcionCorrecta.getAsString();
-                Opcion unaOpcionCorrecta = new OpcionCorrecta(opcionCorrecta);
-                opcionesAPresentar.add(unaOpcionCorrecta);
-            }
-
-            for (JsonElement unJsonOpcionIncorrecta : arrayOpcionesIncorrectas) {
-                String opcionIncorrecta = unJsonOpcionIncorrecta.getAsString();
-                Opcion opcionIncorrectaPenalizable = new OpcionIncorrectaPenalizable(opcionIncorrecta);
-                opcionesAPresentar.add(opcionIncorrectaPenalizable);
-            }
-            Pregunta unaPregunta = new PreguntaPuntajeParcialPenalizable(unaConsigna,opcionesAPresentar);
-            preguntasMultipleChoicePenalizable.add(unaPregunta);
-            unaPregunta.setIdentificador("MultipleChoiceConPenalidad");
-        }
-        assertEquals("MultipleChoiceConPenalidad",preguntasMultipleChoicePenalizable.get(1).getIdentificador());
     }
 
 
