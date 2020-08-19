@@ -16,9 +16,8 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -29,24 +28,36 @@ public class TestJson {
         String texto = Files.readString(Path.of("src/main/java/preguntas.json"));
         JsonObject jsonObject = JsonParser.parseString(texto).getAsJsonObject();
 
-        System.out.println("JSON Leido  ->: " + jsonObject);
-        ArrayList<Pregunta> unasPregunta = new ArrayList<>();
+        List<Pregunta> unasPreguntaDesordenadas = new ArrayList<>();
+        ArrayList<Pregunta> unasPreguntaEnArray = new ArrayList<>();
+
         JsonArray arrayPreguntas = jsonObject.getAsJsonArray("VerdaderoOFalsoClasico");
         for(JsonElement unJson: arrayPreguntas){
             ArrayList<Opcion> unasOpciones = new ArrayList<>();
+            List<Opcion> opcioneDesordenadas = new ArrayList<>();
 
             String unaConsigna = unJson.getAsJsonObject().get("Consigna").getAsString();
             String opcionCorrecta =unJson.getAsJsonObject().get("OpcionesCorrecta").getAsString();
             String opcionIncorrecta = unJson.getAsJsonObject().get("OpcionesIncorrecta").getAsString();
             Opcion correcta = new OpcionCorrecta(opcionCorrecta);
             Opcion incorrecta = new OpcionIncorrecta(opcionIncorrecta);
-            unasOpciones.add(correcta);
-            unasOpciones.add(incorrecta);
+            opcioneDesordenadas.add(correcta);
+            opcioneDesordenadas.add(incorrecta);
+            Collections.shuffle(opcioneDesordenadas);
+            unasOpciones.addAll(opcioneDesordenadas);
             Pregunta unaPreguntaDeVoF =  new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,unasOpciones);
-            unasPregunta.add(unaPreguntaDeVoF);
+            unasPreguntaDesordenadas.add(unaPreguntaDeVoF);
         }
-        assertEquals(4,unasPregunta.size());
-        assertTrue(unasPregunta.get(1) instanceof PreguntaPuntajeParcialSinIncorrectos);
+        Collections.shuffle(unasPreguntaDesordenadas);
+        unasPreguntaEnArray.addAll(unasPreguntaDesordenadas);
+        for(Pregunta unaPregunta: unasPreguntaEnArray){
+            System.out.println(unaPregunta.getConsigna());
+            for(Opcion unaOpcion: unaPregunta.getOpciones()){
+                System.out.println(unaOpcion.getDescripcion());
+            }
+        }
+        assertEquals(4,unasPreguntaDesordenadas.size());
+        assertTrue(unasPreguntaDesordenadas.get(1) instanceof PreguntaPuntajeParcialSinIncorrectos);
 
     }
 
@@ -57,26 +68,41 @@ public class TestJson {
         JsonArray arrayMultipleChoiceClasico = jsonObject.getAsJsonArray("MultipleChoiceClasico");
 
         ArrayList<Pregunta> preguntasMultipleChoiceClasico = new ArrayList<>();
+        List<Pregunta> preguntasDesordendas = new ArrayList<>();
 
         for(JsonElement unJson: arrayMultipleChoiceClasico){
             String unaConsigna = unJson.getAsJsonObject().get("Consigna").getAsString();
             ArrayList<Opcion> opcionesAPresentar= new ArrayList<>();
+            List<Opcion> opcionesDesordenadas = new ArrayList<>();
             JsonArray arrayOpcionesCorrectas = unJson.getAsJsonObject().getAsJsonArray("OpcionesCorrecta");
             JsonArray arrayOpcionesIncorrectas = unJson.getAsJsonObject().getAsJsonArray("OpcionesIncorrecta");
 
             for (JsonElement unJsonOpcionCorrecta : arrayOpcionesCorrectas) {
                 String opcionCorrecta = unJsonOpcionCorrecta.getAsString();
                 Opcion UnaOpcionCorrecta = new OpcionCorrecta(opcionCorrecta);
-                opcionesAPresentar.add(UnaOpcionCorrecta);
+                opcionesDesordenadas.add(UnaOpcionCorrecta);
             }
 
             for (JsonElement unJsonOpcionIncorrecta : arrayOpcionesIncorrectas) {
                 String opcionIncorrecta = unJsonOpcionIncorrecta.getAsString();
                 Opcion UnaOpcionIncorrecta = new OpcionIncorrecta(opcionIncorrecta);
-                opcionesAPresentar.add(UnaOpcionIncorrecta);
+                opcionesDesordenadas.add(UnaOpcionIncorrecta);
             }
+            Collections.shuffle(opcionesDesordenadas);
+            opcionesAPresentar.addAll(opcionesDesordenadas);
             Pregunta unaPregunta = new PreguntaConTodasOpcionesCorrectas(unaConsigna,opcionesAPresentar);
-            preguntasMultipleChoiceClasico.add(unaPregunta);
+            preguntasDesordendas.add(unaPregunta);
+        }
+        Collections.shuffle(preguntasDesordendas);
+        preguntasMultipleChoiceClasico.addAll(preguntasDesordendas);
+
+
+        for(Pregunta unaPregunta: preguntasMultipleChoiceClasico){
+            System.out.println(unaPregunta.getConsigna());
+            for(Opcion unaOpcion: unaPregunta.getOpciones()){
+                System.out.println(unaOpcion.getDescripcion());
+            }
+
         }
 
         assertEquals(3,preguntasMultipleChoiceClasico.size());

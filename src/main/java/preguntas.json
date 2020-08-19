@@ -1,40 +1,39 @@
-
 {
-	"VerdaderoOFalsoClasico":[{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
-		                      {"Consigna":"Hoy es 13/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
-		                      {"Consigna":"Hoy es 14/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
-						      {"Consigna":"Hoy es 15/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
-							],
+	"VerdaderoOFalsoClasico":[{"Consigna":"MachuPicchu se encuentra en el departamento de Cusco", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
+		{"Consigna":"Los pollitos dicen Pio Pio Pio...", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
+		{"Consigna":"Si Goku y Vegeta se fusionan con los pedientes potara entonces nace Vegeto!", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
+		{"Consigna":"si w es un autovalor de A p(w) es un autovalor de p(A)", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
+	],
 
-	"VerdaderoOFalsoPenalizable":[{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
-							  {"Consigna":"Hoy es 13/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
-							  {"Consigna":"Hoy es 14/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Verdadero"},
-						      {"Consigna":"Hoy es 15/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
-							],
+	"VerdaderoOFalsoPenalizable":[{"Consigna":"Con las interfaces podemos usar polimorfismo sin herencia", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
+		{"Consigna":"La sustitucion de liskov no se viola si usamos interfaces", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
+		{"Consigna":"El patron 'strategy' es un patron de diseño", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Verdadero"},
+		{"Consigna":"La Capital de Argentina es Buenos Aires", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
+	],
 
-	"MultipleChoiceClasico":[{"Consigna":"Señale los Paises De America Latina","OpcionesCorrecta":["Peru","Argentina","Bolivia"],"OpcionesIncorrecta":["EE.UU","Francia"]},
-							{"Consigna":"Señale los elementos de la PC","OpcionesCorrecta":["Mouse","Teclado","Microfono"],"OpcionesIncorrecta":["EE.UU","Licuadora"]},
-							{"Consigna":"Señale los Paises De America del Sur","OpcionesCorrecta":["Ecuador","Brasil","Paraguay"],"OpcionesIncorrecta":["Alemania","Italia"]}
-							],
+	"MultipleChoiceClasico":[{"Consigna":"Señale los Paises De America del Sur ","OpcionesCorrecta":["Peru","Argentina"],"OpcionesIncorrecta":["EE.UU","Francia"]},
+		{"Consigna":"Señale los elementos de la PC","OpcionesCorrecta":["Mouse","Teclado"],"OpcionesIncorrecta":["EE.UU"]},
+		{"Consigna":"Señale los paises que pertenecen a Europa","OpcionesCorrecta":["Francia","España"],"OpcionesIncorrecta":["Bolivia","Peru"]}
+	],
 
-	"MultipleChoiceConPuntajeParcial":[{"Consigna":"Señale los Paises De America Latina","OpcionesCorrecta":["Peru","Argentina","Bolivia"],"OpcionesIncorrecta":["EE.UU","Francia"]},
-							           {"Consigna":"Señale los elementos de la PC","OpcionesCorrecta":["Mouse","Teclado","Microfono"],"OpcionesIncorrecta":["EE.UU","Licuadora"]},
-							           {"Consigna":"Señale los Paises De America del Sur","OpcionesCorrecta":["Ecuador","Brasil","Paraguay"],"OpcionesIncorrecta":["Alemania","Italia"]}
-							],
+	"MultipleChoiceConPuntajeParcial":[{"Consigna":"Señale las opciones que son numeros","OpcionesCorrecta":["1","2"],"OpcionesIncorrecta":["abc"]},
+		{"Consigna":"Señale los elementos de la PC","OpcionesCorrecta":["Mouse","Teclado","Microfono"],"OpcionesIncorrecta":["EE.UU","Licuadora"]},
+		{"Consigna":"Señale las opciones que son letras","OpcionesCorrecta":["abcdef","Brasil","Paraguay"],"OpcionesIncorrecta":["1","5"]}
+	],
 
-	"MultipleChoiceConPenalidad":[{"Consigna":"Señale los Paises De America Latina","OpcionesCorrecta":["Peru","Argentina","Bolivia"],"OpcionesIncorrecta":["EE.UU","Francia"]},
-		                          {"Consigna":"Señale los elementos de la PC","OpcionesCorrecta":["Mouse","Teclado","Microfono"],"OpcionesIncorrecta":["EE.UU","Licuadora"]},
-		                          {"Consigna":"Señale los Paises De America del Sur","OpcionesCorrecta":["Ecuador","Brasil","Paraguay"],"OpcionesIncorrecta":["Alemania","Italia"]}
-	                        ],
+	"MultipleChoiceConPenalidad":[{"Consigna":"Señale los patrones de diseño","OpcionesCorrecta":["Singleton","Abstract Factory","Prototype"],"OpcionesIncorrecta":["Null","Integer"]},
+		{"Consigna":"Señale los numeros primos","OpcionesCorrecta":["2","3","7"],"OpcionesIncorrecta":["4","10"]},
+		{"Consigna":"Señale los numeros pares ","OpcionesCorrecta":["2","4","6"],"OpcionesIncorrecta":["e","7"]}
+	],
 
-	"OrderedChoice":[{"Consigna":"Ordene los siguientes numeros de menor a mayor ya","GrupoAOrdenar":["5","10","0","15"],"OrdenCorrecto":["2","3","1","4"]},
-					{"Consigna":"Ordene los siguientes numeros de menor a mayor pero ya!","GrupoAOrdenar":["10","20","30","40"],"OrdenCorrecto":["1","2","3","4"]},
-		            {"Consigna":"Ordene los siguientes numeros de menor a mayor altoke !!","GrupoAOrdenar":["40","30","20","10"],"OrdenCorrecto":["4","3","2","1"]}
+	"OrderedChoice":[{"Consigna":"Ordene los siguientes numeros de menor a mayor","GrupoAOrdenar":["5","10","0"],"OrdenCorrecto":["2","3","1"]},
+		{"Consigna":"Ordene los siguientes numeros de mayor a menor","GrupoAOrdenar":["700","0","-4"],"OrdenCorrecto":["700","0","-4"]},
+		{"Consigna":"Ordene los siguientes numeros pares en forma creciente","GrupoAOrdenar":["40","30","20","10"],"OrdenCorrecto":["4","3","2","1"]}
 
 	],
-	"GroupChoice":[{"Consigna":"coloca las palabras en el grupo 1 y los numeros en el grupo 2","ElementosAAsignar":["Hola","100","341","azul"],"GruposCorrectos":["1","2","1","2"]},
-		           {"Consigna":"coloca las palabras en el grupo 1 y los numeros en el grupo 2","ElementosAAsignar":["Adios","400","1341","rojo"],"GruposCorrectos":["1","2","2","1"]},
-		           {"Consigna":"coloca las palabras en el grupo 1 y los numeros en el grupo 2","ElementosAAsignar":["NosVemos","500","77341","verde"],"GruposCorrectos":["1","2","2","1"]}
+	"GroupChoice":[{"Consigna":"Coloca las palabras en el grupo 1 y los numeros en el grupo 2","ElementosAAsignar":["Hola","100","341","azul"],"GruposCorrectos":["1","2","1","2"]},
+		{"Consigna":"Coloca los numeros pares en el grupo 1 y los impares en el grupo 2","ElementosAAsignar":["2","7","3"],"GruposCorrectos":["1","2","2"]},
+		{"Consigna":"Coloca los numeros primos en el grupo 1 y el resto de numeros en el grupo 2","ElementosAAsignar":["6","2","9","17"],"GruposCorrectos":["2","1","2","1"]}
 	]
 
 }

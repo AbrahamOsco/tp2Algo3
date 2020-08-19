@@ -1,4 +1,4 @@
-module edu.fiuba.algo3 {
+module edu.fiuba.algo {
     requires javafx.controls;
     requires org.junit.jupiter.api;
     requires javafx.fxml;

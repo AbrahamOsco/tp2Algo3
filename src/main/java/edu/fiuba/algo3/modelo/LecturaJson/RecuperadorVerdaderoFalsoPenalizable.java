@@ -10,6 +10,8 @@ import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class RecuperadorVerdaderoFalsoPenalizable extends RecuperadorDePreguntas{
 
@@ -17,6 +19,7 @@ public class RecuperadorVerdaderoFalsoPenalizable extends RecuperadorDePreguntas
     public ArrayList<Pregunta> recuperarPregunta(JsonObject unObjetoJson){
 
         JsonArray arrayPreguntasVoFPenalizable = unObjetoJson.getAsJsonArray("VerdaderoOFalsoPenalizable");
+        List<Pregunta> preguntaDesordenadas = new ArrayList<>();
         ArrayList<Pregunta> preguntasVerdaderoFalsoPenalizable = new ArrayList<>();
 
 
@@ -32,7 +35,19 @@ public class RecuperadorVerdaderoFalsoPenalizable extends RecuperadorDePreguntas
             Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,OpcionesAPresentar);
             preguntasVerdaderoFalsoPenalizable.add(unaPregunta);
             unaPregunta.setIdentificador("VerdaderoOFalsoPenalizable");
+
+            ArrayList<Opcion> opcionesAPresentar= new ArrayList<>();
+            List<Opcion> opcionesDesordenadas = new ArrayList<>();
+            opcionesDesordenadas.add(opcion1);
+            opcionesDesordenadas.add(opcion2);
+            Collections.shuffle(opcionesDesordenadas);
+            opcionesAPresentar.addAll(opcionesDesordenadas);
+
+            Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,opcionesAPresentar);
+            preguntaDesordenadas.add(unaPregunta);
         }
+        Collections.shuffle(preguntaDesordenadas);
+        preguntasVerdaderoFalsoPenalizable.addAll(preguntaDesordenadas);
         return preguntasVerdaderoFalsoPenalizable;
     }
 }

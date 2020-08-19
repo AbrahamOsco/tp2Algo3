@@ -9,9 +9,7 @@ import java.io.IOException;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 
 public class Anotador {
@@ -44,7 +42,12 @@ public class Anotador {
         this.agregarPreguntasMultipleChoicePenalizable();
         this.agregarPreguntasOrderedChoice();
         this.agregarPreguntasGroupChoice();
-        return preguntasCargadas;
+        List<Pregunta> preguntasRandom = new ArrayList<>();
+        preguntasRandom.addAll(preguntasCargadas);
+        Collections.shuffle(preguntasRandom);
+        ArrayList<Pregunta> preguntasCargadasyDesordenadas = new ArrayList<>();
+        preguntasCargadasyDesordenadas.addAll(preguntasRandom);
+        return preguntasCargadasyDesordenadas;
     }
 
     public void agregarPreguntasVoFClasico() throws IOException {
