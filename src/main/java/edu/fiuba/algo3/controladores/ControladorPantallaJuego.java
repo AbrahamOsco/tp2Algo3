@@ -69,8 +69,11 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     private void inicializarModificadores() {
     	
     	this.botonMultiplicadorX2.setDisable(true);
+    	this.botonMultiplicadorX2.setStyle("-fx-background-color: #B3B4B9; ");
     	this.botonMultiplicadorX3.setDisable(true);
+    	this.botonMultiplicadorX3.setStyle("-fx-background-color: #B3B4B9; ");
     	this.botonExclusividad.setDisable(true);
+    	this.botonExclusividad.setStyle("-fx-background-color: #B3B4B9; ");
     	
     	if(this.miJuego.preguntaEsPenalizable())
     	{
@@ -118,6 +121,7 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     public void activarExclusividad(MouseEvent event) {
  		
  		this.miJuego.activarExclusividad();
+ 		this.botonExclusividad.setStyle("-fx-background-color: #1024EB; ");
  		this.botonExclusividad.setDisable(true);
     }
 
@@ -125,13 +129,16 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     public void activarMultiplicadorX2(MouseEvent event) {
     	
     	this.miJuego.activarMultiplicadorX2();
+    	this.botonMultiplicadorX2.setStyle("-fx-background-color: #1024EB; ");
     	this.botonMultiplicadorX2.setDisable(true);
     	this.botonMultiplicadorX3.setDisable(true);
     }
 
     @FXML
     public void activarMultiplicadorX3(MouseEvent event) {
+    	
     	this.miJuego.activarMultiplicadorX3();
+    	this.botonMultiplicadorX3.setStyle("-fx-background-color: #1024EB; ");
     	this.botonMultiplicadorX3.setDisable(true);
     	this.botonMultiplicadorX2.setDisable(true);
     }
