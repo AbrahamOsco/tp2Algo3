@@ -7,14 +7,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="535.0" minWidth="433.0" prefHeight="535.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controladores.PantallaFinPartidaController">
    <children>
-      <Label fx:id="labelPuntuaciones" layoutX="78.0" layoutY="169.0" prefHeight="213.0" prefWidth="278.0" text="Aca van las puntuaciones" textAlignment="RIGHT" />
+      <Label fx:id="labelPuntuaciones" alignment="CENTER" layoutX="78.0" layoutY="169.0" prefHeight="213.0" prefWidth="278.0" text="Aca van las puntuaciones" textAlignment="RIGHT" />
       <Label fx:id="labelResultado" layoutX="115.0" layoutY="38.0" text="EL GANADOR!">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
       <Button layoutX="127.0" layoutY="429.0" mnemonicParsing="false" onMouseClicked="#botonVolverAlMenuActivado" prefHeight="50.0" prefWidth="179.0" text="Volver al menu" />
-      <Label fx:id="labelGanador" layoutX="79.0" layoutY="94.0" text="ElWachicolero">
+      <Label fx:id="labelGanador" alignment="CENTER" layoutX="79.0" layoutY="94.0" text="ElWachicolero">
          <font>
             <Font size="39.0" />
          </font>

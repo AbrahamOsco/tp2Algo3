@@ -4,7 +4,6 @@ package edu.fiuba.algo3.controladores;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.fiuba.algo3.control.BuscadorRutas;
 import edu.fiuba.algo3.control.ControladorSecundario;
 import edu.fiuba.algo3.control.GameLauncher;
 import edu.fiuba.algo3.control.InicializadorOpciones;
@@ -79,7 +78,6 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     	
     	if(this.miJuego.preguntaEsPenalizable())
     	{
-    		//this.botonExclusividad.setDisable(true);
     		if (this.miJuego.jugadorPuedeUsarModificador("multiplicadorX2")) {
     			
     			this.botonMultiplicadorX2.setDisable(false);
@@ -92,8 +90,6 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     	}
     	else
     	{
-    		//this.botonMultiplicadorX2.setDisable(true);
-    		//this.botonMultiplicadorX3.setDisable(true);
     		if (this.miJuego.jugadorPuedeUsarModificador("puntajeExclusivo")) { this.botonExclusividad.setDisable(false);}
     	}
     }
@@ -101,7 +97,6 @@ public class ControladorPantallaJuego extends ControladorSecundario {
  	private void inicializarOpciones() {
 		
 		InicializadorOpciones unInicializador = new InicializadorOpciones(this.miJuego.obtenerPreguntaActiva(), panelOpciones);
-		System.out.println(this.miJuego.obtenerPreguntaActiva().getIdentificador());
     	unInicializador.inicializar();
 	}
  	
@@ -115,9 +110,6 @@ public class ControladorPantallaJuego extends ControladorSecundario {
 			ChoiceBox<Integer> unaCajaDeOpciones = (ChoiceBox<Integer>) otroPanel.getChildren().get(1);
 			OpcionPertenencia otraOpcion = new OpcionPertenencia (unaOpcion.getDescripcion(), unaOpcion.getUbicacionCorrecta());
 			otraOpcion.setUbicacionActual(unaCajaDeOpciones.getValue());
-			System.out.println(otraOpcion.getDescripcion());
-			System.out.println(otraOpcion.getUbicacionCorrecta());
-			System.out.println(unaCajaDeOpciones.getValue());
 			opcionesRespondidas.add(otraOpcion);
 			contador ++;
 		}
@@ -217,7 +209,7 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     public void siguienteActivado(MouseEvent event) {
     	
     	if(this.listaOpciones.get(0).getClass().getSimpleName().equals("OpcionPertenencia")) {
-    		System.out.println("entre al recolector de chois bocks");
+   
     		this.recolectarChoiceBox();
     	}
     	
