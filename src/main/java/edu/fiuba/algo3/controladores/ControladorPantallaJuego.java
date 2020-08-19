@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.controladores;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 import edu.fiuba.algo3.control.BuscadorRutas;
 import edu.fiuba.algo3.control.ControladorSecundario;
 import edu.fiuba.algo3.control.GameLauncher;
@@ -16,6 +13,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ControladorPantallaJuego extends ControladorSecundario {
 	
@@ -99,10 +99,9 @@ public class ControladorPantallaJuego extends ControladorSecundario {
 			ChoiceBox<Integer> unaCajaDeOpciones = (ChoiceBox<Integer>) otroPanel.getChildren().get(1);
 			OpcionPertenencia otraOpcion = new OpcionPertenencia (unaOpcion.getDescripcion(), unaOpcion.getUbicacionCorrecta());
 			otraOpcion.setUbicacionActual(unaCajaDeOpciones.getValue());
-			this.opcionesRespondidas.add(otraOpcion);
+			opcionesRespondidas.add(otraOpcion);
 			contador ++;
 		}
- 		
  	}
     
  	@FXML
@@ -182,20 +181,15 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     @FXML
     public void siguienteActivado(MouseEvent event) {
     	
-    	if(this.listaOpciones.get(0).getClass().getSimpleName().equals("OpcionPertenencia")) {
-    		System.out.println("entre al recolector de chois bocks");
+    	if(this.listaOpciones.get(0).getClass().getSimpleName().equals("OpcionPertenencia"))
     		this.recolectarChoiceBox();
-    	}
-    	
+
     	this.miJuego.recibirUnaRespuesta(opcionesRespondidas);
     	this.miJuego.responder();
     	
     	if(this.miJuego.sinJugadores()) {
-    		
     		this.miJuego.finDeRonda();
-    		
     		if(this.miJuego.sinPreguntas()) {
-    			
     			GameLauncher unLanzador = new GameLauncher();
     			unLanzador.iniciar(myStage, miJuego, "/Vistas/Pantalla/PantallaFinPartida.fxml");
     		}
