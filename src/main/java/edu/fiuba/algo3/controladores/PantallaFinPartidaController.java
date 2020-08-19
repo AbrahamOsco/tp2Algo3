@@ -25,7 +25,7 @@ public class PantallaFinPartidaController extends ControladorSecundario{
 		 if(esEmpate()) {
 			 
 			 this.labelResultado.setText("El resultado es:");
-			 this.labelGanador.setText("Es un jodido empate!!");
+			 this.labelGanador.setText("Es un empate!!");
 		 }
 		 
 		 String resultados = "";
