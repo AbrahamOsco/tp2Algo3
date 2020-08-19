@@ -25,7 +25,7 @@
             <Pane fx:id="panelRespuesta1" layoutX="18.0" layoutY="7.0" prefHeight="38.0" prefWidth="296.0" visible="false">
                <children>
                   <Label layoutY="6.0" prefHeight="26.0" prefWidth="223.0" text="Opcion1" />
-                  <ChoiceBox layoutX="260.0" layoutY="6.0" onScrollFinished="#choiceBox1Activada" prefHeight="26.0" prefWidth="19.0" />
+                  <ChoiceBox layoutX="260.0" layoutY="6.0" prefHeight="26.0" prefWidth="19.0" />
                </children>
             </Pane>
             <Pane fx:id="panelRespuesta2" layoutX="18.0" layoutY="45.0" prefHeight="38.0" prefWidth="296.0" visible="false">

@@ -1,40 +1,24 @@
 
 {
-	"VerdaderoOFalsoClasico":[{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
-		                      {"Consigna":"Hoy es 13/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
-		                      {"Consigna":"Hoy es 14/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
-						      {"Consigna":"Hoy es 15/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
+	"VerdaderoOFalsoClasico":[{"Consigna":"La grande se llama Cuca", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
 							],
 
-	"VerdaderoOFalsoPenalizable":[{"Consigna":"Hoy es 12/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
-							  {"Consigna":"Hoy es 13/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
-							  {"Consigna":"Hoy es 14/08/20", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Verdadero"},
-						      {"Consigna":"Hoy es 15/08/20", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
+	"VerdaderoOFalsoPenalizable":[{"Consigna":"El prota de TLOZ es zelda", "OpcionesCorrecta":"Me estas vendiendo verdura","OpcionesIncorrecta":"Al toque prro"}							 
 							],
 
-	"MultipleChoiceClasico":[{"Consigna":"Señale los Paises De America Latina","OpcionesCorrecta":["Argentina","Bolivia"],"OpcionesIncorrecta":["EE.UU"]},
-							{"Consigna":"Señale los elementos de la PC","OpcionesCorrecta":["Opcion1","Opcion2","Opcion3"],"OpcionesIncorrecta":["Opcion4","Opcion5"]},
-							{"Consigna":"Señale los Paises De America del Sur","OpcionesCorrecta":["Ecuador","Brasil","Paraguay"],"OpcionesIncorrecta":["Alemania","Italia"]}
+	"MultipleChoiceClasico":[{"Consigna":"Señale los personajes alcoholicos","OpcionesCorrecta":["Homero","Barney"],"OpcionesIncorrecta":["Usted"]}
 							],
 
-	"MultipleChoiceConPuntajeParcial":[{"Consigna":"Señale los Paises De America Latina","OpcionesCorrecta":["Peru","Argentina","Bolivia"],"OpcionesIncorrecta":["EE.UU","Francia"]},
-							           {"Consigna":"Señale los elementos de la PC","OpcionesCorrecta":["Mouse","Teclado","Microfono"],"OpcionesIncorrecta":["EE.UU","Licuadora"]},
-							           {"Consigna":"Señale los Paises De America del Sur","OpcionesCorrecta":["Ecuador","Brasil","Paraguay"],"OpcionesIncorrecta":["Alemania","Italia"]}
+	"MultipleChoiceConPuntajeParcial":[{"Consigna":"Seleccione los juegos acabados","OpcionesCorrecta":["Residen Evil 4","Final Fantasy VII","Dark Souls"],"OpcionesIncorrecta":["Fallout 76","No Man's Sky"]}
 							],
 
-	"MultipleChoiceConPenalidad":[{"Consigna":"Señale los Paises De America Latina","OpcionesCorrecta":["Peru","Argentina","Bolivia"],"OpcionesIncorrecta":["EE.UU","Francia"]},
-		                          {"Consigna":"Señale los elementos de la PC","OpcionesCorrecta":["Mouse","Teclado","Microfono"],"OpcionesIncorrecta":["EE.UU","Licuadora"]},
-		                          {"Consigna":"Señale los Paises De America del Sur","OpcionesCorrecta":["Ecuador","Brasil","Paraguay"],"OpcionesIncorrecta":["Alemania","Italia"]}
+	"MultipleChoiceConPenalidad":[{"Consigna":"Seleccione todos los deportes que Mario haya practicado","OpcionesCorrecta":["Tennis","Golf","Karting"],"OpcionesIncorrecta":["Lanzamiento de Enanos","Caza Deportiva"]}
 	                        ],
 
-	"OrderedChoice":[{"Consigna":"Ordene los siguientes numeros de menor a mayor ya","GrupoAOrdenar":["5","10","0"],"OrdenCorrecto":["2","3","1"]},
-					{"Consigna":"Ordene los siguientes numeros de menor a mayor pero ya!","GrupoAOrdenar":["10","20","30","40"],"OrdenCorrecto":["1","2","3","4"]},
-		            {"Consigna":"Ordene los siguientes numeros de menor a mayor altoke !!","GrupoAOrdenar":["40","30","20","10"],"OrdenCorrecto":["4","3","2","1"]}
-
-	],
-	"GroupChoice":[{"Consigna":"coloca las palabras en el grupo 1 y los numeros en el grupo 2","ElementosAAsignar":["Hola","100","341","azul"],"GruposCorrectos":["1","2","1","2"]},
-		           {"Consigna":"coloca las palabras en el grupo 1 y los numeros en el grupo 2","ElementosAAsignar":["Adios","400","1341","rojo"],"GruposCorrectos":["1","2","2","1"]},
-		           {"Consigna":"coloca las palabras en el grupo 1 y los numeros en el grupo 2","ElementosAAsignar":["NosVemos","500","77341","verde"],"GruposCorrectos":["1","2","2","1"]}
-	]
+	"OrderedChoice":[{"Consigna":"Ordenar por mejor mano de poker","GrupoAOrdenar":["Poker","Full House","Escalera Real"],"OrdenCorrecto":["2","3","1"]}
+							],
+	
+	"GroupChoice":[{"Consigna":"Ordenar juegos por tipo: 1-Farm Simulator 2-Metroidvanias","ElementosAAsignar":["Harvest Moon","Castlevania","Stardew Valley","Demolition Man"],"GruposCorrectos":["1","2","1","2"]}
+							]
 
 }

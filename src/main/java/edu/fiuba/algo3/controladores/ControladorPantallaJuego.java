@@ -9,11 +9,12 @@ import edu.fiuba.algo3.control.ControladorSecundario;
 import edu.fiuba.algo3.control.GameLauncher;
 import edu.fiuba.algo3.control.InicializadorOpciones;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import edu.fiuba.algo3.modelo.Opciones.OpcionPertenencia;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Pane;
 
 public class ControladorPantallaJuego extends ControladorSecundario {
@@ -44,7 +45,7 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     
     private List<Opcion> listaOpciones;
     
-    private List<Opcion> opcionesRespondidas;
+    private ArrayList<Opcion> opcionesRespondidas;
     
     
     
@@ -86,6 +87,25 @@ public class ControladorPantallaJuego extends ControladorSecundario {
 		InicializadorOpciones unInicializador = new InicializadorOpciones(this.miJuego.obtenerPreguntaActiva(), panelOpciones);
     	unInicializador.inicializar();
 	}
+ 	
+ 	private void recolectarChoiceBox() {
+ 		
+ 		int contador = 0;
+ 		
+ 		for(Opcion unaOpcion : listaOpciones) {
+			
+			Pane otroPanel = (Pane) panelOpciones.getChildren().get(contador);
+			ChoiceBox<Integer> unaCajaDeOpciones = (ChoiceBox<Integer>) otroPanel.getChildren().get(1);
+			OpcionPertenencia otraOpcion = new OpcionPertenencia (unaOpcion.getDescripcion(), unaOpcion.getUbicacionCorrecta());
+			otraOpcion.setUbicacionActual(unaCajaDeOpciones.getValue());
+			System.out.println(otraOpcion.getDescripcion());
+			System.out.println(otraOpcion.getUbicacionCorrecta());
+			System.out.println(unaCajaDeOpciones.getValue());
+			opcionesRespondidas.add(otraOpcion);
+			contador ++;
+		}
+ 		
+ 	}
     
  	@FXML
     public void activarExclusividad(MouseEvent event) {
@@ -157,14 +177,20 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     }
     
     @FXML
-    public void choiceBox1Activada(ScrollEvent event) {
-
-    }
-
- 	
     public void siguienteActivado(MouseEvent event) {
     	
+    	if(this.listaOpciones.get(0).getClass().getSimpleName().equals("OpcionPertenencia")) {
+    		System.out.println("entre al recolector de chois bocks");
+    		this.recolectarChoiceBox();
+    	}
+    	
+    	this.miJuego.recibirUnaRespuesta(opcionesRespondidas);
+    	this.miJuego.responder();
+    	
     	if(this.miJuego.sinJugadores()) {
+    		
+    		this.miJuego.finDeRonda();
+    		
     		if(this.miJuego.sinPreguntas()) {
     			
     			GameLauncher unLanzador = new GameLauncher();
