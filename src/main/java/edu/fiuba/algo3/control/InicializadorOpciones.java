@@ -58,13 +58,13 @@ public class InicializadorOpciones {
 		int contador = 0;
 		
 		for(Opcion unaOpcion : listaOpciones) {
-			List<Integer> range = IntStream.range(1, listaOpciones.size()+1).boxed().collect(Collectors.toList());
+			List<Integer> rango = IntStream.range(1, listaOpciones.size()+1).boxed().collect(Collectors.toList());
 			Pane otroPanel = (Pane) unPanel.getChildren().get(contador);
 			Label unLabel = (Label) otroPanel.getChildren().get(0);
 			unLabel.setText(unaOpcion.getDescripcion());
 			ChoiceBox<Integer> unaCajaDeOpciones = (ChoiceBox<Integer>) otroPanel.getChildren().get(1);
-			ObservableList<Integer> opcionesGC = FXCollections.observableArrayList(range);
-			unaCajaDeOpciones.setItems(opcionesGC);
+			ObservableList<Integer> opcionesOC = FXCollections.observableArrayList(rango);
+			unaCajaDeOpciones.setItems(opcionesOC);
 			otroPanel.setVisible(true);
 			contador ++;
 		}
