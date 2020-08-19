@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.Opciones.*;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesClasificadas;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesCorrectas;
 import org.junit.jupiter.api.Test;
 
@@ -142,7 +143,7 @@ public class TestJson {
                 OpcionPertenencia unaOpcion = new OpcionPertenencia(elementosAOrdenar.get(i), ordenCorrecto.get(i));
                 opcionesAPresentar.add(unaOpcion);
             }
-            Pregunta unaPregunta = new PreguntaConTodasOpcionesCorrectas(unaConsigna, opcionesAPresentar);
+            Pregunta unaPregunta = new PreguntaConTodasOpcionesClasificadas(unaConsigna, opcionesAPresentar);
             preguntasOrderedChoice.add(unaPregunta);
         }
         assertEquals(3,preguntasOrderedChoice.size());
@@ -248,6 +249,8 @@ public class TestJson {
         }
         assertEquals("MultipleChoiceConPenalidad",preguntasMultipleChoicePenalizable.get(1).getIdentificador());
     }
+
+
 }
 
 

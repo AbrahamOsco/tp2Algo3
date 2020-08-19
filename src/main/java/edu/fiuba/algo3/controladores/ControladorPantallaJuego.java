@@ -85,6 +85,7 @@ public class ControladorPantallaJuego extends ControladorSecundario {
  	private void inicializarOpciones() {
 		
 		InicializadorOpciones unInicializador = new InicializadorOpciones(this.miJuego.obtenerPreguntaActiva(), panelOpciones);
+		System.out.println(this.miJuego.obtenerPreguntaActiva().getIdentificador());
     	unInicializador.inicializar();
 	}
  	
@@ -98,10 +99,7 @@ public class ControladorPantallaJuego extends ControladorSecundario {
 			ChoiceBox<Integer> unaCajaDeOpciones = (ChoiceBox<Integer>) otroPanel.getChildren().get(1);
 			OpcionPertenencia otraOpcion = new OpcionPertenencia (unaOpcion.getDescripcion(), unaOpcion.getUbicacionCorrecta());
 			otraOpcion.setUbicacionActual(unaCajaDeOpciones.getValue());
-			System.out.println(otraOpcion.getDescripcion());
-			System.out.println(otraOpcion.getUbicacionCorrecta());
-			System.out.println(unaCajaDeOpciones.getValue());
-			opcionesRespondidas.add(otraOpcion);
+			this.opcionesRespondidas.add(otraOpcion);
 			contador ++;
 		}
  		

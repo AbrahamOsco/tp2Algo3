@@ -64,10 +64,9 @@ public class InicializadorOpciones {
 			Label unLabel = (Label) otroPanel.getChildren().get(0);
 			unLabel.setText(unaOpcion.getDescripcion());
 			ChoiceBox<Integer> unaCajaDeOpciones = (ChoiceBox<Integer>) otroPanel.getChildren().get(1);
-
 			ObservableList<Integer> opcionesOC = FXCollections.observableArrayList(rango);
 			unaCajaDeOpciones.setItems(opcionesOC);
-			unaCajaDeOpciones.setValue(1);
+			unaCajaDeOpciones.setValue(contador);
 			otroPanel.setVisible(true);
 			contador ++;
 		}

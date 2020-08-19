@@ -3,7 +3,7 @@
 	"VerdaderoOFalsoClasico":[{"Consigna":"La grande se llama Cuca", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
 							],
 
-	"VerdaderoOFalsoPenalizable":[{"Consigna":"El prota de TLOZ es zelda", "OpcionesCorrecta":"Me estas vendiendo verdura","OpcionesIncorrecta":"Al toque prro"}							 
+	"VerdaderoOFalsoPenalizable":[{"Consigna":"El prota de TLOZ es zelda", "OpcionesCorrecta":"Me estas vendiendo verdura","OpcionesIncorrecta":"Al toque prro"}
 							],
 
 	"MultipleChoiceClasico":[{"Consigna":"Señale los personajes alcoholicos","OpcionesCorrecta":["Homero","Barney"],"OpcionesIncorrecta":["Usted"]}
@@ -15,9 +15,9 @@
 	"MultipleChoiceConPenalidad":[{"Consigna":"Seleccione todos los deportes que Mario haya practicado","OpcionesCorrecta":["Tennis","Golf","Karting"],"OpcionesIncorrecta":["Lanzamiento de Enanos","Caza Deportiva"]}
 	                        ],
 
-	"OrderedChoice":[{"Consigna":"Ordenar por mejor mano de poker","GrupoAOrdenar":["Poker","Full House","Escalera Real"],"OrdenCorrecto":["2","3","1"]}
+	"OrderedChoice":[{"Consigna":"Ordene los siguientes numeros pares en forma creciente","GrupoAOrdenar":["40","30","20","10"],"OrdenCorrecto":["4","3","2","1"]}
 							],
-	
+
 	"GroupChoice":[{"Consigna":"Ordenar juegos por tipo: 1-Farm Simulator 2-Metroidvanias","ElementosAAsignar":["Harvest Moon","Castlevania","Stardew Valley","Demolition Man"],"GruposCorrectos":["1","2","1","2"]}
 							]
 }
