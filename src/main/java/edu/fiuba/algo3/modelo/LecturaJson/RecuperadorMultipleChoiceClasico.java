@@ -47,7 +47,6 @@ public class RecuperadorMultipleChoiceClasico extends RecuperadorDePreguntas{
             Collections.shuffle(opcioneDesordenadas);
             opcionesAPresentar.addAll(opcioneDesordenadas);
             Pregunta unaPregunta = new PreguntaConTodasOpcionesCorrectas(unaConsigna,opcionesAPresentar);
-            preguntasMultipleChoiceClasico.add(unaPregunta);
             unaPregunta.setIdentificador("MultipleChoiceClasico");
             preguntaDesordenadas.add(unaPregunta);
         }

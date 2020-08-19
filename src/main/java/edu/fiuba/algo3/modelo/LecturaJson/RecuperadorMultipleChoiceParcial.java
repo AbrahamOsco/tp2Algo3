@@ -45,7 +45,6 @@ public class RecuperadorMultipleChoiceParcial extends RecuperadorDePreguntas{
             Collections.shuffle(opcionesDesordenadas);
             opcionesAPresentar.addAll(opcionesDesordenadas);
             Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,opcionesAPresentar);
-            preguntasMultipleChoiceParcial.add(unaPregunta);
             unaPregunta.setIdentificador("MultipleChoiceConPuntajeParcial");
             preguntasDesordenadas.add(unaPregunta);
         }

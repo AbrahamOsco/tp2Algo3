@@ -29,12 +29,7 @@ public class RecuperadorVerdaderoOFalso extends RecuperadorDePreguntas{
             String opcionIncorrecta = unJson.getAsJsonObject().get("OpcionesIncorrecta").getAsString();
             Opcion opcion1 = new OpcionCorrecta(opcionCorrecta);
             Opcion opcion2 = new OpcionIncorrecta(opcionIncorrecta);
-            ArrayList<Opcion> OpcionesAPresentar= new ArrayList<>();
-            OpcionesAPresentar.add(opcion1);
-            OpcionesAPresentar.add(opcion2);
-            Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,OpcionesAPresentar);
-            preguntasVerdaderoFalsoClasico.add(unaPregunta);
-            unaPregunta.setIdentificador("VerdaderoOFalsoClasico");
+
             ArrayList<Opcion> opcionesAPresentar= new ArrayList<>();
             List<Opcion> opcionesDesordenadas = new ArrayList<>();
 
@@ -45,6 +40,7 @@ public class RecuperadorVerdaderoOFalso extends RecuperadorDePreguntas{
             opcionesAPresentar.addAll(opcionesDesordenadas);
             Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,opcionesAPresentar);
             preguntasDesordenadas.add(unaPregunta);
+            unaPregunta.setIdentificador("VerdaderoOFalsoClasico");
         }
         Collections.shuffle(preguntasDesordenadas);
         preguntasVerdaderoFalsoClasico.addAll(preguntasDesordenadas);

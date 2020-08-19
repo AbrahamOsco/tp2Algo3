@@ -59,7 +59,7 @@ public class AsignacionDePuntosConMultiplicadoresTest {
 
         //Assert
         assertEquals(1, puntosJugador1);
-        assertEquals(-3, puntosJugador2);
+        assertEquals(0, puntosJugador2);
     }
 
     @Test

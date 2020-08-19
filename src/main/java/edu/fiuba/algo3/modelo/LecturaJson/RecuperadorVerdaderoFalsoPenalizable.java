@@ -29,12 +29,6 @@ public class RecuperadorVerdaderoFalsoPenalizable extends RecuperadorDePreguntas
             String opcionIncorrectaPenalizable = unJson.getAsJsonObject().get("OpcionesIncorrecta").getAsString();
             Opcion opcion1 = new OpcionCorrecta(opcionCorrecta);
             Opcion opcion2 = new OpcionIncorrectaPenalizable(opcionIncorrectaPenalizable);
-            ArrayList<Opcion> OpcionesAPresentar= new ArrayList<>();
-            OpcionesAPresentar.add(opcion1);
-            OpcionesAPresentar.add(opcion2);
-            Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,OpcionesAPresentar);
-            preguntasVerdaderoFalsoPenalizable.add(unaPregunta);
-            unaPregunta.setIdentificador("VerdaderoOFalsoPenalizable");
 
             ArrayList<Opcion> opcionesAPresentar= new ArrayList<>();
             List<Opcion> opcionesDesordenadas = new ArrayList<>();
@@ -45,6 +39,7 @@ public class RecuperadorVerdaderoFalsoPenalizable extends RecuperadorDePreguntas
 
             Pregunta unaPregunta = new PreguntaPuntajeParcialSinIncorrectos(unaConsigna,opcionesAPresentar);
             preguntaDesordenadas.add(unaPregunta);
+            unaPregunta.setIdentificador("VerdaderoOFalsoPenalizable");
         }
         Collections.shuffle(preguntaDesordenadas);
         preguntasVerdaderoFalsoPenalizable.addAll(preguntaDesordenadas);

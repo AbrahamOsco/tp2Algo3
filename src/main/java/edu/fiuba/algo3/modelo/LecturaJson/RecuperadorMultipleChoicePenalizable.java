@@ -45,7 +45,6 @@ public class RecuperadorMultipleChoicePenalizable extends  RecuperadorDePregunta
             Collections.shuffle(opcionesDesordenadas);
             opcionesAPresentar.addAll(opcionesDesordenadas);
             Pregunta unaPregunta = new PreguntaPuntajeParcialPenalizable(unaConsigna,opcionesAPresentar);
-            preguntasMultipleChoicePenalizable.add(unaPregunta);
             unaPregunta.setIdentificador("MultipleChoiceConPenalidad");
             preguntasDesordenadas.add(unaPregunta);
         }

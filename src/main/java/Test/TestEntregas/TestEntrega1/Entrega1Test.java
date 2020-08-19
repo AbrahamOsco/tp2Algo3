@@ -74,7 +74,7 @@ public class Entrega1Test {
 
         //Assert
         assertEquals(1, puntosJugador1);
-        assertEquals(-1, puntosJugador2);
+        assertEquals(0, puntosJugador2);
     }
     @Test
     public void test03PreguntaMultipleChoiceClasicoPuedeCrearseIndicandoleCualEsLaRespuestaCorrecta() {

@@ -21,13 +21,7 @@ public class App extends Application {
     Partida partida;
 
     @Override
-<<<<<<< HEAD
-    public void start(Stage stage) throws IOException {
- 
-        GameLauncher unLanzador = new GameLauncher();
-        unLanzador.iniciar(stage, "/Vistas/Pruebas/ClickCounter.fxml");
-        
-=======
+
     public void start(Stage stage){
         partida = this.cargarPartida();
         ManejadorTurnos manejadorTurnos = new ManejadorTurnos(partida, stage);
@@ -36,7 +30,6 @@ public class App extends Application {
         Scene escenaInicio = new Scene(inicio,500,500);
         stage.setScene(escenaInicio);
         stage.show();
->>>>>>> marco
     }
 
     public static void main(String[] args) {
