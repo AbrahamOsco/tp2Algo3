@@ -15,6 +15,7 @@ public class ControladorSecundario extends ControladorPrimario {
 		super.inicializar(unEscenario);
 		this.miJuego = unJuego;
 		this.myParentScene = escenaAnterior;
+		this.postInicio();
 	}
 	
 	public void cerrarEstaEscena() {
@@ -23,5 +24,8 @@ public class ControladorSecundario extends ControladorPrimario {
 			this.myStage.setScene(myParentScene);
 		}
 	}
-
+	
+	public void postInicio(){
+		//TODO reimplementar para cada hijo que lo necesite
+	}
 }

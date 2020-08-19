@@ -61,5 +61,9 @@ public class  Jugador {
     public String toString () {
     	return this.nombre + " puntos: " + this.puntaje;
     }
+    
+    public boolean puedeUsarMultiplicador (String unaClave) {
+    	return (modificadores.get(unaClave) > 0);
+    }
 
 }

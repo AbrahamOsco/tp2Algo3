@@ -18,12 +18,14 @@ import java.util.Queue;
 public class Juego {
 	
 	private Partida unaPartida;
+	private Jugador jugadorActivo;
 	private Turno turnoActivo;
 	private Pregunta preguntaActiva;
 	private AsignadorPuntos unAsignador;
 	private Queue<Jugador> jugadoresActivos;
 	private int maximoJugadores;
 	private int minimoJugadores;
+	private int totalPreguntas;
 	
 	
 
@@ -33,6 +35,10 @@ public class Juego {
 
 	private void cargarJugadoresActivos() {
 		unaPartida.getJugadores().stream().forEach(jugador -> jugadoresActivos.offer(jugador));
+<<<<<<< HEAD
+=======
+
+>>>>>>> Samuel2
 	}
 
 	//PRE: -
@@ -51,16 +57,18 @@ public class Juego {
 	public void nuevaPartida() throws IOException {
 		Anotador anotadorDePreguntas = new Anotador();
 		Queue<Pregunta> colaDePreguntas = anotadorDePreguntas.getColaDePreguntas();
+		totalPreguntas = colaDePreguntas.size();
 		unaPartida.setPreguntas(colaDePreguntas);
 	}
 
-	//PRE: -
-	//POS: Provoca que una partida comience.
-	public void comenzarPartida() {
-		
+	
+	public void comenzarRonda() {
+
 		this.cargarJugadoresActivos();
-		preguntaActiva = unaPartida.obtenerSiguientePregunta();
-		turnoActivo = new Turno (preguntaActiva, jugadoresActivos.poll());
+		this.preguntaActiva = unaPartida.obtenerSiguientePregunta();
+		this.totalPreguntas --;
+		this.jugadorActivo = jugadoresActivos.poll();
+		turnoActivo = new Turno (preguntaActiva, jugadorActivo);
 		
 	}
 
@@ -77,6 +85,7 @@ public class Juego {
 		
 		turnoActivo.setOpcionesElejidas(unasOpciones);
 
+
 	}
 
 	//PRE: -
@@ -86,8 +95,7 @@ public class Juego {
 		return unaPartida.obtenerResultadoPartida();
 	}
 
-	//PRE: unMultiplicador es una instancia válida de ModificadorMultiplicador.
-	//POS: Recibe y envía un multiplicador para ser activado por turnoActivo.
+	
 	public void activarMultiplicador(ModificadorMultiplicador unMultiplicador) {
 		
 		turnoActivo.setMultiplicadorActivo(unMultiplicador);
@@ -111,14 +119,15 @@ public class Juego {
 	//POS: Cambia turnoActivo al siguiente Turno.
 	public void siguienteTurno() {
 		
-		turnoActivo = new Turno (preguntaActiva, jugadoresActivos.poll() );
+		this.jugadorActivo = jugadoresActivos.poll();
+		turnoActivo = new Turno (preguntaActiva, jugadorActivo);
 	}
 
 	//PRE: -
 	//POS: Pasa a la siguiente Ronda.
 	public void siguienteRonda() {
 		
-		this.comenzarPartida();
+		this.comenzarRonda();
 	}
 
 	
@@ -135,14 +144,32 @@ public class Juego {
 	}
 	
 
-
-	//PRE: -
-	//POS: Inicia el proceso de asignar puntos al término de una Ronda.
+	public boolean sinJugadores() {
+		return (jugadoresActivos.size() == 0);
+	}
+	
+	public boolean sinPreguntas() {
+		return (totalPreguntas == 0);
+	}
+	
+	public String nombreDelJugadorActivo() {
+		
+		return this.jugadorActivo.getNombre();
+	}
 
 	public void finDeRonda() {
 		
 		unAsignador.asignarPuntos();
 		unAsignador = new AsignadorPuntos();
+	}
+	
+	public boolean jugadorPuedeUsarModificador(String nombreModificador) {
+		
+		return this.jugadorActivo.puedeUsarMultiplicador(nombreModificador);
+	}
+	
+	public boolean preguntaEsPenalizable() {
+		return (this.preguntaActiva.getIdentificador().contains("Penal"));
 	}
 }
 

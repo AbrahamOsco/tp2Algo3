@@ -1,20 +1,19 @@
 package edu.fiuba.algo3.controladores;
 
-import java.net.URL;
-import java.util.HashMap;
-import java.util.ResourceBundle;
-
+import edu.fiuba.algo3.control.BuscadorRutas;
 import edu.fiuba.algo3.control.ControladorSecundario;
+import edu.fiuba.algo3.control.GameLauncher;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-
-import javafx.scene.control.TextField;
-
 import javafx.scene.control.Label;
-
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
+import java.net.URL;
+import java.util.HashMap;
+import java.util.ResourceBundle;
 
 public class MenuCrearJugadorController extends ControladorSecundario implements Initializable{
 	@FXML
@@ -28,24 +27,13 @@ public class MenuCrearJugadorController extends ControladorSecundario implements
 	
 	private int contadorJugadores = 1;
 	
-	private HashMap<String,Integer> rutasFXML;
-	
-	
-	private void obtenerPantallaParaPregunta(Pregunta unaPregunta) {
-		
-		
-	}
-	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		/*String 
+		
 		botonIniciarPartida.setDisable(true);
-		rutasFXML = new HashMap<>();
-		rutasFXML.put(key, value)*/
 	}
 
-	// Event Listener on Button[#botonOK].onMouseClicked
 	@FXML
 	public void botonOkActivado(MouseEvent event) {
 		
@@ -74,12 +62,13 @@ public class MenuCrearJugadorController extends ControladorSecundario implements
 			
 	}
 	
-	// Event Listener on Button[#botonIniciarPartida].onMouseClicked
 	@FXML
 	public void botonNuevaPartidaActivado(MouseEvent event) {
 		
-		this.miJuego.comenzarPartida();
-		this.obtenerPantallaParaPregunta(this.miJuego.obtenerPreguntaActiva());
+		this.miJuego.comenzarRonda();
+		GameLauncher unLanzador = new GameLauncher();
+		BuscadorRutas unBuscador = new BuscadorRutas();
+		unLanzador.iniciar(myStage, miJuego, unBuscador.buscarRutaDePregunta(miJuego.obtenerPreguntaActiva()));
 	}
 
 
