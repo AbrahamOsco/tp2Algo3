@@ -7,19 +7,17 @@ import javafx.stage.Stage;
 public class ControladorSecundario extends ControladorPrimario {
 	
 	protected Juego miJuego;
-	private Scene myParentScene;
+	private Scene myParentScene; //renombrar a escenaPadre?
 	
 
-	public void inicializar (Stage unEscenario, Juego unJuego, Scene escenaAnterior) {
-		
-		super.inicializar(unEscenario);
+	public void setearElementos(Stage unEscenario, Juego unJuego, Scene escenaAnterior) {
+		super.setearElementos(unEscenario);
 		this.miJuego = unJuego;
 		this.myParentScene = escenaAnterior;
 		this.postInicio();
 	}
 	
-	public void cerrarEstaEscena() {
-		
+	public void cerrarEstaEscena() { //CAMBIAR el nombre del metodo
 		if(myParentScene != null) {
 			this.myStage.setScene(myParentScene);
 		}
