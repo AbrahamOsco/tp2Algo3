@@ -26,14 +26,17 @@ public class Juego {
 	private int minimoJugadores;
 	
 	
+
+
+	//PRE: -
+	//POS: Recibe los jugadores participantes en una partida.
+
 	private void cargarJugadoresActivos() {
 		unaPartida.getJugadores().stream().forEach(jugador -> jugadoresActivos.offer(jugador));
-
-		/*for (Jugador unJugador: unaPartida.getJugadores()) {
-			jugadoresActivos.offer(unJugador);
-		}*/
 	}
-	
+
+	//PRE: -
+	//POS: instancia un Juego sin datos.
 	public Juego() {
 		
 		unaPartida = new Partida();
@@ -42,13 +45,17 @@ public class Juego {
 		maximoJugadores = 5;
 		minimoJugadores = 2;
 	}
-	
+
+	//PRE: -
+	//POS: Inicia una partida a partir de un grupo de preguntas.
 	public void nuevaPartida() throws IOException {
 		Anotador anotadorDePreguntas = new Anotador();
 		Queue<Pregunta> colaDePreguntas = anotadorDePreguntas.getColaDePreguntas();
 		unaPartida.setPreguntas(colaDePreguntas);
 	}
-	
+
+	//PRE: -
+	//POS: Provoca que una partida comience.
 	public void comenzarPartida() {
 		
 		this.cargarJugadoresActivos();
@@ -56,51 +63,64 @@ public class Juego {
 		turnoActivo = new Turno (preguntaActiva, jugadoresActivos.poll());
 		
 	}
-	
+
+	//PRE: nombreJugador es un String válido.
+	//POS: Añade un Jugador a unaPartida.
 	public void cargarJugador (String nombreJugador) {
 		
 		unaPartida.agregarJugador(nombreJugador);
 	}
-	
+
+	//PRE: unasOpciones es un ArrayList<Opcion> válido.
+	//POS: Recibe un grupo de opciones y las guarda en turnoActivo como opciones elegidas por un jugador.
 	public void recibirUnaRespuesta (ArrayList<Opcion> unasOpciones) {
 		
 		turnoActivo.setOpcionesElejidas(unasOpciones);
-		/*agregarOpcionesDeAUna*/
+
 	}
-	
+
+	//PRE: -
+	//POS: Devuelve el resultado de unaPartida.
 	public List <String> obtenerPuntajeFinal (){
 		
 		return unaPartida.obtenerResultadoPartida();
 	}
-	
-	/*public Pantalla obtenerUnaPantalla() {
-		Se pide la pantalla a alguien, supongo.
-	}*/
-	
+
+	//PRE: unMultiplicador es una instancia válida de ModificadorMultiplicador.
+	//POS: Recibe y envía un multiplicador para ser activado por turnoActivo.
 	public void activarMultiplicador(ModificadorMultiplicador unMultiplicador) {
 		
 		turnoActivo.setMultiplicadorActivo(unMultiplicador);
 	}
-	
+
+	//PRE: -
+	//POS: Señala a unAsignador que active sus modificadores de Exclusividad.
 	public void activarExclusividad() {
 		
 		unAsignador.agregarExclusividad();
 	}
-	
+
+	//PRE: -
+	//POS: Le pasa turnoActivo a unAsignador para que lo procese.
 	public void responder() {
 		
 		unAsignador.agregarTurno(turnoActivo);
 	}
-	
+
+	//PRE: -
+	//POS: Cambia turnoActivo al siguiente Turno.
 	public void siguienteTurno() {
 		
 		turnoActivo = new Turno (preguntaActiva, jugadoresActivos.poll() );
 	}
-	
+
+	//PRE: -
+	//POS: Pasa a la siguiente Ronda.
 	public void siguienteRonda() {
 		
 		this.comenzarPartida();
 	}
+
 	
 	public boolean alcanzoJugadoresMinimos() {
 		return !(unaPartida.getJugadores().size() >= this.minimoJugadores);
@@ -114,6 +134,11 @@ public class Juego {
 		return this.preguntaActiva;
 	}
 	
+
+
+	//PRE: -
+	//POS: Inicia el proceso de asignar puntos al término de una Ronda.
+
 	public void finDeRonda() {
 		
 		unAsignador.asignarPuntos();
