@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Vista;
+package edu.fiuba.algo3.controladores;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,13 +11,13 @@ import java.net.URL;
 
 import edu.fiuba.algo3.control.GameLauncher;
 
-public class App extends Application {
+public class Runner extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
  
         GameLauncher unLanzador = new GameLauncher();
-        unLanzador.iniciar(stage, "/Vistas/Pruebas/ClickCounter.fxml");
+        unLanzador.iniciar(stage,"/Vistas/Menu/MenuPrincipal.fxml");
         
     }
 

@@ -1,14 +1,12 @@
 package Test.TestDeClases.AsignadorPuntos;
 
-import edu.fiuba.algo3.modelo.Opciones.Opcion;
+import edu.fiuba.algo3.modelo.Opciones.*;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
-import edu.fiuba.algo3.modelo.Opciones.OpcionCorrecta;
-import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrecta;
-import edu.fiuba.algo3.modelo.Opciones.OpcionIncorrectaPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialPenalizable;
 import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioParcial.PreguntaPuntajeParcialSinIncorrectos;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.AsignadorPuntos.AsignadorPuntos;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesClasificadas;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX2;
@@ -23,7 +21,7 @@ public class AsignadorPuntosTests {
 
     //Necesita agregar turnos para asignar puntos.
     @Test
-    public void test01agregarTurnosYasignarPuntosSinMultiplicadores() {
+    public void test01agregarTurnosYasignarPuntosSinModifadores() {
 
         //Arrange
         Opcion opcion1 = new OpcionCorrecta("Tal vez");
@@ -128,4 +126,82 @@ public class AsignadorPuntosTests {
         assertEquals(9, puntosJugador2);
 
     }
+
+    @Test
+    public void test03agregarTurnosYasignarPuntosSinModificadores() {
+
+        //Arrange
+        Opcion opcion1 = new OpcionPertenencia("5",2);
+        Opcion opcion2 = new OpcionPertenencia("10",3);
+        Opcion opcion3 = new OpcionPertenencia("0",1);
+        Opcion opcion4 = new OpcionPertenencia("15",4);
+
+        ArrayList<Opcion> opcionesAPresentar = new ArrayList<>();
+        opcionesAPresentar.add(opcion1);
+        opcionesAPresentar.add(opcion2);
+        opcionesAPresentar.add(opcion3);
+        opcionesAPresentar.add(opcion4);
+
+        String consigna = "Ordene los siguientes numeros de menor a mayor";
+        Pregunta orderedChoice = new PreguntaConTodasOpcionesClasificadas(consigna, opcionesAPresentar);
+
+        //jugador elige opciones en el orden que cree correcto:
+        //cuando el jugador elige una opcion de las opciones mostradas, se crea una opcion igual(misma descripcion
+        // y ubicacion correcta)cuya posicion actual sera seteada con la que el crea que es la correcta
+        ArrayList<Opcion> opcionesDeJugador = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador = new OpcionPertenencia("5",2);
+        opcion1Jugador.setUbicacionActual(2);
+        OpcionPertenencia opcion2Jugador = new OpcionPertenencia("10",3);
+        opcion2Jugador.setUbicacionActual(3);
+        OpcionPertenencia opcion3Jugador = new OpcionPertenencia("0",1);
+        opcion3Jugador.setUbicacionActual(1);
+        OpcionPertenencia opcion4Jugador = new OpcionPertenencia("15",4);
+        opcion4Jugador.setUbicacionActual(4);
+
+        opcionesDeJugador.add(opcion1Jugador);
+        opcionesDeJugador.add(opcion2Jugador);
+        opcionesDeJugador.add(opcion3Jugador);
+        opcionesDeJugador.add(opcion4Jugador);
+
+        ArrayList<Opcion> opcionesDeJugador2 = new ArrayList<>();
+        OpcionPertenencia opcion1Jugador2 = new OpcionPertenencia("5",2);
+        opcion1Jugador.setUbicacionActual(2);
+        OpcionPertenencia opcion2Jugador2 = new OpcionPertenencia("10",3);
+        opcion2Jugador.setUbicacionActual(3);
+        OpcionPertenencia opcion3Jugador2 = new OpcionPertenencia("0",1);
+        opcion3Jugador.setUbicacionActual(1);
+        OpcionPertenencia opcion4Jugador2 = new OpcionPertenencia("15",4);
+        opcion4Jugador.setUbicacionActual(4);
+
+        opcionesDeJugador2.add(opcion1Jugador2);
+        opcionesDeJugador2.add(opcion2Jugador2);
+        opcionesDeJugador2.add(opcion3Jugador2);
+        opcionesDeJugador2.add(opcion4Jugador2);
+
+
+        Jugador jugador1 = new Jugador("Lucius");
+        Turno turnoJugador1 = new Turno(orderedChoice,jugador1);
+        turnoJugador1.setOpcionesElejidas(opcionesDeJugador);
+
+
+        Jugador jugador2 = new Jugador("Arquímedes");
+        Turno turnoJugador2 = new Turno(orderedChoice,jugador2);
+        turnoJugador2.setOpcionesElejidas(opcionesDeJugador2);
+
+        AsignadorPuntos unaAsignadorPuntos = new AsignadorPuntos();
+        unaAsignadorPuntos.agregarTurno(turnoJugador1);
+        unaAsignadorPuntos.agregarTurno(turnoJugador2);
+        unaAsignadorPuntos.asignarPuntos();
+
+        //Act
+        int puntosJugador1 = jugador1.getPuntaje();
+        int puntosJugador2 = jugador2.getPuntaje();
+
+        //Assert
+        assertEquals(1, puntosJugador1);
+        assertEquals(0, puntosJugador2);
+    }
+
+
+
 }

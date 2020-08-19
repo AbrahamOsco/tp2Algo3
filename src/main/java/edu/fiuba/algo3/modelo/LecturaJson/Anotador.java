@@ -16,7 +16,6 @@ import java.util.Queue;
 
 public class Anotador {
     private ArrayList<Pregunta> preguntasCargadas;
-    private RecuperadorDePreguntas unRecuperador;
 
     public Anotador(){
         preguntasCargadas= new ArrayList<>();
@@ -29,10 +28,10 @@ public class Anotador {
         JsonObject jsonObject = JsonParser.parseString(texto).getAsJsonObject();
         return jsonObject;
     }
-    public Queue<?> getColaDePreguntas() throws IOException {
+    public Queue<Pregunta> getColaDePreguntas() throws IOException {
         ArrayList<Pregunta> preguntas= new ArrayList<>();
         preguntas = this.getPreguntas();
-        Queue colaPreguntas = new LinkedList();
+        Queue <Pregunta> colaPreguntas = new LinkedList<>();
         preguntas.stream().forEach(o -> colaPreguntas.offer(o));
         return colaPreguntas;
     }
