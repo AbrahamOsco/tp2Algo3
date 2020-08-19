@@ -8,6 +8,8 @@ import edu.fiuba.algo3.modelo.Partida.Partida;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
 import edu.fiuba.algo3.modelo.Turno.Turno;
 import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.ModificadorMultiplicador;
+import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX2;
+import edu.fiuba.algo3.modelo.modificador.ModificadorMultiplicador.MultiplicadorX3;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -74,9 +76,14 @@ public class Juego {
 		return unaPartida.obtenerResultadoPartida();
 	}
 	
-	public void activarMultiplicador(ModificadorMultiplicador unMultiplicador) {
+	public void activarMultiplicadorX2() {
 		
-		turnoActivo.setMultiplicadorActivo(unMultiplicador);
+		turnoActivo.setMultiplicadorActivo(new MultiplicadorX2());
+	}
+	
+	public void activarMultiplicadorX3() {
+		
+		turnoActivo.setMultiplicadorActivo(new MultiplicadorX3());
 	}
 	
 	public void activarExclusividad() {
