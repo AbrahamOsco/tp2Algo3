@@ -10,9 +10,9 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="535.0" minWidth="433.0" prefHeight="535.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controladores.ControladorPantallaJuego">
    <children>
       <Label fx:id="panelDescripcion" alignment="CENTER" layoutX="24.0" layoutY="59.0" prefHeight="150.0" prefWidth="385.0" text="Aca va la consigna" textAlignment="CENTER" />
-      <Button fx:id="botonMultiplicadorX2" disable="true" layoutX="152.0" layoutY="221.0" mnemonicParsing="false" text="x2" />
-      <Button fx:id="botonMultiplicadorX3" disable="true" layoutX="195.0" layoutY="221.0" mnemonicParsing="false" text="x3" />
-      <Button fx:id="botonExclusividad" disable="true" layoutX="239.0" layoutY="221.0" mnemonicParsing="false" text="Exc" />
+      <Button fx:id="botonMultiplicadorX2" disable="true" layoutX="152.0" layoutY="221.0" mnemonicParsing="false" onMouseClicked="#activarMultiplicadorX2" text="x2" />
+      <Button fx:id="botonMultiplicadorX3" disable="true" layoutX="195.0" layoutY="221.0" mnemonicParsing="false" onMouseClicked="#activarMultiplicadorX3" text="x3" />
+      <Button fx:id="botonExclusividad" disable="true" layoutX="239.0" layoutY="221.0" mnemonicParsing="false" onMouseClicked="#activarExclusividad" text="Exc" />
       <Button fx:id="botonSiguiente" layoutX="371.0" layoutY="495.0" mnemonicParsing="false" onMouseClicked="#siguienteActivado" text="next" />
       <Label fx:id="nombreJugador" layoutX="132.0" layoutY="8.0" text="Turno Jugador 1">
          <font>

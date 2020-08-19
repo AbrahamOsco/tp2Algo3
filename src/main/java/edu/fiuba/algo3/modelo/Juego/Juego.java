@@ -93,11 +93,13 @@ public class Juego {
 
 	public void activarMultiplicadorX2() {
 		
+		this.jugadorActivo.activarMultiplicador("multiplicadorX2");
 		turnoActivo.setMultiplicadorActivo(new MultiplicadorX2());
 	}
 	
 	public void activarMultiplicadorX3() {
 		
+		this.jugadorActivo.activarMultiplicador("multiplicadorX3");
 		turnoActivo.setMultiplicadorActivo(new MultiplicadorX3());
 	}
 
@@ -105,6 +107,7 @@ public class Juego {
 	//POS: Señala a unAsignador que active sus modificadores de Exclusividad.
 	public void activarExclusividad() {
 		
+		this.jugadorActivo.activarMultiplicador("puntajeExclusivo");
 		unAsignador.agregarExclusividad();
 	}
 

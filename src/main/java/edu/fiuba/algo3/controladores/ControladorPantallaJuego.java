@@ -71,8 +71,15 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     	if(this.miJuego.preguntaEsPenalizable())
     	{
     		//this.botonExclusividad.setDisable(true);
-    		if (this.miJuego.jugadorPuedeUsarModificador("multiplicadorX2")) { this.botonMultiplicadorX2.setDisable(false);}
-        	if (this.miJuego.jugadorPuedeUsarModificador("multiplicadorX3")) { this.botonMultiplicadorX3.setDisable(false);}
+    		if (this.miJuego.jugadorPuedeUsarModificador("multiplicadorX2")) {
+    			
+    			this.botonMultiplicadorX2.setDisable(false);
+    		}
+    		
+        	if (this.miJuego.jugadorPuedeUsarModificador("multiplicadorX3")) { 
+        		
+        		this.botonMultiplicadorX3.setDisable(false);
+        	}
     	}
     	else
     	{
@@ -116,12 +123,14 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     	
     	this.miJuego.activarMultiplicadorX2();
     	this.botonMultiplicadorX2.setDisable(true);
+    	this.botonMultiplicadorX3.setDisable(true);
     }
 
     @FXML
     public void activarMultiplicadorX3(MouseEvent event) {
     	this.miJuego.activarMultiplicadorX3();
     	this.botonMultiplicadorX3.setDisable(true);
+    	this.botonMultiplicadorX2.setDisable(true);
     }
     
     @FXML
