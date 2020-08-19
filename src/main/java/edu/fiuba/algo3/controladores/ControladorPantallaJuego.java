@@ -70,15 +70,15 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     	
     	if(this.miJuego.preguntaEsPenalizable())
     	{
-    		this.botonExclusividad.setDisable(true);
-    		if (!this.miJuego.jugadorPuedeUsarModificador("multiplicadorX2")) { this.botonMultiplicadorX2.setDisable(true);}
-        	if (!this.miJuego.jugadorPuedeUsarModificador("multiplicadorX3")) { this.botonMultiplicadorX3.setDisable(true);}
+    		//this.botonExclusividad.setDisable(true);
+    		if (this.miJuego.jugadorPuedeUsarModificador("multiplicadorX2")) { this.botonMultiplicadorX2.setDisable(false);}
+        	if (this.miJuego.jugadorPuedeUsarModificador("multiplicadorX3")) { this.botonMultiplicadorX3.setDisable(false);}
     	}
     	else
     	{
-    		this.botonMultiplicadorX2.setDisable(true);
-    		this.botonMultiplicadorX3.setDisable(true);
-    		if (!this.miJuego.jugadorPuedeUsarModificador("puntajeExclusivo")) { this.botonExclusividad.setDisable(true);}
+    		//this.botonMultiplicadorX2.setDisable(true);
+    		//this.botonMultiplicadorX3.setDisable(true);
+    		if (this.miJuego.jugadorPuedeUsarModificador("puntajeExclusivo")) { this.botonExclusividad.setDisable(false);}
     	}
     }
 	
@@ -109,17 +109,22 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     
  	@FXML
     public void activarExclusividad(MouseEvent event) {
-
+ 		
+ 		this.miJuego.activarExclusividad();
+ 		this.botonExclusividad.setDisable(true);
     }
 
     @FXML
     public void activarMultiplicadorX2(MouseEvent event) {
-
+    	
+    	this.miJuego.activarMultiplicadorX2();
+    	this.botonMultiplicadorX2.setDisable(true);
     }
 
     @FXML
     public void activarMultiplicadorX3(MouseEvent event) {
-
+    	this.miJuego.activarMultiplicadorX3();
+    	this.botonMultiplicadorX3.setDisable(true);
     }
     
     @FXML
