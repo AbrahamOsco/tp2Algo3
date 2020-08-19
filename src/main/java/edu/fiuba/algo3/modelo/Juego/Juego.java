@@ -26,8 +26,7 @@ public class Juego {
 	private int maximoJugadores;
 	private int minimoJugadores;
 	private int totalPreguntas;
-	
-	
+
 
 
 	//PRE: -
@@ -35,7 +34,6 @@ public class Juego {
 
 	private void cargarJugadoresActivos() {
 		unaPartida.getJugadores().stream().forEach(jugador -> jugadoresActivos.offer(jugador));
-
 	}
 
 	//PRE: -
@@ -58,7 +56,10 @@ public class Juego {
 		unaPartida.setPreguntas(colaDePreguntas);
 	}
 
-	
+
+
+	//PRE: -
+	//POS: Provoca que una partida comience.
 	public void comenzarRonda() {
 
 		this.cargarJugadoresActivos();
@@ -72,29 +73,25 @@ public class Juego {
 	//PRE: nombreJugador es un String válido.
 	//POS: Añade un Jugador a unaPartida.
 	public void cargarJugador (String nombreJugador) {
-		
 		unaPartida.agregarJugador(nombreJugador);
 	}
 
 	//PRE: unasOpciones es un ArrayList<Opcion> válido.
 	//POS: Recibe un grupo de opciones y las guarda en turnoActivo como opciones elegidas por un jugador.
 	public void recibirUnaRespuesta (ArrayList<Opcion> unasOpciones) {
-		
 		turnoActivo.setOpcionesElejidas(unasOpciones);
-
 
 	}
 
 	//PRE: -
 	//POS: Devuelve el resultado de unaPartida.
 	public List <String> obtenerPuntajeFinal (){
-		
 		return unaPartida.obtenerResultadoPartida();
 	}
 
-	
+
 	public void activarMultiplicador(ModificadorMultiplicador unMultiplicador) {
-		
+
 		turnoActivo.setMultiplicadorActivo(unMultiplicador);
 	}
 
@@ -123,7 +120,6 @@ public class Juego {
 	//PRE: -
 	//POS: Pasa a la siguiente Ronda.
 	public void siguienteRonda() {
-		
 		this.comenzarRonda();
 	}
 
