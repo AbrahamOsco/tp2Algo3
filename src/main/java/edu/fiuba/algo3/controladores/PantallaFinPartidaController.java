@@ -21,6 +21,12 @@ public class PantallaFinPartidaController extends ControladorSecundario{
 	 public void postInicio() {
 		 
 		 this.labelGanador.setText(this.miJuego.obtenerPuntajeFinal().get(0));
+		 
+		 if(esEmpate()) {
+			 
+			 this.labelGanador.setText("Es un jodido empate!!");
+		 }
+		 
 		 String resultados = "";
 		 
 		 for(String unResultado : miJuego.obtenerPuntajeFinal()) {
@@ -28,6 +34,14 @@ public class PantallaFinPartidaController extends ControladorSecundario{
 		 }
 		 
 		 labelPuntuaciones.setText(resultados);
+	 }
+	 
+	 private boolean esEmpate() {
+		 
+		 String[] puntaje1 = this.miJuego.obtenerPuntajeFinal().get(0).split(" ");
+		 String[] puntaje2 = this.miJuego.obtenerPuntajeFinal().get(1).split(" ");
+		 
+		 return ((puntaje1[puntaje1.length - 1].compareTo(puntaje2[puntaje2.length - 1]) == 0));
 	 }
 
 	 @FXML
