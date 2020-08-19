@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.controladores;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.fiuba.algo3.control.BuscadorRutas;
 import edu.fiuba.algo3.control.ControladorSecundario;
 import edu.fiuba.algo3.control.GameLauncher;
@@ -13,9 +16,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-
-import java.util.ArrayList;
-import java.util.List;
+import javafx.stage.Stage;
 
 public class ControladorPantallaJuego extends ControladorSecundario {
 	
@@ -57,6 +58,7 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     	this.inicializarTexto();
     	this.inicializarOpciones();
     	this.inicializarModificadores();
+    	this.mostrarPantallaInicio();
 	}
     
     private void inicializarTexto() {
@@ -67,6 +69,13 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     }
     
     private void inicializarModificadores() {
+    	
+    	this.botonMultiplicadorX2.setDisable(true);
+    	this.botonMultiplicadorX2.setStyle("-fx-background-color: #B3B4B9; ");
+    	this.botonMultiplicadorX3.setDisable(true);
+    	this.botonMultiplicadorX3.setStyle("-fx-background-color: #B3B4B9; ");
+    	this.botonExclusividad.setDisable(true);
+    	this.botonExclusividad.setStyle("-fx-background-color: #B3B4B9; ");
     	
     	if(this.miJuego.preguntaEsPenalizable())
     	{
@@ -106,15 +115,29 @@ public class ControladorPantallaJuego extends ControladorSecundario {
 			ChoiceBox<Integer> unaCajaDeOpciones = (ChoiceBox<Integer>) otroPanel.getChildren().get(1);
 			OpcionPertenencia otraOpcion = new OpcionPertenencia (unaOpcion.getDescripcion(), unaOpcion.getUbicacionCorrecta());
 			otraOpcion.setUbicacionActual(unaCajaDeOpciones.getValue());
+			System.out.println(otraOpcion.getDescripcion());
+			System.out.println(otraOpcion.getUbicacionCorrecta());
+			System.out.println(unaCajaDeOpciones.getValue());
 			opcionesRespondidas.add(otraOpcion);
 			contador ++;
 		}
+ 		
+ 	}
+ 	
+ 	private void mostrarPantallaInicio() {
+ 		
+ 		Stage unStage = new Stage();
+ 		GameLauncher unLanzador = new GameLauncher();
+		unLanzador.iniciar(unStage, this.miJuego, "/Vistas/Pantalla/PantallaCambioJugador.fxml");
+		unStage.hide();
+		unStage.showAndWait();
  	}
     
  	@FXML
     public void activarExclusividad(MouseEvent event) {
  		
  		this.miJuego.activarExclusividad();
+ 		this.botonExclusividad.setStyle("-fx-background-color: #1024EB; ");
  		this.botonExclusividad.setDisable(true);
     }
 
@@ -122,13 +145,16 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     public void activarMultiplicadorX2(MouseEvent event) {
     	
     	this.miJuego.activarMultiplicadorX2();
+    	this.botonMultiplicadorX2.setStyle("-fx-background-color: #1024EB; ");
     	this.botonMultiplicadorX2.setDisable(true);
     	this.botonMultiplicadorX3.setDisable(true);
     }
 
     @FXML
     public void activarMultiplicadorX3(MouseEvent event) {
+    	
     	this.miJuego.activarMultiplicadorX3();
+    	this.botonMultiplicadorX3.setStyle("-fx-background-color: #1024EB; ");
     	this.botonMultiplicadorX3.setDisable(true);
     	this.botonMultiplicadorX2.setDisable(true);
     }
@@ -190,24 +216,27 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     @FXML
     public void siguienteActivado(MouseEvent event) {
     	
-    	if(this.listaOpciones.get(0).getClass().getSimpleName().equals("OpcionPertenencia"))
+    	if(this.listaOpciones.get(0).getClass().getSimpleName().equals("OpcionPertenencia")) {
+    		System.out.println("entre al recolector de chois bocks");
     		this.recolectarChoiceBox();
-
+    	}
+    	
     	this.miJuego.recibirUnaRespuesta(opcionesRespondidas);
     	this.miJuego.responder();
     	
     	if(this.miJuego.sinJugadores()) {
+    		
     		this.miJuego.finDeRonda();
+    		
     		if(this.miJuego.sinPreguntas()) {
+    			
     			GameLauncher unLanzador = new GameLauncher();
     			unLanzador.iniciar(myStage, miJuego, "/Vistas/Pantalla/PantallaFinPartida.fxml");
     		}
     		else {
     			
-    			this.miJuego.siguienteRonda();
-    			BuscadorRutas unBuscador = new BuscadorRutas();
     			GameLauncher unLanzador = new GameLauncher();
-    			unLanzador.iniciar(myStage, miJuego, unBuscador.buscarRutaDePregunta(this.miJuego.obtenerPreguntaActiva()));
+    			unLanzador.iniciar(myStage, miJuego, "/Vistas/Pantalla/PantallaFinRonda.fxml");
     		}
     	}
     	else

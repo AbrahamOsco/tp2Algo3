@@ -52,6 +52,8 @@ public class MenuCrearJugadorController extends ControladorSecundario implements
 		
 		if (this.miJuego.alcanzoJugadoresMaximos()) {
 			
+			this.areaDeTexto.setText("Comienza la partida!!");
+			this.entradaDeTexto.setDisable(true);
 			this.botonOK.setDisable(true);
 		}
 		
