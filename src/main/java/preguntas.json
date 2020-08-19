@@ -3,7 +3,9 @@
 	"VerdaderoOFalsoClasico":[{"Consigna":"La grande se llama Cuca", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
 							],
 
-	"VerdaderoOFalsoPenalizable":[{"Consigna":"El prota de TLOZ es zelda", "OpcionesCorrecta":"Me estas vendiendo verdura","OpcionesIncorrecta":"Al toque prro"}
+	"VerdaderoOFalsoPenalizable":[{"Consigna":"El prota de TLOZ es zelda", "OpcionesCorrecta":"Me estas vendiendo verdura","OpcionesIncorrecta":"Al toque prro"},
+		                          {"Consigna":"La derivada de pi respecto de x es cero", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Al toque prro"},
+		                          {"Consigna":"La derivada de pi respecto de x es cero", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Al toque prro"}
 							],
 
 	"MultipleChoiceClasico":[{"Consigna":"Señale los personajes alcoholicos","OpcionesCorrecta":["Homero","Barney"],"OpcionesIncorrecta":["Usted"]}
