@@ -11,9 +11,14 @@ public class PantallaCambioJugadorController extends ControladorSecundario{
 	@FXML
 	public Label labelNombreJugador;
 
-	// Event Listener on Button.onMouseClicked
+	@Override
+	public void postInicio() {
+		
+		labelNombreJugador.setText(this.miJuego.nombreDelJugadorActivo());
+	}
+	
 	@FXML
 	public void botonComenzarActivado(MouseEvent event) {
-		this.cerrarEstaEscena();
+		this.myStage.close();
 	}
 }

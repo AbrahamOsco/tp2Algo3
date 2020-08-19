@@ -13,6 +13,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -120,8 +121,11 @@ public class ControladorPantallaJuego extends ControladorSecundario {
  	
  	private void mostrarPantallaInicio() {
  		
+ 		Stage unStage = new Stage();
  		GameLauncher unLanzador = new GameLauncher();
-		unLanzador.iniciar(this.myStage, this.miJuego, "/Vistas/Pantalla/PantallaCambioJugador.fxml");
+		unLanzador.iniciar(unStage, this.miJuego, "/Vistas/Pantalla/PantallaCambioJugador.fxml");
+		unStage.hide();
+		unStage.showAndWait();
  	}
     
  	@FXML
