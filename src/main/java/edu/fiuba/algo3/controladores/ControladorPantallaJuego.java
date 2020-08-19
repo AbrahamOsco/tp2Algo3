@@ -57,6 +57,7 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     	this.inicializarTexto();
     	this.inicializarOpciones();
     	this.inicializarModificadores();
+    	this.mostrarPantallaInicio();
 	}
     
     private void inicializarTexto() {
@@ -115,6 +116,12 @@ public class ControladorPantallaJuego extends ControladorSecundario {
 			opcionesRespondidas.add(otraOpcion);
 			contador ++;
 		}
+ 	}
+ 	
+ 	private void mostrarPantallaInicio() {
+ 		
+ 		GameLauncher unLanzador = new GameLauncher();
+		unLanzador.iniciar(this.myStage, this.miJuego, "/Vistas/Pantalla/PantallaCambioJugador.fxml");
  	}
     
  	@FXML
