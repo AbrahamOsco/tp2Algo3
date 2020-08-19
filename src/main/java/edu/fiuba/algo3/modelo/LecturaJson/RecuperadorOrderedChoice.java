@@ -6,7 +6,7 @@ import com.google.gson.JsonObject;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionPertenencia;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
-import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesCorrectas;
+import edu.fiuba.algo3.modelo.Preguntas.PreguntaCriterioSinErrores.PreguntaConTodasOpcionesClasificadas;
 
 import java.util.ArrayList;
 
@@ -40,7 +40,7 @@ public class RecuperadorOrderedChoice extends RecuperadorDePreguntas{
                 OpcionPertenencia unaOpcion = new OpcionPertenencia(elementosAOrdenar.get(i),ordenCorrecto.get(i));
                 opcionesAPresentar.add(unaOpcion);
             }
-            Pregunta unaPregunta = new PreguntaConTodasOpcionesCorrectas(unaConsigna,opcionesAPresentar);
+            Pregunta unaPregunta = new PreguntaConTodasOpcionesClasificadas(unaConsigna,opcionesAPresentar);
             preguntasOrderedChoice.add(unaPregunta);
             unaPregunta.setIdentificador("OrderedChoice");
 

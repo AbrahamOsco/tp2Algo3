@@ -48,7 +48,6 @@ public abstract class Pregunta {
     public ArrayList<Opcion> getOpcionesCorrectas () {
         return opciones.stream().filter(o -> o.calcularPuntosAdicionales() == 1)
                 .collect(Collectors.toCollection(ArrayList<Opcion>:: new));
-
     }
 
     /*
