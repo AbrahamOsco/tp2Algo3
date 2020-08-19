@@ -68,6 +68,10 @@ public class ControladorPantallaJuego extends ControladorSecundario {
     
     private void inicializarModificadores() {
     	
+    	this.botonMultiplicadorX2.setDisable(true);
+    	this.botonMultiplicadorX3.setDisable(true);
+    	this.botonExclusividad.setDisable(true);
+    	
     	if(this.miJuego.preguntaEsPenalizable())
     	{
     		//this.botonExclusividad.setDisable(true);
