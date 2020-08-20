@@ -8,7 +8,7 @@
 		                          {"Consigna":"La derivada de pi respecto de x es cero", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Al toque prro"}
 							],
 
-	"MultipleChoiceClasico":[{"Consigna":"Señale los personajes alcoholicos","OpcionesCorrecta":["Homero","Barney"],"OpcionesIncorrecta":["Usted"]}
+	"MultipleChoiceClasico":[{"Consigna":"Señale los personajes alcoholicos","OpcionesCorrecta":["Homero","Barney"],"OpcionesIncorrecta":["Maggie"]}
 							],
 
 	"MultipleChoiceConPuntajeParcial":[{"Consigna":"Seleccione los juegos acabados","OpcionesCorrecta":["Residen Evil 4","Final Fantasy VII","Dark Souls"],"OpcionesIncorrecta":["Fallout 76","No Man's Sky"]}

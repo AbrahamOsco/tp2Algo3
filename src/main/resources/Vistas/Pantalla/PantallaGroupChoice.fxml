@@ -14,12 +14,12 @@
       <Button fx:id="botonMultiplicadorX3" disable="true" layoutX="195.0" layoutY="221.0" mnemonicParsing="false" onMouseClicked="#activarMultiplicadorX3" text="x3" />
       <Button fx:id="botonExclusividad" disable="true" layoutX="239.0" layoutY="221.0" mnemonicParsing="false" onMouseClicked="#activarExclusividad" text="Exc" />
       <Button fx:id="botonSiguiente" layoutX="371.0" layoutY="495.0" mnemonicParsing="false" onMouseClicked="#siguienteActivado" text="next" />
-      <Label fx:id="nombreJugador" layoutX="132.0" layoutY="8.0" text="Turno Jugador 1">
+      <Label fx:id="nombreJugador" alignment="CENTER" layoutX="132.0" layoutY="8.0" text="Turno Jugador 1">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="tipoPregunta" layoutX="162.0" layoutY="39.0" text="tipo de pregunta" />
+      <Label fx:id="tipoPregunta" alignment="CENTER" layoutX="162.0" layoutY="39.0" text="tipo de pregunta" />
       <Pane fx:id="panelOpciones" layoutX="47.0" layoutY="256.0" prefHeight="241.0" prefWidth="331.0">
          <children>
             <Pane fx:id="panelRespuesta1" layoutX="18.0" layoutY="7.0" prefHeight="38.0" prefWidth="296.0" visible="false">

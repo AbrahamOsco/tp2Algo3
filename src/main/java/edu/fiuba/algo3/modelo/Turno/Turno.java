@@ -11,8 +11,8 @@ import java.util.ArrayList;
 public class Turno {
     private Jugador jugador;
     private Pregunta pregunta;
-    ModificadorMultiplicador multiplicadorActivo;
-    ArrayList<Opcion> opcionesElejidas;
+    private ModificadorMultiplicador multiplicadorActivo;
+    private ArrayList<Opcion> opcionesElejidas;
 
     /*
      * PRE: unaPregunta es una instancia válida de Pregunta.
