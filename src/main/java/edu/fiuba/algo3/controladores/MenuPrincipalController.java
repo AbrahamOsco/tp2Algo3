@@ -3,7 +3,6 @@ package edu.fiuba.algo3.controladores;
 import java.io.IOException;
 
 import edu.fiuba.algo3.controladores.HerramientaParaControladores.GameLauncher;
-import edu.fiuba.algo3.modelo.Juego.Juego;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -16,12 +15,12 @@ public class MenuPrincipalController extends ControladorPrimario{
 	@FXML
 	public Button botonSalir;
 	
-	private Juego miJuego;
+	private ManejadorDePartida miJuego;
 
 	// Event Listener on Button[#botonNuevaPartida].onMouseClicked
 	@FXML
 	public void botonNuevaPartidaActivado(MouseEvent event) {
-		miJuego = new Juego();
+		miJuego = new ManejadorDePartida();
 		GameLauncher unLanzador = new GameLauncher();
 		
 		try {

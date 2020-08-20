@@ -2,7 +2,7 @@ package edu.fiuba.algo3.controladores.HerramientaParaControladores;
 
 import edu.fiuba.algo3.controladores.ControladorPrimario;
 import edu.fiuba.algo3.controladores.ControladorSecundario;
-import edu.fiuba.algo3.modelo.Juego.Juego;
+import edu.fiuba.algo3.controladores.ManejadorDePartida;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -38,7 +38,7 @@ public class GameLauncher {
     }
 
 	
-	public void iniciar (Stage unEscenario, Juego unJuego, String unaRutaDeFXML) {
+	public void iniciar (Stage unEscenario, ManejadorDePartida unJuego, String unaRutaDeFXML) {
         FXMLLoader cargador = new FXMLLoader();
         cargador.setLocation(GameLauncher.class.getResource(unaRutaDeFXML));
         Pane unPanel = cargarLayout(cargador);

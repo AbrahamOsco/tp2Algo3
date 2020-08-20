@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Juego;
+package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.modelo.AsignadorPuntos.AsignadorPuntos;
 import edu.fiuba.algo3.modelo.Jugador.Jugador;
@@ -16,7 +16,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Juego {
+public class ManejadorDePartida {
 	
 	private Partida unaPartida;
 	private Jugador jugadorActivo;
@@ -38,8 +38,8 @@ public class Juego {
 	}
 
 	//PRE: -
-	//POS: instancia un Juego sin datos.
-	public Juego() {
+	//POS: instancia un ManejadorDePartida sin datos.
+	public ManejadorDePartida() {
 		
 		unaPartida = new Partida();
 		unAsignador = new AsignadorPuntos();

@@ -1,17 +1,15 @@
 package edu.fiuba.algo3.controladores;
 
-import edu.fiuba.algo3.controladores.ControladorPrimario;
-import edu.fiuba.algo3.modelo.Juego.Juego;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class ControladorSecundario extends ControladorPrimario {
 	
-	protected Juego miJuego;
+	protected ManejadorDePartida miJuego;
 	private Scene myParentScene; //renombrar a escenaPadre?
 	
 
-	public void setearElementos(Stage unEscenario, Juego unJuego, Scene escenaAnterior) {
+	public void setearElementos(Stage unEscenario, ManejadorDePartida unJuego, Scene escenaAnterior) {
 		super.setearElementos(unEscenario);
 		this.miJuego = unJuego;
 		this.myParentScene = escenaAnterior;
