@@ -1,9 +1,7 @@
 package edu.fiuba.algo3.controladores;
 
-import edu.fiuba.algo3.control.BuscadorRutas;
-import edu.fiuba.algo3.control.ControladorSecundario;
-import edu.fiuba.algo3.control.GameLauncher;
-import edu.fiuba.algo3.modelo.Preguntas.Pregunta;
+import edu.fiuba.algo3.controladores.HerramientaParaControladores.BuscadorRutas;
+import edu.fiuba.algo3.controladores.HerramientaParaControladores.GameLauncher;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -12,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class MenuCrearJugadorController extends ControladorSecundario implements Initializable{

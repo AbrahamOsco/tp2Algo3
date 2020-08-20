@@ -2,8 +2,7 @@ package edu.fiuba.algo3.controladores;
 
 import java.io.IOException;
 
-import edu.fiuba.algo3.control.ControladorPrimario;
-import edu.fiuba.algo3.control.GameLauncher;
+import edu.fiuba.algo3.controladores.HerramientaParaControladores.GameLauncher;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

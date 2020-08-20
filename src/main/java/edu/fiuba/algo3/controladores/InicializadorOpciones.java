@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.control;
+package edu.fiuba.algo3.controladores;
 
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Preguntas.Pregunta;

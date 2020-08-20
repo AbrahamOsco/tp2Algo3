@@ -1,5 +1,6 @@
-package edu.fiuba.algo3.control;
+package edu.fiuba.algo3.controladores;
 
+import edu.fiuba.algo3.controladores.ControladorPrimario;
 import edu.fiuba.algo3.modelo.Juego.Juego;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

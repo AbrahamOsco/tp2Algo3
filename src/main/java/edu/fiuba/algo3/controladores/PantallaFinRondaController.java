@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.controladores;
 
-import edu.fiuba.algo3.control.BuscadorRutas;
-import edu.fiuba.algo3.control.ControladorSecundario;
-import edu.fiuba.algo3.control.GameLauncher;
+import edu.fiuba.algo3.controladores.HerramientaParaControladores.BuscadorRutas;
+import edu.fiuba.algo3.controladores.HerramientaParaControladores.GameLauncher;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Label;

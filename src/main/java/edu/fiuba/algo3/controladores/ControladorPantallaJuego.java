@@ -4,9 +4,7 @@ package edu.fiuba.algo3.controladores;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.fiuba.algo3.control.ControladorSecundario;
-import edu.fiuba.algo3.control.GameLauncher;
-import edu.fiuba.algo3.control.InicializadorOpciones;
+import edu.fiuba.algo3.controladores.HerramientaParaControladores.GameLauncher;
 import edu.fiuba.algo3.modelo.Opciones.Opcion;
 import edu.fiuba.algo3.modelo.Opciones.OpcionPertenencia;
 import javafx.fxml.FXML;
