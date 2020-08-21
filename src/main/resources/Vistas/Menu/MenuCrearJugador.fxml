@@ -11,7 +11,7 @@
       <TextField fx:id="entradaDeTexto" layoutX="95.0" layoutY="192.0" prefHeight="26.0" prefWidth="261.0" promptText="Ej: Juanito Arcoiris" />
       <Button fx:id="botonOK" layoutX="123.0" layoutY="251.0" mnemonicParsing="false" onMouseClicked="#botonOkActivado" prefHeight="26.0" prefWidth="73.0" text="Ok" />
       <Button fx:id="botonIniciarPartida" layoutX="220.0" layoutY="251.0" mnemonicParsing="false" onMouseClicked="#botonNuevaPartidaActivado" text="Iniciar Partida" />
-      <Label fx:id="areaDeTexto" layoutX="75.0" layoutY="102.0" text="Elija un nombre para el jugador 1">
+      <Label fx:id="areaDeTexto" alignment="CENTER" contentDisplay="CENTER" layoutY="102.0" prefHeight="21.0" prefWidth="433.0" text="Elija un nombre para el jugador 1">
          <font>
             <Font size="18.0" />
          </font>

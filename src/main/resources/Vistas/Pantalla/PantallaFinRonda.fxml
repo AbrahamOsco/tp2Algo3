@@ -7,7 +7,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="535.0" minWidth="433.0" prefHeight="535.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controladores.PantallaFinRondaController">
    <children>
-      <Label fx:id="labelPuntuaciones" alignment="CENTER" layoutX="78.0" layoutY="92.0" prefHeight="331.0" prefWidth="278.0" text="Aca van las puntuaciones" textAlignment="RIGHT" />
+      <Label fx:id="labelPuntuaciones" alignment="CENTER" layoutX="78.0" layoutY="92.0" prefHeight="331.0" prefWidth="278.0" text="Aca van las puntuaciones" textAlignment="RIGHT" textFill="#2607d7">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
       <Label layoutX="50.0" layoutY="35.0" text="Resultados Rondas">
          <font>
             <Font size="35.0" />

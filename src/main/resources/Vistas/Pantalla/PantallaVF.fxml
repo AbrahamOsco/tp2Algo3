@@ -8,21 +8,21 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="535.0" minWidth="433.0" prefHeight="535.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controladores.ControladorPantallaJuego">
    <children>
-      <Label fx:id="panelDescripcion" alignment="CENTER" layoutX="33.0" layoutY="77.0" prefHeight="150.0" prefWidth="385.0" text="Aca va la consigna" />
+      <Label fx:id="panelDescripcion" alignment="CENTER" layoutX="33.0" layoutY="77.0" prefHeight="150.0" prefWidth="385.0" text="Aca va la consigna" wrapText="true" />
       <Button fx:id="botonMultiplicadorX2" disable="true" layoutX="161.0" layoutY="255.0" mnemonicParsing="false" onMouseClicked="#activarMultiplicadorX2" text="x2" />
       <Button fx:id="botonMultiplicadorX3" disable="true" layoutX="204.0" layoutY="255.0" mnemonicParsing="false" onMouseClicked="#activarMultiplicadorX3" text="x3" />
       <Button fx:id="botonExclusividad" disable="true" layoutX="248.0" layoutY="255.0" mnemonicParsing="false" onMouseClicked="#activarExclusividad" text="Exc" />
       <Button fx:id="botonSiguiente" layoutX="355.0" layoutY="469.0" mnemonicParsing="false" onMouseClicked="#siguienteActivado" text="next" />
-      <Label fx:id="nombreJugador" alignment="CENTER" layoutX="136.0" layoutY="34.0" text="Turno Jugador 1">
+      <Label fx:id="nombreJugador" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="34.0" prefHeight="25.0" prefWidth="385.0" text="Turno Jugador 1" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="tipoPregunta" alignment="CENTER" layoutX="177.0" layoutY="86.0" text="Pregunta VF" />
+      <Label fx:id="tipoPregunta" alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="86.0" prefHeight="16.0" prefWidth="385.0" text="Pregunta VF" textOverrun="CENTER_ELLIPSIS" />
       <Pane fx:id="panelOpciones" layoutX="11.0" layoutY="290.0" prefHeight="150.0" prefWidth="411.0">
          <children>
-            <Button fx:id="boton1VF" layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#boton1VFActivado" prefHeight="101.0" prefWidth="188.0" text="Falso" />
-            <Button fx:id="boton2VF" layoutX="209.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#boton2VFActivado" prefHeight="101.0" prefWidth="188.0" text="Verdadero" />
+            <Button fx:id="boton1VF" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#boton1VFActivado" prefHeight="101.0" prefWidth="188.0" text="Falso" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="boton2VF" alignment="CENTER" contentDisplay="CENTER" layoutX="209.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#boton2VFActivado" prefHeight="101.0" prefWidth="188.0" text="Verdadero" textAlignment="CENTER" wrapText="true" />
          </children>
       </Pane>
    </children>
