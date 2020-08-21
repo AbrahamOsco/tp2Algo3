@@ -48,8 +48,6 @@ public class MenuPrincipalController extends ControladorPrimario implements Init
 	}
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		//com.sun.javafx.application.PlatformImpl.startup(()->{});
         
         final String NOMBRE_ARCHIVO = "src/main/resources/Audio/MusicaNoPirateada.mp3";
         File archivo = new File(NOMBRE_ARCHIVO);
@@ -60,7 +58,5 @@ public class MenuPrincipalController extends ControladorPrimario implements Init
         
         reproductor.setCycleCount(reproductor.INDEFINITE);
         reproductor.play();
-        
-		
 	}
 }
