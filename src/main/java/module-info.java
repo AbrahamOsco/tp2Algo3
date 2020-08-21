@@ -4,5 +4,7 @@ module edu.fiuba.algo3 {
     requires javafx.fxml;
     requires javafx.graphics;
     requires com.google.gson;
+    requires javafx.media;
+	requires java.desktop;
     exports edu.fiuba.algo3.controladores;
 }
