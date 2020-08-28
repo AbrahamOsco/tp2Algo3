@@ -1,25 +1,40 @@
+
 {
+	"VerdaderoOFalsoClasico":[{"Consigna":"g(x)=x-F(x) es una funcion de punto fijo de F(x)", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
+		{"Consigna":"un Arbol tiene n vertices y n-1 aristas", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
+		{"Consigna":"El metodo de Newton-Raphson es un caso especial de punto Fijo", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
+		{"Consigna":"si w es un autovalor de A p(w) es un autovalor de p(A)", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
+	],
 
-	"VerdaderoOFalsoClasico":[{"Consigna":"La grande se llama Cuca", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
-							],
+	"VerdaderoOFalsoPenalizable":[{"Consigna":"Con las interfaces podemos usar polimorfismo sin herencia", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
+		{"Consigna":"La sustitucion de liskov no se viola si usamos interfaces", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
+		{"Consigna":"El patron 'strategy' es un patron de diseño", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Verdadero"},
+		{"Consigna":"La Capital de Argentina es Buenos Aires", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
+	],
 
-	"VerdaderoOFalsoPenalizable":[{"Consigna":"El prota de TLOZ es zelda", "OpcionesCorrecta":"Me estas vendiendo verdura","OpcionesIncorrecta":"Al toque prro"},
-		                          {"Consigna":"La derivada de pi respecto de x es cero", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Al toque prro"},
-		                          {"Consigna":"La derivada de pi respecto de x es cero", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Al toque prro"}
-							],
+	"MultipleChoiceClasico":[{"Consigna":"Señale los Paises De America del Sur ","OpcionesCorrecta":["Peru","Argentina"],"OpcionesIncorrecta":["EE.UU","Francia"]},
+		{"Consigna":"Señale los elementos de la PC","OpcionesCorrecta":["Mouse","Teclado"],"OpcionesIncorrecta":["EE.UU"]},
+		{"Consigna":"Señale los paises que pertenecen a Europa","OpcionesCorrecta":["Francia","España"],"OpcionesIncorrecta":["Bolivia","Peru"]}
+	],
 
-	"MultipleChoiceClasico":[{"Consigna":"Señale los personajes alcoholicos","OpcionesCorrecta":["Homero","Barney"],"OpcionesIncorrecta":["Maggie"]}
-							],
+	"MultipleChoiceConPuntajeParcial":[{"Consigna":"Señale las opciones que son numeros","OpcionesCorrecta":["1","2"],"OpcionesIncorrecta":["abc"]},
+		{"Consigna":"Señale los elementos de la PC","OpcionesCorrecta":["Mouse","Teclado","Microfono"],"OpcionesIncorrecta":["EE.UU","Licuadora"]},
+		{"Consigna":"Señale las opciones que son letras","OpcionesCorrecta":["abcdef","Brasil","Paraguay"],"OpcionesIncorrecta":["1","5"]}
+	],
 
-	"MultipleChoiceConPuntajeParcial":[{"Consigna":"Seleccione los juegos acabados","OpcionesCorrecta":["Residen Evil 4","Final Fantasy VII","Dark Souls"],"OpcionesIncorrecta":["Fallout 76","No Man's Sky"]}
-							],
+	"MultipleChoiceConPenalidad":[{"Consigna":"Señale los patrones de diseño","OpcionesCorrecta":["Singleton","Abstract Factory","Prototype"],"OpcionesIncorrecta":["Null","Integer"]},
+		{"Consigna":"Señale los numeros primos","OpcionesCorrecta":["2","3","7"],"OpcionesIncorrecta":["4","10"]},
+		{"Consigna":"Señale los numeros pares ","OpcionesCorrecta":["2","4","6"],"OpcionesIncorrecta":["e","7"]}
+	],
 
-	"MultipleChoiceConPenalidad":[{"Consigna":"Seleccione todos los deportes que Mario haya practicado","OpcionesCorrecta":["Tennis","Golf","Karting"],"OpcionesIncorrecta":["Lanzamiento de Enanos","Caza Deportiva"]}
-	                        ],
+	"OrderedChoice":[{"Consigna":"Ordene los siguientes numeros de menor a mayor","GrupoAOrdenar":["5","10","0"],"OrdenCorrecto":["2","3","1"]},
+		{"Consigna":"Ordene los siguientes numeros de mayor a menor","GrupoAOrdenar":["700","0","-4"],"OrdenCorrecto":["700","0","-4"]},
+		{"Consigna":"Ordene los siguientes numeros pares en forma creciente","GrupoAOrdenar":["40","30","20","10"],"OrdenCorrecto":["4","3","2","1"]}
 
-	"OrderedChoice":[{"Consigna":"Ordene los siguientes numeros pares en forma creciente","GrupoAOrdenar":["40","30","20","10"],"OrdenCorrecto":["4","3","2","1"]}
-							],
+	],
+	"GroupChoice":[{"Consigna":"Coloca las palabras en el grupo 1 y los numeros en el grupo 2","ElementosAAsignar":["Hola","100","341","azul"],"GruposCorrectos":["1","2","1","2"]},
+		{"Consigna":"Coloca los numeros pares en el grupo 1 y los impares en el grupo 2","ElementosAAsignar":["2","7","3"],"GruposCorrectos":["1","2","2"]},
+		{"Consigna":"Coloca los numeros primos en el grupo 1 y el resto de numeros en el grupo 2","ElementosAAsignar":["6","2","9","17"],"GruposCorrectos":["2","1","2","1"]}
+	]
 
-	"GroupChoice":[{"Consigna":"Ordenar juegos por tipo: 1-Farm Simulator 2-Metroidvanias","ElementosAAsignar":["Harvest Moon","Castlevania","Stardew Valley","Demolition Man"],"GruposCorrectos":["1","2","1","2"]}
-							]
 }
