@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="535.0" minWidth="433.0" prefHeight="535.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controladores.PantallaFinPartidaController">
+   <children>
+      <Label fx:id="labelPuntuaciones" alignment="CENTER" contentDisplay="CENTER" layoutX="78.0" layoutY="169.0" prefHeight="213.0" prefWidth="278.0" text="Aca van las puntuaciones" textFill="#ff1a00" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Label fx:id="labelResultado" alignment="CENTER" layoutX="-1.0" layoutY="38.0" prefHeight="35.0" prefWidth="433.0" text="EL GANADOR!">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Button layoutX="127.0" layoutY="429.0" mnemonicParsing="false" onMouseClicked="#botonVolverAlMenuActivado" prefHeight="50.0" prefWidth="179.0" text="Volver al menu" />
+      <Label fx:id="labelGanador" alignment="CENTER" layoutX="1.0" layoutY="94.0" prefHeight="47.0" prefWidth="433.0" text="ElWachicolero" textFill="#04ff14">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

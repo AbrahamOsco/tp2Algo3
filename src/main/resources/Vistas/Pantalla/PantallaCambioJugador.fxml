@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="337.0" minWidth="433.0" prefHeight="337.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.controladores.PantallaCambioJugadorController">
+   <children>
+      <Label layoutX="39.0" layoutY="25.0" text="Comienza el turno de:">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelNombreJugador" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="75.0" prefHeight="39.0" prefWidth="433.0" text="EstebanQuito" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Button layoutX="142.0" layoutY="242.0" mnemonicParsing="false" onMouseClicked="#botonComenzarActivado" prefHeight="61.0" prefWidth="150.0" text="Comenzar" />
+      <Label layoutX="90.0" layoutY="143.0" text="Los demas jugadores no deben mirar..." />
+      <Label layoutX="128.0" layoutY="166.0" text="O si, yo solo soy un cartel..." />
+   </children>
+</AnchorPane>
