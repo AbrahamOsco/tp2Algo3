@@ -12,7 +12,7 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <Label fx:id="labelNombreJugador" alignment="CENTER" layoutX="112.0" layoutY="75.0" text="EstebanQuito">
+      <Label fx:id="labelNombreJugador" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="75.0" prefHeight="39.0" prefWidth="433.0" text="EstebanQuito" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
          <font>
             <Font size="31.0" />
          </font>

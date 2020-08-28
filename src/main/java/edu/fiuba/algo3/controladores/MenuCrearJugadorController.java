@@ -40,7 +40,7 @@ public class MenuCrearJugadorController extends ControladorSecundario implements
 			entradaDeTexto.clear();
 			entradaDeTexto.requestFocus();
 			contadorJugadores ++;
-			areaDeTexto.setText("Inserte Nombre de Jugador " + contadorJugadores);
+			areaDeTexto.setText("Elija un nombre para el jugador " + contadorJugadores);
 		}
 		else {
 			

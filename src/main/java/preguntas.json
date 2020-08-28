@@ -5,7 +5,6 @@
 		{"Consigna":"El metodo de Newton-Raphson es un caso especial de punto Fijo", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
 		{"Consigna":"si w es un autovalor de A p(w) es un autovalor de p(A)", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"}
 	],
-
 	"VerdaderoOFalsoPenalizable":[{"Consigna":"Con las interfaces podemos usar polimorfismo sin herencia", "OpcionesCorrecta":"Verdadero","OpcionesIncorrecta":"Falso"},
 		{"Consigna":"La sustitucion de liskov no se viola si usamos interfaces", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Falso"},
 		{"Consigna":"El patron 'strategy' es un patron de diseño", "OpcionesCorrecta":"Falso","OpcionesIncorrecta":"Verdadero"},
